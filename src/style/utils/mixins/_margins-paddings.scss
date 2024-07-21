@@ -1,0 +1,33 @@
+// Margins and Paddings
+$max: 500;
+$offset: 5;
+$unit: "px"; // Feel free to change the unit.
+
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit} !important;
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+// Margins and Paddings Rem
+$maxRem: 20;
+$offsetRem: 0.25;
+$unitRem: "rem"; // Feel free to change the unit.
+
+@mixin list-loop-rem($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$maxRem {
+    #{$className + math.floor($i) + "-" + ($i - math.floor($i)) * 100} {
+      #{$styleName}: #{$i + $unitRem} !important;
+    }
+
+    $i: $i + $offsetRem;
+  }
+}

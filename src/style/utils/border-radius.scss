@@ -1,0 +1,22 @@
+@import "./variables/_variables";
+// @import "./mixins/margins-paddings";
+
+@media #{$breakpoint-lg-only} {
+  // Margins
+  @include list-loop(".br-", "border-radius");
+}
+
+@media #{$breakpoint-xs-only} {
+  // Margins
+  @include list-loop(".br-xs-", "border-radius");
+}
+
+@media #{$breakpoint-lg-only} {
+  // Margins Rem
+  @include list-loop-rem(".br-rem-", "border-radius");
+}
+
+@media #{$breakpoint-xs-only} {
+  // Margins Rem
+  @include list-loop-rem(".br-xs-rem-", "border-radius");
+}

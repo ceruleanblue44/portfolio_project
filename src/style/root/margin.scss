@@ -1,0 +1,34 @@
+@import "../utils/variables/variables";
+@import "../utils/mixins/margins-paddings";
+
+@media #{$breakpoint-lg-only} {
+	// Margins
+	@include list-loop(".mt-", "margin-top");
+	@include list-loop(".mr-", "margin-right");
+	@include list-loop(".mb-", "margin-bottom");
+	@include list-loop(".ml-", "margin-left");
+}
+
+@media #{$breakpoint-xs-only} {
+	// Margins
+	@include list-loop(".mt-xs-", "margin-top");
+	@include list-loop(".mr-xs-", "margin-right");
+	@include list-loop(".mb-xs-", "margin-bottom");
+	@include list-loop(".ml-xs-", "margin-left");
+}
+
+@media #{$breakpoint-lg-only} {
+	// Margins Rem
+	@include list-loop-rem(".mt-rem-", "margin-top");
+	@include list-loop-rem(".mr-rem-", "margin-right");
+	@include list-loop-rem(".mb-rem-", "margin-bottom");
+	@include list-loop-rem(".ml-rem-", "margin-left");
+}
+
+@media #{$breakpoint-xs-only} {
+	// Margins Rem
+	@include list-loop-rem(".mt-xs-rem-", "margin-top");
+	@include list-loop-rem(".mr-xs-rem-", "margin-right");
+	@include list-loop-rem(".mb-xs-rem-", "margin-bottom");
+	@include list-loop-rem(".ml-xs-rem-", "margin-left");
+}
