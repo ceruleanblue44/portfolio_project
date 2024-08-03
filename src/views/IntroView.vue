@@ -1,5 +1,5 @@
 <script setup>
-// import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
+import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
 
 function onScrollEvent(event) {
   console.log(event);

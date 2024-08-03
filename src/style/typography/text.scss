@@ -1,0 +1,616 @@
+@import "@/style/root/_vars";
+
+/* Стили текста */
+.text {
+	&:last-child {
+		margin-bottom: 0px;
+	}
+
+	& + &,
+	& + .btn {
+		margin-top: 10px;
+	}
+
+	&-120-40 {
+		font-size: 120px !important;
+		line-height: 100%;
+
+		@media (max-width: 719px) {
+			font-size: 40px !important;
+			line-height: 100%;
+		}
+	}
+
+	&-112-40 {
+		font-size: 112px;
+		line-height: 100%;
+
+		@media (max-width: 719px) {
+			font-size: 40px;
+			line-height: 100%;
+		}
+	}
+
+	&-96 {
+		font-size: $fs96;
+		line-height: $lh100;
+
+		@media (max-width: 719px) {
+			font-size: $fs96;
+			line-height: $lh100;
+		}
+	}
+
+	&-96-80 {
+		font-size: $fs96;
+		line-height: $lh100;
+
+		@media (max-width: 719px) {
+			font-size: $fs80;
+			line-height: $lh100;
+		}
+	}
+	
+	&-64 {
+		font-size: 64px;
+		line-height: 110%;
+		@media (max-width: 719px) {
+			font-size: 40px;
+			line-height: $lh100;
+		}
+	}
+
+	&-64-32 {
+		font-size: 64px;
+		line-height: 100%;
+		@media (max-width: 719px) {
+			font-size: 32px;
+			line-height: 100%;
+		}
+	}
+
+	&-50-32 {
+		font-size: 50px;
+		line-height: 130%;
+		@media (max-width: 719px) {
+			font-size: 32px;
+			line-height: 130%;
+		}
+	}
+
+	&-80-48 {
+		font-size: 80px;
+		line-height: 100%;
+
+		@media (max-width: 719px) {
+			font-size: 48px;
+			line-height: 100%;
+		}
+	}
+
+	&-80-32 {
+		font-size: 80px;
+		line-height: 100%;
+
+		@media (max-width: 719px) {
+			font-size: 32px;
+			line-height: 100%;
+		}
+	}
+
+	&-80 {
+		font-size: 80px;
+		line-height: 100%;
+	}
+
+	&-64-42 {
+		font-size: $fs64;
+		line-height: $lh70;
+
+		@media (max-width: 719px) {
+			font-size: $fs42;
+			line-height: $lh40;
+		}
+	}
+
+	&-60-48 {
+		font-size: $fs60;
+		line-height: $lh64;
+
+		@media (max-width: 719px) {
+			font-size: $fs48;
+			line-height: $lh50;
+		}
+	}
+
+	&-50-30 {
+		font-size: $fs50;
+		line-height: $lh64;
+
+		@media (max-width: 719px) {
+			font-size: $fs30;
+			line-height: $lh40;
+		}
+	}
+
+	&-50-20 {
+		font-size: $fs50;
+		line-height: $lh120;
+
+		@media (max-width: 719px) {
+			font-size: $fs20;
+			line-height: $lh120;
+		}
+	}
+
+	&-48 {
+		font-size: 48px;
+		line-height: 100%;
+	}
+
+	&-40-32 {
+		font-size: $fs40;
+		line-height: $lh100;
+
+		@media (max-width: 719px) {
+			font-size: $fs32;
+			line-height: $lh32;
+		}
+	}
+
+	&-40-30 {
+		font-size: $fs40;
+		line-height: $lh50;
+
+		@media (max-width: 719px) {
+			font-size: $fs30;
+			line-height: $lh40;
+		}
+	}
+
+	&-40-28 {
+		font-size: $fs40;
+		line-height: $lh100;
+
+		@media (max-width: 719px) {
+			font-size: $fs28;
+			line-height: $lh26;
+		}
+	}
+
+	&-40 {
+		font-size: $fs40;
+		line-height: $lh100;
+
+		@media (max-width: 719px) {
+			font-size: $fs18;
+			line-height: $lh26;
+		}
+	}
+
+	&-36-28 {
+		font-size: 36px !important;
+		line-height: 100%;
+		@media (max-width: 719px) {
+			font-size: $fs28;
+			line-height: $lh34;
+		}
+	}
+
+	&-36 {
+		font-size: 36px !important;
+		line-height: 100%;
+	}
+
+	&-32 {
+		font-size: $fs32;
+		line-height: 110%;
+		@media (max-width: 719px) {
+			font-size: 20px !important;
+			line-height: 130%;
+		}
+	}
+
+	&-30 {
+		font-size: $fs30;
+		line-height: $lh40;
+	}
+
+	&-28 {
+		font-size: $fs28;
+		line-height: 120%;
+	}
+
+	&-26-20 {
+		font-size: $fs26;
+		line-height: $lh34;
+
+		@media (max-width: 719px) {
+			font-size: $fs20;
+			line-height: $lh26;
+		}
+	}
+
+	&-24-16 {
+		font-size: $fs24;
+		line-height: 100%;
+
+		@media (max-width: 719px) {
+			font-size: $fs16;
+			line-height: 120%;
+		}
+	}
+
+	&-24-14 {
+		font-size: $fs24;
+		line-height: 100%;
+
+		@media (max-width: 719px) {
+			font-size: $fs14;
+			line-height: 120%;
+		}
+	}
+
+	&-24 {
+		font-size: $fs24;
+		line-height: 100%;
+	}
+
+	&-20-30 {
+		font-size: $fs20;
+		line-height: $lh26;
+
+		@media (max-width: 719px) {
+			font-size: $fs30;
+			line-height: $lh40;
+		}
+	}
+
+	&-20-14 {
+		font-size: $fs20;
+		line-height: 130%;
+
+		@media (max-width: 719px) {
+			font-size: $fs14;
+			line-height: 130%;
+		}
+	}
+
+	&-24 {
+		font-size: 24px;
+		line-height: 100%;
+	}
+
+	&-xl {
+		font-size: $fs32;
+		line-height: $lh130;
+
+		@media (max-width: 719px) {
+			font-size: $fs24;
+			line-height: $lh120;
+		}
+	}
+
+	&-l {
+		font-size: $fs24;
+		line-height: $lh130;
+
+		@media (max-width: 719px) {
+			font-size: $fs20;
+			line-height: $lh130;
+		}
+	}
+
+	&-m {
+		font-size: $fs20;
+		line-height: $lh130;
+
+		@media (max-width: 719px) {
+			font-size: $fs16;
+			line-height: $lh130;
+		}
+	}
+
+	&-s {
+		font-size: $fs16;
+		line-height: $lh130;
+
+		@media (max-width: 719px) {
+			font-size: $fs14;
+			line-height: $lh130;
+		}
+	}
+
+	&-xs {
+		font-size: $fs14;
+		line-height: $lh130;
+
+		@media (max-width: 719px) {
+			font-size: $fs12;
+			line-height: $lh130;
+		}
+	}
+
+	&-caption-l {
+		font-family: $SemiBold;
+		font-size: $fs20;
+		line-height: $lh110;
+
+		@media (max-width: 719px) {
+			font-size: $fs16;
+			line-height: $lh110;
+		}
+	}
+
+	&-caption-m {
+		font-family: $SemiBold;
+		font-size: $fs16;
+		line-height: $lh110;
+
+		@media (max-width: 719px) {
+			font-size: $fs14;
+			line-height: $lh110;
+		}
+	}
+
+	&-nowrap {
+		white-space: nowrap;
+	}
+
+	&-left {
+		text-align: left;
+	}
+
+	&-center {
+		text-align: center;
+	}
+
+	&-right {
+		text-align: right;
+	}
+
+	&-semibold {
+		font-family: $SemiBold;
+	}
+
+	&-bold {
+		font-family: $Bold;
+	}
+
+	&-medium {
+		font-family: $Medium;
+	}
+
+	&-regular {
+		font-family: $Regular;
+	}
+
+	&-light {
+		font-family: $Light;
+	}
+
+	&-italic {
+		font-style: italic;
+	}
+
+	&-bold-semibold {
+		font-family: $Bold;
+		@media (max-width: 719px) {
+			font-family: $SemiBold;
+		}
+	}
+
+	&-uppercase {
+		text-transform: uppercase;
+	}
+
+	@media #{$breakpoint-xs-only} {
+		&-uppercase-xs {
+			text-transform: uppercase;
+		}
+	}
+
+	&-white {
+		color: $white !important
+	}
+
+	&-white-16 {
+		color: $white-16 !important
+	}
+
+	&-white-65 {
+		color: $white-65;
+	}
+
+	&-surface {
+		color: $surface !important;
+	}
+
+	&-red {
+		color: $error !important;
+	}
+
+	&-dark-blue {
+		color: rgba($corn, 1) !important;
+	}
+
+	&-blue {
+		color: rgba($candy, 1) !important;
+	}
+
+	&-light-blue {
+		color: rgba($agua, 1) !important;
+	}
+
+	&-neutral {
+		color: $neutral !important;
+	}
+
+	&-gray-1 {
+		color: $neutral-80 !important;
+	}
+
+	&-gray-2 {
+		color: $neutral-56 !important;
+	}
+
+	&-gray-3 {
+		color: $neutral-32 !important;
+	}
+
+	&-gray-4 {
+		color: $neutral-16 !important;
+	}
+
+	&-gray-5 {
+		color: rgba($gray-5, 1) !important;
+	}
+
+	&-blue-gray-1 {
+		color: rgba($blue-gray-1, 1) !important;
+	}
+
+	&-blue-gray-2 {
+		color: rgba($blue-gray-2, 1) !important;
+	}
+
+	&-red-2 {
+		color: rgba($red-2, 1) !important;
+	}
+
+	&-color-primary,
+	&-green {
+		color: rgba($primary, 1) !important;
+	}
+
+	&-color-secondary {
+		color: rgba($secondary, 1) !important;
+	}
+
+	&-color-error {
+		color: rgba($error, 1) !important;
+	}
+
+	&-white-16 {
+		color: rgba($white, 0.16) !important;
+	}
+
+	&-white-80 {
+		color: $white-80 !important;
+	}
+
+	&-white-90 {
+		color: rgba($white, 0.9) !important;
+	}
+
+	&-stroke {
+		color: transparent;
+		-webkit-text-stroke: 3px $tertiary2;
+
+		@media #{$breakpoint-xs-only} {
+			-webkit-text-stroke-width: 2px;
+		}
+
+		&-blue {
+			-webkit-text-stroke: 3px $primary2;
+		}
+	}
+
+	&-highlighter {
+		padding: 2.5rem;
+		border-radius: 2rem;
+
+		&_tertiary {
+			background-color: $tertiary;
+		}
+	}
+
+	&-circled {
+		display: inline-block;
+		padding: 3px 12px;
+		margin: -3px -12px;
+		background-image: url('../img/album-2/text-circled.svg');
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	}
+
+	&-underline {
+		display: inline-block;
+		min-width: 128px;
+		padding: 0px 0px 3px 0px;
+		margin-bottom: -3px;
+		background-image: url('../img/album-2/text-underline.png');
+		background-repeat: repeat-x;
+		background-position: bottom center;
+	}
+
+	&-ls-1 {
+		letter-spacing: 1px;
+	}
+
+	&-ls-2 {
+		letter-spacing: 2px;
+	}
+
+	&-ls-3 {
+		letter-spacing: 3px;
+	}
+
+	&-ls-4 {
+		letter-spacing: 4px;
+	}
+
+	&-ls-5 {
+		letter-spacing: 5px;
+	}
+
+	&-lh-64-40 {
+		line-height: $lh64;
+		@media (max-width: 719px) {
+			line-height: $lh40;
+		}
+	}
+
+	&-lh-28-24 {
+		line-height: $lh28;
+		@media (max-width: 719px) {
+			line-height: $lh24;
+		}
+	}
+
+	@media screen and (max-width: 719px) {
+		&-xs-left {
+			text-align: left !important;
+		}
+
+		&-xs-center {
+			text-align: center;
+		}
+
+		&-xs-right {
+			text-align: right !important;
+		}
+	}
+}
+
+.album-restyle {
+    &_2 {
+		.text {
+			&-color-primary {
+				color: rgba($primary2, 1) !important;
+			}
+		
+			&-color-secondary {
+				color: rgba($secondary2, 1) !important;
+			}
+		
+			&-color-tertiary {
+				color: rgba($tertiary2, 1) !important;
+			}
+			
+			&-color-neutral {
+				color: rgba($neutral, 1) !important;
+			}
+		}
+	}
+}

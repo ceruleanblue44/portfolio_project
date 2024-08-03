@@ -1,0 +1,106 @@
+@import "@/style/root/_vars";
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+    font-family: $Bold !important;
+    font-weight: bold;
+}
+
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
+    font-family: $SemiBold !important;
+    font-weight: 600;
+}
+
+h1,
+.h1 {
+    font-size: $fs80;
+    line-height: $lh100;
+
+    @media (max-width: 719px) {
+        font-size: 48px !important;
+        line-height: 100% !important;
+    }
+
+	&-96-48 {
+		font-size: $fs96;
+		line-height: $lh100;
+
+		@media (max-width: 719px) {
+			font-size: $fs48;
+			line-height: $lh100;
+		}
+	}	
+}
+
+h2,
+.h2 {
+    font-size: $fs40;
+    line-height: $lh110;
+
+    @media (max-width: 719px) {
+        font-size: $fs32;
+        line-height: $lh110;
+    }
+}
+
+h3,
+.h3 {
+    font-size: $fs36;
+    line-height: $lh120;
+
+    @media (max-width: 719px) {
+        font-size: 28px !important;
+        line-height: 120% !important;
+    }
+}
+
+h4,
+.h4 {
+    font-size: $fs32;
+    line-height: $lh130;
+
+    @media (max-width: 719px) {
+        font-size: $fs24;
+        line-height: $lh120;
+    }
+}
+
+h5,
+.h5 {
+    font-size: $fs24;
+    line-height: $lh120;
+
+    @media (max-width: 719px) {
+
+        font-size: $fs20;
+        line-height: $lh120;
+    }
+}
+
+h6,
+.h6 {
+    font-size: $fs16;
+    line-height: $lh120;
+
+    @media (max-width: 719px) {
+
+        font-size: $fs14;
+        line-height: $lh120;
+    }
+}
+
+.h7 {
+    font-size: $fs12;
+    line-height: $lh16;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
