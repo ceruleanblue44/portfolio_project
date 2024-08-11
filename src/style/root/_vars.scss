@@ -98,14 +98,14 @@ $neutral-4: rgba($neutral, 0.04);
 $surface: #F2F3F7;
 $yellow: rgba(255, 240, 0, 1);
 
-$primary: #76BC21;
+$primary: #53B803;
 $primary-lighten: linear-gradient(0deg, rgba($white, 0.10) 0%, rgba($white, 0.10) 100%), $primary;
 $primary-darken: linear-gradient(0deg, rgba($neutral, 0.10) 0%, rgba($neutral, 0.10) 100%), $primary;
 
-$secondary: #9161FF;
-$tertiary: #FDEE19;
-$error: #FF4D40;
-$warning: #F48700;
+$secondary: #984FF4;
+$tertiary: #FFF500;
+$error: #EA0255;
+$warning: #FF7324;
 
 $primary2: #3B8BEB;
 $secondary2: #013870;
