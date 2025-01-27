@@ -1,5 +1,7 @@
 @use "sass:math";
-@import "@/style/utils/mixins/mixins";
+@import "@/style/utils/utils";
+// @import "@/style/utils/mixins/_fonts";
+// @import "@/style/utils/mixins/_mixins";
 @import "@/style/root/reset";
 @import "@/style/root/fonts";
 @import "@/style/root/vars";
@@ -15,5 +17,5 @@
 // @import "@/style/containers/containers";
 @import "@/style/scrollbar/scrollbar";
 @import "@/style/typography/typography";
-// @import "@/style/ui/ui";
+@import "@/style/ui/ui";
 // @import "@/style/components/components";

@@ -1,5 +1,16 @@
-@include font("Raleway-Bold", "Raleway-Bold", "400", "normal");
-@include font("Raleway-Light", "Raleway-Light", "400", "normal");
-@include font("Raleway-Regular", "Raleway-Regular", "400", "normal");
-@include font("Raleway-SemiBold", "Raleway-SemiBold", "400", "normal");
-@include font("Raleway-Medium", "Raleway-Medium", "400", "normal");
+$weights: (300, 400, 500, 600, 700, 800);
+
+@each $weight in $weights {
+	@include font("NunitoSans", "NunitoSans-Variable", $weight, normal, ("wght" $weight));
+	@include font("NunitoSansItalic", "NunitoSans-Italic-Variable", $weight, normal, ("wght" $weight));
+}
+
+$widths: (75, 100, 125); // Widths as percentages
+
+@each $width in $widths {
+	.font-#{$width} {
+		font-family: "NunitoSans", sans-serif;
+		font-variation-settings: "wdth" #{$width};
+	}
+}
+
