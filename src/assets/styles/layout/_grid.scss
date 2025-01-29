@@ -1,7 +1,7 @@
 @use "sass:math";
-@import "@/style/utils/variables/_variables";
-@import "@/style/utils/mixins/_grid-mixins";
-@import "@/style/utils/mixins/_visibility-mixins";
+@use '../abstracts/variables' as *;
+@use 'grid-mixins' as *;
+@use '../utilities/visibility' as *;
 
 .flex {
 	display: flex !important;
@@ -247,7 +247,7 @@
 	margin-right: auto;
 }
 
-.rirht {
+.right {
 	margin-left: auto;
 }
 

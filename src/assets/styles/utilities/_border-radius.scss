@@ -1,5 +1,5 @@
-@import "./variables/_variables";
-// @import "./mixins/margins-paddings";
+@use '../abstracts/variables' as *;
+@use '../layout/margins-paddings' as *;
 
 @media #{$breakpoint-lg-only} {
   // Margins

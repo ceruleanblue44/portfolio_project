@@ -1,4 +1,7 @@
-@import "@/style/root/_vars";
+@use "../base/vars" as *;
+@use '../abstracts/variables' as *;
+@use '../layout/grid' as *;
+
 
 /* Стили текста */
 .text {

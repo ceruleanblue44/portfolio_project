@@ -1,0 +1,37 @@
+@use "../abstracts/variables" as *;
+
+@mixin font($font_name, $file_name, $weight, $style, $axes: null) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("@/assets/fonts/#{$file_name}.ttf") format("truetype");
+
+		font-weight: #{$weight};
+		font-style: #{$style};
+
+		// If axes are provided, apply the font-variation-settings
+		@if $axes != null {
+			font-variation-settings: #{$axes};
+		}
+	}
+}
+
+$weights: (300, 400, 500, 600, 700, 800);
+
+@each $weight in $weights {
+	@include font("NunitoSans", "NunitoSans-Variable", $weight, normal, ("wght" $weight));
+	@include font("NunitoSansItalic", "NunitoSans-Italic-Variable", $weight, normal, ("wght" $weight));
+}
+
+$widths: (75, 100, 125); // Widths as percentages
+
+@each $width in $widths {
+	.font-#{$width} {
+		font-family: "NunitoSans", sans-serif;
+		font-variation-settings: "wdth" #{$width};
+	}
+}
+
+@mixin font-family-base {
+	font-family: $font-family-base;
+}

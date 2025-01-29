@@ -1,5 +1,5 @@
-@import "@/style/root/_vars";
-
+@use '../base/vars' as *;
+@use '../abstracts/variables' as *;
 
 h1,
 h2,

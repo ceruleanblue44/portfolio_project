@@ -1,8 +1,12 @@
-@import "vars";
-@import "../utils/variables/variables";
+@use "vars" as *;
+@use "../abstracts/variables" as *;
+@use "../typography/fonts" as *;
+@use "../utilities/bg-color" as *;
+
+@include bg-color(".bg-", $bg-colors);
 
 html {
-	font-family: "NunitoSans", sans-serif;
+	@include font-family-base;
 	overflow: hidden !important;
 	height: 100dvh;
 	color: $neutral;
