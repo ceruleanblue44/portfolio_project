@@ -10,7 +10,7 @@
 		flex-direction: column !important;
 
 		&_xs {
-			@media screen and (max-width: 996px) {
+			@media screen and (max-width: 719px) {
 				flex-direction: column !important;
 			}
 		}
@@ -35,7 +35,7 @@
 	}
 }
 
-.jf {
+.jс {
 	&-between {
 		justify-content: space-between !important;
 	}
@@ -50,12 +50,6 @@
 
 	&-center {
 		justify-content: center !important;
-	}
-}
-
-.gap {
-	&_1 {
-		gap: 1rem;
 	}
 }
 
