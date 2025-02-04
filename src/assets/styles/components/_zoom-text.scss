@@ -1,0 +1,54 @@
+@use "sass:math";
+@use "../abstracts/variables" as *;
+
+.zoom-text {
+	&__group {
+		height: 70dvh;
+		padding-top: 73px;
+		overflow: hidden;
+
+		& > .zoom-text__container {
+			& > * {
+				transition: 2.5s;
+				font-size: 48px !important;
+				line-height: 90% !important;
+
+				@media #{$breakpoint-xs-only} {
+					font-size: 40px !important;
+				}
+			}
+
+			@media (hover: hover) {
+				&:hover {
+					& > * {
+						transform: scale(#{math.div(128, 48)});
+					}
+				}
+			}
+
+			&:first-child {
+				& > * {
+					transform-origin: top left;
+
+					@media #{$breakpoint-xs-only} {
+						font-size: 64px !important;
+					}
+				}
+			}
+
+			&:last-child {
+				display: flex;
+				align-items: flex-end;
+
+				& > * {
+					flex-basis: 100%;
+					transform-origin: bottom right;
+				}
+			}
+		}
+
+		@media #{$breakpoint-xs-only} {
+			pointer-events: none;
+		}
+	}
+}

@@ -1,0 +1,23 @@
+@use "../base/vars" as *;
+@use "../abstracts/variables" as *;
+
+.hint {
+	padding: 24px 40px;
+	background: white;
+	font-weight: 650;
+	color: $secondary;
+	border: 2px solid $secondary;
+	border-radius: 16px;
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 8px;
+		right: 8px;
+		width: 20px;
+		height: 20px;
+		background: url(../svg/star.svg) center no-repeat;
+		// background-position: center;
+		// background-repeat: no-repeat;
+	}
+}

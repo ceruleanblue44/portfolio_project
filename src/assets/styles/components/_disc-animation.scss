@@ -1,0 +1,64 @@
+@use "../abstracts/variables" as *;
+
+.pin-spacer {
+	overflow: hidden !important;
+}
+
+.disc-rotating {
+	position: relative;
+	height: 200dvh;
+	background-position-x: center;
+
+	&__wrapper {
+		position: relative;
+		width: 100%;
+		// max-height: 720px;
+		height: 100dvh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__img-full {
+		position: relative;
+		height: 100% !important;
+		display: flex;
+		justify-content: center;
+	}
+
+	&__img-outer {
+		height: 100%;
+		object-fit: contain;
+	}
+
+	&__img-inner {
+		position: absolute;
+		top: 0;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	&__hint.hint {
+		position: absolute;
+		top: 85%;
+		left: 50%;
+		transform: translateX(-50%);
+		pointer-events: none;
+
+		@media #{$breakpoint-xs-only} {
+			width: max-content;
+		}
+	}
+
+	&__button.btn {
+		position: absolute;
+		top: 57%;
+		left: 50%;
+		transform: translateX(-50%);
+
+		@media #{$breakpoint-xs-only} {
+			top: 67%;
+			width: max-content;
+		}
+	}
+}

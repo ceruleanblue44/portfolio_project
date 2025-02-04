@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "vars" as *;
 @use "../abstracts/variables" as *;
 @use "../typography/fonts" as *;
@@ -29,6 +30,7 @@ div {
 	margin: auto;
 
 	&-scroll {
+		max-width: 1280px;
 		width: 100%;
 		margin: 0 auto auto auto;
 		height: 100dvh;
@@ -86,6 +88,7 @@ div {
 			border-radius: 32px;
 		}
 	}
+
 	&_bg-practice-music {
 		height: 805px;
 		border-radius: 48px;
@@ -790,3 +793,35 @@ div {
 .gsap__item + .gsap__item {
 	margin-left: var(--indent);
 }
+
+.custom-cursor-area {
+	cursor: none;
+}
+
+.cursor {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	z-index: 10000;
+	background-color: rgba($white, 0.4);
+	backdrop-filter: blur(12px);
+	border-radius: 50%;
+	pointer-events: none;
+	transition:
+		transform 0.3s,
+		visibility 0.3s;
+
+	&_hidden {
+		transform: scale(0);
+		visibility: hidden;
+	}
+
+	&_arrow-down {
+		background-image: url("../svg/arrow-down.svg");
+		background-size: 56px 56px;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+}
+
+

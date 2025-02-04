@@ -53,7 +53,6 @@ $lh130: 130% !important;
 $black: rgba(0, 0, 0, 1);
 $white: rgba(255, 255, 255, 1);
 
-
 $white-80: rgba($white, 0.8);
 $white-65: rgba($white, 0.65);
 $white-16: rgba($white, 0.16);
@@ -78,18 +77,18 @@ $primary-darken: #008483;
 // $primary-lighten: linear-gradient(0deg, rgba($white, 0.10) 0%, rgba($white, 0.10) 100%), $primary;
 // $primary-darken: linear-gradient(0deg, rgba($neutral, 0.10) 0%, rgba($neutral, 0.10) 100%), $primary;
 
-$secondary: #8a5bbd;
+$secondary: #a244ed;
 $secondary-lighten: #a8aff9;
 
 $tertiary: #f3ea02;
 
-$error: #E20B73;
-$error-lighten: #F5678B;
+$error: #e20b73;
+$error-lighten: #f5678b;
 
 $warning: #ff7324;
 $warning-lighten: #ff7324;
-$warning-additional: #FF6394;
-$warning-lighten-2: #FF6394;
+$warning-additional: #ff6394;
+$warning-lighten-2: #ff6394;
 
 //bg-color
 $bg-colors: (
@@ -103,7 +102,7 @@ $bg-colors: (
 	"tertiary": $tertiary,
 	"secondary": $secondary,
 	"primary": $primary,
-	"warning": $warning,
+	"warning": $warning
 );
 
 // Высота шапки плеера
