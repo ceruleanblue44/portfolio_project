@@ -68,7 +68,7 @@ $neutral-16: rgba($neutral, 0.16);
 $neutral-12: rgba($neutral, 0.12);
 $neutral-8: rgba($neutral, 0.08);
 $neutral-4: rgba($neutral, 0.04);
-$background: #f2f3f7;
+$surface: #f2f3f7;
 
 // Primary colors
 $primary: #029d9c;
@@ -96,7 +96,7 @@ $bg-colors: (
 	"white": $white,
 	"white-10": $white-10,
 	"red": rgba(233, 38, 45, 1),
-	"bg": $background,
+	"surface": $surface,
 	"neutral": $neutral,
 	"neutral-4": $neutral-4,
 	"tertiary": $tertiary,
@@ -106,5 +106,5 @@ $bg-colors: (
 );
 
 // Высота шапки плеера
-$comp-header-height: 73px;
-$comp-header-height-xs: 52px;
+$main-header-height: 73px;
+$main-header-height-xs: 52px;

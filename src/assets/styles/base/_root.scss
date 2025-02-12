@@ -11,7 +11,7 @@ html {
 	overflow: hidden !important;
 	height: 100dvh;
 	color: $neutral;
-	background-color: $background;
+	background-color: $surface;
 }
 
 a {
@@ -165,6 +165,14 @@ div {
 			padding: 2rem 1.5rem;
 		}
 	}
+}
+
+.pos-r {
+	position: relative;
+}
+
+.pos-a {
+	position: absolute;
 }
 
 .img {
@@ -424,9 +432,9 @@ div {
 	position: absolute !important;
 }
 
-.headphones {
-	width: 223px !important;
-}
+// .headphones {
+// 	width: 223px !important;
+// }
 
 .turntables {
 	position: absolute;
@@ -823,5 +831,3 @@ div {
 		background-repeat: no-repeat;
 	}
 }
-
-

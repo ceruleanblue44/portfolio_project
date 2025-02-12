@@ -1,0 +1,388 @@
+@use "../base/vars" as *;
+@use "../abstracts/variables" as *;
+
+.btn-container {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+
+	&_center {
+		justify-content: center;
+	}
+
+	&_wrap-xs {
+		@media #{$breakpoint-xs-only} {
+			gap: 16px;
+
+			.btn {
+				width: 100%;
+
+				& + .btn {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
+
+.btn {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	outline: 0;
+	border: none;
+	vertical-align: middle;
+	background: rgba($primary, 1);
+	font-style: normal;
+	font-size: 20px;
+	font-weight: 400;
+	color: $white;
+	line-height: normal !important;
+	padding: 20px 40px;
+	border-radius: 12px;
+	overflow: hidden;
+	text-transform: none;
+	text-shadow: none;
+	text-align: center;
+	text-decoration: none;
+	user-select: none;
+	transition:
+		color 0.25s ease-in-out,
+		background 0.25s ease-in-out,
+		border-color 0.25s ease-in-out,
+		box-shadow 0.25s ease-in-out,
+		transform 0.2s ease-in-out;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 100%;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba($white, 0.1);
+		transition: 0.25s;
+		pointer-events: none;
+	}
+
+	@media #{$breakpoint-xs-only} {
+		// -webkit-user-select: none;
+		// -webkit-touch-callout: none;
+		padding: 16px 24px;
+		border-radius: 12px;
+		font-size: $fs16;
+		line-height: $lh130;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			&::before {
+				top: 0;
+			}
+		}
+	}
+
+	& + & {
+		margin-left: 24px;
+
+		@media #{$breakpoint-xs-only} {
+			margin-left: 12px;
+		}
+	}
+
+	&_splash {
+		display: flex;
+		height: 72px;
+		padding: 24px 40px;
+		justify-content: center;
+		align-items: center;
+		border-radius: 12px;
+		background: #1e1f1f !important;
+		color: white;
+		// font-family: $Light;
+		font-size: $fs20;
+		line-height: $lh130;
+		text-transform: uppercase;
+		cursor: pointer;
+
+		@media #{$breakpoint-xs-only} {
+			padding: 23px 32px;
+			font-size: $fs16;
+			line-height: $lh110;
+		}
+	}
+
+	&_pm-modal {
+		display: flex;
+		height: 48px;
+		padding: 12px 24px;
+		justify-content: center;
+		align-items: center;
+		border-radius: 12px;
+		background: #1e1f1f;
+		color: white;
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 130%;
+		cursor: pointer;
+	}
+
+	&_modal-close {
+		width: 34px;
+		height: 34px;
+		padding: 0;
+		background-color: $neutral;
+		border-radius: 300px;
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&_large {
+		padding: 12px;
+		font-size: 1em;
+	}
+
+	&_small {
+		padding: 7px;
+		font-size: 0.7em;
+	}
+
+	&_back,
+	&_next,
+	&_close {
+		flex-grow: 0;
+		flex-shrink: 0;
+		text-align: center;
+	}
+
+	&_back {
+		background: $neutral-80;
+		color: $white;
+
+		@media #{$breakpoint-lg-only} {
+			padding: 20px 32px;
+		}
+
+		&_practice {
+			background: #1e1f1f !important;
+			color: #fff !important;
+
+			& .btn__text {
+				color: #fff !important;
+			}
+
+			&:disabled {
+				background-color: rgba(118, 188, 33, 0.24) !important;
+				color: rgba(30, 31, 31, 0.16) !important;
+			}
+		}
+
+		&:hover {
+			color: $white;
+		}
+
+		&_fixed {
+			position: fixed;
+			bottom: 40px;
+			left: 40px;
+			z-index: 11;
+
+			@media #{$breakpoint-xs-only} {
+				left: 16px;
+			}
+		}
+	}
+
+	&_next {
+		flex-grow: 1;
+		background: $primary;
+		color: $white;
+		vertical-align: middle;
+	}
+
+	&_close {
+		flex-grow: 1;
+		background: $error !important;
+		color: $white;
+		vertical-align: middle;
+	}
+
+	&_modal {
+		height: 100%;
+		padding: 40px;
+		border: solid 1px $neutral-12;
+		justify-content: space-around;
+		align-items: center;
+		background: $neutral-4;
+		border-radius: 16px;
+		// font-family: $SemiBold;
+		font-size: $fs24;
+		line-height: $lh120;
+		text-align: center;
+		cursor: pointer;
+		user-select: none;
+		transition: 0.3s;
+
+		& .btn {
+			&__text {
+				color: $neutral;
+			}
+		}
+
+		&::before {
+			display: none;
+		}
+
+		&:hover {
+			background: $neutral-16;
+		}
+
+		@media #{$breakpoint-xs-only} {
+			padding: 20px 8px;
+			border-radius: 8px;
+			font-size: $fs20;
+		}
+	}
+
+	&__text {
+		position: relative;
+		color: inherit;
+		display: inline-block;
+		-webkit-transition: all 0.25s ease;
+		transition: all 0.25s ease;
+		color: $white;
+		// font-family: $SemiBold;
+		line-height: $lh110;
+	}
+
+	&.disabled,
+	&:disabled {
+		background-color: rgba($primary, 0.24);
+		color: $neutral-16;
+		cursor: default;
+		pointer-events: none;
+	}
+}
+
+.album-restyle {
+	&_2 {
+		.btn {
+			background-color: $primary;
+
+			&_back {
+				background: $secondary;
+			}
+
+			&_next {
+				background-color: $primary;
+			}
+
+			&_modal {
+				background-color: $neutral-4;
+				border: none;
+
+				&:hover {
+					background-color: $neutral-12;
+				}
+			}
+
+			&.disabled,
+			&:disabled {
+				background-color: rgba($primary, 0.24);
+			}
+		}
+	}
+
+	&_3 {
+		.btn {
+			border-radius: 40px;
+			text-transform: uppercase;
+			&-end {
+				& .btn__text {
+					// font-family: $Medium;
+				}
+			}
+
+			&_back {
+				background: $neutral;
+				@media #{$breakpoint-xs-only} {
+					background-color: transparent;
+					border: 1px solid $neutral-56;
+					border-bottom: 6px solid $neutral-56;
+				}
+			}
+
+			&_next {
+				background-color: transparent;
+				border: 1px solid $neutral;
+				border-bottom: 6px solid $neutral;
+			}
+
+			&__text-back {
+				@media #{$breakpoint-xs-only} {
+					color: $neutral-56;
+				}
+			}
+			&_mod-3 {
+				background-color: transparent;
+				border: 1px solid #1e1f1f;
+				border-bottom: 6px solid #1e1f1f;
+				color: $black;
+			}
+		}
+		&_3,
+		&_4 {
+			#pair-question-app,
+			#question-app,
+			#drag-and-drop-with-check-app {
+				.btn {
+					background-color: transparent !important;
+					border: 1px solid #1e1f1f !important;
+					border-bottom: 6px solid #1e1f1f !important;
+					& .btn__text {
+						color: $neutral !important;
+					}
+				}
+				.btn:disabled {
+					background-color: transparent !important;
+					border: 1px solid $neutral-56 !important;
+					border-bottom: 6px solid $neutral-56 !important;
+					& .btn__text {
+						color: $neutral-56 !important;
+					}
+				}
+			}
+		}
+	}
+
+	&_4 {
+		.btn {
+			&_back {
+				background: $white;
+
+				& .btn__text {
+					color: $neutral;
+				}
+			}
+
+			&_pm-modal {
+				background: $primary;
+			}
+
+			&_modal {
+				background: rgba($white, 0.12);
+
+				& .btn__text {
+					// font-family: $Medium;
+				}
+
+				&:hover {
+					background: rgba($white, 0.06);
+				}
+			}
+		}
+	}
+}

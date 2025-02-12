@@ -1,0 +1,15 @@
+.headphones {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+
+	.hp {
+		stroke-dasharray: 180;
+		stroke-dashoffset: 180;
+	}
+	
+	.line {
+		opacity: 0;
+	}
+}

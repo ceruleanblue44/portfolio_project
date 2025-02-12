@@ -2,6 +2,7 @@
 @use "../abstracts/variables" as *;
 
 .hint {
+	position: relative;
 	padding: 24px 40px;
 	background: white;
 	font-weight: 650;
@@ -17,7 +18,5 @@
 		width: 20px;
 		height: 20px;
 		background: url(../svg/star.svg) center no-repeat;
-		// background-position: center;
-		// background-repeat: no-repeat;
 	}
 }

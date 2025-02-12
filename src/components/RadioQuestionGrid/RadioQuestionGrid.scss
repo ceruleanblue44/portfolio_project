@@ -1,0 +1,147 @@
+@use "../../assets/styles/base/vars" as *;
+@use "../../assets/styles/abstracts/variables" as *;
+
+.radio-answers {
+    &__grid {
+        display: grid;
+        gap: 16px;
+    }
+
+    &__answer {
+        & > input[type="radio"] {
+            display: none;
+            appearance: none;
+
+            & + label {
+                display: flex;
+                height: 100%;
+                padding: 40px;
+                border: solid 1px $neutral-12;
+                justify-content: space-around;
+                align-items: center;
+                background: $neutral-4;
+                border-radius: 16px;
+                // font-family: $SemiBold;
+                font-size: $fs24;
+                line-height: $lh120;
+                text-align: center;
+                cursor: pointer;
+                user-select: none;
+                transition: 0.3s;
+            }
+
+            &:checked {
+                & + label {
+                    background: $neutral-16;
+                }
+            }
+
+            &:disabled {
+                & + label {
+                    cursor: default;
+                    opacity: 0.4;
+                }
+            }
+        }
+
+        @media #{$breakpoint-xs-only} {
+            & > input[type="radio"] {
+                & + label {
+                    padding: 20px 8px;
+                    border-radius: 8px;
+                    font-size: $fs20;
+                }
+            }
+        }
+    }
+}
+
+.album-restyle {
+    &_3 {
+        .radio-answers {
+            &__answer {
+                & > input[type="radio"] {
+                    &:checked {
+                        & + label {
+                            background: $secondary;
+                        }
+                    }
+                }
+            }
+        }
+
+        &_4 {
+            .radio-answers {
+                &__grid {
+                    display: flex;
+                    gap: 8px;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+    &_4 {
+        .radio-answers {
+            &__answer {
+                & > input[type="radio"] {
+        
+                    & + label {
+                        border: none !important;
+                        padding: 30px 40px;
+                        border-radius: 12px !important;
+                        // font-family: $Medium;
+						font-size: 500;
+                        font-size: $fs20;
+                        line-height: $lh130;
+
+                        @media #{$breakpoint-xs-only} {
+                            font-size: $fs16;
+                        }
+                    }
+                }
+            }
+        }
+        &_6_2 {
+            #question-app {
+                & > :first-child {
+                    width: 100%;
+                }
+
+                & .row {
+                    & > :first-child {
+                        display: none;
+                    }
+                    & > :last-child {
+                        flex-basis: 100%;
+                        max-width: 100%;
+                    }
+                }
+                
+            }
+            .radio-answers__answer>input[type=radio] {
+                &+label {
+                    padding: 54.5px 40px;
+                    color: $white;
+                    background: $neutral-80;
+                    border-radius: 16px;
+                    @media (max-width: 719px) {
+                        padding: 20px;
+                        border-radius: 12px;
+                    }
+                }
+                &:checked+label {
+                    background: $neutral-32;
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+            
+            #question-app {
+                & .mb-rem-2-50, .mb-xs-rem-2-0 {
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
+    }
+}
