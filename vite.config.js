@@ -10,7 +10,15 @@ export default defineConfig({
 		devSourcemap: true,
 		// postcss: './postcss.config.js',
 	},
-	plugins: [vue(), vueDevTools()],
+	plugins: [vueDevTools(),
+	vue({
+		template: {
+			compilerOptions: {
+				isCustomElement: (tag) => ['swiper-container', 'swiper-slide'].includes(tag),
+			}
+		}
+	})
+],
 	resolve: {
 		alias: {
 			'@': fileURLToPath(new URL('./src', import.meta.url))

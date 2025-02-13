@@ -5,7 +5,7 @@ import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 
 onMounted(() => {
 
-	console.log(document.querySelector('.hp'));
+	// console.log(document.querySelector('.hp'));
 	headphonesAnimation()
 })
 
@@ -22,6 +22,9 @@ onMounted(() => {
 				правильная песня
 			</p>
 			<div class="container_with-bg">
+				<!-- <img alt="" class="album-slider__slide-num" src="../assets/img/albums/album-num-2.png" />
+				<img alt="" class="" src="../assets/img/albums/cover_1.png" />
+				<img alt="" class="" src="../assets/img/backgrounds/album-slider.jpg" /> -->
 				<div class="row">
 					<div class="col-lg-8 col-xs-12">
 						<div class="card card_medium card_gray">
@@ -34,6 +37,7 @@ onMounted(() => {
 							</p>
 						</div>
 					</div>
+
 					<div class="col-lg-4 hide-xs">
 						<div class="card card_medium card_white h-100">
 							<div class="headphones"><svg width="200"

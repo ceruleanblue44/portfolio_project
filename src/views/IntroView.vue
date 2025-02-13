@@ -160,24 +160,80 @@ onMounted(() => {
 				</div>
 			</div>
 
+			<div class="container container_albums mb-rem-9-75 mb-xs-rem-6-0">
+        <h1 class="text-white mb-rem-0-75 mb-xs-rem-0-75">Тебя ждет множество альбомов под разное настроение.
+        </h1>
+        <hr class="hr hr_white-16 mb-rem-5-0 mb-xs-rem-2-50" /><!-- Slider main container -->
+        <div class="album-slider js-album-slider">
+          <div class="album-slider__header mb-rem-5-0 mb-xs-rem-5-0">
+            <p class="text text-xl text-white w-100">Альбомы
+            </p>
+            <!-- If we need navigation buttons -->
+			 <!-- <svg class="slider__btn-prev ml-rem-0-50 ml-xs-rem-0-50"> 
+            <use xlink:href="user/svg/sprite.svg#slider-btn"> 
+            </use> 
+            </svg> 
+            <svg class="slider__btn-next ml-rem-0-50 ml-xs-rem-0-50"> 
+              <use xlink:href="user/svg/sprite.svg#slider-btn"> 
+              </use> 
+            </svg> -->
+          </div>
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper"><!-- Slides -->
+            <div class="swiper-slide"><img alt="" class="album-slider__slide-num" src="../assets/img/albums/album-num-1.png" />
+              <div class="album-slider__slide-content"><img alt="" class="mb-rem-0-50 mb-xs-rem-0-50" src="../assets/img/albums/cover-1.png" />
+                <h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Хиты
+                </h6>
+                <p class="text text-xs text-white">Ожидания от тебя в новой роли
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide"><img alt="" class="album-slider__slide-num" src="../assets/img/albums/album-num-2.png" />
+              <div class="album-slider__slide-content"><img alt="" class="mb-rem-0-50 mb-xs-rem-0-50" src="../assets/img/albums/cover-2.png" />
+                <h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Relax
+                </h6>
+                <p class="text text-xs text-white">Оперативное управление &mdash; магия баланса
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide"><img alt="" class="album-slider__slide-num" src="../assets/img/albums/album-num-4.png" />
+              <div class="album-slider__slide-content"><img alt="" class="mb-rem-0-50 mb-xs-rem-0-50" src="../assets/img/albums/cover-4.png" />
+                <h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Hip-Hop
+                </h6>
+                <p class="text text-xs text-white">Повышение личной и командной коммуникации
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide"><img alt="" class="album-slider__slide-num" src="../assets/img/albums/album-num-3.png" />
+              <div class="album-slider__slide-content"><img alt="" class="mb-rem-0-50 mb-xs-rem-0-50" src="../assets/img/albums/cover-3.png" />
+                <h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Jazz
+                </h6>
+                <p class="text text-xs text-white">Сотрудничество и коммуникация
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 			<div class="container"
 				 style="height: 100vh;">
-				<!-- <swiper-container class="mySwiper slider"
+				<swiper-container class="mySwiper slider"
 							  pagination="true"
 							  pagination-clickable="true"
 							  navigation="true"
 							  space-between="30"
-							  slides-per-view="3">
+							  slides-per-view="4">
 				<swiper-slide>Slide 1</swiper-slide>
 				<swiper-slide>Slide 2</swiper-slide>
 				<swiper-slide>Slide 3</swiper-slide>
 				<swiper-slide>Slide 4</swiper-slide>
-				<swiper-slide>Slide 5</swiper-slide>
+				<!-- <swiper-slide>Slide 5</swiper-slide>
 				<swiper-slide>Slide 6</swiper-slide>
 				<swiper-slide>Slide 7</swiper-slide>
 				<swiper-slide>Slide 8</swiper-slide>
-				<swiper-slide>Slide 9</swiper-slide>
-			</swiper-container> -->
+				<swiper-slide>Slide 9</swiper-slide> -->
+			</swiper-container>
 				<!-- </div> -->
 			</div>
 
