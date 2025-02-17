@@ -1,0 +1,270 @@
+@use "../base/vars" as *;
+@use "../abstracts/variables" as *;
+
+.tab {
+	&__item {
+		display: none;
+
+		// &:first-child {
+		//   display: block;
+		// }
+		&.active {
+			display: block;
+		}
+	}
+
+	&__nav {
+		padding: 0;
+		margin: 0;
+	}
+
+	&__btn {
+		cursor: pointer;
+		display: block;
+		list-style: none;
+		transition: 0.15s;
+		padding: 5px 20px;
+		background-color: rgba($primary, 1);
+		border-right: 1px solid rgba($white, 1);
+		color: rgba($white, 1);
+
+		@media (hover: hover) {
+			&:hover {
+				background-color: rgba($primary, 0.5);
+			}
+		}
+
+		&.active {
+			background-color: rgba($primary, 0.5);
+		}
+
+		&_with-star {
+			&.active {
+				&::after {
+					content: "";
+					position: absolute;
+					top: 8px;
+					right: 8px;
+					width: 34px;
+					height: 34px;
+					background-image: url("../img/album-4/track-2/4star-lime.png");
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: contain;
+				}
+			}
+		}
+	}
+
+	&__items {
+		border: 1px solid rgba($primary, 1);
+		padding: 20px;
+	}
+
+	&_vertical {
+		.tab__nav {
+			display: flex;
+		}
+	}
+
+	&_horizontal {
+		display: flex;
+
+		.tab__nav {
+			width: 200px;
+		}
+
+		.tab__items {
+			width: 100%;
+		}
+	}
+
+	&_playlist {
+		.tab {
+			&__items {
+				padding: 0;
+				border: none;
+			}
+
+			&__nav {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 16px;
+
+				@media #{$breakpoint-xs-only} {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			&__btn {
+				padding: 2.5rem 1.5rem;
+				border-radius: 1rem;
+				border: 1px solid $neutral-12;
+				background: $neutral-4;
+				color: $neutral;
+
+				&.active {
+					background: $white;
+				}
+
+				@media (hover: hover) {
+					&:hover {
+						background: $white;
+					}
+				}
+
+				@media #{$breakpoint-xs-only} {
+					padding: 20px 12px;
+					display: flex;
+					justify-content: flex-start;
+					align-items: center;
+
+					& > img {
+						flex-shrink: 0;
+						width: 56px;
+						height: 56px;
+						margin: 0;
+					}
+
+					&_block-xs {
+						display: block;
+
+						& > img {
+							width: auto;
+							height: auto;
+							margin: 0 auto;
+						}
+					}
+				}
+			}
+
+			&__list {
+				counter-reset: li;
+
+				&-item {
+					cursor: pointer;
+					display: flex;
+					align-items: center;
+					padding: 2rem 0.75rem;
+					border-bottom: solid 1px $neutral-16;
+					transition: color 0.3s ease;
+
+					svg {
+						margin-left: auto;
+						width: 36px;
+						height: 36px;
+						use {
+							fill: #1e1f1f;
+							transition: fill 0.3s ease;
+						}
+
+						// @media #{$breakpoint-xs-only} {
+						// 	margin-left: 2rem;
+						// }
+					}
+
+					&::before {
+						content: "0" counter(li);
+						counter-increment: li;
+						display: inline-block;
+						align-self: flex-end;
+						margin-right: 2rem;
+						font-size: $fs16;
+					}
+
+					@media (hover: hover) {
+						&:hover {
+							color: $primary;
+
+							& svg use {
+								fill: $primary;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&_img {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		background: transparent;
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		background-size: cover;
+	}
+}
+
+.album-restyle {
+	&_2 {
+		.tab {
+			&_playlist {
+				.tab {
+					&__list {
+						&-item {
+							@media (hover: hover) {
+								&:hover {
+									color: $primary;
+
+									& svg use {
+										fill: $primary;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		&_3 {
+			.tab {
+				&_playlist {
+					.tab {
+						&__btn {
+							border: none;
+							background: $white;
+							color: $neutral;
+
+							&.active {
+								background: $neutral-8;
+							}
+
+							@media (hover: hover) {
+								&:hover {
+									background: $neutral-8;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&_3 {
+		&_0 {
+			.tab {
+				&_playlist {
+					.tab {
+						&__list {
+							&-item {
+								@media (hover: hover) {
+									&:hover {
+										color: $primary;
+
+										& svg use {
+											fill: $primary;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

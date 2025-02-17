@@ -1,30 +1,41 @@
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 import { customCursor } from '@/scripts/ui/customCursor'
 import { discAnimation } from '@/scripts/ui/discAnimation'
 
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
-import { register } from 'swiper/element/bundle'
+// import { register } from 'swiper/element/bundle'
 
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import IntroInstructions from '@/components/IntroInstructions/IntroInstructions.vue'
 import RadioQuestion from '@/components/RadioQuestion/RadioQuestion.vue'
 import { radioQuestionIntro } from '@/quizData/radioQuestionIntro'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
+import { swiperInit } from '@/scripts/ui/swiperSlider'
+import { tabsInit } from '@/scripts/ui/tabs'
+
+import ArrowSquareRight from '@/assets/svg/arrow-square-right.svg';
+import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg';
 
 // function onScrollEvent(event) {
 // 	console.log(event);
 // }
 
-// const showHp = () => {
-// 	console.log(document.querySelector('.hp'));
-// }
+const svgContent = ref('');
 
-onMounted(() => {
-	register()
+onMounted(async () => {
+
+	const response = await fetch('/src/assets/svg/headphones.svg');
+	svgContent.value = await response.text();
+
+	// Wait for Vue to render the injected SVG
+	await nextTick();
+
 	customCursor()
 	discAnimation()
-	// headphonesAnimation()
+	swiperInit()
+	tabsInit()
+
 })
 
 </script>
@@ -102,53 +113,8 @@ onMounted(() => {
 								</div>
 								<div class="col-lg-4 hide-xs">
 									<div class="card card_medium card_white h-100">
-										<div class="headphones"><svg width="160"
-												 height="160"
-												 viewBox="0 0 160 160"
-												 fill="none"
-												 xmlns="http://www.w3.org/2000/svg">
-												<path class="hp"
-													  d="M146.667 113.334V80.0007C146.667 67.858 143.421 56.4731 137.749 46.6673M13.334 120.001V80.0007C13.334 43.1817 43.1816 13.334 80.0006 13.334C92.1433 13.334 103.528 16.5805 113.334 22.2528M53.334 101.248C53.334 97.3927 53.334 95.4647 52.8738 93.9333C51.8097 90.3927 49.0311 87.7073 45.5726 86.876C44.0769 86.5173 42.2392 86.6686 38.5638 86.972C32.1855 87.4986 28.9963 87.762 26.3963 88.768C20.4009 91.0866 15.8267 96.2633 14.088 102.697C13.334 105.487 13.334 108.833 13.334 115.524V116.761C13.334 123.621 13.334 127.052 14.1543 129.954C15.7643 135.651 19.614 140.363 24.7429 142.914C27.3562 144.214 30.5961 144.749 37.0759 145.819C41.3761 146.529 43.5262 146.885 45.2663 146.526C48.6949 145.82 51.5224 143.293 52.7241 139.861C53.334 138.119 53.334 135.843 53.334 131.29V101.248ZM106.667 101.248C106.667 97.3927 106.667 95.4647 107.127 93.9333C108.191 90.3927 110.97 87.7073 114.429 86.876C115.925 86.5173 117.762 86.6686 121.437 86.972C127.816 87.4986 131.005 87.762 133.605 88.768C139.601 91.0866 144.175 96.2633 145.913 102.697C146.667 105.487 146.667 108.833 146.667 115.524V116.761C146.667 123.621 146.667 127.052 145.847 129.954C144.237 135.651 140.387 140.363 135.259 142.914C132.645 144.214 129.405 144.749 122.925 145.819C118.625 146.529 116.475 146.885 114.735 146.526C111.307 145.82 108.479 143.293 107.277 139.861C106.667 138.119 106.667 135.843 106.667 131.29V101.248Z"
-													  stroke="#A244ED"
-													  stroke-width="8"
-													  stroke-linecap="round" />
-												<path class="line"
-													  d="M80 34.9297V80.0001"
-													  stroke="#A244ED"
-													  stroke-width="5"
-													  stroke-linecap="round" />
-												<path class="line"
-													  d="M104.789 45.0703V69.859"
-													  stroke="#A244ED"
-													  stroke-width="5"
-													  stroke-linecap="round" />
-												<path class="line"
-													  d="M92.3945 41.6895V73.2387"
-													  stroke="#A244ED"
-													  stroke-width="5"
-													  stroke-linecap="round" />
-												<path class="line"
-													  d="M117.184 50.7051V64.2262"
-													  stroke="#A244ED"
-													  stroke-width="5"
-													  stroke-linecap="round" />
-												<path class="line"
-													  d="M55.2109 45.0703V69.859"
-													  stroke="#A244ED"
-													  stroke-width="5"
-													  stroke-linecap="round" />
-												<path class="line"
-													  d="M67.6055 41.6895V73.2387"
-													  stroke="#A244ED"
-													  stroke-width="5"
-													  stroke-linecap="round" />
-												<path class="line"
-													  d="M42.8164 50.7051V64.2262"
-													  stroke="#A244ED"
-													  stroke-width="5"
-													  stroke-linecap="round" />
-											</svg>
-
+										<div class="headphones svg-container"
+											 v-html="svgContent">
 										</div>
 									</div>
 								</div>
@@ -161,80 +127,346 @@ onMounted(() => {
 			</div>
 
 			<div class="container container_albums mb-rem-9-75 mb-xs-rem-6-0">
-        <h1 class="text-white mb-rem-0-75 mb-xs-rem-0-75">Тебя ждет множество альбомов под разное настроение.
-        </h1>
-        <hr class="hr hr_white-16 mb-rem-5-0 mb-xs-rem-2-50" /><!-- Slider main container -->
-        <div class="album-slider js-album-slider">
-          <div class="album-slider__header mb-rem-5-0 mb-xs-rem-5-0">
-            <p class="text text-xl text-white w-100">Альбомы
-            </p>
-            <!-- If we need navigation buttons -->
-			 <!-- <svg class="slider__btn-prev ml-rem-0-50 ml-xs-rem-0-50"> 
-            <use xlink:href="user/svg/sprite.svg#slider-btn"> 
-            </use> 
-            </svg> 
-            <svg class="slider__btn-next ml-rem-0-50 ml-xs-rem-0-50"> 
-              <use xlink:href="user/svg/sprite.svg#slider-btn"> 
-              </use> 
-            </svg> -->
-          </div>
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper"><!-- Slides -->
-            <div class="swiper-slide"><img alt="" class="album-slider__slide-num" src="../assets/img/albums/album-num-1.png" />
-              <div class="album-slider__slide-content"><img alt="" class="mb-rem-0-50 mb-xs-rem-0-50" src="../assets/img/albums/cover-1.png" />
-                <h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Хиты
-                </h6>
-                <p class="text text-xs text-white">Ожидания от тебя в новой роли
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide"><img alt="" class="album-slider__slide-num" src="../assets/img/albums/album-num-2.png" />
-              <div class="album-slider__slide-content"><img alt="" class="mb-rem-0-50 mb-xs-rem-0-50" src="../assets/img/albums/cover-2.png" />
-                <h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Relax
-                </h6>
-                <p class="text text-xs text-white">Оперативное управление &mdash; магия баланса
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide"><img alt="" class="album-slider__slide-num" src="../assets/img/albums/album-num-4.png" />
-              <div class="album-slider__slide-content"><img alt="" class="mb-rem-0-50 mb-xs-rem-0-50" src="../assets/img/albums/cover-4.png" />
-                <h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Hip-Hop
-                </h6>
-                <p class="text text-xs text-white">Повышение личной и командной коммуникации
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide"><img alt="" class="album-slider__slide-num" src="../assets/img/albums/album-num-3.png" />
-              <div class="album-slider__slide-content"><img alt="" class="mb-rem-0-50 mb-xs-rem-0-50" src="../assets/img/albums/cover-3.png" />
-                <h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Jazz
-                </h6>
-                <p class="text text-xs text-white">Сотрудничество и коммуникация
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+				<h1 class="text-white mb-rem-0-75 mb-xs-rem-0-75">Тебя ждет множество альбомов под разное настроение.
+				</h1>
+				<hr class="hr hr_white-16 mb-rem-5-0 mb-xs-rem-2-50" /><!-- Slider main container -->
+				<div class="album-slider js-album-slider">
+					<div class="album-slider__header mb-rem-5-0 mb-xs-rem-5-0">
+						<p class="text text-xl text-white w-100">Альбомы
+						</p>
+						<!-- <svg class="slider__btn-next">
+						<use href="#icon-arrow-square-right"></use>
+					</svg> -->
 
-			<div class="container"
-				 style="height: 100vh;">
-				<swiper-container class="mySwiper slider"
-							  pagination="true"
-							  pagination-clickable="true"
-							  navigation="true"
-							  space-between="30"
-							  slides-per-view="4">
-				<swiper-slide>Slide 1</swiper-slide>
-				<swiper-slide>Slide 2</swiper-slide>
-				<swiper-slide>Slide 3</swiper-slide>
-				<swiper-slide>Slide 4</swiper-slide>
-				<!-- <swiper-slide>Slide 5</swiper-slide>
-				<swiper-slide>Slide 6</swiper-slide>
-				<swiper-slide>Slide 7</swiper-slide>
-				<swiper-slide>Slide 8</swiper-slide>
-				<swiper-slide>Slide 9</swiper-slide> -->
-			</swiper-container>
-				<!-- </div> -->
+						<ArrowSquareLeft class="slider__btn-prev mr-rem-0-50" />
+						<ArrowSquareRight class="slider__btn-next" />
+
+					</div>
+					<swiper-container data-swiper-type="albums"
+									  init="false">
+						<swiper-slide class="swiper-slide"><img alt=""
+								 class="album-slider__slide-num"
+								 src="../assets/img/albums/album-num-1.png" />
+							<div class="album-slider__slide-content"><img alt=""
+									 class="mb-rem-0-50 mb-xs-rem-0-50"
+									 src="../assets/img/albums/cover-1.png" />
+								<h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Хиты
+								</h6>
+								<p class="text text-xs text-white">Ожидания от тебя в новой роли
+								</p>
+							</div>
+						</swiper-slide>
+						<swiper-slide class="swiper-slide"><img alt=""
+								 class="album-slider__slide-num"
+								 src="../assets/img/albums/album-num-1.png" />
+							<div class="album-slider__slide-content"><img alt=""
+									 class="mb-rem-0-50 mb-xs-rem-0-50"
+									 src="../assets/img/albums/cover-1.png" />
+								<h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Хиты
+								</h6>
+								<p class="text text-xs text-white">Ожидания от тебя в новой роли
+								</p>
+							</div>
+						</swiper-slide>
+						<swiper-slide class="swiper-slide"><img alt=""
+								 class="album-slider__slide-num"
+								 src="../assets/img/albums/album-num-1.png" />
+							<div class="album-slider__slide-content"><img alt=""
+									 class="mb-rem-0-50 mb-xs-rem-0-50"
+									 src="../assets/img/albums/cover-1.png" />
+								<h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Хиты
+								</h6>
+								<p class="text text-xs text-white">Ожидания от тебя в новой роли
+								</p>
+							</div>
+						</swiper-slide>
+						<swiper-slide class="swiper-slide"><img alt=""
+								 class="album-slider__slide-num"
+								 src="../assets/img/albums/album-num-1.png" />
+							<div class="album-slider__slide-content"><img alt=""
+									 class="mb-rem-0-50 mb-xs-rem-0-50"
+									 src="../assets/img/albums/cover-1.png" />
+								<h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Хиты
+								</h6>
+								<p class="text text-xs text-white">Ожидания от тебя в новой роли
+								</p>
+							</div>
+						</swiper-slide>
+						<swiper-slide class="swiper-slide"><img alt=""
+								 class="album-slider__slide-num"
+								 src="../assets/img/albums/album-num-1.png" />
+							<div class="album-slider__slide-content"><img alt=""
+									 class="mb-rem-0-50 mb-xs-rem-0-50"
+									 src="../assets/img/albums/cover-1.png" />
+								<h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Хиты
+								</h6>
+								<p class="text text-xs text-white">Ожидания от тебя в новой роли
+								</p>
+							</div>
+						</swiper-slide>
+					</swiper-container>
+				</div>
+			</div>
+
+			<div class="container mb-rem-9-75 mb-xs-rem-6-0">
+				<h1 class="mb-rem-0-75 mb-xs-rem-0-75">Настрой свою волну!
+				</h1>
+				<hr class="hr hr_neutral-16 mb-rem-4-0 mb-xs-rem-2-50" />
+				<div class="tab tab_playlist js-tab-with-placeholder">
+					<div class="row">
+						<div class="col-lg-4 col-xs-12 mb-xs-rem-1-50">
+							<div class="tab__items">
+								<div class="tab__placeholder js-tab-placeholder">
+									<div class="hint text-center mt-rem-2-50">Нажимай на карточки, чтобы увидеть больше
+										информации
+									</div>
+								</div>
+								<div class="tab__item js-tab-item animate__animated animate__fadeInUp">
+									<h3 class="mb-rem-1-25 mb-xs-rem-0-75">Минимум звука
+									</h3>
+									<p class="text text-l">Мы будем слушать мелодию твоей души. Отключи посторонние
+										звуки, чтобы
+										сконцентрироваться на себе.
+									</p>
+								</div>
+								<div class="tab__item js-tab-item animate__animated animate__fadeInUp">
+									<h3 class="mb-rem-1-25 mb-xs-rem-0-75">Заметки
+									</h3>
+									<p class="text text-l">Как настоящий музыкант, не&nbsp;держи ноты в&nbsp;голове,
+										лучше напиши
+										на&nbsp;бумаге!
+									</p>
+								</div>
+								<div class="tab__item js-tab-item animate__animated animate__fadeInUp">
+									<h3 class="mb-rem-1-25 mb-xs-rem-0-75">Баланс отдыха и&nbsp;учебы
+									</h3>
+									<p class="text text-l">Нельзя постоянно петь, иначе голос сорвется. Так
+										и&nbsp;в&nbsp;учебе.
+										Делай перерывы в&nbsp;течение каждого часа.
+									</p>
+								</div>
+								<div class="tab__item js-tab-item animate__animated animate__fadeInUp">
+									<h3 class="mb-rem-1-25 mb-xs-rem-0-75">Повторение
+									</h3>
+									<p class="text text-l">Если ты забыл какой-то совет, вернись и повтори, чтобы это
+										отложилось в
+										памяти. Ведь чем больше ты слушаешь музыку, тем чаще она начинает играть у тебя
+										в голове.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 hide-xs">&nbsp;
+						</div>
+						<div class="col-lg-7 col-xs-12">
+							<ul class="tab__nav">
+								<li class="tab__btn js-tab-link"><img alt=""
+										 class="img_center mb-rem-1-0 mr-xs-rem-0-75"
+										 src="../assets/svg/tabs/tabs-icon-1.svg" />
+									<h5 class="text-center">минимум звука
+									</h5>
+								</li>
+								<li class="tab__btn js-tab-link"><img alt=""
+										 class="img_center mb-rem-1-0 mr-xs-rem-0-75"
+										 src="../assets/svg/tabs/tabs-icon-2.svg" />
+									<h5 class="text-center">заметки
+									</h5>
+								</li>
+								<li class="tab__btn js-tab-link"><img alt=""
+										 class="img_center mb-rem-1-0 mr-xs-rem-0-75"
+										 src="../assets/svg/tabs/tabs-icon-3.svg" />
+									<h5 class="text-center">баланс отдыха и учебы
+									</h5>
+								</li>
+								<li class="tab__btn js-tab-link"><img alt=""
+										 class="img_center mb-rem-1-0 mr-xs-rem-0-75"
+										 src="../assets/svg/tabs/tabs-icon-4.svg" />
+									<h5 class="text-center">повторение
+									</h5>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container mb-rem-9-75 mb-xs-rem-3-0">
+				<div class="container container_with-bg">
+					<h1 class="mb-rem-3-0 mb-xs-rem-2-0">Настрой свой плейлист
+					</h1>
+					<!-- Slider main container -->
+					<div class="playlist-slider js-playlist-slider">
+						<div class="playlist-slider__header mt-rem-5-0"><!-- If we need navigation buttons -->
+							<ArrowSquareLeft class="slider__btn-prev mr-rem-0-50" />
+							<ArrowSquareRight class="slider__btn-next" /><!-- If we need pagination -->
+							<div class="slider__pagination ml-rem-1-50 ml-xs-rem-0-50">&nbsp;
+							</div>
+						</div>
+						<!-- Additional required wrapper -->
+						<swiper-container data-swiper-type="playlist"
+										  init="false"><!-- Slides -->
+							<swiper-slide class="swiper-slide">
+								<div class="playlist-slider__slide-content">
+									<div class="row h-100">
+										<div class="col-lg-4 col-xs-12">
+											<div class="hint text-center mt-rem-2-50 mb-xs-rem-1-50">Листай вправо,
+												чтобы узнать
+												больше информации
+											</div>
+										</div>
+										<div class="col-lg-8 col-xs-12">
+											<div class="card card_gray h-100">
+												<h4 class="mb-rem-0-75 mb-xs-rem-0-75">Выбирай трек дня
+												</h4>
+												<p class="text text-m mb-rem-2-0 mb-xs-rem-0-75">Один трек&nbsp;&mdash;
+													это одна
+													тема с&nbsp;различными практиками и&nbsp;интерактивами.
+													Ты&nbsp;можешь выбрать
+													любой трек в&nbsp;альбоме и&nbsp;перейти к&nbsp;нему.
+												</p>
+												<div class="row">
+													<div class="col-lg-6 col-xs-12"><img alt=""
+															 class="mb-rem-0-50 mb-xs-rem-0-50"
+															 src="../assets/img/playlist/playlist-slider-track-1-1.png" />
+														<p class="text text-s text-center text-semibold">Хочу перемен
+														</p>
+													</div>
+													<div class="col-lg-6 hide-xs"><img alt=""
+															 class="mb-rem-0-50"
+															 src="../assets/img/playlist/playlist-slider-track-1-2.png" />
+														<p class="text text-s text-center text-semibold">Обернитесь
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</swiper-slide>
+							<swiper-slide class="swiper-slide">
+								<div class="playlist-slider__slide-content">
+									<div class="row h-100">
+										<div class="col-lg-4 col-xs-12">
+											<div class="hint text-center mt-rem-2-50 mb-xs-rem-1-50">Листай вправо,
+												чтобы узнать
+												больше информации
+											</div>
+										</div>
+										<div class="col-lg-8 col-xs-12">
+											<div class="card card_gray h-100">
+												<h4 class="mb-rem-0-75 mb-xs-rem-0-75">Подбирай на свой вкус
+												</h4>
+												<p class="text text-m">&laquo;Собираем для вас&raquo;&nbsp;&mdash; это
+													подборка
+													статей, которая формируется на&nbsp;основе трека. Погрузись
+													в&nbsp;плейлист еще
+													больше и&nbsp;изведай тайны музыки. Ты найдешь статьи:
+												</p>
+												<ul
+													class="list list__ul text text-m text-gray-1 mb-rem-2-0 mb-xs-rem-1-50">
+													<li class="list__ul--item">в &laquo;Меню&raquo; во вкладке
+														&laquo;Истории&raquo;;</li>
+													<li class="list__ul--item">в конце треков.</li>
+												</ul>
+												<div class="row">
+													<div class="col-lg-3 col-xs-6"><img alt=""
+															 class="mb-rem-0-50 mb-xs-rem-0-50"
+															 src="../assets/img/playlist/playlist-slider-track-2-1.png" />
+														<p class="text text-s text-center text-semibold">Смена
+															приоритетов
+														</p>
+													</div>
+													<div class="col-lg-3 col-xs-6"><img alt=""
+															 class="mb-rem-0-50 mb-xs-rem-0-50"
+															 src="../assets/img/playlist/playlist-slider-track-2-2.png" />
+														<p class="text text-s text-center text-semibold">Стратегическое
+															планирование
+														</p>
+													</div>
+													<div class="col-lg-3 hide-xs"><img alt=""
+															 class="mb-rem-0-50"
+															 src="../assets/img/playlist/playlist-slider-track-2-3.png" />
+														<p class="text text-s text-center text-semibold">Методы
+															целеполагания
+														</p>
+													</div>
+													<div class="col-lg-3 hide-xs"><img alt=""
+															 class="mb-rem-0-50"
+															 src="../assets/img/playlist/playlist-slider-track-2-4.png" />
+														<p class="text text-s text-center text-semibold">Работа с
+															удаленщиками
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</swiper-slide>
+							<swiper-slide class="swiper-slide">
+								<div class="playlist-slider__slide-content">
+									<div class="row h-100">
+										<div class="col-lg-4 col-xs-12">
+											<div class="hint text-center mt-rem-2-50 mb-xs-rem-1-50">Листай вправо,
+												чтобы узнать
+												больше информации
+											</div>
+										</div>
+										<div class="col-lg-8 col-xs-12">
+											<div class="card card_gray h-100">
+												<h4 class="mb-rem-0-75 mb-xs-rem-0-75">Сохраняй понравившееся
+												</h4>
+												<p class="text text-m mb-rem-2-0 mb-xs-rem-1-50">&laquo;Встретились при
+													прослушивании&raquo; &mdash; это микс всех трендовых лайфхаков.
+													Здесь ты увидишь
+													музыку, которая поддержит в любой момент: и в грусти, и в радости.
+													Сохраняй
+													файлы, чтобы потом воспользоваться в жизни.
+												</p>
+												<img alt=""
+													 class="hide-xs"
+													 src="../assets/img/playlist/playlist-slider-track-3-1.svg" /> <img
+													 alt=""
+													 class="hide-lg"
+													 src="../assets/img/playlist/playlist-slider-track-3-1-xs.png" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</swiper-slide>
+							<swiper-slide class="swiper-slide">
+								<div class="playlist-slider__slide-content">
+									<div class="row h-100">
+										<div class="col-lg-4 col-xs-12">
+											<div class="hint text-center mt-rem-2-50 mb-xs-rem-1-50">Листай вправо,
+												чтобы узнать
+												больше информации
+											</div>
+										</div>
+										<div class="col-lg-8 col-xs-12">
+											<div class="card card_gray h-100 pr-rem-9-25 pb-rem-7-0">
+												<h3 class="mb-rem-1-25 mb-xs-rem-1-25">Готов?
+												</h3>
+												<p class="text text-xl mb-rem-2-0">Наслаждайся музыкой вместе
+													с&nbsp;плейлистом
+													руководителя. Альбомы под любое настроение, лайфхаки, истории
+													реальных
+													знаменитостей&nbsp;&mdash; все подобрано специально для тебя!
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</swiper-slide>
+						</swiper-container>
+					</div>
+				</div>
+			</div>
+
+			<div class="container btn-container btn-container_center mb-rem-2-50 mb-xs-rem-2-0">
+				<button class="btn btn_next"
+						type="button"><span class="btn__text">Начать</span>
+				</button>
 			</div>
 
 		</div>
@@ -242,28 +474,4 @@ onMounted(() => {
 </template>
 
 <style scoped
-	   lang="scss">
-
-
-		/* swiper-container {
-		width: 100%;
-		height: 100%;
-	}
-
-	swiper-slide {
-		text-align: center;
-		font-size: 18px;
-		background: #fff;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border: 1pz solid red;
-	}
-
-	swiper-slide img {
-		display: block;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	} */
-	</style>
+	   lang="scss"></style>
