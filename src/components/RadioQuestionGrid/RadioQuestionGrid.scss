@@ -21,7 +21,7 @@
                 align-items: center;
                 background: $neutral-4;
                 border-radius: 16px;
-                // font-family: $SemiBold;
+				font-weight: 600;
                 font-size: $fs24;
                 line-height: $lh120;
                 text-align: center;
@@ -39,7 +39,7 @@
             &:disabled {
                 & + label {
                     cursor: default;
-                    opacity: 0.4;
+                    opacity: 0.6;
                 }
             }
         }
@@ -89,7 +89,6 @@
                         border: none !important;
                         padding: 30px 40px;
                         border-radius: 12px !important;
-                        // font-family: $Medium;
 						font-size: 500;
                         font-size: $fs20;
                         line-height: $lh130;

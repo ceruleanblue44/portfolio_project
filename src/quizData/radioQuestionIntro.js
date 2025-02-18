@@ -8,12 +8,10 @@ export const radioQuestionIntro = {
 		},
 		answers: [
 			{
-				text: 'подвижная',
+				text: 'энергичная',
 				correct: true,
 				feedbackId: 0,
-				style: {
-					// 'grid-row': '1 / 4'
-				}
+				style: {}
 			},
 			{
 				text: 'спокойная',
@@ -22,13 +20,13 @@ export const radioQuestionIntro = {
 				style: {}
 			},
 			{
-				text: 'веселая',
+				text: 'позитивная',
 				correct: true,
 				feedbackId: 0,
 				style: {}
 			},
 			{
-				text: 'грустная',
+				text: 'задумчивая',
 				correct: true,
 				feedbackId: 0,
 				style: {}

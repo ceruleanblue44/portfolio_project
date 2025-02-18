@@ -1,5 +1,5 @@
-@use '../base/vars' as *;
-@use '../abstracts/variables' as *;
+@use "../base/vars" as *;
+@use "../abstracts/variables" as *;
 
 h1,
 h2,
@@ -25,8 +25,8 @@ h1,
 	line-height: $lh100;
 
 	@media #{$breakpoint-xs-only} {
-		font-size: 48px !important;
-		line-height: 100% !important;
+		font-size: $fs48;
+		line-height: $lh100;
 	}
 
 	&-96-80 {
@@ -35,6 +35,16 @@ h1,
 
 		@media #{$breakpoint-xs-only} {
 			font-size: $fs80;
+			line-height: $lh100;
+		}
+	}
+
+	&-64-48 {
+		font-size: $fs64;
+		line-height: $lh100;
+
+		@media #{$breakpoint-xs-only} {
+			font-size: $fs48;
 			line-height: $lh100;
 		}
 	}

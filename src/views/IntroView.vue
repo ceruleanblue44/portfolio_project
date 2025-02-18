@@ -70,33 +70,29 @@ onMounted(async () => {
 
 			<IntroInstructions />
 
-			<div class="container">
+			<div class="container mb-rem-9-75 mb-xs-rem-6-0">
 				<div class="row zoom-text__group custom-cursor-area js-custom-cursor-area"
 					 data-cursor-class="cursor_arrow-down">
 					<div class="col-lg-6 col-xs-12 zoom-text__container">
-						<h1 class="h1-96-64">Любая трудность преодолима</h1>
+						<h1>Любая трудность преодолима</h1>
 					</div>
 					<div class="col-lg-6 col-xs-12 zoom-text__container">
-						<h1 class="text-right text-primary mb-40 mb-xs-rem-2-0">Нужна лишь правильная песня
+						<h1 class="text-right text-primary mb-rem-2-50 mb-xs-rem-2-0">Нужна лишь правильная песня
 						</h1>
 
 					</div>
 
 				</div>
 			</div>
-			<div class="container">
+			<div class="container mb-rem-9-75 mb-xs-rem-6-0">
 				<div class="container_with-bg">
 					<radio-question :answers-grid="radioQuestionIntro.answersGrid"
 									v-on:complete="headphonesAnimation()">
 						<template v-slot:question-text="">
-							<!-- <div class="row">
-							<div class="col-lg-6 col-xs-12"> -->
-							<h4 class="mb-rem-1-50 mb-xs-rem-1-0">Какая мелодия сейчас играет в твоей голове?
+							<h4 class="mb-rem-1-50 mb-xs-rem-1-0">Какая мелодия звучит сейчас в твоей голове?
 							</h4>
-							<p class="text text-m text-gray-1">Выбери один вариант ответа
+							<p class="text text-m text-gray-1">Выбери один вариант
 							</p>
-							<!-- </div> -->
-							<!-- </div> -->
 						</template>
 						<template v-slot:feedback-0="">
 							<div class="row">
@@ -104,7 +100,6 @@ onMounted(async () => {
 									<div class="card card_medium card_gray">
 										<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-color-primary">Отличный музыкальный
 											настрой!
-
 										</h3>
 										<p class="text text-l">Сейчас мы настраиваемся на музыкальную волну и
 											отправляемся в путешествие по музыкальным жанрам.
@@ -127,17 +122,14 @@ onMounted(async () => {
 			</div>
 
 			<div class="container container_albums mb-rem-9-75 mb-xs-rem-6-0">
-				<h1 class="text-white mb-rem-0-75 mb-xs-rem-0-75">Тебя ждет множество альбомов под разное настроение.
+				<h1 class="h1-64-48 w-85 text-white mb-rem-0-75 mb-xs-rem-0-75">Ты откроешь для себя альбомы 
+для любой профессиональной ситуации.
 				</h1>
 				<hr class="hr hr_white-16 mb-rem-5-0 mb-xs-rem-2-50" /><!-- Slider main container -->
 				<div class="album-slider js-album-slider">
 					<div class="album-slider__header mb-rem-5-0 mb-xs-rem-5-0">
 						<p class="text text-xl text-white w-100">Альбомы
 						</p>
-						<!-- <svg class="slider__btn-next">
-						<use href="#icon-arrow-square-right"></use>
-					</svg> -->
-
 						<ArrowSquareLeft class="slider__btn-prev mr-rem-0-50" />
 						<ArrowSquareRight class="slider__btn-next" />
 
@@ -158,10 +150,10 @@ onMounted(async () => {
 						</swiper-slide>
 						<swiper-slide class="swiper-slide"><img alt=""
 								 class="album-slider__slide-num"
-								 src="../assets/img/albums/album-num-1.png" />
+								 src="../assets/img/albums/album-num-2.png" />
 							<div class="album-slider__slide-content"><img alt=""
 									 class="mb-rem-0-50 mb-xs-rem-0-50"
-									 src="../assets/img/albums/cover-1.png" />
+									 src="../assets/img/albums/cover-2.png" />
 								<h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Хиты
 								</h6>
 								<p class="text text-xs text-white">Ожидания от тебя в новой роли
@@ -170,10 +162,10 @@ onMounted(async () => {
 						</swiper-slide>
 						<swiper-slide class="swiper-slide"><img alt=""
 								 class="album-slider__slide-num"
-								 src="../assets/img/albums/album-num-1.png" />
+								 src="../assets/img/albums/album-num-3.png" />
 							<div class="album-slider__slide-content"><img alt=""
 									 class="mb-rem-0-50 mb-xs-rem-0-50"
-									 src="../assets/img/albums/cover-1.png" />
+									 src="../assets/img/albums/cover-3.png" />
 								<h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Хиты
 								</h6>
 								<p class="text text-xs text-white">Ожидания от тебя в новой роли
@@ -182,22 +174,10 @@ onMounted(async () => {
 						</swiper-slide>
 						<swiper-slide class="swiper-slide"><img alt=""
 								 class="album-slider__slide-num"
-								 src="../assets/img/albums/album-num-1.png" />
+								 src="../assets/img/albums/album-num-4.png" />
 							<div class="album-slider__slide-content"><img alt=""
 									 class="mb-rem-0-50 mb-xs-rem-0-50"
-									 src="../assets/img/albums/cover-1.png" />
-								<h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Хиты
-								</h6>
-								<p class="text text-xs text-white">Ожидания от тебя в новой роли
-								</p>
-							</div>
-						</swiper-slide>
-						<swiper-slide class="swiper-slide"><img alt=""
-								 class="album-slider__slide-num"
-								 src="../assets/img/albums/album-num-1.png" />
-							<div class="album-slider__slide-content"><img alt=""
-									 class="mb-rem-0-50 mb-xs-rem-0-50"
-									 src="../assets/img/albums/cover-1.png" />
+									 src="../assets/img/albums/cover-4.png" />
 								<h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Хиты
 								</h6>
 								<p class="text text-xs text-white">Ожидания от тебя в новой роли

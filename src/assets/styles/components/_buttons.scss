@@ -31,11 +31,9 @@
 	display: inline-block;
 	outline: 0;
 	border: none;
-	vertical-align: middle;
 	background: rgba($primary, 1);
-	font-style: normal;
 	font-size: 20px;
-	font-weight: 400;
+	font-weight: 500;
 	color: $white;
 	line-height: normal !important;
 	padding: 20px 40px;
@@ -66,8 +64,6 @@
 	}
 
 	@media #{$breakpoint-xs-only} {
-		// -webkit-user-select: none;
-		// -webkit-touch-callout: none;
 		padding: 16px 24px;
 		border-radius: 12px;
 		font-size: $fs16;
@@ -218,7 +214,7 @@
 		align-items: center;
 		background: $neutral-4;
 		border-radius: 16px;
-		// font-family: $SemiBold;
+		font-weight: 600;
 		font-size: $fs24;
 		line-height: $lh120;
 		text-align: center;
@@ -249,19 +245,17 @@
 
 	&__text {
 		position: relative;
-		color: inherit;
 		display: inline-block;
-		-webkit-transition: all 0.25s ease;
 		transition: all 0.25s ease;
 		color: $white;
-		// font-family: $SemiBold;
+		font-weight: 600;
 		line-height: $lh110;
 	}
 
 	&.disabled,
 	&:disabled {
-		background-color: rgba($primary, 0.24);
-		color: $neutral-16;
+		background-color: rgba($primary-lighten, 0.4);
+		color: $neutral-36;
 		cursor: default;
 		pointer-events: none;
 	}
