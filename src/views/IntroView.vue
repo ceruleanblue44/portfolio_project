@@ -130,9 +130,8 @@ onMounted(async () => {
 					<div class="album-slider__header mb-rem-5-0 mb-xs-rem-5-0">
 						<p class="text text-xl text-white w-100">Альбомы
 						</p>
-						<ArrowSquareLeft class="slider__btn-prev mr-rem-0-50" />
+						<ArrowSquareLeft class="slider__btn-prev mr-rem-0-50 mr-xs-rem-0-50" />
 						<ArrowSquareRight class="slider__btn-next" />
-
 					</div>
 					<swiper-container data-swiper-type="albums"
 									  init="false">
@@ -270,21 +269,19 @@ onMounted(async () => {
 				</div>
 			</div>
 
-			<div class="container mb-rem-9-75 mb-xs-rem-3-0">
-				<div class="container container_with-bg">
+		
+				<!-- <div class="container container_with-bg mb-rem-9-75 mb-xs-rem-3-0">
 					<h1 class="mb-rem-3-0 mb-xs-rem-2-0">Настрой свой плейлист
 					</h1>
-					<!-- Slider main container -->
 					<div class="playlist-slider js-playlist-slider">
-						<div class="playlist-slider__header mt-rem-5-0"><!-- If we need navigation buttons -->
+						<div class="playlist-slider__header mt-rem-5-0">
 							<ArrowSquareLeft class="slider__btn-prev mr-rem-0-50" />
-							<ArrowSquareRight class="slider__btn-next" /><!-- If we need pagination -->
+							<ArrowSquareRight class="slider__btn-next" />
 							<div class="slider__pagination ml-rem-1-50 ml-xs-rem-0-50">&nbsp;
 							</div>
 						</div>
-						<!-- Additional required wrapper -->
 						<swiper-container data-swiper-type="playlist"
-										  init="false"><!-- Slides -->
+										  init="false">
 							<swiper-slide class="swiper-slide">
 								<div class="playlist-slider__slide-content">
 									<div class="row h-100">
@@ -440,8 +437,8 @@ onMounted(async () => {
 							</swiper-slide>
 						</swiper-container>
 					</div>
-				</div>
-			</div>
+			
+			</div>  -->
 
 			<div class="container btn-container btn-container_center mb-rem-2-50 mb-xs-rem-2-0">
 				<button class="btn btn_next"

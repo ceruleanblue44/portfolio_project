@@ -1,18 +1,22 @@
 @use "../base/vars" as *;
 @use "../abstracts/variables" as *;
-@use '../../../../node_modules/swiper/swiper-bundle.min.css' as *;
+@use "../../../../node_modules/swiper/swiper-bundle.min.css" as *;
+
+swiper-container::part(container) {
+	overflow: visible !important;
+}
 
 .album-slider {
 	.swiper-slide {
 		position: relative;
-		width: calc(100% / 4 - 18px);
-		border: 1px solid red;
+		width: calc(100% / 4 - 12px);
+		// border: 1px solid red;
 
 		@media #{$breakpoint-xs-only} {
 			width: 186px;
 		}
 
-		& > .album-slider__slide-num {
+		& .album-slider__slide-num {
 			position: absolute;
 			left: -41px;
 			top: -145px;
@@ -31,7 +35,7 @@
 			}
 		}
 
-		& > .album-slider__slide-content {
+		& .album-slider__slide-content {
 			max-width: 186px;
 			margin: 0 auto;
 		}
