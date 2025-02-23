@@ -16,7 +16,7 @@ export const discAnimation = () => {
 			pinType: 'fixed',
 			start: 'top top',
 			end: 'clamp(bottom bottom)',
-			markers: false,
+			markers: true,
 		}
 	});
 

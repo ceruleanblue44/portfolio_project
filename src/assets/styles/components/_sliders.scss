@@ -52,7 +52,6 @@ swiper-container::part(container) {
 		height: 36px;
 		cursor: pointer;
 		flex-shrink: 0;
-		// transition: 0.3s;
 
 		@media (hover: hover) {
 			&:hover {
@@ -75,8 +74,8 @@ swiper-container::part(container) {
 		}
 
 		path {
-			transition: 0.3s;
 			fill: $white;
+			transition: fill 0.3s ease-in-out;
 		}
 	}
 
@@ -126,10 +125,11 @@ swiper-container::part(container) {
 		flex-shrink: 0;
 		cursor: pointer;
 		// color: $neutral;
-		transition: 0.3s;
+		// transition: 0.3s ease-in-out;
 
 		path {
 			fill: $neutral;
+			transition: fill 0.3s ease-in-out;
 		}
 
 		@media (hover: hover) {

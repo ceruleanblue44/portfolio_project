@@ -4,7 +4,7 @@
 			<div class="instructions__top mt-rem-0-25 mt-xs-rem-0-25">
 				<div class="d-flex ml-rem-14-0 ml-xs-rem-1-0 mb-xs-rem-0-50"
 					 style="width: 239px">
-					<p class="text text-s mt-rem-2-50 mt-xs-rem-2-0">
+					<p class="text text-s mt-rem-2-50 mt-xs-rem-2-50">
 						Текущий трек
 					</p>
 					<img class="instructions__arrow ml-rem-0-50 ml-xs-rem-0-50"
@@ -33,7 +33,7 @@
 				</div>
 				<div class="hide-lg">
 					<div class="pos-a d-flex mr-100"
-						 style="width: 166px; right: 124px; top: 0;">
+						 style="width: 182px; right: 124px; top: 0;">
 						<p class="text text-s mt-xs-rem-8-50">
 							Меню плейлиста&nbsp;&mdash; просматривай содержание курса и&nbsp;выбирай треки
 						</p>
@@ -42,7 +42,7 @@
 							 alt="">
 					</div>
 					<div class="pos-a d-flex mr-100"
-						 style="width: 134px; right: 196px; top: 0;">
+						 style="width: 169px; right: 196px; top: 0;">
 						<p class="text text-s mt-xs-rem-5-25">
 							Переход к&nbsp;предыдущему разделу
 						</p>

@@ -1,0 +1,391 @@
+@use "../base/vars" as *;
+@use "../abstracts/variables" as *;
+
+.list {
+	&__default {
+		padding-left: 20px;
+	}
+
+	&__ol {
+		counter-reset: li;
+		padding: 0;
+		margin-bottom: 0;
+		list-style: none;
+
+		&--item {
+			position: relative;
+			margin-bottom: 10px;
+			padding-left: 24px;
+
+			&:last-child {
+				margin-bottom: 0px;
+			}
+
+			&-white {
+				position: relative;
+				margin-bottom: 10px;
+				padding-left: 27px;
+
+				&:before {
+					content: counter(li) ".";
+					counter-increment: li;
+					position: absolute;
+					top: 0;
+					left: 0;
+					color: $white;
+					font-variant: tabular-nums;
+				}
+			}
+
+			&:before {
+				content: counter(li) ".";
+				counter-increment: li;
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: rgba(30, 31, 31, 0.8);
+				font-variant: tabular-nums;
+
+				// @media (max-width: 719px) {
+				//   font-size: $fs14;
+				//   line-height: $lh20;
+				// }
+			}
+
+			&-bold {
+				&:before {
+					content: counter(li) ".";
+					counter-increment: li;
+					position: absolute;
+					top: 0;
+					left: 0;
+					color: rgba(30, 31, 31, 0.8);
+					font-variant: tabular-nums;
+					//   font-family: Gilroy-SemiBold, sans-serif;
+				}
+			}
+
+			&-leading-zero {
+				padding-left: 35px;
+				&:before {
+					content: "0" counter(li);
+					color: $primary;
+					//   font-family: Gilroy-SemiBold, sans-serif;
+				}
+			}
+		}
+	}
+
+	&__ul {
+		padding: 0;
+		margin-bottom: 0;
+		list-style: none;
+
+		&--item {
+			position: relative;
+			margin-bottom: 10px;
+			padding-left: 1.75em;
+
+			&:last-child {
+				margin-bottom: 0px;
+			}
+
+			&:before {
+				content: "✦";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: rgba($secondary, 1);
+			}
+
+			&-white:before {
+				content: "✦";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: rgba($white, 1);
+			}
+		}
+
+		&--dash {
+			position: relative;
+			margin-bottom: 0.5em;
+			padding-left: 1.75em;
+			list-style: none;
+
+			&:last-child {
+				margin-bottom: 0px;
+			}
+
+			&:before {
+				content: "—";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: rgba($secondary, 1);
+			}
+		}
+
+		&_monochrome {
+			.list__ul {
+				&--item,
+				&--dash {
+					&::before {
+						color: inherit;
+					}
+				}
+			}
+		}
+
+		&_menu-text {
+			@media (max-width: 1130px) {
+				font-size: 28px !important;
+			}
+			@media (max-width: 719px) {
+				font-size: 24px !important;
+			}
+		}
+	}
+
+	&__num {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+
+		&--item {
+			width: 33px;
+			height: 33px;
+			border-radius: 50%;
+			position: relative;
+			display: inline-block;
+			flex-shrink: 0;
+			background: rgba($white, 1);
+			color: rgba($white, 1);
+			margin-right: 15px;
+
+			&--text {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		&--titles {
+			display: block;
+		}
+
+		&--title {
+			//   font-family: $Bold;
+			font-size: $fs18;
+			line-height: $lh27;
+		}
+
+		&--subtitle {
+			font-size: $fs14;
+			line-height: $lh21;
+			margin-top: 2px;
+		}
+
+		& .list__num--title ~ .list__num--subtitle {
+			margin-top: 10px;
+		}
+	}
+
+	&__circle {
+		counter-reset: li;
+		padding: 0;
+		margin-bottom: 0;
+		list-style: none;
+
+		&.text-xl > .list__circle--item {
+			padding-top: 0px;
+		}
+
+		&.text-l > .list__circle--item {
+			padding-top: 3px;
+		}
+
+		&.text-m > .list__circle--item {
+			padding-top: 5px;
+		}
+
+		&.text-s > .list__circle--item {
+			padding-top: 7px;
+		}
+
+		&.text-xs > .list__circle--item {
+			padding-top: 9px;
+		}
+
+		&--item {
+			position: relative;
+			min-height: 33px;
+			margin-bottom: 10px;
+			padding-left: 53px;
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+
+			&.list__circle--with-title {
+				padding-top: 0;
+			}
+
+			span {
+				display: flex;
+				align-items: center;
+				min-height: 33px;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			&:before {
+				content: counter(li);
+				counter-increment: li;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 33px;
+				height: 33px;
+				border: 1px;
+				border-style: solid;
+				border-color: transparent;
+				background: rgba($blue, 1);
+				color: rgba($white, 1);
+				border-radius: 50%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
+		&--disc {
+			list-style: disc !important;
+		}
+	}
+
+	&__text {
+		@media (max-width: 1130px) {
+			font-size: 32px !important;
+		}
+	}
+}
+
+.album-restyle {
+	&_2 {
+		.list {
+			&__ul {
+				&--item {
+					padding-left: 37px;
+
+					&::before {
+						content: url("../svg/sprite.svg#6star-red");
+						width: 0.66em;
+					}
+
+					@media #{$breakpoint-xs-only} {
+						padding-left: 26px;
+					}
+				}
+			}
+		}
+	}
+	&_3 {
+		.list {
+			&__ul {
+				&--item {
+					padding-left: 37px;
+
+					&::before {
+						color: $primary;
+					}
+
+					&-bright {
+						&::before {
+							color: $secondary !important;
+						}
+					}
+
+					@media #{$breakpoint-xs-only} {
+						padding-left: 26px;
+					}
+				}
+			}
+		}
+	}
+
+	&_4 {
+		.list {
+			&__ul {
+				&--item {
+					padding: 0;
+					display: flex;
+					align-items: center;
+
+					&::before {
+						position: relative;
+						flex-shrink: 0;
+						width: 36px;
+						margin-right: 24px;
+						padding: 16px 4px;
+						border: solid 2px $neutral;
+						border-radius: 233px;
+						color: inherit;
+						font-size: $fs24;
+						line-height: $lh100;
+						text-align: center;
+					}
+
+					&-bright {
+						&::before {
+							color: $secondary !important;
+						}
+					}
+
+					&-berry {
+						&::before {
+							color: $primary !important;
+							padding: 0;
+							border: none;
+						}
+					}
+
+					&-berry-2 {
+						align-items: baseline;
+
+						&::before {
+							width: auto;
+							height: auto;
+							color: $primary !important;
+							padding: 0;
+							border: none;
+						}
+					}
+
+					&-berry-with-border {
+						&::before {
+							color: $primary !important;
+							border: solid 2px $primary;
+						}
+					}
+
+					&-lime {
+						align-items: baseline;
+
+						&::before {
+							width: auto;
+							height: auto;
+							color: $secondary !important;
+							padding: 0;
+							border: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}

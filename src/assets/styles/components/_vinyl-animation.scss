@@ -1,0 +1,74 @@
+@use "../base/vars" as *;
+@use "../abstracts/variables" as *;
+
+.vinyl {
+	&__container {
+		padding: 0 3.75rem;
+		border: 2px solid $neutral-12;
+		border-radius: 3rem;
+		overflow: hidden;
+
+		@media #{$breakpoint-xs-only} {
+			padding: 2rem 1.5rem;
+		}
+
+		&-center {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			@media #{$breakpoint-xs-only} {
+				padding: 0;
+			}
+		}
+	}
+
+	&__hint {
+		top: 20px;
+		z-index: 2;
+		width: fit-content;
+	}
+
+	&__wrap {
+		width: 100%;
+		position: relative;
+
+		@media #{$breakpoint-xs-only} {
+			width: 110%;
+		}
+	}
+
+	&__img {
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+}
+
+.icon-column {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	img {
+		max-width: 47px;
+	}
+}
+
+.icon-row {
+	display: flex;
+	justify-content: space-between;
+
+	img {
+		// max-width: 47px;
+		max-height: 30px;
+	}
+
+	@media #{$breakpoint-xs-only} {
+		img {
+			max-width: 16px;
+			max-height: 19px;
+		}
+	}
+}
