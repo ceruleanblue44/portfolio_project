@@ -6,14 +6,14 @@ gsap.registerPlugin(ScrollTrigger);
 export const vinylAnimation = () => {
 	const vinyl = document.querySelector('.js-vinyl');
 
-	console.log('wheres the vinyl?');
+	// console.log('wheres the vinyl?');
 	// const card = document.querySelectorAll('.js-vinyl-card');
 
 	const tl = gsap.timeline({
 		scrollTrigger: {
 			scroller: '.ps',
 			trigger: vinyl,
-			markers: true,
+			markers: false,
 			start: 'top 75%',
 			end: 'bottom top',
 			toggleActions: 'play pause resume pause',

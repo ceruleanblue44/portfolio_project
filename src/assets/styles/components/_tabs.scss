@@ -145,22 +145,20 @@
 					cursor: pointer;
 					display: flex;
 					align-items: center;
-					padding: 2rem 0.75rem;
+					padding: 1.25rem 0.75rem;
 					border-bottom: solid 1px $neutral-16;
 					transition: color 0.3s ease;
 
 					svg {
+						align-self: center;
 						margin-left: auto;
 						width: 36px;
 						height: 36px;
-						use {
+
+						path {
 							fill: #1e1f1f;
 							transition: fill 0.3s ease;
 						}
-
-						// @media #{$breakpoint-xs-only} {
-						// 	margin-left: 2rem;
-						// }
 					}
 
 					&::before {
@@ -176,9 +174,17 @@
 						&:hover {
 							color: $primary;
 
-							& svg use {
+							& path {
 								fill: $primary;
 							}
+						}
+					}
+
+					&.active {
+						color: $primary;
+
+						& path {
+							fill: $primary;
 						}
 					}
 				}

@@ -39,6 +39,16 @@ h1,
 		}
 	}
 
+	&-80-48 {
+		font-size: $fs80;
+		line-height: $lh100;
+
+		@media #{$breakpoint-xs-only} {
+			font-size: $fs48;
+			line-height: $lh100;
+		}
+	}
+
 	&-64-48 {
 		font-size: $fs64;
 		line-height: $lh100;

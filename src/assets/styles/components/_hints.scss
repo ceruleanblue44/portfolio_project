@@ -19,4 +19,19 @@
 		height: 20px;
 		background: url(../svg/star.svg) center no-repeat;
 	}
+
+	@media #{$breakpoint-xs-only} {
+		padding: 16px 24px;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 6px;
+			right: 6px;
+			width: 16px;
+			height: 16px;
+			background: url(../svg/star.svg) center no-repeat;
+		}
+
+	}
 }

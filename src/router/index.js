@@ -22,6 +22,11 @@ const router = createRouter({
 			path: '/tracklist',
 			name: 'tracklist',
 			component: () => import('../views/TrackListView.vue')
+		},
+		{
+			path: '/track-1-1',
+			name: 'track-1-1',
+			component: () => import('../views/TrackOnePartOneView.vue')
 		}
 	]
 })

@@ -1,0 +1,17 @@
+@use "../base/vars" as *;
+@use "../abstracts/variables" as *;
+
+.lottie-scroll {
+	padding-top: $main-header-height !important;
+	height: 100dvmin !important;
+	max-height: 100dvmin !important;
+
+	@media #{$breakpoint-xs-only} {
+		padding-top: $main-header-height-xs !important;
+
+		&-xs {
+			height: 100dvh !important;
+			max-height: 100dvh !important;
+		}
+	}
+}
