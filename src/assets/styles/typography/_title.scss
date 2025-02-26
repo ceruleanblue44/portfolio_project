@@ -39,6 +39,16 @@ h1,
 		}
 	}
 
+	&-96-40 {
+		font-size: $fs96;
+		line-height: $lh100;
+
+		@media #{$breakpoint-xs-only} {
+			font-size: $fs40;
+			line-height: $lh100;
+		}
+	}
+
 	&-80-48 {
 		font-size: $fs80;
 		line-height: $lh100;
@@ -68,6 +78,16 @@ h2,
 	@media #{$breakpoint-xs-only} {
 		font-size: $fs32;
 		line-height: $lh110;
+	}
+
+	&-48-32 {
+		font-size: $fs48;
+		line-height: $lh110;
+
+		@media #{$breakpoint-xs-only} {
+			font-size: $fs32;
+			line-height: $lh110;
+		}
 	}
 }
 
@@ -113,4 +133,8 @@ h6,
 		font-size: $fs14;
 		line-height: $lh120;
 	}
+}
+
+.fw-800 {
+	font-weight: 800;
 }

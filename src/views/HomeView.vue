@@ -1,118 +1,78 @@
 <script setup>
-import { onMounted } from 'vue'
-// import { vinylAnimation } from '@/scripts/ui/vinylAnimation'
+import { onMounted, nextTick } from 'vue';
+import MainHeader from '@/components/MainHeader/MainHeader.vue';
 
-onMounted(() => {
-	// vinylAnimation()
-})
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import CheckboxQuestion from '@/components/CheckboxQuestion/CheckboxQuestion.vue';
+import { checkboxQuestionTrack1 } from "@/quizData/checkboxQuestionTrack1"
 
+onMounted(async () => {
+	// Wait for the DOM to be fully updated
+	await nextTick();
 
+	nextTick(() => {
+		// animateText()
+	})
 
+	// setTimeout(() => {
+	// 	ScrollTrigger.refresh();
+	// }, 500);
 
+});
 </script>
 
 <template>
 	<PerfectScrollbar>
-	<div style="height: 100vh;"></div>
-	
-		<div class="container  mb-155 mb-xs-95">
-			<div class="vinyl__container">
-				<div class="row">
-					<div class="col-lg-1 hide-xs">
-						<div class="icon-column">
-							<img class=""
-								 src="../assets/svg/disc.svg"
-								 alt="">
-							<img class=""
-								 src="../assets/svg/volume.svg"
-								 alt="">
-							<img class=""
-								 src="../assets/svg/disc.svg"
-								 alt="">
-							<img class=""
-								 src="../assets/svg/volume.svg"
-								 alt="">
-						</div>
-					</div>
-					<!-- <div class="col-xs-12 hide-lg">
-						<div class="icon-row icon-row-xs">
-							<svg>
-								<use xlink:href="user/svg/sprite.svg#red_note">
-								</use>
-							</svg>
-							<svg>
-								<use xlink:href="user/svg/sprite.svg#play_green">
-								</use>
-							</svg>
-							<svg>
-								<use xlink:href="user/svg/sprite.svg#volume">
-								</use>
-							</svg>
-							<svg>
-								<use xlink:href="user/svg/sprite.svg#green_note">
-								</use>
-							</svg>
-							<svg>
-								<use xlink:href="user/svg/sprite.svg#mic">
-								</use>
-							</svg>
-							<svg>
-								<use xlink:href="user/svg/sprite.svg#double_note">
-								</use>
-							</svg>
-							<svg>
-								<use xlink:href="user/svg/sprite.svg#headphones">
-								</use>
-							</svg>
-							<svg>
-								<use xlink:href="user/svg/sprite.svg#disc">
-								</use>
-							</svg>
-						</div>
-					</div> -->
-					<div class="col-lg-10 col-xs-12 mt-40 mt-xs-60 pl-xs-0 pr-xs-0">
-						<div class="vinyl__container-center mb-xs-120">
-							<h1 class="h1 hide-xs text-center text-color-primary">Сделай <span class="text-gray-4">свою
-									<br />
-									новую</span> роль ХИТОМ!
-							</h1>
-							<div class="text-48 hide-lg text-center text-bold text-color-primary">Сделай <span
-									  class="text-gray-4">свою
-									<br />
-									новую</span> роль ХИТОМ!
-							</div>
-							<div class="hint vinyl__hint text-24-14 text-center mt-rem-2-0">Твоя цель
-							</div>
-							<div class="vinyl__wrap"><img alt=""
-									 class="vinyl__img js-vinyl"
-									 src="../assets/img/vinyl/vinyl.png" />
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-1 hide-xs">
-						<div class="icon-column">
-							<img class=""
-								 src="../assets/svg/disc.svg"
-								 alt="">
-							<img class=""
-								 src="../assets/svg/volume.svg"
-								 alt="">
-							<img class=""
-								 src="../assets/svg/disc.svg"
-								 alt="">
-							<img class=""
-								 src="../assets/svg/volume.svg"
-								 alt="">
+		<MainHeader />
 
+		<div class="container mt-rem-6-50 mt-xs-rem-5-0 mb-rem-4-0 mb-xs-rem-3-0"
+			 id="question-app">
+			<checkbox-question :answers-grid="checkboxQuestionTrack1.answersGrid"
+							   :check-rule="checkboxQuestionTrack1.checkRule"
+							   :use-clv="true"
+							   v-on:complete="showAfter()">
+				<template v-slot:question-text="">
+					<div class="row">
+						<div class="col-lg-6 col-xs-12">
+							<h4 class="mb-rem-1-50 mb-xs-rem-1-50">Вспомни, что ждали от&nbsp;тебя на&nbsp;прошлой
+								должности.
+							</h4>
+							<p class="text text-m text-gray-1">Выбери один или несколько ответов.
+							</p>
 						</div>
 					</div>
-				</div>
-			</div>
+				</template>
+				<template v-slot:feedback-0="">
+					<div class="row">
+						<div class="col-lg-8 col-xs-12">
+							<div class="balloon balloon_large balloon_white">
+								<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-color-primary">Именно так!
+								</h3>
+								<p class="text text-l">Специалисту нужно знать, как выполнять работу, делать
+									ее&nbsp;качественно и&nbsp;в&nbsp;срок.
+								</p>
+								<p class="text text-l">От&nbsp;руководителя ждут почти того&nbsp;же&nbsp;самого,
+									но&nbsp;есть ключевое отличие.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4 hide-xs">
+							<div class="block-img pl-rem-2-75 pr-rem-2-75 pt-rem-0 pb-rem-0">
+								<div class="js-headphones">&nbsp;
+								</div>
+							</div>
+						</div>
+					</div>
+				</template>
+				<template v-slot:feedback-1="">
+				</template>
+			</checkbox-question>
 		</div>
-		<div style="height: 100vh;"></div>
 	</PerfectScrollbar>
 </template>
 
 <style scoped
-	   lang="scss"></style>
+	   lang="scss">
+
+	</style>

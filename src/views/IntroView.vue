@@ -3,9 +3,6 @@ import { ref, onMounted, nextTick } from 'vue'
 import { customCursor } from '@/scripts/ui/customCursor'
 import { discAnimation } from '@/scripts/ui/discAnimation'
 
-// import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
-// import { register } from 'swiper/element/bundle'
-
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import IntroInstructions from '@/components/IntroInstructions/IntroInstructions.vue'
 import RadioQuestion from '@/components/RadioQuestion/RadioQuestion.vue'

@@ -15,6 +15,16 @@
 		margin-top: 10px;
 	}
 
+	&-64-32 {
+		font-size: $fs64;
+		line-height: $lh130;
+
+		@media #{$breakpoint-xs-only} {
+			font-size: $fs32;
+			line-height: $lh120;
+		}
+	}
+
 	&-xl {
 		font-size: $fs32;
 		line-height: $lh130;

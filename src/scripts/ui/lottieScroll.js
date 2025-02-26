@@ -50,7 +50,7 @@ export const initLottieScroll = () => {
             }
         }
 
-		console.log(element.dataset.src);
+		// console.log(element.dataset.src);
        
         LottieScrollTrigger({
             scroller: '.ps',
