@@ -67,7 +67,8 @@
 	justify-content: space-between;
 
 	img {
-		max-height: 30px;
+		// max-height: 30px;
+		height: 30px;
 	}
 
 	@media #{$breakpoint-xs-only} {

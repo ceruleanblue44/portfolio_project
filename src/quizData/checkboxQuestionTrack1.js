@@ -15,40 +15,40 @@ export const checkboxQuestionTrack1 = {
 		},
 		answers: [
 			{
-				text: 'воплощения идей',
-				img: 'user/img/album-1/track-1/icon/icon-1-1.svg',
+				text: 'реализация идей',
+				img: 'src/assets/svg/checkboxQuestion/icon-1.svg',
 				correct: true,
 				style: {
 					'grid-area': 'a'
 				}
 			},
 			{
-				text: 'экспертности',
-				img: 'user/img/album-1/track-1/icon/icon-1-2.svg',
+				text: 'экспертность',
+				img: 'src/assets/svg/checkboxQuestion/icon-2.svg',
 				correct: true,
 				style: {
 					'grid-area': 'b'
 				}
 			},
 			{
-				text: 'качественной работы',
-				img: 'user/img/album-1/track-1/icon/icon-1-3.svg',
+				text: 'качество работы',
+				img: 'src/assets/svg/checkboxQuestion/icon-3.svg',
 				correct: true,
 				style: {
 					'grid-area': 'c'
 				}
 			},
 			{
-				text: 'соблюдения сроков',
-				img: 'user/img/album-1/track-1/icon/icon-1-4.svg',
+				text: 'соблюдение дедлайнов',
+				img: 'src/assets/svg/checkboxQuestion/icon-4.svg',
 				correct: true,
 				style: {
 					'grid-area': 'd'
 				}
 			},
 			{
-				text: 'инициативности',
-				img: 'user/img/album-1/track-1/icon/icon-1-5.svg',
+				text: 'инициативность',
+				img: 'src/assets/svg/checkboxQuestion/icon-5.svg',
 				correct: true,
 				style: {
 					'grid-area': 'e'

@@ -64,7 +64,7 @@ onMounted(() => {
 				<input type="radio"
 					   :name="`radio-answer-${_uid}`"
 					   :id="`radio-answer-${_uid}-${answerIndex}`"
-					   :value="answer"
+					   :value="answer.text"
 					   :disabled="props.disabled"
 					   v-model="selectedAnswer">
 				<label :for="`radio-answer-${_uid}-${answerIndex}`">
@@ -72,7 +72,7 @@ onMounted(() => {
 				</label>
 			</div>
 		</div>
-	 <div class="radio-answers__grid hide-lg"
+		<div class="radio-answers__grid hide-lg"
 			 :style="props.gridStyleXs">
 			<div v-for="(answer, answerIndex) in props.answers"
 				 :key="answerIndex"
@@ -88,7 +88,7 @@ onMounted(() => {
 					{{ answer.text }}
 				</label>
 			</div>
-		</div> 
+		</div>
 	</div>
 
 </template>

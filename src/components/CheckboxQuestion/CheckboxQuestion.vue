@@ -23,11 +23,12 @@ const instance = getCurrentInstance()
 
 const feedbackShow = ref(false)
 const currentAnswer = ref([])
-let currentFeedback = (null)
+const currentFeedback = ref(null)
 
 // const feedback = useTemplateRef('feedback')
 
 const selectedAnswersCount = computed(() => {
+	// console.log(currentAnswer.value);
 	return currentAnswer.value.filter((answer) => answer === true).length;
 })
 
@@ -36,7 +37,8 @@ const answerBtnName = () => {
 }
 
 const getSavedAnswer = () => {
-	console.log(`${instance}-answer`);
+	// console.log(instance);
+	// console.log(`${instance}-answer`);
 	// try {
 	// 	return CLV.oGlobal[`practice-simple-checkbox-question-${getFramePosition().current}-${instance}-answer`];
 	// } catch (error) {
@@ -46,36 +48,41 @@ const getSavedAnswer = () => {
 
 }
 
-// const setCurrentAnswer = (newAnswer) => {
-// 	currentAnswer.value = newAnswer;
+const setCurrentAnswer = (newAnswer) => {
+	currentAnswer.value = newAnswer;
 
-// 	if (props.useClv) {
-// 		try {
-// 			CLV.oGlobal[`practice-simple-checkbox-question-${getFramePosition().current}-${instance}-answer`] = this.currentAnswer;
-// 			// console.log(this.currentAnswer);
-// 		} catch (error) {
-// 			console.warn('CLV not defined!');
-// 		}
-// 	}
-// }
+	// if (props.useClv) {
+	// 	try {
+	// 		CLV.oGlobal[`practice-simple-checkbox-question-${getFramePosition().current}-${instance}-answer`] = this.currentAnswer;
+	// 		// console.log(this.currentAnswer);
+	// 	} catch (error) {
+	// 		console.warn('CLV not defined!');
+	// 	}
+	// }
+}
 
 const acceptAnswer = () => {
 	let isCorrect;
 
-	switch (this.checkRule.type) {
-		case 'count':
-			isCorrect = this.checkRule.check(this.selectedAnswersCount);
-			break;
-
-		default:
-			break;
+	if (props.checkRule.type === 'count') {
+		isCorrect =props.checkRule.check(selectedAnswersCount.value);
 	}
 
-	if (isCorrect) {
-		currentFeedback = 'feedback-0';
-	} else {
-		currentFeedback = 'feedback-1';
-	}
+	// switch (this.checkRule.type) {
+	// 	case 'count':
+	// 		isCorrect = this.checkRule.check(this.selectedAnswersCount);
+	// 		break;
+
+	// 	default:
+	// 		break;
+	// }
+	
+	currentFeedback.value = isCorrect ? 'feedback-0' : 'feedback-1'
+	// if (isCorrect) {
+	// 	currentFeedback.value = 'feedback-0';
+	// } else {
+	// 	currentFeedback.value = 'feedback-1';
+	// }
 
 	feedbackShow.value = true;
 

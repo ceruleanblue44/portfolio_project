@@ -25,7 +25,7 @@ const props = defineProps({
 const getAdditionalAnswerClass = (answer) => {
 	let addClass = [];
 	if (props.disabled && answer === selectedAnswer.value && answer.correct) {
-		addClass.push(props.nswerCorrectClass)
+		addClass.push(props.answerCorrectClass)
 	}
 	if (props.disabled && answer === selectedAnswer.value && !answer.correct) {
 		addClass.push(props.answerIncorrectClass)
@@ -34,20 +34,19 @@ const getAdditionalAnswerClass = (answer) => {
 }
 
 
-watch(selectedAnswer, function (newVal, oldVal) {
-	console.log(newVal, oldVal);
+watch(selectedAnswer.value, function (newVal) {
+	// console.log(newVal);
 	emit('select-answer', newVal);
 })
 
 onMounted(() => {
 	if (props.initialSelectedAnswer.length === 0) {
-            props.answers.forEach(answer => {
-				console.log(answer);
-                selectedAnswer.value.push(false);
-            });
-        } else {
-            selectedAnswer.value = props.initialSelectedAnswer;
-        }
+		props.answers.forEach(() => {
+			selectedAnswer.value.push(false);
+		});
+	} else {
+		selectedAnswer.value = props.initialSelectedAnswer;
+	}
 
 })
 </script>
@@ -63,7 +62,7 @@ onMounted(() => {
 				<input type="checkbox"
 					   :name="`checkboxanswer-${_uid}`"
 					   :id="`checkboxanswer-${_uid}-${answerIndex}`"
-					   :value="answer"
+					   :value="answer.text"
 					   :disabled="disabled"
 					   v-model="selectedAnswer[answerIndex]">
 				<label :for="`checkboxanswer-${_uid}-${answerIndex}`">

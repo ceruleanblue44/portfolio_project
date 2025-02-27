@@ -77,12 +77,13 @@ onMounted(async () => {
 							<img class=""
 								 src="../assets/svg/play-green.svg"
 								 alt="">
-							<img class=""
-								 src="../assets/svg/disc.svg"
-								 alt="">
-							<img class=""
+								 <img class=""
 								 src="../assets/svg/volume.svg"
 								 alt="">
+							<img class=""
+								 src="../assets/svg/playlist.svg"
+								 alt="">
+
 							<img class=""
 								 src="../assets/svg/mic.svg"
 								 alt="">

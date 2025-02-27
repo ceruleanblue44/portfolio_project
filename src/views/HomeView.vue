@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, nextTick } from 'vue';
+import { onMounted } from 'vue';
 import MainHeader from '@/components/MainHeader/MainHeader.vue';
 
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -7,17 +7,14 @@ import MainHeader from '@/components/MainHeader/MainHeader.vue';
 import CheckboxQuestion from '@/components/CheckboxQuestion/CheckboxQuestion.vue';
 import { checkboxQuestionTrack1 } from "@/quizData/checkboxQuestionTrack1"
 
-onMounted(async () => {
-	// Wait for the DOM to be fully updated
-	await nextTick();
 
-	nextTick(() => {
-		// animateText()
-	})
+const showAfter = () => {
+	console.log('showing after');
+}
 
-	// setTimeout(() => {
-	// 	ScrollTrigger.refresh();
-	// }, 500);
+onMounted(() => {
+
+
 
 });
 </script>
@@ -73,6 +70,4 @@ onMounted(async () => {
 </template>
 
 <style scoped
-	   lang="scss">
-
-	</style>
+	   lang="scss"></style>

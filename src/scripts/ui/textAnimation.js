@@ -24,4 +24,5 @@ export const textAnimation = () => {
 			'-=2.0'
 		)
 		.to(text1, { opacity: 0, duration: 3, y: -50, ease: 'back' }, '-=0.5')
+		.to(text2, { y: -40, duration: 1 }, '-=2.5')
 }
