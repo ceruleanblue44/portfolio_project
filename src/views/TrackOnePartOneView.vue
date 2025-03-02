@@ -305,8 +305,6 @@ onMounted(async () => {
 				</div>
 				<div class="col-lg-8 col-xs-12">
 					<p class="text text-l text-center text-xs-left text-gray-1">
-						<!-- Сначала нужно осознать свою новую роль и
-						обязанности. Чтобы почувствовать разницу, посмотри на предыдущую роль. -->
 						Для понимания новой роли и&nbsp;обязанностей важно осознать разницу с&nbsp;предыдущей позицией.
 					</p>
 				</div>
@@ -316,8 +314,7 @@ onMounted(async () => {
 		</div>
 
 
-		<div class="container mb-rem-4-0 mb-xs-rem-3-0"
-			 id="question-app">
+		<div class="container mb-rem-4-0 mb-xs-rem-3-0">
 			<checkbox-question :answers-grid="checkboxQuestionTrack1.answersGrid"
 							   :check-rule="checkboxQuestionTrack1.checkRule"
 							   :use-clv="true"

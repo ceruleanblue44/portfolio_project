@@ -1,0 +1,233 @@
+@use "../../assets/styles/base/vars" as *;
+@use "../../assets/styles/abstracts/variables" as *;
+
+.toggle-button {
+    &__toggler {
+        position: relative;
+        width: 100px;
+        height: 50px;
+        flex-shrink: 0;
+        background-color: $primary;
+        border-radius: 500px;
+        transition: 0.3s;
+        outline: solid 1px rgba(30, 31, 31, 0.12);
+        outline-offset: -1px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 4px;
+            width: 44px;
+            height: 44px;
+            background-color: $white;
+            border-radius: 500px;
+            transition: 0.3s;
+        }
+    }
+
+    &__left,
+    &__right {
+        color: $neutral;
+        transition: 0.3s;
+    }
+
+    &__right {
+        color: $neutral-32;
+    }
+
+    label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+        appearance: none;
+        display: none;
+
+        &:checked {
+            & + label {
+                .toggle-button {
+                    &__toggler {
+                        background-color: $secondary;
+
+                        &::before {
+                            left: 52px;
+                        }
+                    }
+
+                    &__left {
+                        color: $neutral-32;
+                    }
+
+                    &__right {
+                        color: $neutral;
+                    }
+                }
+            }
+        }
+    }
+
+    @media #{$breakpoint-xs-only} {
+        &__toggler {
+            width: 72px;
+            height: 36px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                width: 26px;
+                height: 26px;
+            }
+        }
+
+        label {
+            gap: 12px;
+            font-size: $fs20;
+        }
+
+        input[type="checkbox"] {
+            &:checked {
+                & + label {
+                    .toggle-button {
+                        &__toggler {
+                            &::before {
+                                left: 41px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_white {
+        .toggle-button {
+            &__toggler {
+                background-color: rgba($white, 0.12);
+            }
+
+            &__left,
+            &__right {
+                color: $white;
+    }
+        }
+
+        input[type="checkbox"] {
+            &:checked {
+                & + label {
+                    .toggle-button {
+                        &__toggler {
+                            background-color: $white;
+
+                            &::before {
+                                background-color: #071322;
+                            }
+                        }
+
+                        &__left,
+                        &__right {
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.album-restyle {
+    &_3 {
+        .toggle-button {
+            &__left, &__right {
+                font-style: italic;
+                max-width: 315px;
+
+                & h4,
+                & h5 {
+                    // font-family: $Bold !important;
+                    @media #{$breakpoint-xs-only} {
+                        font-size: 16px !important;
+                    }
+                }
+            }
+
+            &__left {
+                color: $white;
+            }
+            &__toggler {
+                outline: solid 1px white;
+                background-color: transparent;
+                &::before {
+                    // background-color: $secondary3;
+                }
+                &__right {
+                    color: $neutral-32;
+                }
+            }
+            input[type="checkbox"] {
+                &:checked {
+                    & + label {
+                        .toggle-button {
+                            &__toggler {
+                                background-color: transparent;
+                            }
+                            &__left,
+                            &__right {
+                                color: $white;
+                            }
+                            &__left {
+                                color: $neutral-32;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_4 {
+        .toggle-button {
+            text-align: center;
+            &__toggler {
+                // background-color: $primary4;
+            }
+
+            input[type="checkbox"] {
+                &:checked {
+                    & + label {
+                        .toggle-button {
+                            &__toggler {
+                                // background-color: $secondary4;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__left, &__right {
+                & h4,
+                & h5 {
+                    // font-family: $SemiBold !important;
+                    @media #{$breakpoint-xs-only} {
+                        font-size: 14px !important;
+                    }
+                }
+            }
+        }
+
+        .toggle-anim {
+            & > :last-child {
+                margin-top: 40px;
+                @media (max-width: 719px) {
+                    margin-top: 32px;
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-// import TrackListView from '../views/TrackListView.vue'
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +26,11 @@ const router = createRouter({
 			path: '/track-1-1',
 			name: 'track-1-1',
 			component: () => import('../views/TrackOnePartOneView.vue')
+		},
+		{
+			path: '/track-1-2',
+			name: 'track-1-2',
+			component: () => import('../views/TrackOnePartTwoView.vue')
 		}
 	]
 })
