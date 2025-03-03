@@ -16,32 +16,29 @@ const _uid = ref(instance.uid)
 
 const toggleActive = ref(false)
 
-const timeline = ref(
-	gsap.timeline({
-		paused: true
-	})
-)
-
-console.log(timeline.value)
+const timeline = gsap.timeline({
+	paused: toggleActive.value
+})
 
 const timelineInit = () => {
 	props.tweens.forEach((tween) => {
-		timeline.value.add(tween(), 0)
+		timeline.add(tween(), 0)
 	})
+	timeline.pause(0)
 }
 
 watch(toggleActive, (newVal) => {
-	console.log(timeline.value)
 	if (newVal === true) {
-		timeline.value.play()
+		timeline.play()
 	} else {
-		timeline.value.reverse()
+		timeline.reverse()
 	}
 })
 
 onMounted(() => {
 	timelineInit()
 })
+
 </script>
 <template>
 	<div class="toggle-img">

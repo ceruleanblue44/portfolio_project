@@ -5,7 +5,7 @@ export const observeAnimation = (fn, ratio, unobserve) => {
 
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach((entry) => {
-			if (entry.isIntersecting) { // More reliable than intersectionRatio
+			if (entry.isIntersecting) {
 				fn();
 				if (unobserve) {
 					observer.unobserve(entry.target);
