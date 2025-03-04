@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export const textGramophoneAnimation = () => {
-	const section = document.querySelector('.js-gramophone-container'); // The entire section
+	const section = document.querySelector('.js-gramophone'); // The entire section
 	const textBlocks = gsap.utils.toArray('.js-gramophone-text'); // All text blocks
 
 	console.log(section, textBlocks);
@@ -29,8 +29,8 @@ export const textGramophoneAnimation = () => {
 			{ opacity: 0, y: 100 },
 			{
 				opacity: 1,
-				y: 0,
-				duration: 0.5,
+				y: -150,
+				duration: 0.4,
 				scrollTrigger: {
 					scroller: '.ps',
 					trigger: text,
@@ -44,8 +44,8 @@ export const textGramophoneAnimation = () => {
 
 		gsap.to(text, {
 			opacity: 0,
-			y: -100,
-			duration: 0.5,
+			// y: -100,
+			duration: 0.4,
 			scrollTrigger: {
 				scroller: '.ps',
 				trigger: text,
