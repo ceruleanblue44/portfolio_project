@@ -1,7 +1,8 @@
 <script setup>
 import { onMounted, ref, computed, nextTick } from 'vue'
 import RadioQuestionGrid from '../RadioQuestionGrid/RadioQuestionGrid.vue'
-import Star from '@/assets/svg/star.svg'
+import './DoubleQuestion.scss'
+import Star from '@/assets/svg/star-lg.svg'
 
 const answersHistory = ref([])
 
@@ -14,29 +15,24 @@ const feedbackShow = ref(false)
 
 const props = defineProps({
 	questionsData: { type: Array },
-	answerBtn: Boolean,
 })
 
 const emit = defineEmits(['complete'])
 
-const hasPickedAnswers = computed(() => {
+const answersPicked = computed(() => {
 	return currentAnswers.value.filter((elem) => elem !== null).length > 0;
 })
 
-const hasAllPickedAnswers = computed(() => {
+const allAnswersPicked = computed(() => {
 	return currentAnswers.value.filter((elem) => elem !== null).length === currentAnswers.value.length;
 })
-
-const answerBtnName = () => {
-	return props.answerBtn;
-}
 
 const getMarkerClassName = (markerIndex) => {
 	return {
 		'double-question__answer-history__marker_inactive': markerIndex > currentQuestion.value,
-		'double-question__answer-history__marker_current': markerIndex === currentQuestion.value && answersHistory[markerIndex] === null,
-		'double-question__answer-history__marker_correct': answersHistory[markerIndex] === true,
-		'double-question__answer-history__marker_incorrect': answersHistory[markerIndex] === false,
+		'double-question__answer-history__marker_current': markerIndex === currentQuestion.value && answersHistory.value[markerIndex] === null,
+		'double-question__answer-history__marker_correct': answersHistory.value[markerIndex] === true,
+		'double-question__answer-history__marker_incorrect': answersHistory.value[markerIndex] === false,
 	}
 }
 
@@ -46,80 +42,61 @@ const getSavedAnswerHistory = () => {
 
 const initQuestion = () => {
 	currentAnswers.value = [];
-	props.questionsData[currentQuestion].subQuestions.forEach(() => {
+	props.questionsData[currentQuestion.value].subQuestions.forEach(() => {
 		currentAnswers.value.push(null);
 	});
 }
 
 
 const setCurrentAnswers = (subQuestion, newAnswer) => {
+	// console.log(newAnswer);
 	currentAnswers.value.splice(subQuestion, 1, newAnswer);
+	// console.log(currentAnswers.value);
 }
 
-const resetQuestion = () => {
-	const savedSubQuestions = props.questionsData[currentQuestion].subQuestions;
-	props.questionsData[currentQuestion].subQuestions = [];
-	nextTick(() => {
-		props.questionsData[currentQuestion].subQuestions = savedSubQuestions;
-	});
-	currentAnswers.value.fill(null);
-	currentAnswers.value.splice(0, 0);
-}
+
+
+// const resetQuestion = () => {
+// 	const savedSubQuestions = props.questionsData[currentQuestion.value].subQuestions;
+// 	props.questionsData[currentQuestion.value].subQuestions = [];
+// 	nextTick(() => {
+// 		props.questionsData[currentQuestion.value].subQuestions = savedSubQuestions;
+// 	});
+// 	currentAnswers.value.fill(null);
+// 	currentAnswers.value.splice(0, 0);
+// }
 
 const acceptAnswer = () => {
 
-if (document.querySelector('.album-restyle_3_3') != null) {
-	nextQuestion();
-}
+	questionFeedbackShow.value = true;
 
-questionFeedbackShow.value = true;
-
-const isCorrect = currentAnswers.value.reduce((prev, cur) => prev && cur.correct, true);
-answersHistory.value.splice(currentQuestion, 1, isCorrect);
+	const isCorrect = currentAnswers.value.reduce((prev, cur) => prev && cur.correct, true);
+	// console.log(currentQuestion.value, isCorrect);
+	answersHistory.value.splice(currentQuestion.value, 1, isCorrect);
+	// console.log(answersHistory.value);
 
 }
 
 const nextQuestion = () => {
-if (currentQuestion.value < props.questionsData.length - 1) {
-	currentQuestion.value++;
-	questionFeedbackShow.value = false;
-	initQuestion();
-} else {
-	if (document.querySelector('.album-restyle_3_4') != null) {
-		let counterRightAnswers = document.querySelectorAll('.pair-question__answer-history__marker_correct').length;
-		// const positiveFeedback = $('.js-positive-feedback');
-		// const negativeFeedback = $('.js-negative-feedback');
-		if (counterRightAnswers === 8) {
-			// negativeFeedback.addClass('hide')
-			// positiveFeedback.removeClass('hide')
-			// setTimeout(() => {
-			// 	initHeadPhone('user/img/anim/headphones-green.json') 
-			// }, 300);
-		} else {
-			// positiveFeedback.addClass('hide')
-			// negativeFeedback.removeClass('hide')
-			// setTimeout(() => {
-			// 	initHeadPhone('user/img/anim/headphones-red.json') 
-			// }, 300);
-		}
-	}
-	
-
-	feedbackShow.value = true;
-
+	if (currentQuestion.value < props.questionsData.length - 1) {
+		currentQuestion.value++;
+		questionFeedbackShow.value = false;
+		initQuestion();
+	} else {
+		feedbackShow.value = true;
 		
-	nextTick(() => {
-		emit('complete');
-		if (document.querySelector('.album-restyle_3_4') == null) {
-			// gsap.to(ps.element, {
-			// 	scrollTop: ps.element.scrollTop + $refs.feedback.offsetHeight,
-			// 	duration: 1
-			// });
-		} else {
-			// scrollToContent(1);
-		}
-	});
-}
+		nextTick(() => {
+			emit('complete');
+			if (document.querySelector('.album-restyle_3_4') == null) {
+				// gsap.to(ps.element, {
+				// 	scrollTop: ps.element.scrollTop + $refs.feedback.offsetHeight,
+				// 	duration: 1
+				// });
+			} else {
+				// scrollToContent(1);
+			}
+		});
+	}
 }
 
 
@@ -158,6 +135,7 @@ onMounted(() => {
 	});
 
 	currentQuestion.value = answersHistory.value.indexOf(null);
+
 	if (currentQuestion.value === -1) {
 		currentQuestion.value = answersHistory.value.length - 1;
 		feedbackShow.value = true;
@@ -181,16 +159,13 @@ onMounted(() => {
 							<Star v-for="(answer, index) in answersHistory"
 								  :key="`markers-${index}`"
 								  :class="['double-question__answer-history__marker', getMarkerClassName(index)]" />
-							<!-- <svg v-for="(answer, index) in answersHistory" :key="`markers-${index}`" :class="['double-question__answer-history__marker', getMarkerClassName(index)]">
-                                <use xlink:href="user/svg/sprite.svg#4star-color" />
-                            </svg> -->
 						</div>
 						<h3 class="double-question__title">
 							{{ questionsData[currentQuestion].title }}
 						</h3>
 					</div>
 					<div class="col-lg-4 col-xs-12">
-						<div class="balloon text-center">
+						<div class="hint text-center">
 							<h6>{{ questionsData[currentQuestion].task }}</h6>
 						</div>
 					</div>
@@ -199,7 +174,7 @@ onMounted(() => {
 					<div v-for="(subQuestion, index) in questionsData[currentQuestion].subQuestions"
 						 :key="`questions-${currentQuestion}-${index}`"
 						 :class="['col-lg-6 col-xs-12 mb-rem-1-50 mb-xs-rem-1-0', `order-xs-${index}`]">
-						<div class="balloon balloon_white balloon_small h-100 d-flex jc-center ai-center">
+						<div class="card card_white card_small h-100 d-flex jc-center ai-center">
 							<p class="text text-s text-semibold text-center">
 								{{ subQuestion.text }}
 							</p>
@@ -220,35 +195,33 @@ onMounted(() => {
 			</div>
 
 			<div class="btn-container btn-container_center mb-rem-4-0 mb-xs-rem-1-50">
-				<button v-if="!feedbackShow && !questionFeedbackShow"
+				<!-- <button v-if="!feedbackShow && !questionFeedbackShow"
 						class="btn btn_back"
 						type="button"
-						:disabled="!hasPickedAnswers || questionFeedbackShow"
+						:disabled="!answersPicked || questionFeedbackShow"
 						@click="resetQuestion">
 					<span class="btn__text">Сбросить</span>
-				</button>
-				<button v-else-if="feedbackShow"
+				</button> -->
+				<button v-if="feedbackShow"
 						class="btn btn_back"
 						type="button"
 						@click="resetPractice">
-					<span class="btn__text">Сбросить</span>
+					<span class="btn__text">Попробовать еще раз</span>
 				</button>
-				<button type="button"
-						v-if="!questionFeedbackShow"
+
+				<button v-if="!questionFeedbackShow"
+						type="button"
 						class="btn btn_next"
-						:disabled="!hasAllPickedAnswers"
+						:disabled="!allAnswersPicked"
 						@click="acceptAnswer">
 					<span class="btn__text">Ответить</span>
 				</button>
-				<button type="button"
-						v-else
+				<button v-else
+						type="button"
 						class="btn btn_next"
 						:disabled="feedbackShow"
 						@click="nextQuestion">
-					<span v-if='answerBtnName()'
-						  class="btn__text">Продолжить</span>
-					<span v-else
-						  class="btn__text">Ответить</span>
+					<span class="btn__text">Продолжить</span>
 				</button>
 			</div>
 		</div>

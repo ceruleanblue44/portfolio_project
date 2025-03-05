@@ -281,107 +281,107 @@ swiper-container::part(container) {
 	}
 }
 
-.album-restyle {
-	&_2 {
-		.playlist-slider {
-			.slider {
-				&__btn {
-					&-next,
-					&-prev {
-						color: $secondary;
-					}
+// .album-restyle {
+// 	&_2 {
+// 		.playlist-slider {
+// 			.slider {
+// 				&__btn {
+// 					&-next,
+// 					&-prev {
+// 						color: $secondary;
+// 					}
 
-					&_disabled {
-						color: rgba($secondary, 0.16);
-					}
-				}
+// 					&_disabled {
+// 						color: rgba($secondary, 0.16);
+// 					}
+// 				}
 
-				&__pagination {
-					& > .swiper-pagination-bullet {
-						background-color: rgba($secondary, 0.32);
-					}
+// 				&__pagination {
+// 					& > .swiper-pagination-bullet {
+// 						background-color: rgba($secondary, 0.32);
+// 					}
 
-					& > .swiper-pagination-bullet-active {
-						background-color: $secondary;
-					}
-				}
-			}
+// 					& > .swiper-pagination-bullet-active {
+// 						background-color: $secondary;
+// 					}
+// 				}
+// 			}
 
-			&_dark {
-				.slider {
-					&__btn {
-						&-next,
-						&-prev {
-							color: $white;
-						}
+// 			&_dark {
+// 				.slider {
+// 					&__btn {
+// 						&-next,
+// 						&-prev {
+// 							color: $white;
+// 						}
 
-						&_disabled {
-							color: rgba($white, 0.16);
-						}
-					}
+// 						&_disabled {
+// 							color: rgba($white, 0.16);
+// 						}
+// 					}
 
-					&__pagination {
-						& > .swiper-pagination-bullet {
-							background-color: rgba($primary, 0.32);
-						}
+// 					&__pagination {
+// 						& > .swiper-pagination-bullet {
+// 							background-color: rgba($primary, 0.32);
+// 						}
 
-						& > .swiper-pagination-bullet-active {
-							background-color: $primary;
-							border-color: $primary;
-						}
-					}
-				}
-			}
-		}
-		&_5 {
-			.playlist-slider {
-				.slider {
-					&__pagination {
-						& > .swiper-pagination-bullet {
-							background-color: rgba($secondary, 0.32) !important;
-							border: 1px solid #f2f3f7 !important;
-						}
+// 						& > .swiper-pagination-bullet-active {
+// 							background-color: $primary;
+// 							border-color: $primary;
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 		&_5 {
+// 			.playlist-slider {
+// 				.slider {
+// 					&__pagination {
+// 						& > .swiper-pagination-bullet {
+// 							background-color: rgba($secondary, 0.32) !important;
+// 							border: 1px solid #f2f3f7 !important;
+// 						}
 
-						& > .swiper-pagination-bullet-active {
-							background-color: $primary !important;
-						}
-					}
-				}
-			}
-		}
-	}
+// 						& > .swiper-pagination-bullet-active {
+// 							background-color: $primary !important;
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
 
-	&_4 {
-		.playlist-slider {
-			.slider {
-				&__pagination {
-					& > .swiper-pagination-bullet {
-						background-color: transparent !important;
-						border: solid 1px rgba($surface, 0.5);
-					}
+// 	&_4 {
+// 		.playlist-slider {
+// 			.slider {
+// 				&__pagination {
+// 					& > .swiper-pagination-bullet {
+// 						background-color: transparent !important;
+// 						border: solid 1px rgba($surface, 0.5);
+// 					}
 
-					& > .swiper-pagination-bullet-active {
-						background-color: $secondary !important;
-					}
-				}
-			}
-		}
+// 					& > .swiper-pagination-bullet-active {
+// 						background-color: $secondary !important;
+// 					}
+// 				}
+// 			}
+// 		}
 
-		&_6 {
-			.playlist-slider {
-				.slider {
-					&__pagination {
-						& > .swiper-pagination-bullet {
-							background-color: $neutral-32 !important;
-							border: $neutral-32;
-						}
+// 		&_6 {
+// 			.playlist-slider {
+// 				.slider {
+// 					&__pagination {
+// 						& > .swiper-pagination-bullet {
+// 							background-color: $neutral-32 !important;
+// 							border: $neutral-32;
+// 						}
 
-						& > .swiper-pagination-bullet-active {
-							background-color: $secondary !important;
-						}
-					}
-				}
-			}
-		}
-	}
-}
+// 						& > .swiper-pagination-bullet-active {
+// 							background-color: $secondary !important;
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }

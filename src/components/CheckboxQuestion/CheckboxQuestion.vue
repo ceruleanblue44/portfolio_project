@@ -122,13 +122,13 @@ onMounted(() => {
 												@select-answer="setCurrentAnswer($event)">
 				</checkbox-question-grid>
 				<button v-if='!answerBtnName'
-						class="btn btn_mod-3 js-btn-answer w-100 mt-rem-2-50 mt-xs-rem-2-0"
+						class="btn js-btn-answer w-100 mt-rem-2-50 mt-xs-rem-2-0"
 						:disabled="selectedAnswersCount === 0 || feedbackShow"
 						@click="acceptAnswer()">
 					Выбрать
 				</button>
 				<button v-else
-						class="btn btn_mod-3 js-btn-answer w-100 mt-rem-2-50 mt-xs-rem-2-0"
+						class="btn js-btn-answer w-100 mt-rem-2-50 mt-xs-rem-2-0"
 						:disabled="selectedAnswersCount === 0 || feedbackShow"
 						@click="acceptAnswer()">
 					Ответить

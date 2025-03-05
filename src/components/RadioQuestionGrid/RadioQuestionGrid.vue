@@ -38,8 +38,8 @@ const getAdditionalAnswerClass = (answer) => {
 }
 
 // eslint-disable-next-line no-unused-vars
-watch(selectedAnswer, function (newVal, oldVal) {
-	console.log(newVal, oldVal);
+watch(selectedAnswer, function (newVal) {
+	// console.log(newVal);
 	emit('select-answer', newVal);
 })
 
@@ -64,7 +64,7 @@ onMounted(() => {
 				<input type="radio"
 					   :name="`radio-answer-${_uid}`"
 					   :id="`radio-answer-${_uid}-${answerIndex}`"
-					   :value="answer.text"
+					   :value="answer"
 					   :disabled="props.disabled"
 					   v-model="selectedAnswer">
 				<label :for="`radio-answer-${_uid}-${answerIndex}`">

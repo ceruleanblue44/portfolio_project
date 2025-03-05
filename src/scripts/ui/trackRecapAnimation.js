@@ -3,9 +3,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const textGramophoneAnimation = () => {
-	const section = document.querySelector('.js-gramophone'); // The entire section
-	const textBlocks = gsap.utils.toArray('.js-gramophone-text'); // All text blocks
+export const trackRecapAnimation = () => {
+	const section = document.querySelector('.js-track-recap'); // The entire section
+	const textBlocks = gsap.utils.toArray('.js-track-recap-text'); // All text blocks
 
 	// console.log(section, textBlocks);
 
@@ -26,7 +26,7 @@ export const textGramophoneAnimation = () => {
 	textBlocks.forEach((text, i) => {
 		gsap.fromTo(
 			text,
-			{ opacity: 0, y: 100 },
+			{ opacity: 0, y: 200 },
 			{
 				opacity: 1,
 				y: -150,
