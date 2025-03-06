@@ -1,0 +1,80 @@
+@use "../base/vars" as *;
+@use "../abstracts/variables" as *;
+
+.story {
+    &__container {
+        padding: 60px;
+        background-image: url('../img/backgrounds/story.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 48px;
+
+        @media #{$breakpoint-xs-only} {
+            padding: 32px 24px;
+            border-radius: 32px;
+        }
+    }
+
+    &__head {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        @media #{$breakpoint-xs-only} {
+            display: block;
+        }
+    }
+
+    &__picture {
+        position: relative;
+
+        img {
+            width: 100%;
+            max-width: 306px;
+            max-height: 306px;
+            border-radius: 282px;
+            cursor: pointer;
+
+            @media #{$breakpoint-xs-only} {
+                max-width: 240px;
+                max-height: 240px;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: calc(50% - 64px);
+            left: calc(50% - 64px);
+            width: 128px;
+            height: 128px;
+            background-image: url('../img/menu/stories/play-yellow.svg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: btn-pulse alternate 0.5s infinite;
+            pointer-events: none;
+        }
+    }
+
+    &__footer {
+        display: grid;
+        grid-template-columns: 432px;
+        justify-content: center;
+
+        @media #{$breakpoint-xs-only} {
+            display: block;
+        }
+    }
+
+    @keyframes btn-pulse {
+        from {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(1.2);
+        }
+    }
+}
+

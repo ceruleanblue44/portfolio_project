@@ -7,8 +7,6 @@ export const textGramophoneAnimation = () => {
 	const section = document.querySelector('.js-gramophone'); // The entire section
 	const textBlocks = gsap.utils.toArray('.js-gramophone-text'); // All text blocks
 
-	// console.log(section, textBlocks);
-
 	// Pin the section so it stays in place
 	ScrollTrigger.create({
 		scroller: '.ps',
@@ -29,7 +27,7 @@ export const textGramophoneAnimation = () => {
 			{ opacity: 0, y: 100 },
 			{
 				opacity: 1,
-				y: -150,
+				y: () => window.innerWidth < 768 ? -50 : -150, 
 				duration: 0.4,
 				scrollTrigger: {
 					scroller: '.ps',

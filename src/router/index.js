@@ -31,6 +31,11 @@ const router = createRouter({
 			path: '/track-1-2',
 			name: 'track-1-2',
 			component: () => import('../views/TrackOnePartTwoView.vue')
+		},
+		{
+			path: '/track-2',
+			name: 'track-2',
+			component: () => import('../views/TrackTwoView.vue')
 		}
 	]
 })

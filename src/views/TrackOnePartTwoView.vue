@@ -42,6 +42,8 @@ onMounted(async () => {
 	textGramophoneAnimation()
 
 	trackRecapAnimation()
+	
+	await nextTick()
 });
 
 </script>
@@ -54,7 +56,7 @@ onMounted(async () => {
 			</h1>
 			<hr class="hr hr_neutral-16 mb-rem-4-0 mb-xs-rem-3-0" />
 		</div>
-		<div class="container mb-rem-4-0 mb-xs-rem-3-0">
+		<!-- <div class="container mb-rem-4-0 mb-xs-rem-3-0">
 			<div class="row">
 				<div class="col-lg-4 hide-xs">&nbsp;
 				</div>
@@ -65,7 +67,7 @@ onMounted(async () => {
 				<div class="col-lg-4 hide-xs">&nbsp;
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<div class="container mb-rem-4-0 mb-xs-rem-2-0">
 			<div class="row">
 				<div class="col-lg-12 col-xs-12">
@@ -115,13 +117,11 @@ onMounted(async () => {
 
 		<div class="container mb-rem-9-75 mb-xs-rem-6-0">
 			<div class="container container_with-bg">
-				<h1 class="mb-rem-1-50 mb-xs-rem-1-50">Смена приоритетов
+				<h1 class="mb-rem-1-50 mb-xs-rem-1-50">Новые приоритеты
 				</h1>
 				<div class="row mb-rem-3-0 mb-xs-rem-2-0">
 					<div class="col-lg-7 col-xs-12">
-						<p class="text text-m">Твой главный приоритет &mdash; это команда. Поэтому в первую очередь
-							разрешай те проблемы, которые сильно влияют на ее эффективность. Для этого поменяй свой
-							распорядок дня. Работа должна строиться так:
+						<p class="text text-m">Твой главный фокус - команда. Первостепенное внимание уделяй задачам, влияющим на её эффективность. Для этого перестрой свой рабочий ритм:
 						</p>
 					</div>
 					<div class="col-lg-5 hide-xs">&nbsp;
@@ -136,7 +136,8 @@ onMounted(async () => {
 								 style="left: 121px; top: 0; width: 400px; height: 180px;">
 								<div class="card card_gray h-100">
 									<div class="d-flex ai-center h-100">
-										<p class="text text-l text-center">В начале дня выпиши все задачи, которые стоят
+										<p class="text text-l text-center">
+											Начинай день с обзора задач, которые стоят
 											перед тобой и твоей командой.
 										</p>
 									</div>
@@ -147,7 +148,7 @@ onMounted(async () => {
 								<div class="card card_gray h-100">
 									<div class="d-flex ai-center h-100">
 										<p class="text text-l text-center">Команда &mdash; это самое главное. Поэтому
-											начинай с&nbsp;задач, которые влияют на нее.
+											приоритет отдавай вопросам, влияющим на ее работу.
 										</p>
 									</div>
 								</div>
@@ -156,8 +157,7 @@ onMounted(async () => {
 								 style="left: 187px; bottom: 0; width: 400px; height: 180px;">
 								<div class="card card_gray h-100">
 									<div class="d-flex ai-center h-100">
-										<p class="text text-l text-center">Когда их закончишь, можешь приступать
-											к&nbsp;индивидуальным.
+										<p class="text text-l text-center">Затем переходи к индивидуальным задачам
 										</p>
 									</div>
 								</div>
@@ -190,23 +190,22 @@ onMounted(async () => {
 					</div>
 				</div>
 				<div class="card card_medium card-green">
-					<p class="text text-l text-white">Каждый член команды играет свою роль. А под твоим руководством
-						должна создаться неповторимая и завораживающая музыкальная композиция.
+					<p class="text text-l text-white">Каждый член команды вносит свой уникальный вклад. Твоя роль - создать среду, где все таланты раскрываются в полной мере.
 					</p>
 				</div>
 			</div>
 		</div>
 
 		<div class="container">
-			<h1 class="text-center text-xs-left mb-rem-0-75 mb-xs-rem-0-75">Ключевые вопросы
+			<h1 class="text-center text-xs-left mb-rem-0-75 mb-xs-rem-0-75">Три ключевых вопроса
 			</h1>
 			<hr class="hr hr_neutral-16 mb-rem-1-50 mb-xs-rem-1-50" />
 			<div class="row">
 				<div class="col-lg-2 hide-xs">&nbsp;
 				</div>
 				<div class="col-lg-8 col-xs-12">
-					<p class="text text-l text-center text-xs-left text-gray-1">Чтобы сформировать эффективную команду и
-						управлять ею, тебе надо всегда искать ответы на 3 ключевых вопроса.
+					<p class="text text-l text-center text-xs-left text-gray-1">
+						Для создания эффективной команды и управления ею, постоянно держи в фокусе три основных вопроса:
 					</p>
 				</div>
 				<div class="col-lg-2 hide-xs">&nbsp;
@@ -236,9 +235,17 @@ onMounted(async () => {
 					<div class="container gramophone__text-wrapper ">
 						<div class="row gramophone__text js-gramophone-text">
 							<div class="col-lg-6 col-xs-10 mb-rem-4-50">
+								<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Что делаем?
+								</h1>
+								<p class="text text-l text-white">Определи цели и желаемые результаты команды.
+								</p>
+							</div>
+						</div>
+						<div class="row gramophone__text js-gramophone-text">
+							<div class="col-lg-6 col-xs-10 mb-rem-4-50">
 								<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Кто делает?
 								</h1>
-								<p class="text text-l text-white">Определи, чего ты хочешь от своих коллег.
+								<p class="text text-l text-white">Распредели роли и ответственность.
 								</p>
 							</div>
 						</div>
@@ -246,15 +253,7 @@ onMounted(async () => {
 							<div class="col-lg-6 col-xs-10 mb-rem-4-50">
 								<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">За счет чего?
 								</h1>
-								<p class="text text-l text-white">Выстрой процесс достижения цели.
-								</p>
-							</div>
-						</div>
-						<div class="row gramophone__text js-gramophone-text">
-							<div class="col-lg-6 col-xs-10 mb-rem-4-50">
-								<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Что делаем?
-								</h1>
-								<p class="text text-l text-white">Реши, к какому результату должна прийти твоя команда.
+								<p class="text text-l text-white">Создай процессы и обеспечь ресурсы для достижения целей.
 								</p>
 							</div>
 						</div>
@@ -279,7 +278,7 @@ onMounted(async () => {
 			</div>
 		</div>
 		<div class="container mb-rem-4-0 mb-xs-rem-3-0">
-			<h1 class="text-center text-xs-left mb-rem-0-75 mb-xs-rem-0-75">Почувствуй разницу
+			<h1 class="text-center text-xs-left mb-rem-0-75 mb-xs-rem-0-75">Найди отличия
 			</h1>
 			<hr class="hr hr_neutral-16 mb-rem-1-50 mb-xs-rem-3-0" />
 			<div class="row">
@@ -319,16 +318,15 @@ onMounted(async () => {
 		<div class="container mb-rem-4-0 mb-xs-rem-3-0">
 			<div class="row">
 				<div class="col-lg-6 col-xs-12">
-					<h2 class="mb-rem-2-0 mb-xs-rem-1-50">Итак, в новом режиме руководителя твоя работа выглядит таким
-						образом:
+					<h2 class="mb-rem-2-0 mb-xs-rem-1-50">В новом режиме руководителя твои приоритеты такие:
 					</h2>
 					<ul class="list list__ul text text-l text-gray-1">
-						<li class="list__ul--item">Формируешь команду</li>
-						<li class="list__ul--item">Мотивируешь</li>
-						<li class="list__ul--item">Помогаешь развиваться</li>
-						<li class="list__ul--item">Контролируешь выполнение задач</li>
-						<li class="list__ul--item">Рассчитываешь риски</li>
-						<li class="list__ul--item">Общаешься с внутренними заказчиками</li>
+						<li class="list__ul--item">Формирование команды</li>
+						<li class="list__ul--item">Мотивация сотрудников</li>
+						<li class="list__ul--item">Помощь в развитии</li>
+						<li class="list__ul--item">Контроль выполнения задач</li>
+						<li class="list__ul--item">Управление рисками</li>
+						<li class="list__ul--item">Коммуникация с заказчиками</li>
 					</ul>
 				</div>
 			</div>
@@ -343,26 +341,24 @@ onMounted(async () => {
 						<img class="mr-rem-1-50 mr-xs-rem-1-0"
 						 src="../assets/svg/wave.svg"
 						 alt="">
-						<h4 class="text-white">Подпевай, как припеву любимой песни
+						<h4 class="text-white">Ключевые принципы нового подхода:
 						</h4>
 					</div>
 					<div class="track-recap__text-wrapper">
 						<div class="track-recap__text js-track-recap-text">
-							<h3 class="text-white text-xs-center w-100">Теперь я работаю на благо команды. Моя
+							<h3 class="text-white text-xs-center w-100">Мой успех измеряется результатами команды. Моя
 								эффективность =
 								результаты моей команды.
 							</h3>
 						</div>
 						<div class="track-recap__text js-track-recap-text">
-							<h3 class="text-white text-xs-center w-100">Я решаю в первую очередь проблемы, которые
-								мешают моей
-								команде.
+							<h3 class="text-white text-xs-center w-100">Приоритет - устранение препятствий для работы моей команды.
 							</h3>
 						</div>
 						<div class="track-recap__text js-track-recap-text">
 							<h3 class="text-white text-xs-center w-100">Я не всегда смогу погружаться в задачи &mdash; и
 								это не
-								страшно! У меня есть для этого команда.
+								страшно! Делегирование - основной инструмент достижения результатов.
 							</h3>
 						</div>
 					</div>
@@ -374,35 +370,33 @@ onMounted(async () => {
       <div class="container container_with-bg mb-rem-1-50">
         <div class="row mb-rem-3-0 mb-xs-rem-2-0">
           <div class="col-lg-3 col-xs-12 mb-xs-rem-2-50">
-            <h2>Небольшая рефлексия
+            <h2>Немного рефлексии
             </h2>
           </div>
           <div class="col-lg-9 col-xs-12">
-            <p class="text text-l text-semibold mb-rem-1-50 mb-xs-rem-1-0">Попробуй самостоятельно посмотреть, как поменялась твоя роль.
+            <p class="text text-l text-semibold mb-rem-1-50 mb-xs-rem-1-0">Попробуй провести самоанализ изменения роли:
             </p>
-            <div class="balloon balloon_gray pl-xs-rem-1-0 pr-xs-rem-1-0">
+            <div class="card card_gray pl-xs-rem-1-0 pr-xs-rem-1-0">
               <p class="text text-m">Подумай, чем еще отличается руководитель от специалиста.
               </p>
-              <p class="text text-m">Проанализируй предложенные в файле вопросы и заполни таблицу.
-              </p>
-              <p class="text text-m">Ты можешь поделиться решением этого задания на учебном портале. Загрузи файл с таблицей и нажми кнопку &laquo;Выполнено&raquo;.
+              <p class="text text-m">Проанализируй предложенные в файле вопросы и заполни сравнительную таблицу.
               </p>
             </div>
           </div>
         </div>
         <div class="row middle">
           <div class="col-lg-3 col-xs-12 mb-xs-rem-1-50">
-            <p class="text text-m">Эта практика поможет тебе увидеть сходства и различия на новой роли.
+            <p class="text text-m">Это упражнение поможет тебе увидеть сходства и различия прежней и новой ролей.
             </p>
           </div>
           <div class="col-lg-9 col-xs-12">
-            <div class="d-flex fw-wrap download-file__background download-file__background_green ai-center jc-space-between">
+            <div class="d-flex fw-wrap card-download  card-download__bg_green ai-center jc-space-between">
               <h4 class="text-white mb-xs-25">Руководитель VS специалист
               </h4>
-              <h4 class="text-white text-m mr-xs-15"><a class="track-recap__sticky-top d-flex download-file__background download-file__link cursor-pointer" download="" href="user/materials/album-1/Rukovoditel_VS_specialist.pdf">Скачать </a>
+              <a class="d-flex card-download__link cursor-pointer" download href="user/materials/album-1/Rukovoditel_VS_specialist.pdf"><h4 class="text-white text-m mr-xs-15">Скачать 
               </h4>
-              <a class="track-recap__sticky-top d-flex download-file__background download-file__link cursor-pointer" download="" href="user/materials/album-1/Rukovoditel_VS_specialist.pdf">
-                <!-- <svg class="icon icon-svg icon_xl ml-rem-1-0"> 
+			  <img class="ml-rem-1-0" src="../assets/svg/download.svg" alt="">
+                <!-- <svg class="icon icon-svg icon_xl"> 
                   <use xlink:href="user/svg/sprite.svg#download-file"> 
                   </use> 
                 </svg>  -->
@@ -415,25 +409,27 @@ onMounted(async () => {
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-xs-12">
-          <div class="new-story__container">
-            <div class="new-story__head mb-rem-3-0 mb-xs-rem-3-0">
+          <div class="story__container">
+            <div class="story__head mb-rem-3-0 mb-xs-rem-3-0">
               <div class="mb-xs-10">
-                <h2 class="text-white mb-10 mb-xs-10">Собираем для вас
+                <h2 class="text-white mb-10 mb-xs-10">Дополнительные материалы
                 </h2>
-                <p class="text text-m text-white">Погрузись в&nbsp;плейлист еще больше и&nbsp;изведай тайны музыки.
+                <p class="text text-m text-white">Углубись в тему управленческих приоритетов
                 </p>
               </div>
-              <div class="balloon text-center">Нажми на &laquo;Плей&raquo;, чтобы прочитать статью
+			  <div class="hide-xs">&nbsp;</div>
+              <div class="hint text-center">Нажми Play, чтобы прочитать статью
               </div>
             </div>
-            <div class="new-story__picture">
-				<!-- <img alt="" class="img_center" onclick="openStory('article-0')" src="user/img/menu/stories/story-1-1.png" /> -->
+            <div class="story__picture">
+				<img class="img_center" src="../assets/img/menu/stories/story-1-1.png" alt="">
+				<!-- <img alt=""  onclick="openStory('article-0')" src="user/img/menu/stories/story-1-1.png" /> -->
             </div>
-            <div class="new-story__footer mt-rem-1-50 mt-xs-rem-1-50">
-              <div class="balloon balloon_new-story">
+            <div class="story__footer mt-rem-1-50 mt-xs-rem-1-50">
+              <div class="card card_story">
                 <p class="text text-m text-white">статья
                 </p>
-                <p class="text text-xl text-white">Смена приоритетов
+                <p class="text text-xl text-white">Управление приоритетами
                 </p>
               </div>
             </div>
@@ -442,6 +438,13 @@ onMounted(async () => {
       </div>
     </div>
 
-		<!-- <div style="height: 100vh"></div> -->
+	<div class="container btn-container btn-container_center mt-rem-9-75 mb-rem-2-50 mt-xs-rem-6-0 mb-xs-rem-2-50">
+			<button class="btn btn_back"
+					type="button"><span class="btn__text">Назад</span>
+			</button>
+			<button class="btn btn_next"
+					type="button"><span class="btn__text">Продолжить</span>
+			</button>
+		</div>
 	</PerfectScrollbar>
 </template>

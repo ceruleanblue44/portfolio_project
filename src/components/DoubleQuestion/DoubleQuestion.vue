@@ -19,9 +19,9 @@ const props = defineProps({
 
 const emit = defineEmits(['complete'])
 
-const answersPicked = computed(() => {
-	return currentAnswers.value.filter((elem) => elem !== null).length > 0;
-})
+// const answersPicked = computed(() => {
+// 	return currentAnswers.value.filter((elem) => elem !== null).length > 0;
+// })
 
 const allAnswersPicked = computed(() => {
 	return currentAnswers.value.filter((elem) => elem !== null).length === currentAnswers.value.length;
@@ -203,7 +203,7 @@ onMounted(() => {
 					<span class="btn__text">Сбросить</span>
 				</button> -->
 				<button v-if="feedbackShow"
-						class="btn btn_back"
+						class="btn btn_back w-xs-100 mb-xs-rem-1-50"
 						type="button"
 						@click="resetPractice">
 					<span class="btn__text">Попробовать еще раз</span>
@@ -218,7 +218,7 @@ onMounted(() => {
 				</button>
 				<button v-else
 						type="button"
-						class="btn btn_next"
+						class="btn btn_next ml-xs-0"
 						:disabled="feedbackShow"
 						@click="nextQuestion">
 					<span class="btn__text">Продолжить</span>
