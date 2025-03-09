@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted } from 'vue'
 import { customCursor } from '@/scripts/ui/customCursor'
 import { discAnimation } from '@/scripts/ui/discAnimation'
 
@@ -7,6 +7,8 @@ import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import IntroInstructions from '@/components/IntroInstructions/IntroInstructions.vue'
 import RadioQuestion from '@/components/RadioQuestion/RadioQuestion.vue'
 import { radioQuestionIntro } from '@/quizData/radioQuestionIntro'
+
+import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 import { swiperInit } from '@/scripts/ui/swiperSlider'
 import { tabsInit } from '@/scripts/ui/tabs'
@@ -14,19 +16,10 @@ import { tabsInit } from '@/scripts/ui/tabs'
 import ArrowSquareRight from '@/assets/svg/arrow-square-right.svg';
 import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg';
 
-// function onScrollEvent(event) {
-// 	console.log(event);
-// }
-
 const svgContent = ref('');
 
 onMounted(async () => {
-
-	const response = await fetch('/src/assets/svg/headphones.svg');
-	svgContent.value = await response.text();
-
-	// Wait for Vue to render the injected SVG
-	await nextTick();
+	svgContent.value = await fetchSvg()
 
 	customCursor()
 	discAnimation()

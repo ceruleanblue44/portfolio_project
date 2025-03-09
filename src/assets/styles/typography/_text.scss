@@ -15,6 +15,16 @@
 		margin-top: 10px;
 	}
 
+	&-64-40 {
+		font-size: $fs64;
+		line-height: $lh100;
+
+		@media #{$breakpoint-xs-only} {
+			font-size: $fs40;
+			line-height: $lh100;
+		}
+	}
+
 	&-64-32 {
 		font-size: $fs64;
 		line-height: $lh130;

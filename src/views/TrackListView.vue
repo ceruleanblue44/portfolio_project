@@ -3,6 +3,7 @@ import { ref, onMounted, nextTick } from 'vue'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 
 import { vinylAnimation } from '@/scripts/ui/vinylAnimation'
+import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 import { observeAnimation } from '@/scripts/ui/observeAnimation'
 import PlayCircle from '@/assets/svg/play-circle.svg'
@@ -14,18 +15,15 @@ const svgContent = ref('');
 
 onMounted(async () => {
 
-	const response = await fetch('/src/assets/svg/headphones.svg');
-	svgContent.value = await response.text();
+	svgContent.value = await fetchSvg()
 
-	// Wait for Vue to render the injected SVG
 	await nextTick();
 
 	vinylAnimation()
 	tabsInit()
 	accordionInit()
-
-	await nextTick();
 	observeAnimation(headphonesAnimation, 0.4, true)
+
 
 })
 
@@ -35,18 +33,20 @@ onMounted(async () => {
 		<MainHeader />
 		<div class="container mt-rem-9-75 mt-xs-rem-6-0 mb-rem-9-75 mb-xs-rem-6-0">
 			<div class="row">
-				<div class="col-lg-2 hide-xs"> 
+				<div class="col-lg-2 hide-xs">
 				</div>
 				<div class="col-lg-8 col-xs-12">
 					<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
 						 src="../assets/svg/star.svg"
 						 alt="">
-					<p class="text text-xl text-center">Добро пожаловать в&nbsp;роль руководителя! Как&nbsp;исполнитель перед
-						важным выступлением, ты&nbsp;сейчас переживаешь особенный момент. В&nbsp;альбоме &laquo;Хиты&raquo; ты
+					<p class="text text-xl text-center">Добро пожаловать в&nbsp;роль руководителя! Как&nbsp;исполнитель
+						перед
+						важным выступлением, ты&nbsp;сейчас переживаешь особенный момент. В&nbsp;альбоме
+						&laquo;Хиты&raquo; ты
 						найдешь все инструменты для успешного старта.
 					</p>
 				</div>
-				<div class="col-lg-2 hide-xs"> 
+				<div class="col-lg-2 hide-xs">
 				</div>
 			</div>
 		</div>
@@ -77,7 +77,7 @@ onMounted(async () => {
 							<img class=""
 								 src="../assets/svg/play-green.svg"
 								 alt="">
-								 <img class=""
+							<img class=""
 								 src="../assets/svg/volume.svg"
 								 alt="">
 							<img class=""
@@ -159,7 +159,8 @@ onMounted(async () => {
 							<div class="tab__item pt-rem-2-0 js-tab-item animate__animated animate__fadeInUp">
 								<h2 class="mb-rem-1-25 mb-xs-rem-0-75">Изменения при переходе на&nbsp;новую должность
 								</h2>
-								<p class="text-l text-gray-1">Познакомься с&nbsp;ожиданиями и&nbsp;стандартами эффективности в&nbsp;новой роли.
+								<p class="text-l text-gray-1">Познакомься с&nbsp;ожиданиями и&nbsp;стандартами
+									эффективности в&nbsp;новой роли.
 								</p>
 							</div>
 							<div class="tab__item pt-rem-2-0 js-tab-item animate__animated animate__fadeInUp">
@@ -172,14 +173,16 @@ onMounted(async () => {
 							<div class="tab__item pt-rem-2-0 js-tab-item animate__animated animate__fadeInUp">
 								<h2 class="mb-rem-1-25 mb-xs-rem-0-75">Профиль руководителя
 								</h2>
-								<p class="text-l text-gray-1">Исследуй ключевые компетенции успешного лидера и&nbsp;спланируй
+								<p class="text-l text-gray-1">Исследуй ключевые компетенции успешного лидера
+									и&nbsp;спланируй
 									свое развитие.
 								</p>
 							</div>
 							<div class="tab__item pt-rem-2-0 js-tab-item animate__animated animate__fadeInUp">
 								<h2 class="mb-rem-1-25 mb-xs-rem-0-75">Первые шаги
 								</h2>
-								<p class="text-l text-gray-1">Освой стратегии быстрой интеграции и&nbsp;создания продуктивных
+								<p class="text-l text-gray-1">Освой стратегии быстрой интеграции и&nbsp;создания
+									продуктивных
 									отношений в&nbsp;команде.
 								</p>
 							</div>
@@ -200,7 +203,8 @@ onMounted(async () => {
 							<div class="tab__item pt-rem-2-0 js-tab-item animate__animated animate__fadeInUp">
 								<h2 class="mb-rem-1-25 mb-xs-rem-0-75">Новый формат
 								</h2>
-								<p class="text-l text-gray-1">Научись грамотно выстраивать отношения с&nbsp;бывшими коллегами
+								<p class="text-l text-gray-1">Научись грамотно выстраивать отношения с&nbsp;бывшими
+									коллегами
 									в&nbsp;роли руководителя.
 								</p>
 							</div>
@@ -330,7 +334,8 @@ onMounted(async () => {
 										<hr class="hr hr_neutral-16 mb-20 mb-xs-10" />
 										<p class="text-28 text-bold mb-xs-rem-0-75">Уровни управления
 										</p>
-										<p class="text-l text-gray-1">Изучи структуру менеджмента и&nbsp;определи свою зону
+										<p class="text-l text-gray-1">Изучи структуру менеджмента и&nbsp;определи свою
+											зону
 											ответственности.
 										</p>
 									</div>
@@ -352,7 +357,8 @@ onMounted(async () => {
 										<hr class="hr hr_neutral-16 mb-20 mb-xs-10" />
 										<p class="text-28 text-bold mb-xs-rem-0-75">Профиль руководителя
 										</p>
-										<p class="text-l text-gray-1">Исследуй ключевые компетенции успешного лидера и&nbsp;спланируй
+										<p class="text-l text-gray-1">Исследуй ключевые компетенции успешного лидера
+											и&nbsp;спланируй
 											свое развитие.
 										</p>
 									</div>
@@ -374,7 +380,7 @@ onMounted(async () => {
 										<hr class="hr hr_neutral-16 mb-20 mb-xs-10" />
 										<p class="text-28 text-bold mb-xs-rem-0-75">Первые шаги
 										</p>
-										<p class="text-l text-gray-1">Освой стратегии быстрой интеграции и&nbsp;создания 
+										<p class="text-l text-gray-1">Освой стратегии быстрой интеграции и&nbsp;создания
 											продуктивных отношений в&nbsp;команде.
 										</p>
 									</div>
@@ -419,7 +425,8 @@ onMounted(async () => {
 										<hr class="hr hr_neutral-16 mb-20 mb-xs-10" />
 										<p class="text-28 text-bold mb-xs-rem-0-75">Командная динамика
 										</p>
-										<p class="text-l text-gray-1">Выстрой эффективное взаимодействие в&nbsp;команде и&nbsp;с
+										<p class="text-l text-gray-1">Выстрой эффективное взаимодействие в&nbsp;команде
+											и&nbsp;с
 											коллегами-руководителями.
 										</p>
 									</div>
@@ -441,7 +448,8 @@ onMounted(async () => {
 										<hr class="hr hr_neutral-16 mb-20 mb-xs-10" />
 										<p class="text-28 text-bold mb-xs-rem-0-75">Новый формат
 										</p>
-										<p class="text-l text-gray-1">Научись грамотно выстраивать отношения с&nbsp;бывшими
+										<p class="text-l text-gray-1">Научись грамотно выстраивать отношения
+											с&nbsp;бывшими
 											коллегами
 											в&nbsp;роли руководителя.
 										</p>
@@ -458,7 +466,8 @@ onMounted(async () => {
 			<div class="row">
 				<div class="col-lg-8 col-xs-12">
 					<div class="card card_medium card_gray h-100 d-flex ai-center">
-						<p class="text text-l">Нажми кнопку &laquo;Продолжить&raquo; чтобы перейти к&nbsp;первому треку. Если хочешь
+						<p class="text text-l">Нажми кнопку &laquo;Продолжить&raquo; чтобы перейти к&nbsp;первому треку.
+							Если хочешь
 							начать с&nbsp;другого, открой меню и&nbsp;выбери понравившийся трек.
 						</p>
 					</div>

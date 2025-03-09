@@ -67,23 +67,9 @@ const acceptAnswer = () => {
 	if (props.checkRule.type === 'count') {
 		isCorrect =props.checkRule.check(selectedAnswersCount.value);
 	}
-
-	// switch (this.checkRule.type) {
-	// 	case 'count':
-	// 		isCorrect = this.checkRule.check(this.selectedAnswersCount);
-	// 		break;
-
-	// 	default:
-	// 		break;
-	// }
 	
 	currentFeedback.value = isCorrect ? 'feedback-0' : 'feedback-1'
-	// if (isCorrect) {
-	// 	currentFeedback.value = 'feedback-0';
-	// } else {
-	// 	currentFeedback.value = 'feedback-1';
-	// }
-
+	
 	feedbackShow.value = true;
 
 	nextTick(() => {

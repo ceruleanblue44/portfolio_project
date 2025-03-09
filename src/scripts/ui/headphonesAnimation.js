@@ -1,6 +1,15 @@
 import { gsap } from 'gsap';
 
-export const headphonesAnimation = () => {
+const lineColors = {
+	red: ["F5678B", "#E20B73", "#F3EA02"], 
+	green: ["#5ED8D9", "#029D9C", "#F3EA02"], 
+	blue: ["#5ED8D9", "#FF6394", "#A8AFF9", "#F3EA02"],
+}
+
+export const headphonesAnimation = (color) => {
+
+	const lineColorsOption = lineColors[color] ?? lineColors.blue
+
 	const lines = gsap.utils.toArray(".line");
 
 	const tl = gsap.timeline().to(".hp", {
@@ -33,8 +42,7 @@ export const headphonesAnimation = () => {
 			duration: gsap.utils.random(0.2, 0.5), // Different speeds for each line
 			ease: "sine.inOut",
 			delay: 1.2 + index * 0.1,
-
-			stroke: gsap.utils.wrap(["#5ED8D9", "#FF6394", "#A8AFF9", "#F3EA02"]),
+			stroke: gsap.utils.wrap(lineColorsOption),
 			opacity: gsap.utils.random(0.3, 1),
 			repeat: 5,
 			yoyo: true,

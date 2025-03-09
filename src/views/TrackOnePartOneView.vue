@@ -11,6 +11,7 @@ import { textAnimation } from '@/scripts/ui/textAnimation'
 
 import CheckboxQuestion from '@/components/CheckboxQuestion/CheckboxQuestion.vue'
 import { checkboxQuestionTrack1 } from "@/quizData/checkboxQuestionTrack1"
+import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 
 const svgContent = ref('')
@@ -39,8 +40,7 @@ onMounted(async () => {
 	// Initialize the Lottie animation
 	initLottieScroll();
 
-	const response = await fetch('/src/assets/svg/headphones.svg');
-	svgContent.value = await response.text();
+	svgContent.value = await fetchSvg()
 
 	highlightBlocks()
 

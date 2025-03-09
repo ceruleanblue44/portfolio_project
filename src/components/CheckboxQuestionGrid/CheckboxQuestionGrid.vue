@@ -71,7 +71,7 @@ onMounted(() => {
 							 :src="answer.img"
 							 alt=""
 							 class="img_center mb-10 mb-xs-10">
-						<p class="text-center">
+						<p class="text-semibold text-center">
 							{{ answer.text }}
 						</p>
 					</div>

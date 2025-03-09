@@ -10,6 +10,7 @@ import { trackRecapAnimation } from '@/scripts/ui/trackRecapAnimation'
 
 import DoubleQuestion from '@/components/DoubleQuestion/DoubleQuestion.vue'
 import { doubleQuestions } from '@/quizData/doubleQuestion'
+import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 
 const svgContent = ref('')
@@ -26,8 +27,7 @@ const showAfter = () => {
 
 onMounted(async () => {
 
-	const response = await fetch('/src/assets/svg/headphones.svg');
-	svgContent.value = await response.text();
+	svgContent.value = await fetchSvg()
 
 	setTimeout(() => {
 		ScrollTrigger.refresh()
@@ -43,7 +43,7 @@ onMounted(async () => {
 
 	trackRecapAnimation()
 	
-	await nextTick()
+	// await nextTick()
 });
 
 </script>
@@ -426,12 +426,14 @@ onMounted(async () => {
 				<!-- <img alt=""  onclick="openStory('article-0')" src="user/img/menu/stories/story-1-1.png" /> -->
             </div>
             <div class="story__footer mt-rem-1-50 mt-xs-rem-1-50">
+				<div class="hide-xs">&nbsp;</div>
               <div class="card card_story">
                 <p class="text text-m text-white">статья
                 </p>
                 <p class="text text-xl text-white">Управление приоритетами
                 </p>
               </div>
+			  <div class="hide-xs">&nbsp;</div>
             </div>
           </div>
         </div>

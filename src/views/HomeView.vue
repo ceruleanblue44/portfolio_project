@@ -5,6 +5,8 @@ import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import DoubleQuestion from '@/components/DoubleQuestion/DoubleQuestion.vue'
 import { doubleQuestions } from '@/quizData/doubleQuestion'
 
+import { fetchSvg } from '@/scripts/utils/fetchSvg'
+
 const svgContent = ref('')
 
 const showAfter = () => {
@@ -12,8 +14,7 @@ const showAfter = () => {
 }
 
 onMounted(async() => {
-	const response = await fetch('/src/assets/svg/headphones.svg');
-	svgContent.value = await response.text();
+	svgContent.value = await fetchSvg()
 });
 </script>
 
