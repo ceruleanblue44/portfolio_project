@@ -89,14 +89,16 @@ div {
 		}
 	}
 
-	&_bg-practice-music {
+	&_bg-instrument-picker {
+		position: relative;
 		height: 805px;
 		border-radius: 48px;
 		background: transparent;
-		background-image: url("../img/album-1/track-2/bg-practice-music.png");
+		background-image: url("../img/backgrounds/instrument-picker.png");
 		background-repeat: no-repeat;
 		padding: 80px 40px 80px 40px !important;
 		overflow: hidden;
+
 		@media #{$breakpoint-xs-only} {
 			padding: 32px 16px 32px 16px !important;
 			height: 760px;

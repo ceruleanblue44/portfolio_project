@@ -283,5 +283,170 @@ onMounted(async () => {
 				неэффективно. Поэтому для каждого руководителя отводится одна основная область управления.
 			</p>
 		</div>
+
+		<div class="container_full container_full-xs container_bg-instrument-picker mb-110 mb-xs-rem-6-0 relative">
+			<!--! Practice  -->
+			<div class="row ">
+				<div class="col-lg-8 col-xs-12 mb-xs-30">
+					<div class="text-xl text-white">Посмотри, чем занимаются руководители на разных уровнях менеджмента.
+					</div>
+				</div>
+				<div class="col-lg-4 col-xs-12 mb-xs-30">
+					<div class="balloon text-center">Нажимай на инструменты, чтобы узнать о ключевых областях управления
+						на
+						разных уровнях менеджмента.
+					</div>
+				</div>
+			</div>
+			<hr class="hr hr_neutral-16 hide-xs" />
+			<div class="hide-xs">
+				<div class="pm-btn js-pm-btn absolute"
+					 style="width: 358px; height: 361px; top: 445px; left: 640px;"><img alt=""
+						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-2.png"
+						 width="" /> <img alt=""
+						 class="hide"
+						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-2-hover.png"
+						 width="" /> <img alt=""
+						 class="hide"
+						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-2-visited.png" />
+				</div>
+				<div class="pm-btn js-pm-btn absolute"
+					 style="width: 285px; height: 436px; top: 370px; left: 40px;"><img alt=""
+						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-1.png" /> <img alt=""
+						 class="hide"
+						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-1-hover.png" /> <img alt=""
+						 class="hide"
+						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-1-visited.png" />
+				</div>
+				<div class="pm-btn js-pm-btn absolute"
+					 style="width: 434px; height: 285px; top: 577px; left: 868px;"><img alt=""
+						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-3.png"
+						 width="" /> <img alt=""
+						 class="hide"
+						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-3-hover.png"
+						 width="" /> <img alt=""
+						 class="hide"
+						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-3-visited.png" />
+				</div>
+				<div class="pm-btn js-pm-btn absolute"
+					 style="width: 179px; height: 136px; top: 670px; left: 1090px;"><img alt=""
+						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-4.png"
+						 width="" /> <img alt=""
+						 class="hide"
+						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-4-hover.png"
+						 width="" /> <img alt=""
+						 class="hide"
+						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-4-visited.png" />
+				</div>
+			</div>
+			<div class="hide-lg">
+				<div class="row">
+					<div class="col-xs-12 mb-xs-10">
+						<div class="js-pm-btn-xs pm-btn"><img alt=""
+								 class="w-100"
+								 src="user/img/album-1/track-2/instrument-picker/instrument-picker-xs-1.png" />
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="js-pm-btn-xs pm-btn"><img alt=""
+								 class="w-100"
+								 src="user/img/album-1/track-2/instrument-picker/instrument-picker-xs-2.png" />
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="js-pm-btn-xs pm-btn"><img alt=""
+								 class="w-100"
+								 src="user/img/album-1/track-2/instrument-picker/instrument-picker-xs-3.png" />
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="js-pm-btn-xs pm-btn"><img alt=""
+								 class="w-100"
+								 src="user/img/album-1/track-2/instrument-picker/instrument-picker-xs-4.png" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--! --------------------------------- -->
+		</div>
+
+
+		<div class="pm-modal js-pm-modal hide">
+			<div class="pm-modal__contant">
+				<h3 class="h3 mb-rem-1-50 mb-xs-rem-1-0">Менеджмент начального уровня
+				</h3>
+				<div class="text text-m mb-5 mb-xs-5">Руководители начального уровня, как барабаны: это сердце группы.
+					Они
+					задают ритм команде и позволяют другим участникам оставаться вместе.
+				</div>
+				<div class="text text-m mb-25 mb-xs-15">Их задача &mdash; обеспечить работоспособность команды:
+					мотивировать,
+					следить за работой и качеством исполнения заданий.
+				</div>
+				<div class="d-flex jc-center w-100">
+					<button class="btn_pm-modal js-pm-modal-close">Закрыть
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="pm-modal js-pm-modal hide">
+			<div class="pm-modal__contant">
+				<h3 class="h3 mb-rem-1-50 mb-xs-rem-1-0">Менеджмент среднего уровня
+				</h3>
+				<div class="text text-m mb-5 mb-xs-5">Руководители среднего уровня, словно басы, связывают между собой
+					другие
+					инструменты.
+				</div>
+				<div class="text text-m mb-25 mb-xs-15">Их задача &mdash; наладить взаимодействие между командами и
+					снабдить
+					ресурсами свои отделы, а также преобразовать стратегические задачи в практические цели для отделов.
+				</div>
+				<div class="d-flex jc-center w-100">
+					<button class="btn_pm-modal js-pm-modal-close">Закрыть
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="pm-modal js-pm-modal hide">
+			<div class="pm-modal__contant">
+				<h3 class="h3 mb-rem-1-50 mb-xs-rem-1-0">Топ-менеджмент
+				</h3>
+				<div class="text text-m mb-5 mb-xs-5">Tоп-менеджеры, как гитаристы, заполняют &laquo;тело&raquo; песни
+					своей
+					музыкой и подкрепляют ею вокал, то есть решают вопрос ресурсов в компании. Их внимание сосредоточено
+					на
+					системных вопросах: системы продаж, учета, логистики и т. п.
+				</div>
+				<div class="text text-m mb-25 mb-xs-15">Задача таких менеджеров &mdash; обеспечить эффективность
+					использования и
+					привлечения ресурсов в организацию.
+				</div>
+				<div class="d-flex jc-center w-100">
+					<button class="btn_pm-modal js-pm-modal-close">Закрыть
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="pm-modal js-pm-modal hide">
+			<div class="pm-modal__contant">
+				<h3 class="h3 mb-rem-1-50 mb-xs-rem-1-0">Стратегический менеджмент
+				</h3>
+				<div class="text text-m mb-5 mb-xs-5">Стратегические менеджеры &mdash; это вокалисты. Они &mdash; лицо
+					любой
+					группы.&nbsp;Для качественной работы такие управленцы полностью освобождаются от решения внутренних
+					проблем.
+				</div>
+				<div class="text text-m mb-25 mb-xs-15">Их задача &mdash; формулировать общую стратегию компании,
+					выбирать
+					эффективные рыночные ходы и решать вопросы стратегического характера, влияющие на жизнедеятельность
+					и
+					долгосрочное развитие компании.
+				</div>
+				<div class="d-flex jc-center w-100">
+					<button class="btn_pm-modal js-pm-modal-close">Закрыть
+					</button>
+				</div>
+			</div>
+		</div>
 	</PerfectScrollbar>
 </template>
