@@ -2,7 +2,11 @@
 import { ref, onMounted } from 'vue'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 
-import InstrumentPicker from '@/components/InstrumentPicker/InstrumentPicker.vue';
+import InstrumentPicker from '@/components/InstrumentPicker/InstrumentPicker.vue'
+
+import { instrumentsModals } from '@/contentModalsData/instrumentsModals'
+
+
 
 onMounted(async() => {
 
@@ -14,7 +18,7 @@ onMounted(async() => {
 		<MainHeader />
 
 		<div style="height: 10vh"></div>
-		<InstrumentPicker />
+		<InstrumentPicker :modals-data="instrumentsModals"/>
 
 
 		<!-- <div style="height: 100vh"></div> -->

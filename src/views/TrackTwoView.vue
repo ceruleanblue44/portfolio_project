@@ -7,6 +7,13 @@ import { checkboxQuestionTrack2 } from '@/quizData/checkboxQuestionTrack2'
 import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 
+import InstrumentPicker from '@/components/InstrumentPicker/InstrumentPicker.vue'
+import { instrumentsModals } from '@/contentModalsData/instrumentsModals'
+import { swiperInit } from '@/scripts/ui/swiperSlider'
+
+import ArrowSquareRight from '@/assets/svg/arrow-square-right.svg';
+import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg';
+
 const svgContent = ref('')
 
 const showAfter = async (isCorrect) => {
@@ -21,7 +28,7 @@ const showAfter = async (isCorrect) => {
 }
 
 onMounted(async () => {
-
+	swiperInit()
 })
 
 </script>
@@ -284,169 +291,172 @@ onMounted(async () => {
 			</p>
 		</div>
 
-		<div class="container_full container_full-xs container_bg-instrument-picker mb-110 mb-xs-rem-6-0 relative">
-			<!--! Practice  -->
-			<div class="row ">
-				<div class="col-lg-8 col-xs-12 mb-xs-30">
-					<div class="text-xl text-white">Посмотри, чем занимаются руководители на разных уровнях менеджмента.
-					</div>
-				</div>
-				<div class="col-lg-4 col-xs-12 mb-xs-30">
-					<div class="balloon text-center">Нажимай на инструменты, чтобы узнать о ключевых областях управления
-						на
-						разных уровнях менеджмента.
-					</div>
+		<InstrumentPicker :modals-data="instrumentsModals" />
+
+		<div class="container mb-rem-3-0 mb-xs-rem-2-50">
+			<div class="row mb-rem-1-50 mb-xs-rem-1-50">
+				<div class="col-lg-12 col-xs-12">
+					<h1 class="h1 text-center text-xs-left mb-rem-0-75 mb-xs-rem-0-75">Многоголосье
+					</h1>
+					<hr class="hr hr_neutral-16" />
 				</div>
 			</div>
-			<hr class="hr hr_neutral-16 hide-xs" />
-			<div class="hide-xs">
-				<div class="pm-btn js-pm-btn absolute"
-					 style="width: 358px; height: 361px; top: 445px; left: 640px;"><img alt=""
-						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-2.png"
-						 width="" /> <img alt=""
-						 class="hide"
-						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-2-hover.png"
-						 width="" /> <img alt=""
-						 class="hide"
-						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-2-visited.png" />
+			<div class="row">
+				<div class="col-lg-2 hide-xs">&nbsp;
 				</div>
-				<div class="pm-btn js-pm-btn absolute"
-					 style="width: 285px; height: 436px; top: 370px; left: 40px;"><img alt=""
-						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-1.png" /> <img alt=""
-						 class="hide"
-						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-1-hover.png" /> <img alt=""
-						 class="hide"
-						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-1-visited.png" />
+				<div class="col-lg-8 col-xs-12">
+					<p class="text text-l text-center text-xs-left text-gray-1">Хотя участники в музыкальной группе
+						играют на
+						разных инструментах, все они вносят свой вклад в создание песни. Так&nbsp;и&nbsp;руководители
+						разных
+						уровней в той или иной степени вовлечены во все аспекты управления процессом.
+					</p>
+					<p class="text text-l text-center text-xs-left text-gray-1">Посмотри, как это выглядит наглядно.
+					</p>
 				</div>
-				<div class="pm-btn js-pm-btn absolute"
-					 style="width: 434px; height: 285px; top: 577px; left: 868px;"><img alt=""
-						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-3.png"
-						 width="" /> <img alt=""
-						 class="hide"
-						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-3-hover.png"
-						 width="" /> <img alt=""
-						 class="hide"
-						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-3-visited.png" />
-				</div>
-				<div class="pm-btn js-pm-btn absolute"
-					 style="width: 179px; height: 136px; top: 670px; left: 1090px;"><img alt=""
-						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-4.png"
-						 width="" /> <img alt=""
-						 class="hide"
-						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-4-hover.png"
-						 width="" /> <img alt=""
-						 class="hide"
-						 src="user/img/album-1/track-2/instrument-picker/instrument-picker-4-visited.png" />
+				<div class="col-lg-2 hide-xs">&nbsp;
 				</div>
 			</div>
-			<div class="hide-lg">
-				<div class="row">
-					<div class="col-xs-12 mb-xs-10">
-						<div class="js-pm-btn-xs pm-btn"><img alt=""
-								 class="w-100"
-								 src="user/img/album-1/track-2/instrument-picker/instrument-picker-xs-1.png" />
+		</div>
+
+		<div class="container container_full container_full-xs container_with-bg-img-black mb-rem-3-0 mb-xs-rem-2-50">
+			<div class="container pr-0 mt-rem-5-0 mb-rem-5-0 mt-xs-rem-2-0 mb-xs-rem-2-0">
+				<div class="playlist-slider js-playlist-slider">
+					<div class="playlist-slider__header mt-rem-5-0">
+						<ArrowSquareLeft
+										 class="slider__btn-prev slider__btn-prev_white hide-xs mr-rem-0-50 mr-xs-rem-0-50" />
+						<ArrowSquareRight class="slider__btn-next slider__btn-next_white hide-xs" />
+						<div class="slider__pagination ml-rem-1-50 ml-xs-rem-0-50">
 						</div>
 					</div>
-					<div class="col-xs-4">
-						<div class="js-pm-btn-xs pm-btn"><img alt=""
-								 class="w-100"
-								 src="user/img/album-1/track-2/instrument-picker/instrument-picker-xs-2.png" />
-						</div>
-					</div>
-					<div class="col-xs-4">
-						<div class="js-pm-btn-xs pm-btn"><img alt=""
-								 class="w-100"
-								 src="user/img/album-1/track-2/instrument-picker/instrument-picker-xs-3.png" />
-						</div>
-					</div>
-					<div class="col-xs-4">
-						<div class="js-pm-btn-xs pm-btn"><img alt=""
-								 class="w-100"
-								 src="user/img/album-1/track-2/instrument-picker/instrument-picker-xs-4.png" />
-						</div>
-					</div>
+					<swiper-container data-swiper-type="playlist"
+									  init="false">
+						<swiper-slide class="swiper-slide">
+							<div class="playlist-slider__slide-content">
+								<div class="">
+
+									<h1 class="mb-rem-3-0 text-white">Руководители
+										<br />
+										начального уровня
+									</h1>
+									<div class="row mt-xs-rem-2-0 mb-xs-rem-2-0">
+										<div class="hide-lg col-xs-12">
+											<div class="hint text-center">Листай влево или вправо, чтобы узнать
+												больше
+												информации
+											</div>
+										</div>
+									</div>
+									<img alt=""
+										 class="hide-xs"
+										 src="../assets/img/track-2/slider/slide-1.svg" /> <img alt=""
+										 class="hide-lg"
+										 src="../assets/img/track-2/slider/slide-xs-1.svg" />
+								</div>
+							</div>
+						</swiper-slide>
+						<swiper-slide class="swiper-slide">
+							<div class="playlist-slider__slide-content">
+								<div class="">
+
+									<h1 class="mb-rem-3-0 text-white">Руководители
+										<br />
+										среднего уровня
+									</h1>
+									<div class="row mt-xs-rem-2-0 mb-xs-rem-2-0">
+										<!-- <div class="hide-lg col-xs-12">
+											<div class="hint text-center">Листай влево или вправо, чтобы узнать
+												больше
+												информации
+											</div>
+										</div> -->
+									</div>
+									<img alt=""
+										 class="hide-xs"
+										 src="../assets/img/track-2/slider/slide-2.svg" /> <img alt=""
+										 class="hide-lg"
+										 src="../assets/img/track-2/slider/slide-xs-2.svg" />
+								</div>
+							</div>
+						</swiper-slide>
+						<swiper-slide class="swiper-slide">
+							<div class="playlist-slider__slide-content">
+								<div class="">
+
+									<h1 class="mb-rem-3-0 text-white">ТОП-менеджмент
+									</h1>
+									<div class="row mt-xs-rem-2-0 mb-xs-rem-2-0">
+										<!-- <div class="hide-lg col-xs-12">
+											<div class="hint text-center">Листай влево или вправо, чтобы узнать
+												больше
+												информации
+											</div>
+										</div> -->
+									</div>
+									<img alt=""
+										 class="hide-xs"
+										 src="../assets/img/track-2/slider/slide-3.svg" /> <img alt=""
+										 class="hide-lg"
+										 src="../assets/img/track-2/slider/slide-xs-3.svg" />
+								</div>
+							</div>
+						</swiper-slide>
+						<swiper-slide class="swiper-slide">
+							<div class="playlist-slider__slide-content">
+								<div class="">
+
+									<h1 class="mb-rem-3-0 text-white hide-xs">Стратегический<br />менеджмент
+									</h1>
+									<h1 class="mb-rem-3-0 text-white hide-lg">Стратеги–<br />ческий<br />менеджмент
+									</h1>
+									<div class="row mt-xs-rem-2-0 mb-xs-rem-2-0">
+										<!-- <div class="hide-lg col-xs-12">
+											<div class="hint text-center">Листай влево или вправо, чтобы узнать
+												больше
+												информации
+											</div>
+										</div> -->
+									</div>
+									<img alt=""
+										 class="hide-xs"
+										 src="../assets/img/track-2/slider/slide-4.svg" /> <img alt=""
+										 class="hide-lg"
+										 src="../assets/img/track-2/slider/slide-xs-4.svg" />
+								</div>
+							</div>
+						</swiper-slide>
+					</swiper-container>
 				</div>
 			</div>
-			<!--! --------------------------------- -->
+		</div>
+		<div class="container">
+			<div class="row mb-155 mb-xs-95">
+				<div class="col-lg-2 hide-xs">&nbsp;
+				</div>
+				<div class="col-lg-8 col-xs-12">
+					<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
+						 src="../assets/svg/star.svg"
+						 alt="">
+					<div class="text text-xl text-center">Это классическое распределение. Оно может варьироваться в
+						зависимости
+						от множества факторов: масштаб компании, специфика деятельности, уровень зрелости, положение на
+						рынке и
+						др.
+					</div>
+				</div>
+				<div class="col-lg-2 hide-xs">&nbsp;
+				</div>
+			</div>
+			<div class="row mb-rem-3-0 mb-xs-rem-2-50">
+				<div class="col-lg-12 col-xs-12">
+					<h1 class="h1 text-center text-xs-left mb-rem-0-75 mb-xs-rem-0-75">Как звучит твоя песня?
+					</h1>
+					<hr class="hr hr_neutral-16" />
+				</div>
+			</div>
 		</div>
 
 
-		<div class="pm-modal js-pm-modal hide">
-			<div class="pm-modal__contant">
-				<h3 class="h3 mb-rem-1-50 mb-xs-rem-1-0">Менеджмент начального уровня
-				</h3>
-				<div class="text text-m mb-5 mb-xs-5">Руководители начального уровня, как барабаны: это сердце группы.
-					Они
-					задают ритм команде и позволяют другим участникам оставаться вместе.
-				</div>
-				<div class="text text-m mb-25 mb-xs-15">Их задача &mdash; обеспечить работоспособность команды:
-					мотивировать,
-					следить за работой и качеством исполнения заданий.
-				</div>
-				<div class="d-flex jc-center w-100">
-					<button class="btn_pm-modal js-pm-modal-close">Закрыть
-					</button>
-				</div>
-			</div>
-		</div>
-		<div class="pm-modal js-pm-modal hide">
-			<div class="pm-modal__contant">
-				<h3 class="h3 mb-rem-1-50 mb-xs-rem-1-0">Менеджмент среднего уровня
-				</h3>
-				<div class="text text-m mb-5 mb-xs-5">Руководители среднего уровня, словно басы, связывают между собой
-					другие
-					инструменты.
-				</div>
-				<div class="text text-m mb-25 mb-xs-15">Их задача &mdash; наладить взаимодействие между командами и
-					снабдить
-					ресурсами свои отделы, а также преобразовать стратегические задачи в практические цели для отделов.
-				</div>
-				<div class="d-flex jc-center w-100">
-					<button class="btn_pm-modal js-pm-modal-close">Закрыть
-					</button>
-				</div>
-			</div>
-		</div>
-		<div class="pm-modal js-pm-modal hide">
-			<div class="pm-modal__contant">
-				<h3 class="h3 mb-rem-1-50 mb-xs-rem-1-0">Топ-менеджмент
-				</h3>
-				<div class="text text-m mb-5 mb-xs-5">Tоп-менеджеры, как гитаристы, заполняют &laquo;тело&raquo; песни
-					своей
-					музыкой и подкрепляют ею вокал, то есть решают вопрос ресурсов в компании. Их внимание сосредоточено
-					на
-					системных вопросах: системы продаж, учета, логистики и т. п.
-				</div>
-				<div class="text text-m mb-25 mb-xs-15">Задача таких менеджеров &mdash; обеспечить эффективность
-					использования и
-					привлечения ресурсов в организацию.
-				</div>
-				<div class="d-flex jc-center w-100">
-					<button class="btn_pm-modal js-pm-modal-close">Закрыть
-					</button>
-				</div>
-			</div>
-		</div>
-		<div class="pm-modal js-pm-modal hide">
-			<div class="pm-modal__contant">
-				<h3 class="h3 mb-rem-1-50 mb-xs-rem-1-0">Стратегический менеджмент
-				</h3>
-				<div class="text text-m mb-5 mb-xs-5">Стратегические менеджеры &mdash; это вокалисты. Они &mdash; лицо
-					любой
-					группы.&nbsp;Для качественной работы такие управленцы полностью освобождаются от решения внутренних
-					проблем.
-				</div>
-				<div class="text text-m mb-25 mb-xs-15">Их задача &mdash; формулировать общую стратегию компании,
-					выбирать
-					эффективные рыночные ходы и решать вопросы стратегического характера, влияющие на жизнедеятельность
-					и
-					долгосрочное развитие компании.
-				</div>
-				<div class="d-flex jc-center w-100">
-					<button class="btn_pm-modal js-pm-modal-close">Закрыть
-					</button>
-				</div>
-			</div>
-		</div>
+
 	</PerfectScrollbar>
 </template>

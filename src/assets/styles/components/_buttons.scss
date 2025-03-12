@@ -108,14 +108,14 @@
 		}
 	}
 
-	&_pm-modal {
+	&_modal {
 		display: flex;
 		height: 48px;
 		padding: 12px 24px;
 		justify-content: center;
 		align-items: center;
 		border-radius: 12px;
-		background: #1e1f1f;
+		background-color: $neutral-80;
 		color: white;
 		font-size: 16px;
 		font-weight: 500;
@@ -205,43 +205,6 @@
 		background: $error !important;
 		color: $white;
 		vertical-align: middle;
-	}
-
-	&_modal {
-		height: 100%;
-		padding: 40px;
-		border: solid 1px $neutral-12;
-		justify-content: space-around;
-		align-items: center;
-		background: $neutral-4;
-		border-radius: 16px;
-		font-weight: 600;
-		font-size: $fs24;
-		line-height: $lh120;
-		text-align: center;
-		cursor: pointer;
-		user-select: none;
-		transition: 0.3s;
-
-		& .btn {
-			&__text {
-				color: $neutral;
-			}
-		}
-
-		&::before {
-			display: none;
-		}
-
-		&:hover {
-			background: $neutral-16;
-		}
-
-		@media #{$breakpoint-xs-only} {
-			padding: 20px 8px;
-			border-radius: 8px;
-			font-size: $fs20;
-		}
 	}
 
 	&__text {

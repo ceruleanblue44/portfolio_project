@@ -124,8 +124,7 @@ swiper-container::part(container) {
 		height: 36px;
 		flex-shrink: 0;
 		cursor: pointer;
-		// color: $neutral;
-		// transition: 0.3s ease-in-out;
+		transition: 0.3s ease-in-out;
 
 		path {
 			fill: $neutral;
@@ -141,7 +140,6 @@ swiper-container::part(container) {
 		}
 
 		&.slider__btn_disabled {
-			// color: rgba($neutral, 0.16);
 			cursor: default;
 			path {
 				fill: rgba($neutral, 0.16);
@@ -153,22 +151,33 @@ swiper-container::part(container) {
 			height: 100%;
 		}
 	}
+
 	.slider__btn-prev_white,
 	.slider__btn-next_white {
 		width: 36px;
 		height: 36px;
 		flex-shrink: 0;
 		cursor: pointer;
-		color: white;
 		transition: 0.3s;
 
-		&:hover {
-			color: rgba(white, 0.8);
+		path {
+			fill: $white;
+			transition: fill 0.3s ease-in-out;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				path {
+					fill: rgba($white, 0.8);
+				}
+			}
 		}
 
 		&.slider__btn_disabled {
-			color: rgba(white, 0.16);
 			cursor: default;
+			path {
+				fill: rgba($white, 0.16);
+			}
 		}
 	}
 	.slider__pagination {
