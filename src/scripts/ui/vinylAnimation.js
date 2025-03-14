@@ -11,7 +11,7 @@ export const vinylAnimation = () => {
 
 	const tl = gsap.timeline({
 		scrollTrigger: {
-			scroller: '.ps',
+			scroller: '.scroll-container',
 			trigger: vinyl,
 			markers: false,
 			start: 'top 75%',

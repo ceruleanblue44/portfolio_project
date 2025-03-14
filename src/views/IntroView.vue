@@ -32,8 +32,7 @@ onMounted(async () => {
 
 <template>
 
-	<!-- <PerfectScrollbar @ps-scroll-y="onScrollEvent"> -->
-	<PerfectScrollbar>
+<main class="scroll-container">
 		<MainHeader />
 
 		<div class="disc-rotating js-disc-rotating">
@@ -87,7 +86,7 @@ onMounted(async () => {
 						<div class="row">
 							<div class="col-lg-8 col-xs-12">
 								<div class="card card_medium card_gray">
-									<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-color-primary">Отличный музыкальный
+									<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-primary">Отличный музыкальный
 										настрой!
 									</h3>
 									<p class="text text-l">Сейчас мы&nbsp;настраиваемся на&nbsp;музыкальную волну
@@ -439,7 +438,7 @@ onMounted(async () => {
 			</button>
 		</div>
 
-	</PerfectScrollbar>
+	</main>
 </template>
 
 <style scoped

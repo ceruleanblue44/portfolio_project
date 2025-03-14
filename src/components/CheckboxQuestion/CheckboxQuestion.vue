@@ -4,8 +4,6 @@
 import { onMounted, ref, computed, nextTick, getCurrentInstance } from 'vue'
 import CheckboxQuestionGrid from '../CheckboxQuestionGrid/CheckboxQuestionGrid.vue'
 
-// import { PerfectScrollbarExpose } from 'vue3-perfect-scrollbar'
-// const scrollbarApi = ref(null)
 
 const props = defineProps({
 	checkRule: { type: Object },

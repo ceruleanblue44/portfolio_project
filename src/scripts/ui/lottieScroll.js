@@ -53,7 +53,7 @@ export const initLottieScroll = () => {
 		// console.log(element.dataset.src);
        
         LottieScrollTrigger({
-            scroller: '.ps',
+            scroller: '.scroll-container',
             target: element,
             path: element.dataset.src,
             speed: "slow",

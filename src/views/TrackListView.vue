@@ -29,7 +29,7 @@ onMounted(async () => {
 
 </script>
 <template>
-	<PerfectScrollbar>
+	<main class="scroll-container">
 		<MainHeader />
 		<div class="container mt-rem-9-75 mt-xs-rem-6-0 mb-rem-9-75 mb-xs-rem-6-0">
 			<div class="row">
@@ -465,7 +465,7 @@ onMounted(async () => {
 		<div class="container mb-rem-4-0 mb-xs-rem-4-0">
 			<div class="row">
 				<div class="col-lg-8 col-xs-12">
-					<div class="card card_medium card_gray h-100 d-flex ai-center">
+					<div class="card card_medium card_white h-100 d-flex ai-center">
 						<p class="text text-l">Нажми кнопку &laquo;Продолжить&raquo; чтобы перейти к&nbsp;первому треку.
 							Если хочешь
 							начать с&nbsp;другого, открой меню и&nbsp;выбери понравившийся трек.
@@ -486,7 +486,7 @@ onMounted(async () => {
 					type="button"><span class="btn__text">Продолжить</span>
 			</button>
 		</div>
-	</PerfectScrollbar>
+	</main>
 </template>
 
 <style scoped

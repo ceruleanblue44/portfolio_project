@@ -9,7 +9,7 @@ export const highlightBlocks = () => {
 	blocks.forEach((block) => {
 		gsap.timeline({
 			scrollTrigger: {
-				scroller: '.ps',
+				scroller: '.scroll-container',
 				trigger: block,
 				scrub: 1,
 				markers: true,

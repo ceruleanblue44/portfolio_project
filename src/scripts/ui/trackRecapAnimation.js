@@ -11,7 +11,7 @@ export const trackRecapAnimation = () => {
 
 	// Pin the section so it stays in place
 	ScrollTrigger.create({
-		scroller: '.ps',
+		scroller: '.scroll-container',
 		trigger: section,
 		start: 'top top',
 		end: `+=${textBlocks.length * window.innerHeight}`, // Scroll duration based on number of blocks
@@ -32,11 +32,11 @@ export const trackRecapAnimation = () => {
 				y: -150,
 				duration: 0.4,
 				scrollTrigger: {
-					scroller: '.ps',
+					scroller: '.scroll-container',
 					trigger: text,
 					start: () => `top+=${i * window.innerHeight} center`,
 					end: () => `top+=${(i + 1) * window.innerHeight} center`,
-					scrub: true, 
+					scrub: true,
 					markers: true,
 				}
 			}
@@ -47,7 +47,7 @@ export const trackRecapAnimation = () => {
 			// y: -100,
 			duration: 0.4,
 			scrollTrigger: {
-				scroller: '.ps',
+				scroller: '.scroll-container',
 				trigger: text,
 				start: () => `top+=${(i + 1) * window.innerHeight} center`,
 				end: () => `top+=${(i + 2) * window.innerHeight} center`,

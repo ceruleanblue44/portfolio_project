@@ -9,7 +9,7 @@ export const textScrollAnimation = () => {
 	textElements.forEach((textEl) => {
 		gsap.timeline({
 			scrollTrigger: {
-				scroller: '.ps',
+				scroller: '.scroll-container',
 				trigger: textEl,
 				scrub: 1,
 				markers: true,

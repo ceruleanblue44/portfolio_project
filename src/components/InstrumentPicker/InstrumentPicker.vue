@@ -42,7 +42,7 @@ const closeModal = () => {
 	<div class="container_full container_full-xs container_bg-instrument-picker mb-rem-9-75 mb-xs-rem-6-0">
 		<div class="row ">
 			<div class="col-lg-8 col-xs-12 mb-xs-30">
-				<div class="text-xl text-white">Посмотри, чем занимаются руководители на разных уровнях менеджмента.
+				<div class="text-xl text-white">Посмотри, чем занимаются руководители разных уровней управления.
 				</div>
 			</div>
 			<div class="col-lg-4 col-xs-12 mb-xs-30">

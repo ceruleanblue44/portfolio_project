@@ -9,7 +9,7 @@ export const textAnimation = () => {
 	const text2 = document.querySelectorAll('.js-text-2')
 	const tl = gsap.timeline({
 		scrollTrigger: {
-			scroller: '.ps',
+			scroller: '.scroll-container',
 			trigger: textCard,
 			markers: false,
 			start: 'top 85%',

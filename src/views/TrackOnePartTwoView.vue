@@ -42,14 +42,14 @@ onMounted(async () => {
 	textGramophoneAnimation()
 
 	trackRecapAnimation()
-	
+
 	// await nextTick()
 });
 
 </script>
 
 <template>
-	<PerfectScrollbar>
+	<main class="scroll-container">
 		<MainHeader />
 		<div class="container mt-rem-6-50 mt-xs-rem-5-0">
 			<h1 class="text-center mb-rem-0-75 mb-xs-rem-0-75">Переключись на новый режим
@@ -121,7 +121,8 @@ onMounted(async () => {
 				</h1>
 				<div class="row mb-rem-3-0 mb-xs-rem-2-0">
 					<div class="col-lg-7 col-xs-12">
-						<p class="text text-m">Твой главный фокус - команда. Первостепенное внимание уделяй задачам, влияющим на её эффективность. Для этого перестрой свой рабочий ритм:
+						<p class="text text-m">Твой главный фокус - команда. Первостепенное внимание уделяй задачам,
+							влияющим на её эффективность. Для этого перестрой свой рабочий ритм:
 						</p>
 					</div>
 					<div class="col-lg-5 hide-xs">&nbsp;
@@ -190,7 +191,8 @@ onMounted(async () => {
 					</div>
 				</div>
 				<div class="card card_medium card-green">
-					<p class="text text-l text-white">Каждый член команды вносит свой уникальный вклад. Твоя роль - создать среду, где все таланты раскрываются в полной мере.
+					<p class="text text-l text-white">Каждый член команды вносит свой уникальный вклад. Твоя роль -
+						создать среду, где все таланты раскрываются в полной мере.
 					</p>
 				</div>
 			</div>
@@ -253,7 +255,8 @@ onMounted(async () => {
 							<div class="col-lg-6 col-xs-10 mb-rem-4-50">
 								<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">За счет чего?
 								</h1>
-								<p class="text text-l text-white">Создай процессы и обеспечь ресурсы для достижения целей.
+								<p class="text text-l text-white">Создай процессы и обеспечь ресурсы для достижения
+									целей.
 								</p>
 							</div>
 						</div>
@@ -339,8 +342,8 @@ onMounted(async () => {
 				<div class="track-recap__container js-track-recap-container">
 					<div class="track-recap__sticky-top">
 						<img class="mr-rem-1-50 mr-xs-rem-1-0"
-						 src="../assets/svg/wave.svg"
-						 alt="">
+							 src="../assets/svg/wave.svg"
+							 alt="">
 						<h4 class="text-white">Ключевые принципы нового подхода:
 						</h4>
 					</div>
@@ -352,7 +355,9 @@ onMounted(async () => {
 							</h3>
 						</div>
 						<div class="track-recap__text js-track-recap-text">
-							<h3 class="text-white text-xs-center w-100">Приоритет - устранение препятствий для работы моей команды.
+							<h3 class="text-white text-xs-center w-100">Приоритет - устранение препятствий для работы
+								моей
+								команды.
 							</h3>
 						</div>
 						<div class="track-recap__text js-track-recap-text">
@@ -367,80 +372,91 @@ onMounted(async () => {
 		</div>
 
 		<div class="container mb-rem-9-75 mb-xs-rem-6-0">
-      <div class="container container_with-bg mb-rem-1-50">
-        <div class="row mb-rem-3-0 mb-xs-rem-2-0">
-          <div class="col-lg-3 col-xs-12 mb-xs-rem-2-50">
-            <h2>Немного рефлексии
-            </h2>
-          </div>
-          <div class="col-lg-9 col-xs-12">
-            <p class="text text-l text-semibold mb-rem-1-50 mb-xs-rem-1-0">Попробуй провести самоанализ изменения роли:
-            </p>
-            <div class="card card_gray pl-xs-rem-1-0 pr-xs-rem-1-0">
-              <p class="text text-m">Подумай, чем еще отличается руководитель от специалиста.
-              </p>
-              <p class="text text-m">Проанализируй предложенные в файле вопросы и заполни сравнительную таблицу.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row middle">
-          <div class="col-lg-3 col-xs-12 mb-xs-rem-1-50">
-            <p class="text text-m">Это упражнение поможет тебе увидеть сходства и различия прежней и новой ролей.
-            </p>
-          </div>
-          <div class="col-lg-9 col-xs-12">
-            <div class="d-flex fw-wrap card-download  card-download__bg_green ai-center jc-space-between">
-              <h4 class="text-white mb-xs-25">Руководитель VS специалист
-              </h4>
-              <a class="d-flex card-download__link cursor-pointer" download href="user/materials/album-1/Rukovoditel_VS_specialist.pdf"><h4 class="text-white text-m mr-xs-15">Скачать 
-              </h4>
-			  <img class="ml-rem-1-0" src="../assets/svg/download.svg" alt="">
-                <!-- <svg class="icon icon-svg icon_xl"> 
+			<div class="container container_with-bg mb-rem-1-50">
+				<div class="row mb-rem-3-0 mb-xs-rem-2-0">
+					<div class="col-lg-3 col-xs-12 mb-xs-rem-2-50">
+						<h2>Немного рефлексии
+						</h2>
+					</div>
+					<div class="col-lg-9 col-xs-12">
+						<p class="text text-l text-semibold mb-rem-1-50 mb-xs-rem-1-0">Попробуй провести самоанализ
+							изменения
+							роли:
+						</p>
+						<div class="card card_gray pl-xs-rem-1-0 pr-xs-rem-1-0">
+							<p class="text text-m">Подумай, чем еще отличается руководитель от специалиста.
+							</p>
+							<p class="text text-m">Проанализируй предложенные в файле вопросы и заполни сравнительную
+								таблицу.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row middle">
+					<div class="col-lg-3 col-xs-12 mb-xs-rem-1-50">
+						<p class="text text-m">Это упражнение поможет тебе увидеть сходства и различия прежней и новой
+							ролей.
+						</p>
+					</div>
+					<div class="col-lg-9 col-xs-12">
+						<div class="d-flex fw-wrap card-download  card-download__bg_green ai-center jc-space-between">
+							<h4 class="text-white mb-xs-25">Руководитель VS специалист
+							</h4>
+							<a class="d-flex card-download__link cursor-pointer"
+							   download
+							   href="user/materials/album-1/Rukovoditel_VS_specialist.pdf">
+								<h4 class="text-white text-m mr-xs-15">Скачать
+								</h4>
+								<img class="ml-rem-1-0"
+									 src="../assets/svg/download.svg"
+									 alt="">
+								<!-- <svg class="icon icon-svg icon_xl"> 
                   <use xlink:href="user/svg/sprite.svg#download-file"> 
                   </use> 
                 </svg>  -->
-			</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-xs-12">
-          <div class="story__container">
-            <div class="story__head mb-rem-3-0 mb-xs-rem-3-0">
-              <div class="mb-xs-10">
-                <h2 class="text-white mb-10 mb-xs-10">Дополнительные материалы
-                </h2>
-                <p class="text text-m text-white">Углубись в тему управленческих приоритетов
-                </p>
-              </div>
-			  <div class="hide-xs">&nbsp;</div>
-              <div class="hint text-center">Нажми Play, чтобы прочитать статью
-              </div>
-            </div>
-            <div class="story__picture">
-				<img class="img_center" src="../assets/img/menu/stories/story-1-1.png" alt="">
-				<!-- <img alt=""  onclick="openStory('article-0')" src="user/img/menu/stories/story-1-1.png" /> -->
-            </div>
-            <div class="story__footer mt-rem-1-50 mt-xs-rem-1-50">
-				<div class="hide-xs">&nbsp;</div>
-              <div class="card card_story">
-                <p class="text text-m text-white">статья
-                </p>
-                <p class="text text-xl text-white">Управление приоритетами
-                </p>
-              </div>
-			  <div class="hide-xs">&nbsp;</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-xs-12">
+					<div class="story__container">
+						<div class="story__head mb-rem-3-0 mb-xs-rem-3-0">
+							<div class="mb-xs-10">
+								<h2 class="text-white mb-10 mb-xs-10">Дополнительные материалы
+								</h2>
+								<p class="text text-m text-white">Углубись в тему управленческих приоритетов
+								</p>
+							</div>
+							<div class="hide-xs">&nbsp;</div>
+							<div class="hint text-center">Нажми Play, чтобы прочитать статью
+							</div>
+						</div>
+						<div class="story__picture">
+							<img class="img_center"
+								 src="../assets/img/menu/stories/story-1-1.png"
+								 alt="">
+							<!-- <img alt=""  onclick="openStory('article-0')" src="user/img/menu/stories/story-1-1.png" /> -->
+						</div>
+						<div class="story__footer mt-rem-1-50 mt-xs-rem-1-50">
+							<div class="hide-xs">&nbsp;</div>
+							<div class="card card_story">
+								<p class="text text-m text-white">статья
+								</p>
+								<p class="text text-xl text-white">Управление приоритетами
+								</p>
+							</div>
+							<div class="hide-xs">&nbsp;</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-	<div class="container btn-container btn-container_center mt-rem-9-75 mb-rem-2-50 mt-xs-rem-6-0 mb-xs-rem-2-50">
+		<div class="container btn-container btn-container_center mt-rem-9-75 mb-rem-2-50 mt-xs-rem-6-0 mb-xs-rem-2-50">
 			<button class="btn btn_back"
 					type="button"><span class="btn__text">Назад</span>
 			</button>
@@ -448,5 +464,5 @@ onMounted(async () => {
 					type="button"><span class="btn__text">Продолжить</span>
 			</button>
 		</div>
-	</PerfectScrollbar>
+	</main>
 </template>

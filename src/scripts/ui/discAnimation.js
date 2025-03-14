@@ -8,12 +8,12 @@ export const discAnimation = () => {
 
 	const tl = gsap.timeline({
 		scrollTrigger: {
-			scroller: '.ps',
+			scroller: '.scroll-container',
 			trigger: disc,
 			scrub: 1,
 			pin: true,
 			pinSpacing: false,
-			pinType: 'fixed',
+			// pinType: 'fixed',
 			start: 'top top',
 			end: 'clamp(bottom bottom)',
 			markers: true,

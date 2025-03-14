@@ -55,7 +55,7 @@ onMounted(async () => {
 </script>
 
 <template>
-<PerfectScrollbar>
+<main class="scroll-container">
 		<MainHeader />
 		<div class="container mt-rem-6-50 mt-xs-rem-5-0 mb-rem-7-0 mb-xs-rem-6-0">
 			<div class="row">
@@ -477,7 +477,7 @@ onMounted(async () => {
 		</div>
 
 
-	</PerfectScrollbar>
+	</main>
 </template>
 
 <style scoped></style>

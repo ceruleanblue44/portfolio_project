@@ -1,11 +1,13 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import CheckboxQuestion from '@/components/CheckboxQuestion/CheckboxQuestion.vue'
 import { checkboxQuestionTrack2 } from '@/quizData/checkboxQuestionTrack2'
 
 import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
+import { trackRecapAnimation } from '@/scripts/ui/trackRecapAnimation'
 
 import InstrumentPicker from '@/components/InstrumentPicker/InstrumentPicker.vue'
 import { instrumentsModals } from '@/contentModalsData/instrumentsModals'
@@ -14,11 +16,27 @@ import { swiperInit } from '@/scripts/ui/swiperSlider'
 import ArrowSquareRight from '@/assets/svg/arrow-square-right.svg';
 import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg';
 
+import RangeSliders from '@/components/RangeSliders/RangeSliders.vue';
+import { rangeSliders } from '@/rangeSlidersData/rangeSliders';
+
+const containerRef = ref(null);
 const svgContent = ref('')
+const svgContent1 = ref('')
+
+const disableScrollbar = () => {
+	console.log('disabled');
+	document.body.style.overflow = 'hidden'; // Prevent scrolling when needed
+};
+
+const enableScrollbar = () => {
+	console.log('enabled');
+	document.body.style.overflow = ''; // Restore scrolling
+};
 
 const showAfter = async (isCorrect) => {
 	console.log(isCorrect);
 	const color = isCorrect ? 'green' : 'red'
+
 	svgContent.value = await fetchSvg(color)
 	if (!svgContent.value) return
 
@@ -27,13 +45,30 @@ const showAfter = async (isCorrect) => {
 	})
 }
 
+const rangeSlidersComplete = async () => {
+	svgContent1.value = await fetchSvg()
+	if (!svgContent.value) return
+
+	nextTick(() => {
+		headphonesAnimation()
+	})
+
+	setTimeout(() => {
+		ScrollTrigger.refresh()
+	}, 500)
+
+	// trackRecapAnimation()
+}
+
 onMounted(async () => {
 	swiperInit()
+	trackRecapAnimation()
 })
 
 </script>
 <template>
-	<PerfectScrollbar>
+	<main ref="containerRef"
+		  class="scroll-container">
 		<MainHeader />
 		<div class="container mt-rem-6-50 mt-xs-rem-5-0 mb-rem-7-0 mb-xs-rem-6-0">
 			<div class="row">
@@ -64,11 +99,11 @@ onMounted(async () => {
 						</div>
 					</div>
 					<div class="col-lg-7 col-xs-12">
-						<h2 class="text-white mb-rem-2-0 mb-xs-rem-2-0">Из этого трека ты узнаешь:
+						<h2 class="text-white mb-rem-2-0 mb-xs-rem-2-0">Из&nbsp;этого трека ты&nbsp;узнаешь:
 						</h2>
 						<ul class="list list__ul list__ul_monochrome text text-xl text-white-80">
-							<li class="list__ul--item">Чем занимаются руководители на разных уровнях управления?</li>
-							<li class="list__ul--item">Как распределяются области управления между руководителями?</li>
+							<li class="list__ul--item">Особенности работы руководителей на&nbsp;разных уровнях управления</li>
+							<li class="list__ul--item">Принципы распределения управленческих функций между руководителями</li>
 						</ul>
 					</div>
 				</div>
@@ -83,15 +118,17 @@ onMounted(async () => {
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-2 hide-xs">&nbsp;
+				<div class="col-lg-2 hide-xs"> 
 				</div>
 				<div class="col-lg-8 col-xs-12">
-					<p class="text text-l text-center text-xs-left text-gray-1">Руководители разных уровней менеджмента
+					<p class="text text-l text-center text-xs-left text-gray-1">
+						<!-- Руководители разных уровней менеджмента
 						фокусируются на определенных вопросах управления, чтобы эффективно справляться со своими
-						задачами.
+						задачами. -->
+						Руководители каждого уровня управления имеют свой фокус внимания. Прежде чем мы&nbsp;углубимся в&nbsp;тему, определи свои текущие приоритеты.
 					</p>
 				</div>
-				<div class="col-lg-2 hide-xs">&nbsp;
+				<div class="col-lg-2 hide-xs"> 
 				</div>
 			</div>
 		</div>
@@ -102,22 +139,20 @@ onMounted(async () => {
 							   :use-clv="true"
 							   v-on:complete="showAfter">
 				<template v-slot:question-text="">
-					<h4 class="mb-rem-1-50 mb-xs-rem-1-0">Перед тем как изучить эту тему, подумай, чему ты уделяешь
-						большую часть своего внимания. Какие области управления для тебя наиболее важные?
+					<h4 class="mb-rem-1-50 mb-xs-rem-1-0">
+						На&nbsp;чем сконцентрировано твое внимание сейчас? Какие области управления для тебя наиболее важные?
 					</h4>
-					<p class="text text-m text-gray-1">Выбери один или несколько ответов.
+					<p class="text text-m text-gray-1">Выбери один или несколько вариантов.
 					</p>
 				</template>
 				<template v-slot:feedback-0="">
 					<div class="row">
 						<div class="col-lg-8 col-xs-12">
-							<div class="card card_large card_white">
-								<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-color-primary">Нам нравится твой ответ!
+							<div class="card card_medium card_white">
+								<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-primary">Отличный выбор!
 								</h3>
-								<p class="text text-l">У каждого уровня менеджмента есть своя ключевая область
-									управления. Но иногда начинающие руководители могут взять на себя все обязанности,
-									из-за чего быстро устают. Сейчас ты узнаешь основную область управления каждого
-									руководителя.
+								<p class="text text-l">
+									Каждый уровень менеджмента имеет свою ключевую область ответственности. Начинающие руководители часто пытаются охватить все сферы, что приводит к&nbsp;быстрому выгоранию. Сейчас мы&nbsp;разберем основные зоны ответственности для каждого уровня управления.
 								</p>
 							</div>
 						</div>
@@ -133,13 +168,11 @@ onMounted(async () => {
 				<template v-slot:feedback-1="">
 					<div class="row">
 						<div class="col-lg-8 col-xs-12">
-							<div class="card card_large card_white">
-								<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-red">Не совсем так
+							<div class="card card_medium card_white">
+								<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-red">Не&nbsp;совсем так
 								</h3>
-								<p class="text text-l">Конечно, руководителям нужно обращать внимание на все области
-									управления, но для каждого есть одна ключевая. Взяв на себя много обязанностей,
-									можно быстро устать и не справиться с ними. Сейчас ты узнаешь основную область
-									управления каждого руководителя.
+								<p class="text text-l">Конечно, руководителям нужно обращать внимание на&nbsp;все области
+									управления, но&nbsp;для каждого есть одна ключевая. Начинающие руководители часто пытаются охватить все сферы, что приводит к&nbsp;быстрому выгоранию. Сейчас мы&nbsp;разберем основные зоны ответственности для каждого уровня управления.
 								</p>
 							</div>
 						</div>
@@ -161,7 +194,7 @@ onMounted(async () => {
 						<div class="block-music__text">
 							<div class="text-64-40">Определи <span class="text-gray-2">свою ключевую</span> область
 								управления
-								<span class="text-gray-2">и&nbsp;сосредоточься на ней!</span>
+								<span class="text-gray-2">и&nbsp;сфокусируйся на&nbsp;ней!</span>
 							</div>
 						</div>
 						<div class="block-music__img hide-xs"><img alt=""
@@ -174,22 +207,20 @@ onMounted(async () => {
 		<div class="container mb-rem-3-0 mb-xs-rem-2-0">
 			<div class="row mb-rem-1-50 mb-xs-rem-1-50">
 				<div class="col-lg-12 col-xs-12">
-					<h1 class="h1 text-center text-xs-left mb-rem-0-75 mb-xs-rem-0-75">Партии руководите&shy;лей
+					<h1 class="h1 text-center text-xs-left mb-rem-0-75 mb-xs-rem-0-75">Композиция управления
 					</h1>
 					<hr class="hr hr_neutral-16" />
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-2 hide-xs">&nbsp;
+				<div class="col-lg-2 hide-xs"> 
 				</div>
 				<div class="col-lg-8 col-xs-12">
-					<p class="text text-l text-center text-xs-left text-gray-1">Разделение областей управления позволяет
-						определить, какими вопросами должны заниматься менеджеры на своих уровнях и на чем им
-						фокусироваться,
-						чтобы эффективно справляться со своими задачами.
+					<p class="text text-l text-center text-xs-left text-gray-1">
+						Эффективное распределение областей управления позволяет каждому уровню менеджмента сконцентрироваться на&nbsp;своих ключевых задачах.
 					</p>
 				</div>
-				<div class="col-lg-2 hide-xs">&nbsp;
+				<div class="col-lg-2 hide-xs"> 
 				</div>
 			</div>
 		</div>
@@ -202,16 +233,15 @@ onMounted(async () => {
 								<h5 class="mb-rem-1-50 mb-xs-rem-1-0"><span class="text-bold">Управление
 										исполнением</span>
 								</h5>
-								<p class="text text-l">Как добиться того, чтобы команда и&nbsp;люди в ней работали
-									эффективно?
+								<p class="text text-l">Как обеспечить эффективную работу всех участников команды?
 								</p>
 							</div>
 						</div>
 						<div class="block-double__right"><img alt=""
 								 src="../assets/img/track-2/cards/card-1.png" />
-							<h2 class="h2 text-center">Менеджмент
+							<h2 class="h2 text-center">Линейный
 								<br />
-								начального уровня
+							менеджмент
 							</h2>
 						</div>
 					</div>
@@ -235,7 +265,7 @@ onMounted(async () => {
 								 src="../assets/img/track-2/cards/card-2.png" />
 							<h2 class="h2 text-center">Менеджмент
 								<br />
-								среднего уровня
+								среднего звена
 							</h2>
 						</div>
 					</div>
@@ -249,7 +279,7 @@ onMounted(async () => {
 								<h5 class="mb-rem-1-50 mb-xs-rem-1-0"><span class="text-bold">Управление
 										ресурсами</span>
 								</h5>
-								<p class="text text-l">Как добиться эффективного распределения ресурсов?
+								<p class="text text-l">Как оптимально распределить ресурсы организации?
 								</p>
 							</div>
 						</div>
@@ -269,7 +299,7 @@ onMounted(async () => {
 								<h5 class="mb-rem-1-50 mb-xs-rem-1-0"><span class="text-bold">Управление
 										стратегией</span>
 								</h5>
-								<p class="text text-l">Куда направить усилия организации в целом?
+								<p class="text text-l">Как определить направление развития компании?
 								</p>
 							</div>
 						</div>
@@ -285,7 +315,7 @@ onMounted(async () => {
 			</div>
 		</div>
 		<div class="container mb-rem-3-75 mb-xs-rem-2-50">
-			<p class="text text-l">Одновременно заниматься вопросами управления на своем и &laquo;чужих&raquo; уровнях
+			<p class="text text-l">Одновременно заниматься вопросами управления на&nbsp;своем и&nbsp;&laquo;чужих&raquo; уровнях
 				&mdash;
 				неэффективно. Поэтому для каждого руководителя отводится одна основная область управления.
 			</p>
@@ -296,25 +326,24 @@ onMounted(async () => {
 		<div class="container mb-rem-3-0 mb-xs-rem-2-50">
 			<div class="row mb-rem-1-50 mb-xs-rem-1-50">
 				<div class="col-lg-12 col-xs-12">
-					<h1 class="h1 text-center text-xs-left mb-rem-0-75 mb-xs-rem-0-75">Многоголосье
+					<h1 class="h1 text-center text-xs-left mb-rem-0-75 mb-xs-rem-0-75">Баланс управления
 					</h1>
 					<hr class="hr hr_neutral-16" />
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-2 hide-xs">&nbsp;
+				<div class="col-lg-2 hide-xs"> 
 				</div>
 				<div class="col-lg-8 col-xs-12">
-					<p class="text text-l text-center text-xs-left text-gray-1">Хотя участники в музыкальной группе
-						играют на
-						разных инструментах, все они вносят свой вклад в создание песни. Так&nbsp;и&nbsp;руководители
-						разных
-						уровней в той или иной степени вовлечены во все аспекты управления процессом.
+					<p class="text text-l text-center text-xs-left text-gray-1">
+						Хотя участники в&nbsp;музыкальной группе играют на
+						разных инструментах, все они вносят свой вклад в&nbsp;создание песни. 
+						Каждый уровень имеет свой основной фокус, но&nbsp;все руководители в&nbsp;определенной степени участвуют во&nbsp;всех аспектах управления.
 					</p>
-					<p class="text text-l text-center text-xs-left text-gray-1">Посмотри, как это выглядит наглядно.
+					<p class="text text-l text-center text-xs-left text-gray-1">Вот как это выглядит количественно:
 					</p>
 				</div>
-				<div class="col-lg-2 hide-xs">&nbsp;
+				<div class="col-lg-2 hide-xs"> 
 				</div>
 			</div>
 		</div>
@@ -335,9 +364,9 @@ onMounted(async () => {
 							<div class="playlist-slider__slide-content">
 								<div class="">
 
-									<h1 class="mb-rem-3-0 text-white">Руководители
+									<h1 class="mb-rem-3-0 text-white">Линейный 
 										<br />
-										начального уровня
+										менеджмент
 									</h1>
 									<div class="row mt-xs-rem-2-0 mb-xs-rem-2-0">
 										<div class="hide-lg col-xs-12">
@@ -359,17 +388,11 @@ onMounted(async () => {
 							<div class="playlist-slider__slide-content">
 								<div class="">
 
-									<h1 class="mb-rem-3-0 text-white">Руководители
-										<br />
-										среднего уровня
+									<h1 class="mb-rem-3-0 text-white">Менеджмент
+								<br />
+								среднего звена
 									</h1>
 									<div class="row mt-xs-rem-2-0 mb-xs-rem-2-0">
-										<!-- <div class="hide-lg col-xs-12">
-											<div class="hint text-center">Листай влево или вправо, чтобы узнать
-												больше
-												информации
-											</div>
-										</div> -->
 									</div>
 									<img alt=""
 										 class="hide-xs"
@@ -386,12 +409,6 @@ onMounted(async () => {
 									<h1 class="mb-rem-3-0 text-white">ТОП-менеджмент
 									</h1>
 									<div class="row mt-xs-rem-2-0 mb-xs-rem-2-0">
-										<!-- <div class="hide-lg col-xs-12">
-											<div class="hint text-center">Листай влево или вправо, чтобы узнать
-												больше
-												информации
-											</div>
-										</div> -->
 									</div>
 									<img alt=""
 										 class="hide-xs"
@@ -407,15 +424,9 @@ onMounted(async () => {
 
 									<h1 class="mb-rem-3-0 text-white hide-xs">Стратегический<br />менеджмент
 									</h1>
-									<h1 class="mb-rem-3-0 text-white hide-lg">Стратеги–<br />ческий<br />менеджмент
+									<h1 class="mb-rem-3-0 text-white hide-lg">Стратеги&mdash;<br />ческий<br />менеджмент
 									</h1>
 									<div class="row mt-xs-rem-2-0 mb-xs-rem-2-0">
-										<!-- <div class="hide-lg col-xs-12">
-											<div class="hint text-center">Листай влево или вправо, чтобы узнать
-												больше
-												информации
-											</div>
-										</div> -->
 									</div>
 									<img alt=""
 										 class="hide-xs"
@@ -431,32 +442,99 @@ onMounted(async () => {
 		</div>
 		<div class="container">
 			<div class="row mb-155 mb-xs-95">
-				<div class="col-lg-2 hide-xs">&nbsp;
+				<div class="col-lg-2 hide-xs"> 
 				</div>
 				<div class="col-lg-8 col-xs-12">
 					<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
 						 src="../assets/svg/star.svg"
 						 alt="">
-					<div class="text text-xl text-center">Это классическое распределение. Оно может варьироваться в
+					<div class="text text-xl text-center">Это базовое распределение. Оно может варьироваться в
 						зависимости
-						от множества факторов: масштаб компании, специфика деятельности, уровень зрелости, положение на
-						рынке и
+						от&nbsp;множества факторов: масштаба организации, специфики бизнеса, уровня зрелости компании, рыночной позиции и
 						др.
 					</div>
 				</div>
-				<div class="col-lg-2 hide-xs">&nbsp;
+				<div class="col-lg-2 hide-xs"> 
 				</div>
 			</div>
 			<div class="row mb-rem-3-0 mb-xs-rem-2-50">
 				<div class="col-lg-12 col-xs-12">
-					<h1 class="h1 text-center text-xs-left mb-rem-0-75 mb-xs-rem-0-75">Как звучит твоя песня?
+					<h1 class="h1 text-center text-xs-left mb-rem-0-75 mb-xs-rem-0-75">Определи свой профиль
 					</h1>
 					<hr class="hr hr_neutral-16" />
 				</div>
 			</div>
 		</div>
 
-
-
-	</PerfectScrollbar>
+		<div class="container">
+			<div class="container container_with-bg mb-rem-4-0 mb-rem-xs-3-0">
+				<div class="row mb-rem-3-0 mb-xs-rem-2-0">
+					<div class="col-lg-7 col-xs-12 mb-xs-rem-2-0">
+						<div class="text text-xl">
+							Основываясь на&nbsp;полученных знаниях, распредели области управления для своей позиции.
+						</div>
+					</div>
+					<div class="col-lg-5 col-xs-12">
+						<div class="hint text-center">
+							Передвинь ползунок влево или вправо, чтобы распределить области
+							управления.
+						</div>
+					</div>
+				</div>
+				<RangeSliders :settings="rangeSliders"
+							  @disable-scrollbar="disableScrollbar"
+							  @enable-scrollbar="enableScrollbar"
+							  v-on:complete="rangeSlidersComplete" />
+			</div>
+		</div>
+		<div class="container mb-rem-4-75 mb-xs-rem-3-0">
+			<div class="row">
+				<div class="col-lg-8 col-xs-12">
+					<div class="card card_medium card_white">
+						<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-primary">Отлично!
+						</h3>
+						<p class="text text-l">Помни: попытка охватить все уровни управления может снизить эффективность. Сделать все самому&nbsp;&mdash; это неверный путь. Поэтому сфокусируйся на&nbsp;своей ключевой области управления и&nbsp;определи, какими вопросами нужно заниматься.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-4 hide-xs">
+					<div class="card card_medium card_white h-100">
+						<div class="headphones svg-container"
+							 v-html="svgContent1">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container container_full-xs mb-xs-rem-6-0">
+			<div class="track-recap js-track-recap mb-rem-7-75">
+				<div class="track-recap__head"> 
+				</div>
+				<div class="track-recap__container js-track-recap-container">
+					<div class="track-recap__sticky-top">
+						<img class="mr-rem-1-50 mr-xs-rem-1-0"
+							 src="../assets/svg/wave.svg"
+							 alt="">
+						<h4 class="text-white">Ключевые принципы и&nbsp;выводы:
+						</h4>
+					</div>
+					<div class="track-recap__text-wrapper">
+						<div class="track-recap__text js-track-recap-text">
+							<h3 class="text-white text-xs-center w-100">Мои обязанности определяются ключевой областью управления. Мне не&nbsp;нужно заниматься всем и&nbsp;сразу.
+							</h3>
+						</div>
+						<div class="track-recap__text js-track-recap-text">
+							<h3 class="text-white text-xs-center w-100">Важно четко определить границы своей ответственности, чтобы эффективно управлять процессом.
+							</h3>
+						</div>
+						<div class="track-recap__text js-track-recap-text">
+							<h3 class="text-white text-xs-center w-100">Линейные менеджеры и&nbsp;менеджеры среднего звена тоже включены в&nbsp;стратегию компании, это помогает мотивировать команду и&nbsp;показать значение работы.
+							</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="height: 60vh"></div>
+	</main>
 </template>
