@@ -1,10 +1,10 @@
 @use "../base/vars" as *;
 @use "../abstracts/variables" as *;
 
-.story {
+.article {
 	&__container {
 		padding: 60px;
-		background-image: url("../img/backgrounds/story.jpg");
+		background-image: url("../img/backgrounds/article.jpg");
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;

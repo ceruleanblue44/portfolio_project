@@ -126,7 +126,7 @@
 				max-width: none;
 			}
 
-			&_story {
+			&_article {
 				max-width: none;
 				height: 100% !important;
 				display: flex;
@@ -322,7 +322,7 @@
 		backdrop-filter: none;
 		z-index: 13;
 
-		&-story {
+		&-article {
 			background-color: rgba($black, 0.4);
 
 			.header-nav {
@@ -347,7 +347,7 @@
 				}
 			}
 			.header {
-				&-nav__content_story .balloon {
+				&-nav__content_article .balloon {
 					&::after {
 						display: none;
 					}
@@ -700,7 +700,7 @@
 	}
 }
 
-.header-story {
+.header-article {
 	&__container {
 		width: 792px;
 		max-width: 100%;

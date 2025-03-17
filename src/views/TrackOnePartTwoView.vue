@@ -423,8 +423,8 @@ onMounted(async () => {
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-xs-12">
-					<div class="story__container">
-						<div class="story__head mb-rem-3-0 mb-xs-rem-3-0">
+					<div class="article__container">
+						<div class="article__head mb-rem-3-0 mb-xs-rem-3-0">
 							<div class="mb-xs-10">
 								<h2 class="text-white mb-10 mb-xs-10">Дополнительные материалы
 								</h2>
@@ -435,15 +435,15 @@ onMounted(async () => {
 							<div class="hint text-center">Нажми Play, чтобы прочитать статью
 							</div>
 						</div>
-						<div class="story__picture">
+						<div class="article__picture">
 							<img class="img_center"
-								 src="../assets/img/menu/articles/story-1-1.png"
+								 src="../assets/img/menu/articles/article-1-1.png"
 								 alt="">
-							<!-- <img alt=""  onclick="openStory('article-0')" src="user/img/menu/articles/story-1-1.png" /> -->
+							<!-- <img alt=""  onclick="openarticle('article-0')" src="user/img/menu/articles/article-1-1.png" /> -->
 						</div>
-						<div class="story__footer mt-rem-1-50 mt-xs-rem-1-50">
+						<div class="article__footer mt-rem-1-50 mt-xs-rem-1-50">
 							<div class="hide-xs">&nbsp;</div>
-							<div class="card card_story">
+							<div class="card card_article">
 								<p class="text text-m text-white">статья
 								</p>
 								<p class="text text-xl text-white">Управление приоритетами

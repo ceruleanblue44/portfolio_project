@@ -103,7 +103,7 @@
 		}
 	}
 
-	&_story {
+	&_article {
 		padding: 24px;
 
 		background: linear-gradient(94deg, #0b1b2b 14.81%, #13344e 103.58%);
@@ -440,7 +440,7 @@
 				}
 			}
 
-			&_new-story {
+			&_new-article {
 				background: linear-gradient(94deg, #0b1b2b 14.81%, #13344e 103.58%);
 			}
 
@@ -621,7 +621,7 @@
 				}
 			}
 
-			&_new-story {
+			&_new-article {
 				background: $neutral-4;
 				border-radius: 32px;
 
