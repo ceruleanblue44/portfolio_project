@@ -404,7 +404,7 @@ onMounted(async () => {
 							</h4>
 							<a class="d-flex card-download__link cursor-pointer"
 							   download
-							   href="user/materials/album-1/Rukovoditel_VS_specialist.pdf">
+							   href="../assets/pdfs/task.pdf">
 								<h4 class="text-white text-m mr-xs-15">Скачать
 								</h4>
 								<img class="ml-rem-1-0"
@@ -437,9 +437,9 @@ onMounted(async () => {
 						</div>
 						<div class="story__picture">
 							<img class="img_center"
-								 src="../assets/img/menu/stories/story-1-1.png"
+								 src="../assets/img/menu/articles/story-1-1.png"
 								 alt="">
-							<!-- <img alt=""  onclick="openStory('article-0')" src="user/img/menu/stories/story-1-1.png" /> -->
+							<!-- <img alt=""  onclick="openStory('article-0')" src="user/img/menu/articles/story-1-1.png" /> -->
 						</div>
 						<div class="story__footer mt-rem-1-50 mt-xs-rem-1-50">
 							<div class="hide-xs">&nbsp;</div>

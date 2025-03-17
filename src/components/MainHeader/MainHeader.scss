@@ -25,7 +25,7 @@
 			display: flex;
 
 			@media #{$breakpoint-lg-only} {
-				width: 180px;
+				width: 240px;
 				height: 100%;
 				flex-direction: column;
 				margin-left: -24px;
@@ -188,7 +188,7 @@
 
 	div:has(> .header__logo) {
 		display: flex;
-		width: 100%
+		width: 100%;
 	}
 
 	&__logo {
@@ -196,7 +196,9 @@
 		margin-right: 1.5rem;
 
 		@media #{$breakpoint-xs-only} {
-			margin-right: .75rem;
+			display: flex;
+			align-items: center;
+			margin-right: 0.75rem;
 			// width: 135px;
 		}
 
@@ -220,10 +222,14 @@
 
 		& > div {
 			display: flex;
-			align-items: center;
+			align-items: end;
 
-			& > svg {
+			& > img {
 				flex-shrink: 0;
+
+				@media #{$breakpoint-xs-only} {
+					margin-right: 0.25rem;				
+				}
 			}
 		}
 
@@ -360,6 +366,8 @@
 					&__alt {
 						display: block;
 					}
+
+					
 				}
 
 				&__btn {

@@ -323,17 +323,17 @@ onMounted(async () => {
 									<div class="card card_gray h-100">
 										<h4 class="mb-rem-0-75 mb-xs-rem-0-75">Подбирай на&nbsp;свой вкус
 										</h4>
-										<p class="text text-m">&laquo;Библиотека лидера&raquo;&nbsp;&mdash; это
+										<p class="text text-m">Дополнительные материалы&nbsp;&mdash; это
 											коллекция
-											материалов, подобранных специально под каждый трек. Погрузись глубже
+											статей, подобранных специально под определенный трек. Погрузись глубже
 											в&nbsp;тему
 											и&nbsp;открой для себя новые грани управления. Найти материалы можно:
 										</p>
 										<ul class="list list__ul text text-m mb-rem-2-0 mb-xs-rem-1-50">
-											<li class="list__ul--item">в&nbsp;разделе &laquo;Библиотека&raquo;
+											<li class="list__ul--item">в&nbsp;разделе &laquo;Статьи&raquo;
 												главного меню;
 											</li>
-											<li class="list__ul--item">в&nbsp;конце каждого трека.</li>
+											<li class="list__ul--item">в&nbsp;конце треков.</li>
 										</ul>
 										<div class="row">
 											<div class="col-lg-3 col-xs-6"><img alt=""
@@ -383,8 +383,7 @@ onMounted(async () => {
 									<div class="card card_gray h-100">
 										<h4 class="mb-rem-0-75 mb-xs-rem-0-75">Сохрани лучшие моменты
 										</h4>
-										<p class="text text-m mb-rem-2-0 mb-xs-rem-1-50">&laquo;Золотая
-											коллекция&raquo;&nbsp;&mdash; это сборник проверенных управленческих
+										<p class="text text-m mb-rem-2-0 mb-xs-rem-1-50">Материалы для скачивания&raquo;&nbsp;&mdash; сборник проверенных управленческих
 											практик. Здесь
 											собраны инструменты, которые помогут в&nbsp;любой ситуации:
 											от&nbsp;решения сложных

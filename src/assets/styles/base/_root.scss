@@ -55,7 +55,7 @@ div {
 		outline-offset: -2px;
 		background: $white;
 		border-radius: 48px;
-		
+
 		&-img-black {
 			border-radius: 48px;
 			background: transparent;
@@ -371,6 +371,12 @@ div {
 
 .d-flex {
 	display: flex !important;
+
+	@media #{$breakpoint-xs-only} {
+		&-xs {
+			display: flex !important;
+		}
+	}
 }
 
 .flex-col {
@@ -664,8 +670,6 @@ div {
 .right {
 	right: 0;
 }
-
-
 
 .album-restyle {
 	&_2 {
