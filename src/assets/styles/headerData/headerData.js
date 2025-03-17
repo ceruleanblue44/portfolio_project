@@ -102,8 +102,9 @@ export const headerData = {
 	],
 	materials: [
 		{
+			id: 0,
 			title: 'Руководитель VS специалист',
-			link: 'user/materials/album-1/Rukovoditel_VS_specialist.pdf'
+			link: '/src/assets/pdfs/task.pdf'
 		},
 		// {
 		// 	title: 'Расстановка приоритетов',
@@ -120,8 +121,9 @@ export const headerData = {
 	],
 	articles: [
 		{
-			title: 'Смена приоритетов',
-			img: 'user/img/menu/articles/story-1-1.png',
+			id: 0,
+			title: 'Управление приоритетами',
+			img: '/src/assets/img/menu/articles/header-article-1-1.png',
 			articleLink: 'article-0',
 		},
 		// {

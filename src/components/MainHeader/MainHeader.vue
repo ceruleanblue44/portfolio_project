@@ -1,17 +1,27 @@
 <script setup>
 import './MainHeader.scss'
 import { ref } from 'vue';
+import { headerData } from '@/assets/styles/headerData/headerData';
+import HeaderNavArticles from './HeaderNavArticles.vue';
+import HeaderNavMaterials from './HeaderNavMaterials.vue';
+
 
 const isMenuOpen = ref(false)
+
+const currentTab = ref('articles')
 
 const openMenu = () => {
 	isMenuOpen.value =! isMenuOpen.value
 }
 
+const selectTab = (component) => {
+	currentTab.value = component
+}
+
 </script>
 
 <template>
-	<div class="header">
+	<div :class="['header', {'header_expanded': isMenuOpen}, {'header_expanded-article': isMenuOpen && currentTab === 'article-reader'}]">
 		<div class="header__content">
 			<div>
 				<div class="header__logo">
@@ -61,7 +71,7 @@ const openMenu = () => {
 
 	<div v-show="isMenuOpen" class="container header-nav" ref="headerNav">
             <div class="h-100 hide-xs">
-            <!-- <div class="h-100 hide-xs" v-if="currentTab !== 'home' && currentTab !== 'story-reader'"> -->
+            <!-- <div class="h-100 hide-xs" v-if="currentTab !== 'home' && currentTab !== 'article-reader'"> -->
                 <div class="header-nav__tabs">
                     <button @click="selectTab('navigation')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'navigation'}]">
 						<img class="mr-rem-0-25" src="../../assets/svg/menu/albums.svg" alt="">
@@ -83,15 +93,45 @@ const openMenu = () => {
                     </button>
                 </div>
             </div>
-            <!-- <div :class="['header-nav__content',
-                {'header-nav__content_home': currentTab === 'home'},
-                {'header-nav__content_story': currentTab === 'story-reader'},
+
+			<div class="hide-lg mb-xs-rem-1-0" >
+                        <div class="header-nav__tabs">
+                            <button @click="selectTab('navigation')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'navigation'}]">
+								<img class="mr-xs-rem-0-50" src="../../assets/svg/menu/albums.svg" alt="">
+                                <span>
+                                    Альбом
+                                </span>
+                            </button>
+                            <button @click="selectTab('articles')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'articles'}]">
+								<img class="mr-xs-rem-0-50" src="../../assets/svg/menu/articles.svg" alt="">
+                                <span>
+									Статьи
+                                </span>
+                            </button>
+                            <button @click="selectTab('materials')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'materials'}]">
+								<img class="mr-xs-rem-0-50" src="../../assets/svg/menu/materials.svg" alt="">
+                                <span>
+                                    Материалы
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+           <div :class="['header-nav__content',
+                {'header-nav__content_articles': currentTab === 'articles'},
                 ]">
-                <v-home v-if="currentTab === 'home'" @select-tab="selectTab($event)"></v-home>
+
+			<HeaderNavArticles v-if="currentTab === 'articles'" :articles="headerData.articles"/>
+
+			<HeaderNavMaterials v-if="currentTab === 'materials'" :materials="headerData.materials"/>
+
+			
+
+               <!--   <v-home v-if="currentTab === 'home'" @select-tab="selectTab($event)"></v-home>
                 <v-article
-                    v-else-if="currentTab === 'story-reader'"
-                    :article="$slots[currentStory.articleLink]"
-                    :title="currentStory.title"
+                    v-else-if="currentTab === 'article-reader'"
+                    :article="$slots[currentarticle.articleLink]"
+                    :title="currentarticle.title"
                     @close="showNav()">
                 </v-article>
                 <div v-else>
@@ -134,7 +174,7 @@ const openMenu = () => {
                         </template>
                     </div>
     
-                    <div class="hide-lg mb-xs-rem-1-0" v-if="currentTab !== 'home' && currentTab !== 'story-reader'">
+                    <div class="hide-lg mb-xs-rem-1-0" v-if="currentTab !== 'home' && currentTab !== 'article-reader'">
                         <div class="header-nav__tabs">
                             <button @click="selectTab('navigation')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'navigation'}]">
 								<img class="mr-xs-rem-0-50" src="../../assets/svg/menu/albums.svg" alt="">
@@ -159,10 +199,10 @@ const openMenu = () => {
                     
                     <div class="card card_white mt-rem-2-0 ml-rem-1-50">
                         <navigation :nav-items="navigation" :content-show="content.show" :current-group="currentGroup" @updateContentShow="updateContentShow" v-if="currentTab === 'navigation'" @updateDisplayGroup="updateDisplayGroup($event)"></navigation>
-                        <v-articles v-if="currentTab === 'articles'" :articles="articles" @read-story="openStory($event);"></v-articles>
+                        <v-articles v-if="currentTab === 'articles'" :articles="articles" @read-article="openarticle($event);"></v-articles>
                         <materials v-if="currentTab === 'materials'" :materials="materials"></materials>
-                    </div>
-                </div> -->
+                    </div>-->
+                </div> 
             </div>
         </div>
 
