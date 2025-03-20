@@ -13,6 +13,14 @@ import { doubleQuestions } from '@/quizData/doubleQuestion'
 import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 
+import ArticleModal from '@/components/ArticleModal/ArticleModal.vue'
+
+const isModalOpen = ref(false)
+
+const openModal = () => isModalOpen.value = true
+
+const closeModal = () => isModalOpen.value = false
+
 const svgContent = ref('')
 
 const showAfter = () => {
@@ -438,8 +446,8 @@ onMounted(async () => {
 						<div class="article__picture">
 							<img class="img_center"
 								 src="../assets/img/menu/articles/article-1-1.png"
-								 alt="">
-							<!-- <img alt=""  onclick="openarticle('article-0')" src="user/img/menu/articles/article-1-1.png" /> -->
+								 alt=""
+								 @click="openModal">
 						</div>
 						<div class="article__footer mt-rem-1-50 mt-xs-rem-1-50">
 							<div class="hide-xs">&nbsp;</div>
@@ -451,6 +459,9 @@ onMounted(async () => {
 							</div>
 							<div class="hide-xs">&nbsp;</div>
 						</div>
+
+						<ArticleModal v-if="isModalOpen"
+						  @closeModal="closeModal" />
 					</div>
 				</div>
 			</div>

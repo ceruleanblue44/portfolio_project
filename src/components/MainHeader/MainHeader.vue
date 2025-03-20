@@ -1,17 +1,44 @@
 <script setup>
 import './MainHeader.scss'
-import { ref } from 'vue';
-import { headerData } from '@/assets/styles/headerData/headerData';
-import HeaderNavArticles from './HeaderNavArticles.vue';
-import HeaderNavMaterials from './HeaderNavMaterials.vue';
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { headerData } from '@/assets/styles/headerData/headerData'
+import HeaderNavArticles from './HeaderNavArticles.vue'
+import HeaderNavMaterials from './HeaderNavMaterials.vue'
+import HeaderNavContents from './HeaderNavContents.vue'
 
+const router = useRouter();
 
 const isMenuOpen = ref(false)
 
-const currentTab = ref('articles')
+const goBack = () => {
+	if (window.history.length > 1) {
+		router.back()
+	} else {
+		router.push('/') // Fallback to home if no history exists
+	}
+};
+
+const currentTab = ref('navigation')
+
+const tabComponents = {
+	navigation: HeaderNavContents,
+	articles: HeaderNavArticles,
+	materials: HeaderNavMaterials
+}
+
+const getComponentEvents = () => {
+	return currentTab.value === 'navigation' ? { 'close-menu': closeMenu } : {};
+}
 
 const openMenu = () => {
-	isMenuOpen.value =! isMenuOpen.value
+	isMenuOpen.value = true
+	console.log(getComponentEvents());
+}
+
+const closeMenu = () => {
+	console.log('closing');
+	isMenuOpen.value = false
 }
 
 const selectTab = (component) => {
@@ -21,7 +48,8 @@ const selectTab = (component) => {
 </script>
 
 <template>
-	<div :class="['header', {'header_expanded': isMenuOpen}, {'header_expanded-article': isMenuOpen && currentTab === 'article-reader'}]">
+	<div
+		 :class="['header', {'header_expanded': isMenuOpen}, {'header_expanded-article': isMenuOpen && currentTab === 'article-reader'}]">
 		<div class="header__content">
 			<div>
 				<div class="header__logo">
@@ -48,165 +76,112 @@ const selectTab = (component) => {
 				<div class="header__progressbar-line"></div>
 			</div>
 
-			<button class="header__btn header__btn_secondary ml-rem-1-50 ml-xs-rem-0-50">
+			<button class="header__btn header__btn_secondary ml-rem-1-50 ml-xs-rem-0-50"
+					@click="goBack"
+					v-show="!isMenuOpen">
 				<img src="../../assets/svg/back.svg"
 					 alt="">
 				<span class="hide-xs ml-rem-0-50">Назад</span>
 			</button>
 
-			<button class="header__btn ml-rem-1-50 ml-xs-rem-0-50" v-show="!isMenuOpen" @click="openMenu">
+			<button class="header__btn ml-rem-1-50 ml-xs-rem-0-50"
+					v-show="!isMenuOpen"
+					@click="openMenu">
 				<span class="hide-xs mr-rem-0-50">Меню</span>
 				<img src="../../assets/svg/menu.svg"
 					 alt="">
 			</button>
 
-			<button class="header__btn ml-rem-1-50 ml-xs-rem-0-50" v-show="isMenuOpen" @click="openMenu">
+			<button class="header__btn ml-rem-1-50 ml-xs-rem-0-50"
+					v-show="isMenuOpen"
+					@click="closeMenu">
 				<span class="hide-xs mr-rem-0-50">Закрыть</span>
-				<img class="" src="../../assets/svg/close.svg"
+				<img class=""
+					 src="../../assets/svg/close.svg"
 					 alt="">
 			</button>
 
 		</div>
-	<!-- </div> -->
 
-	<div v-show="isMenuOpen" class="container header-nav" ref="headerNav">
-            <div class="h-100 hide-xs">
-            <!-- <div class="h-100 hide-xs" v-if="currentTab !== 'home' && currentTab !== 'article-reader'"> -->
-                <div class="header-nav__tabs">
-                    <button @click="selectTab('navigation')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'navigation'}]">
-						<img class="mr-rem-0-25" src="../../assets/svg/menu/albums.svg" alt="">
-                        <span>
-                            Альбом
-                        </span>
-                    </button>
-                    <button @click="selectTab('articles')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'articles'}]">
-						<img class="mr-rem-0-25" src="../../assets/svg/menu/articles.svg" alt="">
-                        <span>
-                            Статьи
-                        </span>
-                    </button>
-                    <button @click="selectTab('materials')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'materials'}]">
-						<img class="mr-rem-0-25" src="../../assets/svg/menu/materials.svg" alt="">
-                        <span>
-                            Материалы
-                        </span>
-                    </button>
-                </div>
-            </div>
+		<div v-show="isMenuOpen"
+			 class="header-nav"
+			 ref="headerNav">
+			<div class="header-nav__album-info hide-lg">
+				<div class="header-nav__album-name">
+					<h3>
+						{{ headerData.albumInfo.title }}
+					</h3>
+				</div>
+				<div class="header-nav__album-description">
+					<p class="text text-xs">
+						{{ headerData.albumInfo.description }}
+					</p>
+				</div>
+			</div>
+			<div class="h-lg-100">
+				<div class="header-nav__tabs">
+					<button @click="selectTab('navigation')"
+							:class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'navigation'}]">
+						<img class="mr-rem-0-25 mr-xs-rem-0-25"
+							 src="../../assets/svg/menu/albums.svg"
+							 alt="">
+						<span>
+							Альбом
+						</span>
+					</button>
+					<button @click="selectTab('articles')"
+							:class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'articles'}]">
+						<img class="mr-rem-0-25 mr-xs-rem-0-25"
+							 src="../../assets/svg/menu/articles.svg"
+							 alt="">
+						<span>
+							Статьи
+						</span>
+					</button>
+					<button @click="selectTab('materials')"
+							:class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'materials'}]">
+						<img class="mr-rem-0-25 mr-xs-rem-0-25"
+							 src="../../assets/svg/menu/materials.svg"
+							 alt="">
+						<span>
+							Материалы
+						</span>
+					</button>
+				</div>
+			</div>
 
-			<div class="hide-lg mb-xs-rem-1-0" >
-                        <div class="header-nav__tabs">
-                            <button @click="selectTab('navigation')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'navigation'}]">
-								<img class="mr-xs-rem-0-50" src="../../assets/svg/menu/albums.svg" alt="">
-                                <span>
-                                    Альбом
-                                </span>
-                            </button>
-                            <button @click="selectTab('articles')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'articles'}]">
-								<img class="mr-xs-rem-0-50" src="../../assets/svg/menu/articles.svg" alt="">
-                                <span>
-									Статьи
-                                </span>
-                            </button>
-                            <button @click="selectTab('materials')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'materials'}]">
-								<img class="mr-xs-rem-0-50" src="../../assets/svg/menu/materials.svg" alt="">
-                                <span>
-                                    Материалы
-                                </span>
-                            </button>
-                        </div>
-                    </div>
+			<div class="d-flex-col">
+				<div class="header-nav__album-info mb-xs-rem-1-0 hide-xs">
+					<div class="header-nav__album-name">
+						<h3>
+							{{ headerData.albumInfo.title }}
+						</h3>
+					</div>
+					<div class="header-nav__album-description">
+						<p class="text text-xs">
+							{{ headerData.albumInfo.description }}
+						</p>
+					</div>
+				</div>
 
-           <div :class="['header-nav__content',
-                {'header-nav__content_articles': currentTab === 'articles'},
-                ]">
+				<div class="header-nav__content">
+					<component :is="tabComponents[currentTab]"
+							   v-if="tabComponents[currentTab]"
+							   v-bind:[currentTab]="headerData[currentTab]"
+							   v-on="getComponentEvents()" />
 
-			<HeaderNavArticles v-if="currentTab === 'articles'" :articles="headerData.articles"/>
+					<!-- <HeaderNavContents v-if="currentTab === 'navigation'"
+									   :navigation="headerData.navigation"
+									   @close-menu="closeMenu" />
 
-			<HeaderNavMaterials v-if="currentTab === 'materials'" :materials="headerData.materials"/>
+					<HeaderNavArticles v-if="currentTab === 'articles'"
+									   :articles="headerData.articles" />
 
-			
-
-               <!--   <v-home v-if="currentTab === 'home'" @select-tab="selectTab($event)"></v-home>
-                <v-article
-                    v-else-if="currentTab === 'article-reader'"
-                    :article="$slots[currentarticle.articleLink]"
-                    :title="currentarticle.title"
-                    @close="showNav()">
-                </v-article>
-                <div v-else>
-                    <div class="header-nav__album-info mb-xs-rem-1-0">
-                        <template v-if="currentTab === 'navigation' && displayGroup === null">
-                            <div class="header-nav__album-name" v-if="currentGroup">
-                                <h3>
-                                    Альбомы
-                                </h3>
-                            </div>
-                            <div class="header-nav__album-description" v-if="currentGroup">
-                                <p class="text text-xs">
-                                    Альбом — это собрание треков по одной из тем, которые помогут тебе адаптироваться в новой роли и стать эффективным руководителем.
-                                </p>
-                            </div>
-                        </template>
-                        <template v-else-if="currentTab === 'navigation' && displayGroup !== null">
-                            <div class="header-nav__album-name" v-if="currentGroup">
-                                <h3>
-                                    {{ displayGroup.title }}
-                                </h3>
-                            </div>
-                            <div class="header-nav__album-description" v-if="currentGroup">
-                                <p class="text text-xs">
-                                    {{ displayGroup.description }}
-                                </p>
-                            </div>
-                        </template>
-                        <template v-else>
-                            <div class="header-nav__album-name" v-if="currentGroup">
-                                <h3>
-                                    {{ currentGroup.title }}
-                                </h3>
-                            </div>
-                            <div class="header-nav__album-description" v-if="currentGroup">
-                                <p class="text text-xs">
-                                    {{ currentGroup.description }}
-                                </p>
-                            </div>
-                        </template>
-                    </div>
-    
-                    <div class="hide-lg mb-xs-rem-1-0" v-if="currentTab !== 'home' && currentTab !== 'article-reader'">
-                        <div class="header-nav__tabs">
-                            <button @click="selectTab('navigation')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'navigation'}]">
-								<img class="mr-xs-rem-0-50" src="../../assets/svg/menu/albums.svg" alt="">
-                                <span>
-                                    Альбом
-                                </span>
-                            </button>
-                            <button @click="selectTab('articles')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'articles'}]">
-								<img class="mr-xs-rem-0-50" src="../../assets/svg/menu/articles.svg" alt="">
-                                <span>
-									Дополнительные материалы
-                                </span>
-                            </button>
-                            <button @click="selectTab('materials')" :class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'materials'}]">
-								<img class="mr-xs-rem-0-50" src="../../assets/svg/menu/materials.svg" alt="">
-                                <span>
-                                    Материалы для скачивания
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="card card_white mt-rem-2-0 ml-rem-1-50">
-                        <navigation :nav-items="navigation" :content-show="content.show" :current-group="currentGroup" @updateContentShow="updateContentShow" v-if="currentTab === 'navigation'" @updateDisplayGroup="updateDisplayGroup($event)"></navigation>
-                        <v-articles v-if="currentTab === 'articles'" :articles="articles" @read-article="openarticle($event);"></v-articles>
-                        <materials v-if="currentTab === 'materials'" :materials="materials"></materials>
-                    </div>-->
-                </div> 
-            </div>
-        </div>
-
+					<HeaderNavMaterials v-if="currentTab === 'materials'"
+										:materials="headerData.materials" /> -->
+				</div>
+			</div>
+		</div>
+	</div>
 
 </template>
-
-
