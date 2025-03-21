@@ -1,11 +1,13 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
+import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import CheckboxQuestion from '@/components/CheckboxQuestion/CheckboxQuestion.vue'
 import { checkboxQuestionTrack2 } from '@/quizData/checkboxQuestionTrack2'
 
 import { fetchSvg } from '@/scripts/utils/fetchSvg'
+import { showHiddenContent } from '@/scripts/utils/showHiddenContent'
+import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 import { trackRecapAnimation } from '@/scripts/ui/trackRecapAnimation'
 
@@ -13,28 +15,28 @@ import InstrumentPicker from '@/components/InstrumentPicker/InstrumentPicker.vue
 import { instrumentsModals } from '@/contentModalsData/instrumentsModals'
 import { swiperInit } from '@/scripts/ui/swiperSlider'
 
-import ArrowSquareRight from '@/assets/svg/arrow-square-right.svg';
-import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg';
+import ArrowSquareRight from '@/assets/svg/arrow-square-right.svg'
+import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg'
 
-import RangeSliders from '@/components/RangeSliders/RangeSliders.vue';
-import { rangeSliders } from '@/rangeSlidersData/rangeSliders';
+import RangeSliders from '@/components/RangeSliders/RangeSliders.vue'
+import { rangeSliders } from '@/rangeSlidersData/rangeSliders'
 
 const containerRef = ref(null);
 const svgContent = ref('')
 const svgContent1 = ref('')
 
 const disableScrollbar = () => {
-	console.log('disabled');
-	document.body.style.overflow = 'hidden'; // Prevent scrolling when needed
+	console.log('disabled')
+	document.body.style.overflow = 'hidden' // Prevent scrolling when needed
 };
 
 const enableScrollbar = () => {
-	console.log('enabled');
-	document.body.style.overflow = ''; // Restore scrolling
+	console.log('enabled')
+	document.body.style.overflow = '' // Restore scrolling
 };
 
 const showAfter = async (isCorrect) => {
-	console.log(isCorrect);
+	console.log(isCorrect)
 	const color = isCorrect ? 'green' : 'red'
 
 	svgContent.value = await fetchSvg(color)
@@ -53,14 +55,10 @@ const rangeSlidersComplete = async () => {
 		headphonesAnimation()
 	})
 
-	setTimeout(() => {
-		ScrollTrigger.refresh()
-	}, 500)
-
-	// trackRecapAnimation()
+	refreshScrollTrigger()
 }
 
-onMounted(async () => {
+onMounted(() => {
 	swiperInit()
 	trackRecapAnimation()
 })
@@ -137,7 +135,7 @@ onMounted(async () => {
 			<checkbox-question :answers-grid="checkboxQuestionTrack2.answersGrid"
 							   :check-rule="checkboxQuestionTrack2.checkRule"
 							   :use-clv="true"
-							   v-on:complete="showAfter">
+							   v-on:complete="showAfter(); showHiddenContent(0)">
 				<template v-slot:question-text="">
 					<h4 class="mb-rem-1-50 mb-xs-rem-1-0">
 						На&nbsp;чем сконцентрировано твое внимание сейчас? Какие области управления для тебя наиболее важные?
@@ -187,6 +185,8 @@ onMounted(async () => {
 				</template>
 			</checkbox-question>
 		</div>
+		<section class="hidden js-hidden"
+		data-hidden-id="0">
 		<div class="container mt-rem-9-75 mb-rem-9-75 mt-xs-rem-6-0 mb-xs-rem-6-0">
 			<div class="row">
 				<div class="col-lg-12 col-xs-12">
@@ -484,9 +484,12 @@ onMounted(async () => {
 				<RangeSliders :settings="rangeSliders"
 							  @disable-scrollbar="disableScrollbar"
 							  @enable-scrollbar="enableScrollbar"
-							  v-on:complete="rangeSlidersComplete" />
+							  v-on:complete="rangeSlidersComplete(); showHiddenContent(1)" />
 			</div>
 		</div>
+		</section>
+		<section class="hidden js-hidden"
+		data-hidden-id="1">
 		<div class="container mb-rem-4-75 mb-xs-rem-3-0">
 			<div class="row">
 				<div class="col-lg-8 col-xs-12">
@@ -535,6 +538,7 @@ onMounted(async () => {
 				</div>
 			</div>
 		</div>
-		<div style="height: 60vh"></div>
+		<NavigationButtons />
+		</section>
 	</main>
 </template>

@@ -1,3 +1,13 @@
+<script setup>
+import './IntroInstructions.scss'
+
+const emit = defineEmits(['complete'])
+
+const endInstructions = () => {
+	emit('complete')
+}
+</script>
+
 <template>
 	<div class="instructions">
 		<div class="instructions__main">
@@ -13,9 +23,9 @@
 				</div>
 				<div class="hide-xs">
 					<div class="d-flex pos-a"
-						 style="width: 291px; right: 248px;">
+						 style="width: 222px; right: 248px;">
 						<p class="text text-s mt-30">
-							Переход к&nbsp;предыдущему разделу
+							Вернуться назад
 						</p>
 						<img class="instructions__arrow instructions__arrow_3 ml-rem-0-50 ml-xs-rem-0-50"
 							 src="../../assets/img/instructions/instructions-arrow-3.svg"
@@ -42,9 +52,9 @@
 							 alt="">
 					</div>
 					<div class="pos-a d-flex mr-100"
-						 style="width: 169px; right: 196px; top: 0;">
+						 style="width: 122px; right: 190px; top: 7px;">
 						<p class="text text-s mt-xs-rem-5-25">
-							Переход к&nbsp;предыдущему разделу
+							Вернуться назад
 						</p>
 						<img class="instructions__arrow instructions__arrow_3-xs ml-rem-0-50"
 							 src="../../assets/img/instructions/instructions-arrow-3-xs.svg"
@@ -137,7 +147,3 @@
 	</div>
 
 </template>
-
-<script setup>
-import './IntroInstructions.scss'
-</script>

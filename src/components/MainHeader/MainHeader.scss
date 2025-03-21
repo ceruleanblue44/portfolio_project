@@ -237,13 +237,14 @@
 		width: 100%;
 		flex-grow: 0;
 		font-weight: 600;
-		font-size: $fs14;
+		font-size: $fs16;
 		line-height: $lh130;
 		margin-top: auto;
 		white-space: normal;
 
 		@media #{$breakpoint-xs-only} {
-			font-size: $fs12;
+			font-size: $fs14;
+			line-height: $lh100;
 		}
 
 		& > div {
@@ -252,6 +253,7 @@
 
 			& > img {
 				flex-shrink: 0;
+				margin-right: 0.5rem;
 
 				@media #{$breakpoint-xs-only} {
 					width: 1rem;

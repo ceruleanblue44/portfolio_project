@@ -1,13 +1,15 @@
 <script setup>
 import './MainHeader.scss'
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { headerData } from '@/assets/styles/headerData/headerData'
 import HeaderNavArticles from './HeaderNavArticles.vue'
 import HeaderNavMaterials from './HeaderNavMaterials.vue'
 import HeaderNavContents from './HeaderNavContents.vue'
 
-const router = useRouter();
+const router = useRouter()
+
+const route = useRoute()
 
 const isMenuOpen = ref(false)
 
@@ -28,12 +30,16 @@ const tabComponents = {
 }
 
 const getComponentEvents = () => {
-	return currentTab.value === 'navigation' ? { 'close-menu': closeMenu } : {};
+	return currentTab.value === 'navigation' ? { 'close-menu': closeMenu } : {}
 }
+
+const getCurrentRouteTitle = computed(() => {
+	console.log(route.path);
+	return headerData.navigation.find(navItem => navItem.link === route.path).title
+})
 
 const openMenu = () => {
 	isMenuOpen.value = true
-	console.log(getComponentEvents());
 }
 
 const closeMenu = () => {
@@ -65,8 +71,8 @@ const selectTab = (component) => {
 					<div>
 						<img src="../../assets/svg/header-note.svg"
 							 alt="">
-						<div class="header__title__text js-header-title">
-							Intro to a new life
+						<div class="header__title__text">
+							{{ getCurrentRouteTitle }}
 						</div>
 					</div>
 				</div>

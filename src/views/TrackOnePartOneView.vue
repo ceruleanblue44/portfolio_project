@@ -1,8 +1,8 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
+import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { initLottieScroll } from '@/scripts/ui/lottieScroll'
 import wordsJson from '@/assets/lottie/words.json?url'
 
@@ -13,18 +13,15 @@ import CheckboxQuestion from '@/components/CheckboxQuestion/CheckboxQuestion.vue
 import { checkboxQuestionTrack1 } from "@/quizData/checkboxQuestionTrack1"
 import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
+import { showHiddenContent } from '@/scripts/utils/showHiddenContent'
+import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
 
 const svgContent = ref('')
 
 
 const showAfter = () => {
-	console.log('showing after')
-
 	headphonesAnimation()
-
-	setTimeout(() => {
-		ScrollTrigger.refresh()
-	}, 500);
+	refreshScrollTrigger()
 }
 
 onMounted(async () => {
@@ -44,9 +41,7 @@ onMounted(async () => {
 
 	highlightBlocks()
 
-	setTimeout(() => {
-		ScrollTrigger.refresh();
-	}, 500);
+	refreshScrollTrigger()
 
 	textAnimation()
 
@@ -318,7 +313,7 @@ onMounted(async () => {
 			<checkbox-question :answers-grid="checkboxQuestionTrack1.answersGrid"
 							   :check-rule="checkboxQuestionTrack1.checkRule"
 							   :use-clv="true"
-							   v-on:complete="showAfter()">
+							   v-on:complete="showAfter(); showHiddenContent(0)">
 				<template v-slot:question-text="">
 					<div class="row">
 						<div class="col-lg-6 col-xs-12">
@@ -354,7 +349,8 @@ onMounted(async () => {
 				</template>
 			</checkbox-question>
 		</div>
-
+		<section class="hidden js-hidden"
+		data-hidden-id="0">
 		<div class="container mt-rem-9-75 mt-xs-rem-6-0 mb-rem-4-0 mb-xs-rem-3-0">
 			<div class="row mb-rem-1-50 mb-xs-rem-1-50">
 				<div class="col-lg-12 col-xs-12">
@@ -467,16 +463,8 @@ onMounted(async () => {
 				</div>
 			</div>
 		</div>
-		<div class="container btn-container btn-container_center mt-rem-9-75 mb-rem-2-50 mt-xs-rem-6-0 mb-xs-rem-2-50">
-			<button class="btn btn_back"
-					type="button"><span class="btn__text">Назад</span>
-			</button>
-			<button class="btn btn_next"
-					type="button"><span class="btn__text">Продолжить</span>
-			</button>
-		</div>
-
-
+		<NavigationButtons />
+		</section>
 	</main>
 </template>
 

@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
+import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 
 import { vinylAnimation } from '@/scripts/ui/vinylAnimation'
 import { fetchSvg } from '@/scripts/utils/fetchSvg'
@@ -481,11 +482,7 @@ onMounted(async () => {
 				</div>
 			</div>
 		</div>
-		<div class="container btn-container btn-container_center mb-rem-2-50 mb-xs-rem-2-0">
-			<button class="btn btn_next"
-					type="button"><span class="btn__text">Продолжить</span>
-			</button>
-		</div>
+		<NavigationButtons />
 	</main>
 </template>
 

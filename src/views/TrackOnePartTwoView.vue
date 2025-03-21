@@ -1,12 +1,14 @@
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted } from 'vue'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import ToggleImg from '@/components/ToggleImg/ToggleImg.vue'
 import { toggleImg } from '@/toggleAnimationsData/toggleImg'
 import { textScrollAnimation } from '@/scripts/ui/textScrollAnimation'
 import { textGramophoneAnimation } from '@/scripts/ui/textGramophoneAnimation'
 import { trackRecapAnimation } from '@/scripts/ui/trackRecapAnimation'
+import { showHiddenContent } from '@/scripts/utils/showHiddenContent'
+import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
 
 import DoubleQuestion from '@/components/DoubleQuestion/DoubleQuestion.vue'
 import { doubleQuestions } from '@/quizData/doubleQuestion'
@@ -24,34 +26,22 @@ const closeModal = () => isModalOpen.value = false
 const svgContent = ref('')
 
 const showAfter = () => {
-	console.log('showing after')
-
 	headphonesAnimation()
-
-	setTimeout(() => {
-		ScrollTrigger.refresh()
-	}, 500);
+	refreshScrollTrigger()	
+	trackRecapAnimation()
 }
 
 onMounted(async () => {
 
 	svgContent.value = await fetchSvg()
 
-	setTimeout(() => {
-		ScrollTrigger.refresh()
-	}, 500)
+	refreshScrollTrigger()
 
 	textScrollAnimation()
 
-	setTimeout(() => {
-		ScrollTrigger.refresh()
-	}, 500)
+	// refreshScrollTrigger()
 
 	textGramophoneAnimation()
-
-	trackRecapAnimation()
-
-	// await nextTick()
 });
 
 </script>
@@ -303,7 +293,7 @@ onMounted(async () => {
 		<div class="mb-rem-4-0 mb-xs-rem-3-0">
 			<double-question :questions-data="doubleQuestions"
 							 :use-clv="true"
-							 v-on:complete="showAfter">
+							 v-on:complete="showAfter(); showHiddenContent(0)">
 				<template v-slot:feedback-0="">
 					<div class="row">
 						<div class="col-lg-8 col-xs-12">
@@ -325,7 +315,8 @@ onMounted(async () => {
 				</template>
 			</double-question>
 		</div>
-
+		<section class="hidden js-hidden"
+		data-hidden-id="0">
 		<div class="container mb-rem-4-0 mb-xs-rem-3-0">
 			<div class="row">
 				<div class="col-lg-6 col-xs-12">
@@ -466,14 +457,7 @@ onMounted(async () => {
 				</div>
 			</div>
 		</div>
-
-		<div class="container btn-container btn-container_center mt-rem-9-75 mb-rem-2-50 mt-xs-rem-6-0 mb-xs-rem-2-50">
-			<button class="btn btn_back"
-					type="button"><span class="btn__text">Назад</span>
-			</button>
-			<button class="btn btn_next"
-					type="button"><span class="btn__text">Продолжить</span>
-			</button>
-		</div>
+		<NavigationButtons />
+		</section>
 	</main>
 </template>
