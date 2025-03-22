@@ -15,6 +15,7 @@ import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 import { showHiddenContent } from '@/scripts/utils/showHiddenContent'
 import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
+import { scrollToElement } from '@/scripts/utils/scrollToElement'
 
 const svgContent = ref('')
 
@@ -22,6 +23,8 @@ const svgContent = ref('')
 const showAfter = () => {
 	headphonesAnimation()
 	refreshScrollTrigger()
+	showHiddenContent(0)
+	scrollToElement(0)
 }
 
 onMounted(async () => {
@@ -313,7 +316,7 @@ onMounted(async () => {
 			<checkbox-question :answers-grid="checkboxQuestionTrack1.answersGrid"
 							   :check-rule="checkboxQuestionTrack1.checkRule"
 							   :use-clv="true"
-							   v-on:complete="showAfter(); showHiddenContent(0)">
+							   @complete="showAfter()">
 				<template v-slot:question-text="">
 					<div class="row">
 						<div class="col-lg-6 col-xs-12">
@@ -325,7 +328,7 @@ onMounted(async () => {
 					</div>
 				</template>
 				<template v-slot:feedback-0="">
-					<div class="row">
+					<div class="row js-scroll-element"  data-scroll-id="0">
 						<div class="col-lg-8 col-xs-12">
 							<div class="card card_medium card_white">
 								<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-primary">Все верно!

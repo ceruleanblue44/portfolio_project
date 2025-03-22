@@ -72,7 +72,7 @@ const acceptAnswer = () => {
 
 	nextTick(() => {
 		emit('complete', isCorrect);
-
+		console.log(isCorrect);
 		// if (this.keyEl != 1) {
 		// 	gsap.to(ps.element, {
 		// 		scrollTop: ps.element.scrollTop + feedback.offsetHeight,

@@ -16,6 +16,7 @@ import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 
 import ArticleModal from '@/components/ArticleModal/ArticleModal.vue'
+import { scrollToElement } from '@/scripts/utils/scrollToElement'
 
 const isModalOpen = ref(false)
 
@@ -28,6 +29,8 @@ const svgContent = ref('')
 const showAfter = () => {
 	headphonesAnimation()
 	refreshScrollTrigger()	
+	showHiddenContent(0)
+	scrollToElement(0)
 	trackRecapAnimation()
 }
 
@@ -54,18 +57,6 @@ onMounted(async () => {
 			</h1>
 			<hr class="hr hr_neutral-16 mb-rem-4-0 mb-xs-rem-3-0" />
 		</div>
-		<!-- <div class="container mb-rem-4-0 mb-xs-rem-3-0">
-			<div class="row">
-				<div class="col-lg-4 hide-xs">&nbsp;
-				</div>
-				<div class="col-lg-4 col-xs-12">
-					<div class="hint text-center">Нажми на кнопку, чтобы перейти дальше
-					</div>
-				</div>
-				<div class="col-lg-4 hide-xs">&nbsp;
-				</div>
-			</div>
-		</div> -->
 		<div class="container mb-rem-4-0 mb-xs-rem-2-0">
 			<div class="row">
 				<div class="col-lg-12 col-xs-12">
@@ -293,9 +284,9 @@ onMounted(async () => {
 		<div class="mb-rem-4-0 mb-xs-rem-3-0">
 			<double-question :questions-data="doubleQuestions"
 							 :use-clv="true"
-							 v-on:complete="showAfter(); showHiddenContent(0)">
+							 @complete="showAfter()">
 				<template v-slot:feedback-0="">
-					<div class="row">
+					<div class="row js-scroll-element" data-scroll-id="0">
 						<div class="col-lg-8 col-xs-12">
 							<div class="card card_large card_white">
 								<p class="text text-l">Видишь, какие два разных подхода к работе. Специалист выполняет

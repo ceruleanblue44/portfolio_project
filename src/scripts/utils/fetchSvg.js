@@ -5,6 +5,7 @@ export const fetchSvg = async (color = '') => {
 	try {
 		const response = await fetch(filePath)
 		if (!response.ok) throw new Error(`Failed to load SVG: ${response.statusText}`)
+			console.log('svg fetched');
 		return await response.text()
 	} catch (error) {
 		console.error(error)

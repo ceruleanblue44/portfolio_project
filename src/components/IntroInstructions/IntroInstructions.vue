@@ -69,10 +69,10 @@ const endInstructions = () => {
 						 src="../../assets/svg/mouse.svg"
 						 alt="">
 					<p class="text-m text-center hide-xs">
-						Используй колесико мыши для&nbsp;просмотра
+						Нажми «Продолжить», чтобы перейти дальше
 					</p>
 					<p class="text-m text-center hide-lg">
-						Листай вниз для&nbsp;просмотра
+						Нажми «Продолжить», чтобы перейти дальше
 					</p>
 				</div>
 			</div>

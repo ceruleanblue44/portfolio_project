@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { customCursor } from '@/scripts/ui/customCursor'
 import { discAnimation } from '@/scripts/ui/discAnimation'
 import { showHiddenContent } from '@/scripts/utils/showHiddenContent'
-import { scrollToTop } from '@/scripts/utils/scrollToTop'
+import { scrollToElement } from '@/scripts/utils/scrollToElement'
 
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import IntroInstructions from '@/components/IntroInstructions/IntroInstructions.vue'
@@ -28,7 +28,6 @@ onMounted(async () => {
 	discAnimation()
 	swiperInit()
 	tabsInit()
-
 })
 
 </script>
@@ -59,10 +58,10 @@ onMounted(async () => {
 			</div>
 		</div>
 
-		<IntroInstructions @complete="showHiddenContent(0)"/>
+		<IntroInstructions @complete="showHiddenContent(0); scrollToElement(0)" />
 
-		<section class="hidden js-hidden"
-				 data-hidden-id="0">
+		<section class="hidden js-hidden js-scroll-element"
+				 data-hidden-id="0" data-scroll-id="0">
 			<div class="container mb-rem-9-75 mb-xs-rem-6-0">
 				<div class="row zoom-text__group custom-cursor-area js-custom-cursor-area"
 					 data-cursor-class="cursor_arrow-down">
@@ -80,7 +79,7 @@ onMounted(async () => {
 			<div class="container mb-rem-9-75 mb-xs-rem-6-0">
 				<div class="container_with-bg">
 					<radio-question :answers-grid="radioQuestionIntro.answersGrid"
-									v-on:complete="headphonesAnimation(); showHiddenContent(1); scrollToTop()">
+									@complete="headphonesAnimation(); showHiddenContent(1); scrollToElement(1)">
 						<template v-slot:question-text="">
 							<h4 class="mb-rem-1-50 mb-xs-rem-1-0">Какая мелодия звучит сейчас в&nbsp;твоей голове?
 							</h4>
@@ -88,7 +87,8 @@ onMounted(async () => {
 							</p>
 						</template>
 						<template v-slot:feedback-0="">
-							<div class="row">
+							<div class="row js-scroll-element"
+								 data-scroll-id="1">
 								<div class="col-lg-8 col-xs-12">
 									<div class="card card_medium card_gray">
 										<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-primary">Отличный музыкальный
@@ -116,7 +116,7 @@ onMounted(async () => {
 		</section>
 		<section class="hidden js-hidden"
 				 data-hidden-id="1">
-			<div class="container container_albums mb-rem-9-75 mb-xs-rem-6-0  scroll-element">
+			<div class="container container_albums mb-rem-9-75 mb-xs-rem-6-0">
 				<h1 class="h1-64-48 w-85 text-white hide-xs mb-rem-0-75 mb-xs-rem-0-75">Ты&nbsp;откроешь для себя
 					альбомы
 					для любой профессиональной ситуации.
