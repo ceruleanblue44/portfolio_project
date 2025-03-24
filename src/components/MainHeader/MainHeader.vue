@@ -1,6 +1,6 @@
 <script setup>
 import './MainHeader.scss'
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { headerData } from '@/assets/styles/headerData/headerData'
 import HeaderNavArticles from './HeaderNavArticles.vue'
@@ -50,6 +50,11 @@ const closeMenu = () => {
 const selectTab = (component) => {
 	currentTab.value = component
 }
+
+watch(() => route.path, () => {
+  isMenuOpen.value = false; // Close menu on any route change
+})
+
 
 </script>
 

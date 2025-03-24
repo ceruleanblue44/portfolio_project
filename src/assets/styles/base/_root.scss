@@ -841,3 +841,12 @@ div {
 	}
 }
 
+.fade-page-enter-active,
+.fade-page-leave-active {
+	transition: opacity 0.5s ease-in-out;
+}
+
+.fade-page-enter-from,
+.fade-page-leave-to {
+	opacity: 0;
+}

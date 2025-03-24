@@ -18,7 +18,7 @@ export const trackRecapAnimation = () => {
 		pin: true,
 		anticipatePin: 1,
 		scrub: true,
-		markers: true,
+		markers: false,
 
 	});
 
@@ -37,7 +37,7 @@ export const trackRecapAnimation = () => {
 					start: () => `top+=${i * window.innerHeight} center`,
 					end: () => `top+=${(i + 1) * window.innerHeight} center`,
 					scrub: true,
-					markers: true,
+					markers: false,
 				}
 			}
 		);
@@ -52,7 +52,7 @@ export const trackRecapAnimation = () => {
 				start: () => `top+=${(i + 1) * window.innerHeight} center`,
 				end: () => `top+=${(i + 2) * window.innerHeight} center`,
 				scrub: true,
-				markers: true,
+				markers: false,
 			}
 		});
 	});

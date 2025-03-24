@@ -7,7 +7,8 @@ const router = createRouter({
 		{
 			path: '/',
 			name: 'home',
-			component: HomeView
+			component: HomeView,
+			redirect: { name: 'intro' }
 		},
 		{
 			path: '/intro',
@@ -37,7 +38,7 @@ const router = createRouter({
 			name: 'track-2',
 			component: () => import('../views/TrackTwoView.vue')
 		}
-	]
+	],
 })
 
 export default router

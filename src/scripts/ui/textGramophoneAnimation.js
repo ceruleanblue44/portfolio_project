@@ -16,7 +16,7 @@ export const textGramophoneAnimation = () => {
 		pin: true,
 		anticipatePin: 1,
 		scrub: true,
-		markers: true,
+		markers: false,
 
 	});
 
@@ -27,15 +27,15 @@ export const textGramophoneAnimation = () => {
 			{ opacity: 0, y: 100 },
 			{
 				opacity: 1,
-				y: () => window.innerWidth < 768 ? -50 : -150, 
+				y: () => window.innerWidth < 768 ? -50 : -150,
 				duration: 0.4,
 				scrollTrigger: {
 					scroller: '.scroll-container',
 					trigger: text,
 					start: () => `top+=${i * window.innerHeight} center`,
 					end: () => `top+=${(i + 1) * window.innerHeight} center`,
-					scrub: true, 
-					markers: true,
+					scrub: true,
+					markers: false,
 				}
 			}
 		);
@@ -50,7 +50,7 @@ export const textGramophoneAnimation = () => {
 				start: () => `top+=${(i + 1) * window.innerHeight} center`,
 				end: () => `top+=${(i + 2) * window.innerHeight} center`,
 				scrub: true,
-				markers: true,
+				markers: false,
 			}
 		});
 	});

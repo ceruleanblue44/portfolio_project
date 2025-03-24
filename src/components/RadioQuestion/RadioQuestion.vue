@@ -1,22 +1,33 @@
 <script setup>
 import './RadioQuestion.scss'
-import RadioQuestionGrid from '../RadioQuestionGrid/RadioQuestionGrid.vue';
+import RadioQuestionGrid from '../RadioQuestionGrid/RadioQuestionGrid.vue'
+import { useUserProgressStore } from '@/stores/useUserProgressStore';
 
-import { ref, nextTick } from 'vue';
+const userProgressStore = useUserProgressStore();
+
+// userProgressStore.loadQuizAnswers();
+
+import { ref, nextTick, onMounted} from 'vue';
 
 const feedbackShow = ref(false)
 const currentAnswer = ref(null)
 
 const props = defineProps({
-	answersGrid: { type: Object },
+	radioQuestionIntro: { type: Object},
+	// answersGrid: { type: Object },
 	layoutColumns: { type: Array, default: () => [6, 6] },
 	disabled: { type: Boolean, default: false },
-	scrolling: Boolean,
 })
+
+const { questionId, answersGrid, answers } = props.radioQuestionIntro
 
 const emit = defineEmits(['complete'])
 
 const getSavedAnswer = () => {
+	return userProgressStore.quizAnswers[questionId]
+	// if (useUserProgressStore.quizAnswers.questionId) {
+	// 			currentAnswer.value = useUserProgressStore.quizAnswers[questionId]
+	// 		}
 	// try {
 	//     return CLV.oGlobal[`practice-simple-question-${getFramePosition().current}-${this.$root.$el.id}-answer`];
 	// } catch (error) {
@@ -33,6 +44,8 @@ const setCurrentAnswer = (newAnswer) => {
 
 		console.log(newAnswer);
 
+		userProgressStore.saveQuizAnswer(questionId, currentAnswer.value)
+
             // if (this.useClv) {
             //     try {
             //         CLV.oGlobal[`practice-simple-question-${getFramePosition().current}-${this.$root.$el.id}-answer`] = this.currentAnswer;
@@ -46,18 +59,15 @@ const setCurrentAnswer = (newAnswer) => {
             feedbackShow.value = true;
 
             nextTick(() => {
-                emit('complete', currentAnswer.value.correct);
-
-                // if (!this.scrolling) {
-                //     gsap.to(ps.element, {
-                //         scrollTop: ps.element.scrollTop + this.$refs.feedback.offsetHeight,
-                //         duration: 1
-                //     });
-                // }
-                
+                emit('complete', currentAnswer.value.correct);           
             });
         }
 
+		onMounted(() => {
+			if (userProgressStore.quizAnswers.questionId) {
+				currentAnswer.value = userProgressStore.quizAnswers[questionId]
+			} 
+		})
 
 </script>
 
@@ -68,11 +78,11 @@ const setCurrentAnswer = (newAnswer) => {
 				<slot name="question-text"></slot>
 			</div>
 			<div :class="`col-lg-${props.layoutColumns[1]} col-xs-12`">
-				<radio-question-grid :answers="props.answersGrid.answers"
-									 :grid-style="props.answersGrid.gridStyle"
-									 :grid-style-xs="props.answersGrid.gridStyleXs"
+				<radio-question-grid :answers="answers"
+									 :grid-style="answersGrid.gridStyle"
+									 :grid-style-xs="answersGrid.gridStyleXs"
 									 :disabled="feedbackShow || disabled"
-									 :initial-selected-answer="getSavedAnswer()"
+									 :previous-answer="getSavedAnswer()"
 									 @select-answer="setCurrentAnswer($event)">
 				</radio-question-grid>
 				<button class="btn w-100 mt-rem-2-50 mt-xs-rem-2-0"

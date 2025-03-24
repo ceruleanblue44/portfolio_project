@@ -12,7 +12,7 @@ export const highlightBlocks = () => {
 				scroller: '.scroll-container',
 				trigger: block,
 				scrub: 1,
-				markers: true,
+				markers: false,
 				start: 'top 40%',
 				end: 'bottom 40%',
 				toggleClass: 'active',

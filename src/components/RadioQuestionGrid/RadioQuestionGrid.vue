@@ -19,14 +19,13 @@ const props = defineProps({
 	answerClass: { type: String, default: '' },
 	answerCorrectClass: { type: String, default: '' },
 	answerIncorrectClass: { type: String, default: '' },
-	initialSelectedAnswer: { type: Object, default: null }
+	previousAnswer: { type: Object, default: null }
 
 })
 
 const emit = defineEmits(['select-answer'])
 
 const getAdditionalAnswerClass = (answer) => {
-	// console.log(answer);
 	let addClass = [];
 	if (props.disabled && answer.correct) {
 		addClass.push(props.answerCorrectClass)
@@ -48,7 +47,7 @@ watch(selectedAnswer, function (newVal) {
 
 onMounted(() => {
 
-	// selectedAnswer.value = props.initialSelectedAnswer;
+	selectedAnswer.value = props.previousAnswer;
 
 })
 </script>
@@ -60,7 +59,7 @@ onMounted(() => {
 			<div v-for="(answer, answerIndex) in props.answers"
 				 :key="answerIndex"
 				 :class="['radio-answers__answer', getAdditionalAnswerClass(answer)]"
-				 :style="answer.style">
+				 >
 				<input type="radio"
 					   :name="`radio-answer-${_uid}`"
 					   :id="`radio-answer-${_uid}-${answerIndex}`"
