@@ -1,5 +1,5 @@
 export const observeAnimation = (fn, ratio, unobserve) => {
-	console.log("observing started");
+	// console.log("observing started");
 
 	const anims = document.querySelectorAll('.js-animation');
 

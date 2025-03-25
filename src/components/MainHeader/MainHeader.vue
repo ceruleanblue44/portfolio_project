@@ -34,7 +34,7 @@ const getComponentEvents = () => {
 }
 
 const getCurrentRouteTitle = computed(() => {
-	console.log(route.path);
+	// console.log(route.path);
 	return headerData.navigation.find(navItem => navItem.link === route.path).title
 })
 
@@ -43,7 +43,7 @@ const openMenu = () => {
 }
 
 const closeMenu = () => {
-	console.log('closing');
+	// console.log('closing');
 	isMenuOpen.value = false
 }
 

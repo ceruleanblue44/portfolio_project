@@ -7,12 +7,12 @@ import { rangeSliders } from '@/rangeSlidersData/rangeSliders';
 const containerRef = ref(null);
 
 const disableScrollbar = () => {
-  console.log('disabled');
+//   console.log('disabled');
   document.body.style.overflow = 'hidden'; // Prevent scrolling when needed
 };
 
 const enableScrollbar = () => {
-  console.log('enabled');
+//   console.log('enabled');
   document.body.style.overflow = ''; // Restore scrolling
 };
 

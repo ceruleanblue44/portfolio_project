@@ -1,15 +1,13 @@
 <script setup>
 
-import { onMounted, ref, watch, getCurrentInstance } from 'vue'
+import { onMounted, ref, computed, watch, getCurrentInstance } from 'vue'
 import './RadioQuestionGrid.scss'
+
+const selectedAnswer = ref(null)
 
 const instance = getCurrentInstance()
 
 const _uid = ref(instance.uid)
-
-// console.log(getCurrentInstance());
-
-const selectedAnswer = ref(null)
 
 const props = defineProps({
 	answers: { type: Array },
@@ -20,13 +18,16 @@ const props = defineProps({
 	answerCorrectClass: { type: String, default: '' },
 	answerIncorrectClass: { type: String, default: '' },
 	previousAnswer: { type: Object, default: null }
-
 })
 
 const emit = defineEmits(['select-answer'])
 
+const isMobile = computed(() => window.screen.width < 719)
+
+const getGridStyle = computed(() => isMobile.value ? props.gridStyleXs : props.gridStyle)
+
 const getAdditionalAnswerClass = (answer) => {
-	let addClass = [];
+	let addClass = []
 	if (props.disabled && answer.correct) {
 		addClass.push(props.answerCorrectClass)
 	}
@@ -36,30 +37,23 @@ const getAdditionalAnswerClass = (answer) => {
 	return [props.answerClass, addClass]
 }
 
-// eslint-disable-next-line no-unused-vars
 watch(selectedAnswer, function (newVal) {
-	// console.log(newVal);
-	emit('select-answer', newVal);
+	emit('select-answer', newVal)
 })
 
-
-
-
 onMounted(() => {
-
-	selectedAnswer.value = props.previousAnswer;
-
+	
+	selectedAnswer.value = props.previousAnswer
 })
 </script>
 
 <template>
 	<div>
-		<div class="radio-answers__grid hide-xs"
-			 :style="props.gridStyle">
+		<div class="radio-answers__grid"
+			 :style="getGridStyle">
 			<div v-for="(answer, answerIndex) in props.answers"
 				 :key="answerIndex"
-				 :class="['radio-answers__answer', getAdditionalAnswerClass(answer)]"
-				 >
+				 :class="['radio-answers__answer', getAdditionalAnswerClass(answer)]">
 				<input type="radio"
 					   :name="`radio-answer-${_uid}`"
 					   :id="`radio-answer-${_uid}-${answerIndex}`"
@@ -71,7 +65,7 @@ onMounted(() => {
 				</label>
 			</div>
 		</div>
-		<div class="radio-answers__grid hide-lg"
+		<!-- <div class="radio-answers__grid hide-lg"
 			 :style="props.gridStyleXs">
 			<div v-for="(answer, answerIndex) in props.answers"
 				 :key="answerIndex"
@@ -81,13 +75,13 @@ onMounted(() => {
 					   :name="`radio-answer-xs-${_uid}`"
 					   :id="`radio-answer-xs-${_uid}-${answerIndex}`"
 					   :value="answer"
-					   :disabled="disabled"
+					   :disabled="props.disabled"
 					   v-model="selectedAnswer">
 				<label :for="`radio-answer-xs-${_uid}-${answerIndex}`">
 					{{ answer.text }}
 				</label>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 </template>

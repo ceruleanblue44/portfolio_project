@@ -8,8 +8,6 @@ export const swiperInit = () => {
   swiperEls.forEach((el) => {
     const parent = el.closest('.album-slider, .playlist-slider') // Find the parent container, the comma acts like an "or" operator in CSS selectors
 
-    console.log(parent)
-
     const params =
       el.dataset.swiperType === 'albums'
         ? {
@@ -26,7 +24,7 @@ export const swiperInit = () => {
             },
             on: {
               init() {
-                console.log('Albums slider initialized')
+                // console.log('Albums slider initialized')
               }
             }
           }
@@ -43,7 +41,7 @@ export const swiperInit = () => {
             slidesPerView: 1,
             on: {
               init() {
-                console.log('Playlist slider initialized')
+                // console.log('Playlist slider initialized')
               }
             }
           }

@@ -27,20 +27,20 @@ const svgContent = ref('')
 const svgContent1 = ref('')
 
 const disableScrollbar = () => {
-	console.log('disabled')
+	// console.log('disabled')
 	document.body.style.overflow = 'hidden' // Prevent scrolling when needed
 };
 
 const enableScrollbar = () => {
-	console.log('enabled')
+	// console.log('enabled')
 	document.body.style.overflow = '' // Restore scrolling
 };
 
 const showAfter = async (isCorrect) => {
-	console.log(isCorrect)
+	// console.log(isCorrect)
 	const color = isCorrect ? 'green' : 'red'
 
-	console.log(color);
+	// console.log(color);
 
 	svgContent.value = await fetchSvg(color)
 	if (!svgContent.value) return

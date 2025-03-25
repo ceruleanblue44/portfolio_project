@@ -1,22 +1,19 @@
 <script setup>
 import './RadioQuestion.scss'
+import { ref, nextTick, onMounted } from 'vue'
 import RadioQuestionGrid from '../RadioQuestionGrid/RadioQuestionGrid.vue'
-import { useUserProgressStore } from '@/stores/useUserProgressStore';
+import { useUserProgressStore } from '@/stores/useUserProgressStore'
 
-const userProgressStore = useUserProgressStore();
-
-// userProgressStore.loadQuizAnswers();
-
-import { ref, nextTick, onMounted} from 'vue';
+const userProgressStore = useUserProgressStore()
 
 const feedbackShow = ref(false)
 const currentAnswer = ref(null)
+const disabled = ref(false)
 
 const props = defineProps({
-	radioQuestionIntro: { type: Object},
-	// answersGrid: { type: Object },
+	radioQuestionIntro: { type: Object },
 	layoutColumns: { type: Array, default: () => [6, 6] },
-	disabled: { type: Boolean, default: false },
+	// disabled: { type: Boolean, default: false },
 })
 
 const { questionId, answersGrid, answers } = props.radioQuestionIntro
@@ -24,50 +21,28 @@ const { questionId, answersGrid, answers } = props.radioQuestionIntro
 const emit = defineEmits(['complete'])
 
 const getSavedAnswer = () => {
-	return userProgressStore.quizAnswers[questionId]
-	// if (useUserProgressStore.quizAnswers.questionId) {
-	// 			currentAnswer.value = useUserProgressStore.quizAnswers[questionId]
-	// 		}
-	// try {
-	//     return CLV.oGlobal[`practice-simple-question-${getFramePosition().current}-${this.$root.$el.id}-answer`];
-	// } catch (error) {
-	//     console.warn('CLV not defined!');
-	//     return null;
-	// }
-
+	return userProgressStore.quizAnswers[questionId];
 }
 
-
-
 const setCurrentAnswer = (newAnswer) => {
-        currentAnswer.value = newAnswer;
+	currentAnswer.value = newAnswer
+	userProgressStore.saveQuizAnswer(questionId, currentAnswer.value)
+}
 
-		console.log(newAnswer);
+const acceptAnswer = () => {
+	feedbackShow.value = true
+	disabled.value = true
 
-		userProgressStore.saveQuizAnswer(questionId, currentAnswer.value)
+	nextTick(() => {
+		emit('complete')
+	})
+}
 
-            // if (this.useClv) {
-            //     try {
-            //         CLV.oGlobal[`practice-simple-question-${getFramePosition().current}-${this.$root.$el.id}-answer`] = this.currentAnswer;
-            //     } catch (error) {
-            //         console.warn('CLV not defined!');
-            //     }
-            // }
-        }
-
-   const acceptAnswer = () => {
-            feedbackShow.value = true;
-
-            nextTick(() => {
-                emit('complete', currentAnswer.value.correct);           
-            });
-        }
-
-		onMounted(() => {
-			if (userProgressStore.quizAnswers.questionId) {
-				currentAnswer.value = userProgressStore.quizAnswers[questionId]
-			} 
-		})
+onMounted(() => {
+	if (userProgressStore.quizAnswers[questionId]) {
+		disabled.value = true
+	}
+})
 
 </script>
 
