@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watch, getCurrentInstance } from 'vue'
+import { onMounted, ref, watch, computed, getCurrentInstance } from 'vue'
 
 import './CheckboxQuestionGrid.scss'
 
@@ -19,8 +19,12 @@ const props = defineProps({
 	answerClass: { type: String, default: '' },
 	answerCorrectClass: { type: String, default: '' },
 	answerIncorrectClass: { type: String, default: '' },
-	initialSelectedAnswer: { type: Array, default: () => [] }
+	previousAnswer: { type: Array, default: () => [] },
 })
+
+const isMobile = computed(() => window.screen.width < 719)
+
+const getGridStyle = computed(() => isMobile.value ? props.gridStyleXs : props.gridStyle)
 
 const getAdditionalAnswerClass = (answer) => {
 	let addClass = [];
@@ -34,35 +38,34 @@ const getAdditionalAnswerClass = (answer) => {
 }
 
 
-watch(selectedAnswer.value, function (newVal) {
-	// console.log(newVal);
+watch(() => selectedAnswer.value, (newVal) => {
+	console.log(newVal);
 	emit('select-answer', newVal);
 })
 
-onMounted(() => {
-	if (props.initialSelectedAnswer.length === 0) {
-		props.answers.forEach(() => {
-			selectedAnswer.value.push(false);
-		});
-	} else {
-		selectedAnswer.value = props.initialSelectedAnswer;
-	}
+watch(() => props.previousAnswer, (newVal) => {
+	selectedAnswer.value = newVal ? [...newVal] : [];
+})
 
+onMounted(() => {
+	if (props.previousAnswer) {
+		selectedAnswer.value = props.previousAnswer
+	}
 })
 </script>
 
 <template>
 	<div>
-		<div class="checkbox-answers__grid hide-xs"
-			 :style="props.gridStyle">
+		<div class="checkbox-answers__grid"
+			 :style="getGridStyle">
 			<div v-for="(answer, answerIndex) in props.answers"
 				 :key="answerIndex"
 				 :class="['checkbox-answers__answer', getAdditionalAnswerClass(answer)]"
-				 :style="answer.style">
+				 :style="isMobile ? answer.styleXs : answer.style">
 				<input type="checkbox"
 					   :name="`checkboxanswer-${_uid}`"
 					   :id="`checkboxanswer-${_uid}-${answerIndex}`"
-					   :value="answer.text"
+					   :value="answer"
 					   :disabled="disabled"
 					   v-model="selectedAnswer[answerIndex]">
 				<label :for="`checkboxanswer-${_uid}-${answerIndex}`">
@@ -78,7 +81,7 @@ onMounted(() => {
 				</label>
 			</div>
 		</div>
-		<div class="checkbox-answers__grid hide-lg"
+		<!-- <div class="checkbox-answers__grid hide-lg"
 			 :style="gridStyleXs">
 			<div v-for="(answer, answerIndex) in answers"
 				 :key="answerIndex"
@@ -102,7 +105,7 @@ onMounted(() => {
 					</div>
 				</label>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 </template>

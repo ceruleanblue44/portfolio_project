@@ -291,7 +291,6 @@ onMounted(async () => {
 			</div>
 			<div class="mb-rem-4-0 mb-xs-rem-3-0">
 				<double-question :questions-data="doubleQuestions"
-								 :use-clv="true"
 								 @complete="showAfter()">
 					<template v-slot:feedback-0="">
 						<div class="row js-scroll-element"

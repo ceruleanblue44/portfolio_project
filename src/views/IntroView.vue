@@ -53,17 +53,19 @@ onMounted(async () => {
 							Листай вниз, чтобы начать обучение
 						</p>
 					</div>
-					<button class="btn disc-rotating__button js-disc-rotating-button">
+					<button class="btn disc-rotating__button js-disc-rotating-button" @click="showHiddenContent(0); scrollToElement(0)">
 						<span class="btn__text text-uppercase">Начать обучение</span>
 					</button>
 				</div>
 			</div>
-
-			<IntroInstructions @complete="showHiddenContent(0); scrollToElement(0)" />
-
 			<section class="hidden js-hidden js-scroll-element"
 					 data-hidden-id="0"
 					 data-scroll-id="0">
+			<IntroInstructions @complete="showHiddenContent(1); scrollToElement(1)" />
+			</section>
+			<section class="hidden js-hidden js-scroll-element"
+					 data-hidden-id="1"
+					 data-scroll-id="1">
 				<div class="container mb-rem-9-75 mb-xs-rem-6-0">
 					<div class="row zoom-text__group custom-cursor-area js-custom-cursor-area"
 						 data-cursor-class="cursor_arrow-down">
@@ -79,7 +81,7 @@ onMounted(async () => {
 				<div class="container mb-rem-9-75 mb-xs-rem-6-0">
 					<div class="container_with-bg">
 						<radio-question :radioQuestionIntro="radioQuestionIntro"
-										@complete="headphonesAnimation(); showHiddenContent(1); scrollToElement(1)">
+										@complete="headphonesAnimation(); showHiddenContent(2); scrollToElement(2)">
 							<template v-slot:question-text="">
 								<h4 class="mb-rem-1-50 mb-xs-rem-1-0">Какая мелодия звучит сейчас в&nbsp;твоей голове?
 								</h4>
@@ -88,7 +90,7 @@ onMounted(async () => {
 							</template>
 							<template v-slot:feedback-0="">
 								<div class="row js-scroll-element"
-									 data-scroll-id="1">
+									 data-scroll-id="2">
 									<div class="col-lg-8 col-xs-12">
 										<div class="card card_medium card_gray">
 											<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-primary">Отличный музыкальный
@@ -116,7 +118,7 @@ onMounted(async () => {
 				</div>
 			</section>
 			<section class="hidden js-hidden"
-					 data-hidden-id="1">
+					 data-hidden-id="2">
 				<div class="container container_albums mb-rem-9-75 mb-xs-rem-6-0">
 					<h1 class="h1-64-48 w-85 text-white hide-xs mb-rem-0-75 mb-xs-rem-0-75">Ты&nbsp;откроешь для себя
 						альбомы
@@ -200,7 +202,7 @@ onMounted(async () => {
 											больше
 										</div>
 									</div>
-									<div class="tab__item js-tab-item animate__animated animate__fadeInUp">
+									<div class="tab__item js-tab-item animate__animated animate__fadeIn">
 										<h3 class="mb-rem-1-25 mb-xs-rem-0-75">Акустика
 										</h3>
 										<p class="text text-l">Найди свое идеальное звучание. Создай тихую атмосферу,
@@ -209,7 +211,7 @@ onMounted(async () => {
 											свои мысли и&nbsp;настроиться на&nbsp;процесс обучения.
 										</p>
 									</div>
-									<div class="tab__item js-tab-item animate__animated animate__fadeInUp">
+									<div class="tab__item js-tab-item animate__animated animate__fadeIn">
 										<h3 class="mb-rem-1-25 mb-xs-rem-0-75">Ведение заметок
 										</h3>
 										<p class="text text-l">Как опытный дирижер, записывай свои идеи&nbsp;&mdash;
@@ -218,7 +220,7 @@ onMounted(async () => {
 											подвести, а&nbsp;заметки всегда под рукой!
 										</p>
 									</div>
-									<div class="tab__item js-tab-item animate__animated animate__fadeInUp">
+									<div class="tab__item js-tab-item animate__animated animate__fadeIn">
 										<h3 class="mb-rem-1-25 mb-xs-rem-0-75">Баланс учебы и&nbsp;отдыха
 										</h3>
 										<p class="text text-l"> Даже лучшие музыканты знают цену паузам. Соблюдай
@@ -227,7 +229,7 @@ onMounted(async () => {
 											делай небольшие перерывы для максимальной эффективности.
 										</p>
 									</div>
-									<div class="tab__item js-tab-item animate__animated animate__fadeInUp">
+									<div class="tab__item js-tab-item animate__animated animate__fadeIn">
 										<h3 class="mb-rem-1-25 mb-xs-rem-0-75">Повторение ключевых моментов
 										</h3>
 										<p class="text text-l">Любимую песню мы&nbsp;слушаем снова и&nbsp;снова, пока

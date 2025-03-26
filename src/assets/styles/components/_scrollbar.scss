@@ -12,6 +12,7 @@
 .scroll-container::-webkit-scrollbar {
 	width: 10px;
 	height: 6px;
+	z-index: 16 !important;
 }
 
 .scroll-container::-webkit-scrollbar-track {

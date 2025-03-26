@@ -1,4 +1,5 @@
 export const checkboxQuestionTrack1 = {
+	questionId: 1,
 	checkRule: {
 		type: 'count',
 		check: (count) => count > 0,
@@ -13,47 +14,47 @@ export const checkboxQuestionTrack1 = {
 		gridStyleXs: {
 			'grid-template-columns': '1fr'
 		},
-		answers: [
-			{
-				text: 'реализация идей',
-				img: 'src/assets/svg/checkboxQuestion/icon-1.svg',
-				correct: true,
-				style: {
-					'grid-area': 'a'
-				}
-			},
-			{
-				text: 'экспертность',
-				img: 'src/assets/svg/checkboxQuestion/icon-2.svg',
-				correct: true,
-				style: {
-					'grid-area': 'b'
-				}
-			},
-			{
-				text: 'качество работы',
-				img: 'src/assets/svg/checkboxQuestion/icon-3.svg',
-				correct: true,
-				style: {
-					'grid-area': 'c'
-				}
-			},
-			{
-				text: 'соблюдение дедлайнов',
-				img: 'src/assets/svg/checkboxQuestion/icon-4.svg',
-				correct: true,
-				style: {
-					'grid-area': 'd'
-				}
-			},
-			{
-				text: 'инициативность',
-				img: 'src/assets/svg/checkboxQuestion/icon-5.svg',
-				correct: true,
-				style: {
-					'grid-area': 'e'
-				}
-			},
-		]
-	}
+	},
+	answers: [
+		{
+			text: 'реализация идей',
+			img: 'src/assets/svg/checkboxQuestion/icon-1.svg',
+			correct: true,
+			style: {
+				'grid-area': 'a'
+			}
+		},
+		{
+			text: 'экспертность',
+			img: 'src/assets/svg/checkboxQuestion/icon-2.svg',
+			correct: true,
+			style: {
+				'grid-area': 'b'
+			}
+		},
+		{
+			text: 'качество работы',
+			img: 'src/assets/svg/checkboxQuestion/icon-3.svg',
+			correct: true,
+			style: {
+				'grid-area': 'c'
+			}
+		},
+		{
+			text: 'соблюдение дедлайнов',
+			img: 'src/assets/svg/checkboxQuestion/icon-4.svg',
+			correct: true,
+			style: {
+				'grid-area': 'd'
+			}
+		},
+		{
+			text: 'инициативность',
+			img: 'src/assets/svg/checkboxQuestion/icon-5.svg',
+			correct: true,
+			style: {
+				'grid-area': 'e'
+			}
+		},
+	]
 }

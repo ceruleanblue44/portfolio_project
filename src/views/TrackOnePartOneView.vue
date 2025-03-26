@@ -54,8 +54,8 @@ onMounted(async () => {
 
 <template>
 	<Transition name="fade-page"
-				appear>
-		<main class="scroll-container">
+	appear>
+	<main class="scroll-container">
 			<MainHeader />
 			<div class="container mt-rem-6-50 mt-xs-rem-5-0 mb-rem-7-0 mb-xs-rem-6-0">
 				<div class="row">
@@ -330,9 +330,7 @@ onMounted(async () => {
 
 
 			<div class="container mb-rem-4-0 mb-xs-rem-3-0">
-				<checkbox-question :answers-grid="checkboxQuestionTrack1.answersGrid"
-								   :check-rule="checkboxQuestionTrack1.checkRule"
-								   :use-clv="true"
+				<checkbox-question 	:checkboxQuestionData="checkboxQuestionTrack1"
 								   @complete="showAfter()">
 					<template v-slot:question-text="">
 						<div class="row">

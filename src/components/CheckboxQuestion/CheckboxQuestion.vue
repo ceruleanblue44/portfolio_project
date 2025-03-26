@@ -1,91 +1,80 @@
 <script setup>
 
-// import { gsap } from "gsap";
-import { onMounted, ref, computed, nextTick, getCurrentInstance } from 'vue'
+// import { gsap } from "gsap"
+import { onMounted, ref, computed, nextTick } from 'vue'
 import CheckboxQuestionGrid from '../CheckboxQuestionGrid/CheckboxQuestionGrid.vue'
+import { useUserProgressStore } from '@/stores/useUserProgressStore'
 
+const userProgressStore = useUserProgressStore()
 
 const props = defineProps({
-	checkRule: { type: Object },
-	answersGrid: { type: Object },
-	keyEl: Number,
-	answerBtn: Boolean,
-	isHorizontal: { type: Boolean, default: false },
-	useClv: { type: Boolean, default: false },
-	disableBtn: Boolean,
+	checkboxQuestionData: { type: Object },
+	// checkRule: { type: Object },
+	// answersGrid: { type: Object },
+	// answerBtn: Boolean,
+	// isHorizontal: { type: Boolean, default: false },
+	// disableBtn: Boolean,
 })
 
-const emit = defineEmits(['complete'])
+const { questionId, checkRule, answersGrid, answers } = props.checkboxQuestionData
 
-const instance = getCurrentInstance()
+const emit = defineEmits(['complete'])
 
 const feedbackShow = ref(false)
 const currentAnswer = ref([])
 const currentFeedback = ref(null)
+const disabled = ref(false)
+const btnReset = ref(false)
+const btnAnswer = ref(true)
 
 // const feedback = useTemplateRef('feedback')
 
 const selectedAnswersCount = computed(() => {
-	// console.log(currentAnswer.value);
-	return currentAnswer.value.filter((answer) => answer === true).length;
+	// console.log(currentAnswer.value)
+	return currentAnswer.value.filter((answer) => answer === true).length
 })
 
-const answerBtnName = () => {
-	return props.answerBtn;
-}
+const previousAnswer = computed(() => getSavedAnswer() || [])
 
 const getSavedAnswer = () => {
-	// console.log(instance);
-	// console.log(`${instance}-answer`);
-	// try {
-	// 	return CLV.oGlobal[`practice-simple-checkbox-question-${getFramePosition().current}-${instance}-answer`];
-	// } catch (error) {
-	// 	console.warn('CLV not defined!');
-	// 	return [];
-	// }
-
+	return userProgressStore.quizAnswers[questionId]
 }
 
 const setCurrentAnswer = (newAnswer) => {
-	currentAnswer.value = newAnswer;
-
-	// if (props.useClv) {
-	// 	try {
-	// 		CLV.oGlobal[`practice-simple-checkbox-question-${getFramePosition().current}-${instance}-answer`] = this.currentAnswer;
-	// 		// console.log(this.currentAnswer);
-	// 	} catch (error) {
-	// 		console.warn('CLV not defined!');
-	// 	}
-	// }
+	currentAnswer.value = newAnswer
 }
 
 const acceptAnswer = () => {
-	let isCorrect;
+	let isCorrect
 
-	if (props.checkRule.type === 'count') {
-		isCorrect =props.checkRule.check(selectedAnswersCount.value);
+	if (checkRule.type === 'count') {
+		isCorrect = checkRule.check(selectedAnswersCount.value)
 	}
-	
+
 	currentFeedback.value = isCorrect ? 'feedback-0' : 'feedback-1'
-	
-	feedbackShow.value = true;
+	feedbackShow.value = true
+	userProgressStore.saveQuizAnswer(questionId, currentAnswer.value)
 
 	nextTick(() => {
-		emit('complete', isCorrect);
-		console.log(isCorrect);
-		// if (this.keyEl != 1) {
-		// 	gsap.to(ps.element, {
-		// 		scrollTop: ps.element.scrollTop + feedback.offsetHeight,
-		// 		duration: 1
-		// 	});
-		// }
-
-	});
+		emit('complete', isCorrect)
+	})
 }
 
+const resetAnswer = () => {
+	btnAnswer.value = true
+	disabled.value = false
+	btnReset.value = false
+	setCurrentAnswer([])
+	userProgressStore.quizAnswers[questionId] = null
+	localStorage.setItem('quizAnswers', JSON.stringify(userProgressStore.quizAnswers));
+}
 
 onMounted(() => {
-	// if (scrollbarApi.value) { console.log(scrollbarApi.value.ps?.settings) }
+	if (userProgressStore.quizAnswers[questionId]) {
+		disabled.value = true
+		btnAnswer.value = false
+		btnReset.value = true
+	}
 })
 
 </script>
@@ -93,29 +82,27 @@ onMounted(() => {
 <template>
 	<div class="">
 		<div class="row">
-			<div class="col-xs-12 mb-rem-2-50 mb-xs-rem-2-0"
-				 :class="{'col-lg-5': isHorizontal, 'col-lg-12': !isHorizontal}">
+			<div class="col-lg-12 col-xs-12 mb-rem-2-50 mb-xs-rem-2-0">
 				<slot name="question-text"></slot>
 			</div>
-			<div class="col-xs-12"
-				 :class="{'col-lg-7': isHorizontal, 'col-lg-12': !isHorizontal}">
-				<checkbox-question-grid :answers="props.answersGrid.answers"
-												:grid-style="props.answersGrid.gridStyle"
-												:disabled="feedbackShow"
-												:initial-selected-answer="getSavedAnswer()"
-												@select-answer="setCurrentAnswer($event)">
+			<div class="col-lg-12 col-xs-12">
+				<checkbox-question-grid :answers="answers"
+										:grid-style="answersGrid.gridStyle"
+										:disabled="feedbackShow || disabled"
+										:previous-answer="previousAnswer"
+										@select-answer="setCurrentAnswer($event)">
 				</checkbox-question-grid>
-				<button v-if='!answerBtnName'
-						class="btn js-btn-answer w-100 mt-rem-2-50 mt-xs-rem-2-0"
-						:disabled="selectedAnswersCount === 0 || feedbackShow"
-						@click="acceptAnswer()">
-					Выбрать
-				</button>
-				<button v-else
-						class="btn js-btn-answer w-100 mt-rem-2-50 mt-xs-rem-2-0"
+
+				<button class="btn w-100 mt-rem-2-50 mt-xs-rem-2-0"
+						v-if="btnAnswer"
 						:disabled="selectedAnswersCount === 0 || feedbackShow"
 						@click="acceptAnswer()">
 					Ответить
+				</button>
+				<button class="btn w-100 mt-rem-2-50 mt-xs-rem-2-0"
+						v-if="btnReset"
+						@click="resetAnswer()">
+					Ответить еще раз
 				</button>
 			</div>
 		</div>

@@ -37,14 +37,18 @@ const getAdditionalAnswerClass = (answer) => {
 	return [props.answerClass, addClass]
 }
 
-watch(selectedAnswer, function (newVal) {
+watch(selectedAnswer, (newVal) => {
 	emit('select-answer', newVal)
 })
 
+watch(() => props.previousAnswer, (newVal) => {
+  selectedAnswer.value = newVal; 
+})
+
 onMounted(() => {
-	
 	selectedAnswer.value = props.previousAnswer
 })
+
 </script>
 
 <template>

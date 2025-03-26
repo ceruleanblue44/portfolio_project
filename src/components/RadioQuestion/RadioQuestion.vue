@@ -1,5 +1,4 @@
 <script setup>
-import './RadioQuestion.scss'
 import { ref, nextTick, onMounted } from 'vue'
 import RadioQuestionGrid from '../RadioQuestionGrid/RadioQuestionGrid.vue'
 import { useUserProgressStore } from '@/stores/useUserProgressStore'
@@ -9,6 +8,8 @@ const userProgressStore = useUserProgressStore()
 const feedbackShow = ref(false)
 const currentAnswer = ref(null)
 const disabled = ref(false)
+const btnReset = ref(false)
+const btnAnswer = ref(true)
 
 const props = defineProps({
 	radioQuestionIntro: { type: Object },
@@ -21,26 +22,38 @@ const { questionId, answersGrid, answers } = props.radioQuestionIntro
 const emit = defineEmits(['complete'])
 
 const getSavedAnswer = () => {
-	return userProgressStore.quizAnswers[questionId];
+	return userProgressStore.quizAnswers[questionId]
 }
 
 const setCurrentAnswer = (newAnswer) => {
 	currentAnswer.value = newAnswer
-	userProgressStore.saveQuizAnswer(questionId, currentAnswer.value)
 }
 
 const acceptAnswer = () => {
 	feedbackShow.value = true
 	disabled.value = true
 
+	userProgressStore.saveQuizAnswer(questionId, currentAnswer.value)
+
 	nextTick(() => {
 		emit('complete')
 	})
 }
 
+const resetAnswer = () => {
+	btnAnswer.value = true
+	disabled.value = false
+	btnReset.value = false
+	setCurrentAnswer(null)
+	userProgressStore.quizAnswers[questionId] = null;
+	localStorage.setItem('quizAnswers', JSON.stringify(userProgressStore.quizAnswers));
+}
+
 onMounted(() => {
 	if (userProgressStore.quizAnswers[questionId]) {
 		disabled.value = true
+		btnAnswer.value = false
+		btnReset.value = true
 	}
 })
 
@@ -61,9 +74,15 @@ onMounted(() => {
 									 @select-answer="setCurrentAnswer($event)">
 				</radio-question-grid>
 				<button class="btn w-100 mt-rem-2-50 mt-xs-rem-2-0"
+						v-if="btnAnswer"
 						:disabled="!currentAnswer || feedbackShow || disabled"
-						@click="acceptAnswer()">
+						@click="acceptAnswer">
 					Ответить
+				</button>
+				<button class="btn w-100 mt-rem-2-50 mt-xs-rem-2-0 ml-0 ml-xs-0"
+						v-if="btnReset"
+						@click="resetAnswer()">
+					Ответить еще раз
 				</button>
 			</div>
 		</div>

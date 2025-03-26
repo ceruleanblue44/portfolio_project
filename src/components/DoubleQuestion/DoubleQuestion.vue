@@ -2,7 +2,10 @@
 import { onMounted, ref, computed, nextTick } from 'vue'
 import RadioQuestionGrid from '../RadioQuestionGrid/RadioQuestionGrid.vue'
 import './DoubleQuestion.scss'
+import { useUserProgressStore } from '@/stores/useUserProgressStore'
 import Star from '@/assets/svg/star-lg.svg'
+
+const userProgressStore = useUserProgressStore()
 
 const answersHistory = ref([])
 
@@ -12,10 +15,13 @@ const currentAnswers = ref([])
 const questionFeedbackShow = ref(false)
 const feedbackShow = ref(false)
 
+const btnReset = ref(false)
 
 const props = defineProps({
-	questionsData: { type: Array },
+	questionsData: { type: Object },
 })
+
+const { questionId, questions } = props.questionsData
 
 const emit = defineEmits(['complete'])
 
@@ -37,12 +43,13 @@ const getMarkerClassName = (markerIndex) => {
 }
 
 const getSavedAnswerHistory = () => {
-	// return CLV.oGlobal[`practice-simple-question-${getFramePosition().current}-${$root.$el.id}-answer-history`];
+
 }
 
 const initQuestion = () => {
 	currentAnswers.value = [];
-	props.questionsData[currentQuestion.value].subQuestions.forEach(() => {
+	btnReset.value = false
+	questions[currentQuestion.value].subQuestions.forEach(() => {
 		currentAnswers.value.push(null);
 	});
 }
@@ -54,17 +61,9 @@ const setCurrentAnswers = (subQuestion, newAnswer) => {
 	// console.log(currentAnswers.value);
 }
 
-
-
-// const resetQuestion = () => {
-// 	const savedSubQuestions = props.questionsData[currentQuestion.value].subQuestions;
-// 	props.questionsData[currentQuestion.value].subQuestions = [];
-// 	nextTick(() => {
-// 		props.questionsData[currentQuestion.value].subQuestions = savedSubQuestions;
-// 	});
-// 	currentAnswers.value.fill(null);
-// 	currentAnswers.value.splice(0, 0);
-// }
+const getSavedAnswer = (index) => {
+	return userProgressStore.quizAnswers[questionId].currentAnswers[index]
+}
 
 const acceptAnswer = () => {
 
@@ -78,59 +77,37 @@ const acceptAnswer = () => {
 }
 
 const nextQuestion = () => {
-	if (currentQuestion.value < props.questionsData.length - 1) {
+	if (currentQuestion.value < questions.length - 1) {
 		currentQuestion.value++;
 		questionFeedbackShow.value = false;
 		initQuestion();
 	} else {
 		feedbackShow.value = true;
-		
+		btnReset.value = true
+		userProgressStore.saveQuizAnswer(questionId, { answersHistory, currentAnswers })
 		nextTick(() => {
 			emit('complete');
-			if (document.querySelector('.album-restyle_3_4') == null) {
-				// gsap.to(ps.element, {
-				// 	scrollTop: ps.element.scrollTop + $refs.feedback.offsetHeight,
-				// 	duration: 1
-				// });
-			} else {
-				// scrollToContent(1);
-			}
+
 		});
 	}
 }
 
 
-const resetPractice = () => {
+const resetAnswers = () => {
 	answersHistory.value.fill(null);
-	// if (useClv) {
-	//     try {
-	//         CLV.oGlobal[`practice-simple-question-${getFramePosition().current}-${$root.$el.id}-answer-history`] = [];
-	//     } catch (error) {
-	//         console.warn('CLV not defined!');
-	//     }
-	// }
+
 	currentQuestion.value = 0;
 	currentAnswers.value = [];
 
 	questionFeedbackShow.value = false;
 	feedbackShow.value = false;
-
+	userProgressStore.quizAnswers[questionId].currentAnswers = []
 	initQuestion();
 }
 
 
 onMounted(() => {
-	// if (useClv) {
-	//         try {
-	//             if (!getSavedAnswerHistory()) {
-	//                 CLV.oGlobal[`practice-simple-question-${getFramePosition().current}-${$root.$el.id}-answer-history`] = [];
-	//             }
-	//         } catch (error) {
-	//             console.warn('CLV not defined!');
-	//         }
-	//     }
-
-	props.questionsData.forEach((question, index) => {
+	questions.forEach((question, index) => {
 		answersHistory.value.push(getSavedAnswerHistory[index] ?? null);
 	});
 
@@ -147,6 +124,18 @@ onMounted(() => {
 
 	initQuestion();
 
+	if (userProgressStore.quizAnswers[questionId]) {
+		console.log(userProgressStore.quizAnswers[questionId].answersHistory);
+		answersHistory.value = userProgressStore.quizAnswers[questionId].answersHistory
+		currentQuestion.value = questions.length - 1
+		questionFeedbackShow.value = true
+		btnReset.value = true
+		// currentAnswers.value = userProgressStore.quizAnswers[questionId].currentAnswers
+		// disabled.value = true
+		// btnAnswer.value = false
+		// btnReset.value = true
+	}
+
 })
 </script>
 <template>
@@ -161,17 +150,17 @@ onMounted(() => {
 								  :class="['double-question__answer-history__marker', getMarkerClassName(index)]" />
 						</div>
 						<h3 class="double-question__title">
-							{{ questionsData[currentQuestion].title }}
+							{{ questions[currentQuestion].title }}
 						</h3>
 					</div>
 					<div class="col-lg-4 col-xs-12">
 						<div class="hint text-center">
-							<h6>{{ questionsData[currentQuestion].task }}</h6>
+							<h6>{{ questions[currentQuestion].task }}</h6>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div v-for="(subQuestion, index) in questionsData[currentQuestion].subQuestions"
+					<div v-for="(subQuestion, index) in questions[currentQuestion].subQuestions"
 						 :key="`questions-${currentQuestion}-${index}`"
 						 :class="['col-lg-6 col-xs-12 mb-rem-1-50 mb-xs-rem-1-0', `order-xs-${index}`]">
 						<div class="card card_white card_small h-100 d-flex jc-center ai-center">
@@ -180,7 +169,7 @@ onMounted(() => {
 							</p>
 						</div>
 					</div>
-					<div v-for="(subQuestion, index) in questionsData[currentQuestion].subQuestions"
+					<div v-for="(subQuestion, index) in questions[currentQuestion].subQuestions"
 						 :key="`answers-${currentQuestion}-${index}`"
 						 :class="['col-lg-6 col-xs-12 mb-xs-rem-1-50', `order-xs-${index}`]">
 						<RadioQuestionGrid :answers="subQuestion.answers"
@@ -188,6 +177,7 @@ onMounted(() => {
 										   answer-class="double-question__answer"
 										   answer-correct-class="double-question__answer_correct"
 										   answer-incorrect-class="double-question__answer_incorrect"
+										   :previous-answer="getSavedAnswer(index)"
 										   :disabled="questionFeedbackShow"
 										   @select-answer="setCurrentAnswers(index, $event)" />
 					</div>
@@ -202,10 +192,10 @@ onMounted(() => {
 						@click="resetQuestion">
 					<span class="btn__text">Сбросить</span>
 				</button> -->
-				<button v-if="feedbackShow"
+				<button v-if="btnReset"
 						class="btn btn_back w-xs-100 mb-xs-rem-1-50"
 						type="button"
-						@click="resetPractice">
+						@click="resetAnswers">
 					<span class="btn__text">Попробовать еще раз</span>
 				</button>
 
@@ -219,7 +209,7 @@ onMounted(() => {
 				<button v-else
 						type="button"
 						class="btn btn_next ml-xs-0"
-						:disabled="feedbackShow"
+						:disabled="feedbackShow || btnReset"
 						@click="nextQuestion">
 					<span class="btn__text">Продолжить</span>
 				</button>

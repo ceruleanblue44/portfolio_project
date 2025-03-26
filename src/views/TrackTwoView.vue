@@ -145,9 +145,7 @@ onMounted(() => {
 			</div>
 			<div class="container mb-rem-4-0 mb-xs-rem-3-0"
 				 id="question-app">
-				<checkbox-question :answers-grid="checkboxQuestionTrack2.answersGrid"
-								   :check-rule="checkboxQuestionTrack2.checkRule"
-								   :use-clv="true"
+				<checkbox-question :checkboxQuestionData="checkboxQuestionTrack2"
 								   @complete="(isCorrect) => showAfter(isCorrect)">
 					<template v-slot:question-text="">
 						<h4 class="mb-rem-1-50 mb-xs-rem-1-0">

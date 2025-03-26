@@ -1,4 +1,5 @@
 export const checkboxQuestionTrack2 = {
+	questionId: 3,
 	checkRule: {
 		type: 'count',
 		check: (count) => count < 2,
@@ -12,33 +13,33 @@ export const checkboxQuestionTrack2 = {
 		gridStyleXs: {
 			'grid-template-columns': '1fr'
 		},
-		answers: [
-			{
-				text: 'Управление исполнением',
-				img: 'src/assets/svg/checkboxQuestion/icon-6.svg',
-				correct: true,
-				style: {
-					// 'grid-row': '1 / 4'
-				}
-			},
-			{
-				text: 'Управление взаимодействием',
-				img: 'src/assets/svg/checkboxQuestion/icon-7.svg',
-				correct: true,
-				style: {}
-			},
-			{
-				text: 'Управление ресурсами',
-				img: 'src/assets/svg/checkboxQuestion/icon-8.svg',
-				correct: true,
-				style: {}
-			},
-			{
-				text: 'Управление стратегией',
-				img: 'src/assets/svg/checkboxQuestion/icon-9.svg',
-				correct: true,
-				style: {}
-			},
-		]
-	}
+	},
+	answers: [
+		{
+			text: 'Управление исполнением',
+			img: 'src/assets/svg/checkboxQuestion/icon-6.svg',
+			correct: true,
+			style: {
+				// 'grid-row': '1 / 4'
+			}
+		},
+		{
+			text: 'Управление взаимодействием',
+			img: 'src/assets/svg/checkboxQuestion/icon-7.svg',
+			correct: true,
+			style: {}
+		},
+		{
+			text: 'Управление ресурсами',
+			img: 'src/assets/svg/checkboxQuestion/icon-8.svg',
+			correct: true,
+			style: {}
+		},
+		{
+			text: 'Управление стратегией',
+			img: 'src/assets/svg/checkboxQuestion/icon-9.svg',
+			correct: true,
+			style: {}
+		},
+	]
 }
