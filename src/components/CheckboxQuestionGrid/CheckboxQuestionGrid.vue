@@ -39,7 +39,7 @@ const getAdditionalAnswerClass = (answer) => {
 
 
 watch(() => selectedAnswer.value, (newVal) => {
-	console.log(newVal);
+	// console.log(newVal);
 	emit('select-answer', newVal);
 })
 

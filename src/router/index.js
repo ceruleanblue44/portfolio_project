@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useNavigationStore } from '@/stores/useNavigationStore'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -7,15 +8,11 @@ const router = createRouter({
 		{
 			path: '/',
 			name: 'home',
-			component: HomeView,
-			redirect: { name: 'intro' }
+			component: HomeView, // ✅ Keep this as a normal route (no redirect here)
 		},
 		{
 			path: '/intro',
 			name: 'intro',
-			// route level code-splitting
-			// this generates a separate chunk (About.[hash].js) for this route
-			// which is lazy-loaded when the route is visited.
 			component: () => import('../views/IntroView.vue')
 		},
 		{
@@ -39,6 +36,24 @@ const router = createRouter({
 			component: () => import('../views/TrackTwoView.vue')
 		}
 	],
-})
+});
 
-export default router
+// ✅ Handle redirection in `beforeEach`
+router.beforeEach((to, from, next) => {
+	const navigationStore = useNavigationStore();
+
+	// Redirect only when navigating to home
+	if (to.path === '/' && navigationStore.lastVisitedPage) {
+		return next(navigationStore.lastVisitedPage); // ✅ Correct redirect
+	}
+
+	navigationStore.saveLastVisitedPage(to.path);
+	next();
+});
+
+router.afterEach((to) => {
+	const navigationStore = useNavigationStore();
+	navigationStore.saveScrollPosition(to.path, document.querySelector('.scroll-container')?.scrollTop || 0);
+});
+
+export default router;

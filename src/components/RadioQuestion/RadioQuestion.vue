@@ -45,7 +45,7 @@ const resetAnswer = () => {
 	disabled.value = false
 	btnReset.value = false
 	setCurrentAnswer(null)
-	userProgressStore.quizAnswers[questionId] = null;
+	userProgressStore.quizAnswers[questionId] = null
 	localStorage.setItem('quizAnswers', JSON.stringify(userProgressStore.quizAnswers));
 }
 

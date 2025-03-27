@@ -9,7 +9,7 @@ const endInstructions = () => {
 </script>
 
 <template>
-	<div class="instructions">
+	<div class="container instructions">
 		<div class="instructions__main">
 			<div class="instructions__top mt-rem-0-25 mt-xs-rem-0-25">
 				<div class="d-flex ml-rem-14-0 ml-xs-rem-1-0 mb-xs-rem-0-50"

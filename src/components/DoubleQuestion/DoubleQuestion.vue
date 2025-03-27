@@ -62,7 +62,7 @@ const setCurrentAnswers = (subQuestion, newAnswer) => {
 }
 
 const getSavedAnswer = (index) => {
-	return userProgressStore.quizAnswers[questionId].currentAnswers[index]
+	return userProgressStore.quizAnswers[questionId]?.currentAnswers[index]
 }
 
 const acceptAnswer = () => {

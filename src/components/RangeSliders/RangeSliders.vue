@@ -2,16 +2,35 @@
 import { ref, computed, reactive, onMounted } from 'vue'
 import './RangeSliders.scss'
 
-const btnAccept = ref(false)
+import { useUserProgressStore } from '@/stores/useUserProgressStore'
+
+const userProgressStore = useUserProgressStore()
+
+const btnAnswer = ref(false)
 const feedbackShow = ref(false)
+const disabled = ref(false)
+const btnResetAnswer = ref(false)
 
 const emit = defineEmits(['complete', 'disable-scrollbar', 'enable-scrollbar'])
 
 const props = defineProps({
-	settings: { type: Array },
+	settings: { type: Object },
 })
 
-const settings = reactive([...props.settings]);
+const settings = reactive([...props.settings.sliders]);
+
+const { questionId } = props.settings
+
+const getSavedAnswer = () => {
+	const savedAnswers = userProgressStore.quizAnswers[questionId];
+	if (savedAnswers) {
+		settings.forEach((slider, index) => {
+			if (savedAnswers[index] !== undefined) {
+				slider.value = savedAnswers[index].value; // Ensure correct assignment
+			}
+		});
+	}
+}
 
 const thumbPosition = (setting) => {
 	return computed(() => {
@@ -22,7 +41,10 @@ const thumbPosition = (setting) => {
 const acceptAnswer = () => {
 	feedbackShow.value = true;
 	emit('complete');
-	
+
+	// Save only the necessary data
+	const savedValues = settings.map(slider => ({ value: slider.value }));
+	userProgressStore.saveQuizAnswer(questionId, savedValues);
 }
 
 const reset = () => {
@@ -30,26 +52,35 @@ const reset = () => {
 		element.value = 2
 	})
 
-	btnAccept.value = false
+	btnAnswer.value = false
 }
 
-const showBtn = () => btnAccept.value = true
+const showBtn = () => btnAnswer.value = true
 
 
 const onTouchStart = () => {
 	emit('disable-scrollbar')
-	
+
 }
 
 const onTouchEnd = () => {
 	showBtn()
 	setTimeout(() => {
-    emit('enable-scrollbar')
-  }, 200)
-  
+		emit('enable-scrollbar')
+	}, 200)
+
 }
 
 const onTouchMove = () => {
+
+}
+
+const resetAnswer = () => {
+	settings.forEach(element => {
+		element.value = 2
+	})
+	disabled.value = false
+	btnResetAnswer.value = false
 	
 }
 
@@ -59,7 +90,12 @@ const saveNewValues = () => {
 
 
 onMounted(() => {
-
+	if (userProgressStore.quizAnswers[questionId]) {
+		disabled.value = true
+		btnAnswer.value = false
+		btnResetAnswer.value = true
+		getSavedAnswer()
+	}
 });
 
 </script>
@@ -82,13 +118,13 @@ onMounted(() => {
 						   :max="setting.max"
 						   step="1"
 						   v-model="setting.value"
-						   :disabled="feedbackShow"
+						   :disabled="feedbackShow || disabled"
 						   @change="saveNewValues"
 						   @touchstart="onTouchStart"
 						   @touchend="onTouchEnd"
 						   @touchmove="onTouchMove"
 						   @mouseup="showBtn">
-						   
+
 				</div>
 				<div class="d-flex">
 					<div :class="`hide-xs range-slider__marker ${setting.color}`"></div>
@@ -101,16 +137,22 @@ onMounted(() => {
 		<div class="row">
 			<div class="col-lg-2 col-xs-12 mb-xs-10">
 				<button class="btn btn_back w-100"
-						:disabled="!btnAccept || feedbackShow"
+						:disabled="!btnAnswer || feedbackShow"
 						@click="reset()">
 					Сбросить
 				</button>
 			</div>
 			<div class="col-lg-10 col-xs-12">
-				<button class="btn w-100"
-						:disabled="!btnAccept || feedbackShow"
+				<button v-if="!btnResetAnswer"
+						class="btn w-100"
+						:disabled="!btnAnswer || feedbackShow"
 						@click="acceptAnswer()">
 					Ответить
+				</button>
+				<button v-if="btnResetAnswer"
+						class="btn w-100"
+						@click="resetAnswer()">
+					Ответить еще раз
 				</button>
 			</div>
 		</div>

@@ -17,6 +17,9 @@ import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 
 import ArticleModal from '@/components/ArticleModal/ArticleModal.vue'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
+import { useScrollTracker } from '@/composables/useScrollTracker';
+
+const { container } = useScrollTracker();
 
 const isModalOpen = ref(false)
 
@@ -52,7 +55,7 @@ onMounted(async () => {
 <template>
 	<Transition name="fade-page"
 				appear>
-		<main class="scroll-container">
+		<main class="scroll-container" ref="container">
 			<MainHeader />
 			<div class="container mt-rem-6-50 mt-xs-rem-5-0">
 				<h1 class="text-center mb-rem-0-75 mb-xs-rem-0-75">Переключись на новый режим

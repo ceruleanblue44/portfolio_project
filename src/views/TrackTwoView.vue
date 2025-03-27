@@ -21,8 +21,11 @@ import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg'
 import RangeSliders from '@/components/RangeSliders/RangeSliders.vue'
 import { rangeSliders } from '@/rangeSlidersData/rangeSliders'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
+import { useScrollTracker } from '@/composables/useScrollTracker';
 
-const containerRef = ref(null);
+const { container } = useScrollTracker();
+
+// const containerRef = ref(null);
 const svgContent = ref('')
 const svgContent1 = ref('')
 
@@ -74,7 +77,7 @@ onMounted(() => {
 <template>
 	<Transition name="fade-page"
 				appear>
-		<main ref="containerRef"
+		<main ref="container"
 			  class="scroll-container">
 			<MainHeader />
 			<div class="container mt-rem-6-50 mt-xs-rem-5-0 mb-rem-7-0 mb-xs-rem-6-0">

@@ -15,9 +15,13 @@ import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 import { swiperInit } from '@/scripts/ui/swiperSlider'
 import { tabsInit } from '@/scripts/ui/tabs'
 
-import ArrowSquareRight from '@/assets/svg/arrow-square-right.svg';
-import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg';
+import ArrowSquareRight from '@/assets/svg/arrow-square-right.svg'
+import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
+
+import { useScrollTracker } from '@/composables/useScrollTracker';
+
+const { container } = useScrollTracker();
 
 const svgContent = ref('');
 
@@ -35,10 +39,10 @@ onMounted(async () => {
 <template>
 	<Transition name="fade-page"
 				appear>
-		<main class="scroll-container">
+		<main class="scroll-container" ref="container">
 			<MainHeader />
 
-			<div class="disc-rotating js-disc-rotating">
+			<div class="container disc-rotating js-disc-rotating">
 				<div class="disc-rotating__wrapper">
 					<div class="disc-rotating__img-full js-disc-rotating-img-full">
 						<img src="../assets/img/discAnimation/disc-01-outer.jpg"

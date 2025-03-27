@@ -12,6 +12,10 @@ import PlayCircle from '@/assets/svg/play-circle.svg'
 import { tabsInit } from '@/scripts/ui/tabs'
 import { accordionInit } from '@/scripts/ui/accordion'
 
+import { useScrollTracker } from '@/composables/useScrollTracker';
+
+const { container } = useScrollTracker();
+
 const svgContent = ref('');
 
 onMounted(async () => {
@@ -32,7 +36,7 @@ onMounted(async () => {
 <template>
 	<Transition name="fade-page"
 				appear>
-		<main class="scroll-container">
+		<main class="scroll-container" ref="container">
 			<MainHeader />
 			<div class="container mt-rem-9-75 mt-xs-rem-6-0 mb-rem-9-75 mb-xs-rem-6-0">
 				<div class="row">

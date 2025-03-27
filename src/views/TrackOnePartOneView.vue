@@ -17,6 +17,10 @@ import { showHiddenContent } from '@/scripts/utils/showHiddenContent'
 import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
 
+import { useScrollTracker } from '@/composables/useScrollTracker';
+
+const { container } = useScrollTracker();
+
 const svgContent = ref('')
 
 
@@ -55,7 +59,7 @@ onMounted(async () => {
 <template>
 	<Transition name="fade-page"
 	appear>
-	<main class="scroll-container">
+	<main class="scroll-container" ref="container">
 			<MainHeader />
 			<div class="container mt-rem-6-50 mt-xs-rem-5-0 mb-rem-7-0 mb-xs-rem-6-0">
 				<div class="row">
