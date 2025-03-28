@@ -19,9 +19,6 @@ navigationStore.loadNavigationState();
 
 router.isReady().then(() => {
 	if (navigationStore.lastVisitedPage) {
-		// console.log(navigationStore.scrollPositions[navigationStore.lastVisitedPage])
-		console.log(navigationStore.scrollPositions);
-		// console.log(navigationStore.lastVisitedPage);
 		router.push(navigationStore.lastVisitedPage);
 	}
 })

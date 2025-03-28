@@ -52,8 +52,38 @@ router.beforeEach((to, from, next) => {
 });
 
 router.afterEach((to) => {
-	const navigationStore = useNavigationStore();
-	navigationStore.saveScrollPosition(to.path, document.querySelector('.scroll-container')?.scrollTop || 0);
+	const navigationStore = useNavigationStore()
+
+	// Check if this is a fresh page load (restoring from localStorage)
+	const isRestoringSession = !sessionStorage.getItem('isNavigating');
+
+	console.log(isRestoringSession);
+
+
+	if (isRestoringSession) {
+		// Restore scroll position from Pinia/localStorage
+		const savedPosition = navigationStore.scrollPositions[to.path] || 0;
+		setTimeout(() => {
+			const container = document.querySelector('.scroll-container');
+			container?.scrollTo(0, savedPosition);
+			console.log(to.path, savedPosition, container);
+		}, 100); // Small delay for smooth transition
+	} else {
+		// Reset scroll to top when navigating between pages
+		const container = document.querySelector('.scroll-container');
+		container?.scrollTo(0, 0);
+	}
+
+	// Mark navigation as normal (not a fresh reload)
+	sessionStorage.setItem('isNavigating', 'true');
+	// console.log(sessionStorage);
 });
+
+window.addEventListener('beforeunload', () => {
+	sessionStorage.removeItem('isNavigating');
+});
+
+
+
 
 export default router;
