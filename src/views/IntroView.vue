@@ -20,8 +20,10 @@ import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 
 import { useScrollTracker } from '@/composables/useScrollTracker';
+import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 
 const { container } = useScrollTracker();
+const { navButtonsVisible } = usePagesViewedTracker()
 
 const svgContent = ref('');
 
@@ -455,7 +457,7 @@ onMounted(async () => {
 
 				</div>
 
-				<NavigationButtons />
+				<NavigationButtons ref="navButtonsVisible" class="js-nav-buttons" />
 			</section>
 		</main>
 	</Transition>

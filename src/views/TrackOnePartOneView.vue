@@ -18,6 +18,9 @@ import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
 
 import { useScrollTracker } from '@/composables/useScrollTracker';
+import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
+
+const { navButtonsVisible } = usePagesViewedTracker()
 
 const { container } = useScrollTracker();
 
@@ -513,7 +516,7 @@ onMounted(async () => {
 						</div>
 					</div>
 				</div>
-				<NavigationButtons />
+				<NavigationButtons ref="navButtonsVisible" class="js-nav-buttons" />
 			</section>
 		</main>
 	</Transition>

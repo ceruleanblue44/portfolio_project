@@ -22,6 +22,9 @@ import RangeSliders from '@/components/RangeSliders/RangeSliders.vue'
 import { rangeSliders } from '@/rangeSlidersData/rangeSliders'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
 import { useScrollTracker } from '@/composables/useScrollTracker';
+import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
+
+const { navButtonsVisible } = usePagesViewedTracker()
 
 const { container } = useScrollTracker();
 
@@ -593,7 +596,7 @@ onMounted(() => {
 						</div>
 					</div>
 				</div>
-				<NavigationButtons />
+				<NavigationButtons ref="navButtonsVisible" class="js-nav-buttons"/>
 			</section>
 		</main>
 	</Transition>

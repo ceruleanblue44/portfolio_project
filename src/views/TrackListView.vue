@@ -13,6 +13,9 @@ import { tabsInit } from '@/scripts/ui/tabs'
 import { accordionInit } from '@/scripts/ui/accordion'
 
 import { useScrollTracker } from '@/composables/useScrollTracker';
+import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
+
+const { navButtonsVisible } = usePagesViewedTracker()
 
 const { container } = useScrollTracker();
 
@@ -500,7 +503,7 @@ onMounted(async () => {
 					</div>
 				</div>
 			</div>
-			<NavigationButtons />
+			<NavigationButtons ref="navButtonsVisible" class="js-nav-buttons" />
 		</main>
 	</Transition>
 </template>
