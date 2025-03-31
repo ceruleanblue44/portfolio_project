@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, reactive, onMounted } from 'vue'
+import { ref, computed, reactive, nextTick, onMounted } from 'vue'
 import './RangeSliders.scss'
 
 import { useUserProgressStore } from '@/stores/useUserProgressStore'
@@ -17,34 +17,37 @@ const props = defineProps({
 	settings: { type: Object },
 })
 
-const settings = reactive([...props.settings.sliders]);
+const settings = reactive([...props.settings.sliders])
 
 const { questionId } = props.settings
 
 const getSavedAnswer = () => {
-	const savedAnswers = userProgressStore.quizAnswers[questionId];
+	const savedAnswers = userProgressStore.quizAnswers[questionId]
 	if (savedAnswers) {
 		settings.forEach((slider, index) => {
 			if (savedAnswers[index] !== undefined) {
-				slider.value = savedAnswers[index].value; // Ensure correct assignment
+				slider.value = savedAnswers[index].value // Ensure correct assignment
 			}
-		});
+		})
 	}
 }
 
 const thumbPosition = (setting) => {
 	return computed(() => {
-		return ((setting.value - setting.min) / (setting.max - setting.min)) * 100;
+		return ((setting.value - setting.min) / (setting.max - setting.min)) * 100
 	})
 }
 
 const acceptAnswer = () => {
-	feedbackShow.value = true;
-	emit('complete');
+	feedbackShow.value = true
+
+	nextTick(() => {
+		emit('complete')
+	})
 
 	// Save only the necessary data
-	const savedValues = settings.map(slider => ({ value: slider.value }));
-	userProgressStore.saveQuizAnswer(questionId, savedValues);
+	const savedValues = settings.map(slider => ({ value: slider.value }))
+	userProgressStore.saveQuizAnswer(questionId, savedValues)
 }
 
 const reset = () => {
@@ -81,7 +84,7 @@ const resetAnswer = () => {
 	})
 	disabled.value = false
 	btnResetAnswer.value = false
-	
+
 }
 
 const saveNewValues = () => {
@@ -154,6 +157,13 @@ onMounted(() => {
 						@click="resetAnswer()">
 					Ответить еще раз
 				</button>
+			</div>
+		</div>
+		<div class="row mt-rem-3-75 mt-xs-rem-2-0"
+			 v-if="feedbackShow"
+			 ref="feedback">
+			<div class="col-lg-12 col-xs-12">
+				<slot name="sliders-feedback"></slot>
 			</div>
 		</div>
 	</div>

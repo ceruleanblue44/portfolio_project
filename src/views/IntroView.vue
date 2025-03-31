@@ -18,14 +18,15 @@ import { tabsInit } from '@/scripts/ui/tabs'
 import ArrowSquareRight from '@/assets/svg/arrow-square-right.svg'
 import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
+import SkipButton from '@/components/SkipButton/SkipButton.vue'
 
-import { useScrollTracker } from '@/composables/useScrollTracker';
+import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 
-const { container } = useScrollTracker();
-const { navButtonsVisible } = usePagesViewedTracker()
+const { container } = useScrollTracker()
+const { pageViewed } = usePagesViewedTracker()
 
-const svgContent = ref('');
+const svgContent = ref('')
 
 onMounted(async () => {
 	svgContent.value = await fetchSvg()
@@ -41,7 +42,8 @@ onMounted(async () => {
 <template>
 	<Transition name="fade-page"
 				appear>
-		<main class="scroll-container" ref="container">
+		<main class="scroll-container"
+			  ref="container">
 			<MainHeader />
 
 			<div class="container disc-rotating js-disc-rotating">
@@ -59,7 +61,8 @@ onMounted(async () => {
 							Листай вниз, чтобы начать обучение
 						</p>
 					</div>
-					<button class="btn disc-rotating__button js-disc-rotating-button" @click="showHiddenContent(0); scrollToElement(0)">
+					<button class="btn disc-rotating__button js-disc-rotating-button"
+							@click="showHiddenContent(0); scrollToElement(0)">
 						<span class="btn__text text-uppercase">Начать обучение</span>
 					</button>
 				</div>
@@ -67,7 +70,8 @@ onMounted(async () => {
 			<section class="hidden js-hidden js-scroll-element"
 					 data-hidden-id="0"
 					 data-scroll-id="0">
-			<IntroInstructions @complete="showHiddenContent(1); scrollToElement(1)" />
+				<IntroInstructions v-if="!pageViewed"
+								   @complete="showHiddenContent(1); scrollToElement(1)" />
 			</section>
 			<section class="hidden js-hidden js-scroll-element"
 					 data-hidden-id="1"
@@ -86,7 +90,7 @@ onMounted(async () => {
 				</div>
 				<div class="container mb-rem-9-75 mb-xs-rem-6-0">
 					<div class="container_with-bg">
-						<radio-question :radioQuestionIntro="radioQuestionIntro"
+						<RadioQuestion :radioQuestionIntro="radioQuestionIntro"
 										@complete="headphonesAnimation(); showHiddenContent(2); scrollToElement(2)">
 							<template v-slot:question-text="">
 								<h4 class="mb-rem-1-50 mb-xs-rem-1-0">Какая мелодия звучит сейчас в&nbsp;твоей голове?
@@ -119,8 +123,9 @@ onMounted(async () => {
 							</template>
 							<template v-slot:feedback-1="">
 							</template>
-						</radio-question>
+						</RadioQuestion>
 					</div>
+					<SkipButton v-if="!pageViewed" @click="showHiddenContent(2); scrollToElement(2)"/>
 				</div>
 			</section>
 			<section class="hidden js-hidden"
@@ -457,7 +462,7 @@ onMounted(async () => {
 
 				</div>
 
-				<NavigationButtons ref="navButtonsVisible" class="js-nav-buttons" />
+				<NavigationButtons class="js-nav-buttons" />
 			</section>
 		</main>
 	</Transition>

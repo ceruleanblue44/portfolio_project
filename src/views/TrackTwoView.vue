@@ -2,6 +2,7 @@
 import { ref, onMounted, nextTick } from 'vue'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
+import SkipButton from '@/components/SkipButton/SkipButton.vue'
 import CheckboxQuestion from '@/components/CheckboxQuestion/CheckboxQuestion.vue'
 import { checkboxQuestionTrack2 } from '@/quizData/checkboxQuestionTrack2'
 
@@ -21,12 +22,12 @@ import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg'
 import RangeSliders from '@/components/RangeSliders/RangeSliders.vue'
 import { rangeSliders } from '@/rangeSlidersData/rangeSliders'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
-import { useScrollTracker } from '@/composables/useScrollTracker';
+import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 
-const { navButtonsVisible } = usePagesViewedTracker()
+const { pageViewed } = usePagesViewedTracker()
 
-const { container } = useScrollTracker();
+const { container } = useScrollTracker()
 
 // const containerRef = ref(null);
 const svgContent = ref('')
@@ -35,18 +36,15 @@ const svgContent1 = ref('')
 const disableScrollbar = () => {
 	// console.log('disabled')
 	document.body.style.overflow = 'hidden' // Prevent scrolling when needed
-};
+}
 
 const enableScrollbar = () => {
 	// console.log('enabled')
 	document.body.style.overflow = '' // Restore scrolling
-};
+}
 
 const showAfter = async (isCorrect) => {
-	// console.log(isCorrect)
 	const color = isCorrect ? 'green' : 'red'
-
-	// console.log(color);
 
 	svgContent.value = await fetchSvg(color)
 	if (!svgContent.value) return
@@ -58,22 +56,49 @@ const showAfter = async (isCorrect) => {
 	})
 }
 
+const showAfterSkip = () => {
+	refreshScrollTrigger()
+	showHiddenContent(0)
+	scrollToElement(2)
+}
+
 const rangeSlidersComplete = async () => {
 	svgContent1.value = await fetchSvg()
-	if (!svgContent.value) return
+	// console.log(svgContent1.value)
+	// if (!svgContent.value) { 
+	// 	console.log(999);
+	// 	return 
+	// }
 
 	nextTick(() => {
-		refreshScrollTrigger()
 		headphonesAnimation()
-		showHiddenContent(1)
+		refreshScrollTrigger()
 		scrollToElement(1)
-	})
+		// console.log(576567)
 
+		if (pageViewed.value === false) {
+			showHiddenContent(1)
+			scrollToElement(1)
+			trackRecapAnimation()
+		}
+	})
+}
+
+const rangeSlidersSkipped = () => {
+	showHiddenContent(1)
+	scrollToElement(3)
+	trackRecapAnimation()
 }
 
 onMounted(() => {
 	swiperInit()
-	trackRecapAnimation()
+
+	setTimeout(() => {
+	if (pageViewed.value === true) {
+			console.log(666);
+			trackRecapAnimation()
+		}
+	}, 100)
 })
 
 </script>
@@ -151,8 +176,8 @@ onMounted(() => {
 			</div>
 			<div class="container mb-rem-4-0 mb-xs-rem-3-0"
 				 id="question-app">
-				<checkbox-question :checkboxQuestionData="checkboxQuestionTrack2"
-								   @complete="(isCorrect) => showAfter(isCorrect)">
+				<CheckboxQuestion :checkboxQuestionData="checkboxQuestionTrack2"
+								  @complete="(isCorrect) => showAfter(isCorrect)">
 					<template v-slot:question-text="">
 						<h4 class="mb-rem-1-50 mb-xs-rem-1-0">
 							На&nbsp;чем сконцентрировано твое внимание сейчас? Какие области управления для тебя
@@ -213,9 +238,12 @@ onMounted(() => {
 							</div>
 						</div>
 					</template>
-				</checkbox-question>
+				</CheckboxQuestion>
+				<SkipButton v-if="!pageViewed"
+							@click="showAfterSkip()" />
 			</div>
-			<section class="hidden js-hidden"
+			<section class="hidden js-hidden js-scroll-element"
+					 data-scroll-id="2"
 					 data-hidden-id="0">
 				<div class="container mt-rem-9-75 mb-rem-9-75 mt-xs-rem-6-0 mb-xs-rem-6-0">
 					<div class="row">
@@ -509,8 +537,8 @@ onMounted(() => {
 					</div>
 				</div>
 
-				<div class="container">
-					<div class="container container_with-bg mb-rem-4-0 mb-rem-xs-3-0">
+				<div class="container mb-rem-4-0 mb-rem-xs-3-0">
+					<div class="container container_with-bg">
 						<div class="row mb-rem-3-0 mb-xs-rem-2-0">
 							<div class="col-lg-7 col-xs-12 mb-xs-rem-2-0">
 								<div class="text text-xl">
@@ -528,14 +556,43 @@ onMounted(() => {
 						<RangeSliders :settings="rangeSliders"
 									  @disable-scrollbar="disableScrollbar"
 									  @enable-scrollbar="enableScrollbar"
-									  @complete="rangeSlidersComplete()" />
+									  @complete="rangeSlidersComplete()">
+							<template v-slot:sliders-feedback="">
+								<div class="row js-scroll-element"
+									 data-scroll-id="1">
+									<div class="col-lg-8 col-xs-12">
+										<div class="card card_medium card_white">
+											<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-primary">Отлично!
+											</h3>
+											<p class="text text-l">Помни: попытка охватить все уровни управления может
+												снизить
+												эффективность.
+												Сделать все самому&nbsp;&mdash; это неверный путь. Поэтому сфокусируйся
+												на&nbsp;своей
+												ключевой
+												области управления и&nbsp;определи, какими вопросами нужно заниматься.
+											</p>
+										</div>
+									</div>
+									<div class="col-lg-4 hide-xs">
+										<div class="card card_medium card_white h-100">
+											<div class="headphones svg-container"
+												 v-html="svgContent1">
+											</div>
+										</div>
+									</div>
+								</div>
+							</template>
+						</RangeSliders>
 					</div>
+					<SkipButton v-if="!pageViewed"
+								@click="rangeSlidersSkipped()" />
 				</div>
 			</section>
 			<section class="hidden js-hidden js-scroll-element"
-					 data-scroll-id="1"
+					 data-scroll-id="3"
 					 data-hidden-id="1">
-				<div class="container mb-rem-4-75 mb-xs-rem-3-0">
+				<!-- <div class="container mb-rem-4-75 mb-xs-rem-3-0">
 					<div class="row">
 						<div class="col-lg-8 col-xs-12">
 							<div class="card card_medium card_white">
@@ -558,7 +615,7 @@ onMounted(() => {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div class="container container_full-xs mb-xs-rem-6-0">
 					<div class="track-recap js-track-recap mb-rem-7-75">
 						<div class="track-recap__head">
@@ -596,7 +653,7 @@ onMounted(() => {
 						</div>
 					</div>
 				</div>
-				<NavigationButtons ref="navButtonsVisible" class="js-nav-buttons"/>
+				<NavigationButtons class="js-nav-buttons" />
 			</section>
 		</main>
 	</Transition>

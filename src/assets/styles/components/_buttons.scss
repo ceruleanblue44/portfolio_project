@@ -86,28 +86,6 @@
 		}
 	}
 
-	&_splash {
-		display: flex;
-		height: 72px;
-		padding: 24px 40px;
-		justify-content: center;
-		align-items: center;
-		border-radius: 12px;
-		background: #1e1f1f !important;
-		color: white;
-		// font-family: $Light;
-		font-size: $fs20;
-		line-height: $lh130;
-		text-transform: uppercase;
-		cursor: pointer;
-
-		@media #{$breakpoint-xs-only} {
-			padding: 23px 32px;
-			font-size: $fs16;
-			line-height: $lh110;
-		}
-	}
-
 	&_modal {
 		display: flex;
 		height: 48px;
@@ -219,6 +197,31 @@
 		color: $neutral-36;
 		cursor: default;
 		pointer-events: none;
+	}
+
+	&_skip {
+		display: flex;
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+		justify-content: start;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0;
+		color: $neutral-80;
+		font-weight: 600;
+		font-size: $fs20;
+
+		span {
+			display: inline-flex;
+			align-items: center;
+			// vertical-align: top;
+			height: 100%;
+		}
+
+		@media #{$breakpoint-xs-only} {
+			font-size: $fs16;
+		}
 	}
 }
 

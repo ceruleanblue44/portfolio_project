@@ -2,6 +2,7 @@
 import { ref, onMounted, nextTick } from 'vue'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
+import SkipButton from '@/components/SkipButton/SkipButton.vue'
 
 import { initLottieScroll } from '@/scripts/ui/lottieScroll'
 import wordsJson from '@/assets/lottie/words.json?url'
@@ -20,7 +21,7 @@ import { scrollToElement } from '@/scripts/utils/scrollToElement'
 import { useScrollTracker } from '@/composables/useScrollTracker';
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 
-const { navButtonsVisible } = usePagesViewedTracker()
+const { pageViewed } = usePagesViewedTracker()
 
 const { container } = useScrollTracker();
 
@@ -337,7 +338,7 @@ onMounted(async () => {
 
 
 			<div class="container mb-rem-4-0 mb-xs-rem-3-0">
-				<checkbox-question 	:checkboxQuestionData="checkboxQuestionTrack1"
+				<CheckboxQuestion 	:checkboxQuestionData="checkboxQuestionTrack1"
 								   @complete="showAfter()">
 					<template v-slot:question-text="">
 						<div class="row">
@@ -376,7 +377,8 @@ onMounted(async () => {
 					</template>
 					<template v-slot:feedback-1="">
 					</template>
-				</checkbox-question>
+				</CheckboxQuestion>
+				<SkipButton v-if="!pageViewed" @click="showHiddenContent(0)"/>
 			</div>
 			<section class="hidden js-hidden"
 					 data-hidden-id="0">
@@ -516,7 +518,7 @@ onMounted(async () => {
 						</div>
 					</div>
 				</div>
-				<NavigationButtons ref="navButtonsVisible" class="js-nav-buttons" />
+				<NavigationButtons class="js-nav-buttons" />
 			</section>
 		</main>
 	</Transition>

@@ -125,7 +125,7 @@ onMounted(() => {
 	initQuestion();
 
 	if (userProgressStore.quizAnswers[questionId]) {
-		console.log(userProgressStore.quizAnswers[questionId].answersHistory);
+		// console.log(userProgressStore.quizAnswers[questionId].answersHistory);
 		answersHistory.value = userProgressStore.quizAnswers[questionId].answersHistory
 		currentQuestion.value = questions.length - 1
 		questionFeedbackShow.value = true

@@ -44,8 +44,11 @@
     &__wave {
         position: absolute;
         // width: calc(50% + 250px);
-        width: 85%;
-        height: 100%;
+        // width: 85%;
+        // height: 100%;
+		
+		left: 1%;
+		top: 3%;
         transform-origin: right center;
         animation: gramophone-floating-1 4s;
         animation-iteration-count: infinite;
@@ -268,16 +271,27 @@
 
     @keyframes gramophone-floating-1 {
         0% {
-            transform: rotate(-1deg) scale(1.1);
+            transform: rotate(-1deg);
         }
 
         50% {
-            transform: rotate(3deg) scale(1.2);
+            transform: rotate(2.5deg);
         }
 
         100% {
-            transform: rotate(1deg) scale(1.1);
+            transform: rotate(1deg);
         }
+        // 0% {
+        //     transform: rotate(-1deg) scale(1.1);
+        // }
+
+        // 50% {
+        //     transform: rotate(3deg) scale(1.2);
+        // }
+
+        // 100% {
+        //     transform: rotate(1deg) scale(1.1);
+        // }
     }
 
     @keyframes gramophone-floating-2 {

@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
+import SkipButton from '@/components/SkipButton/SkipButton.vue'
 import ToggleImg from '@/components/ToggleImg/ToggleImg.vue'
 import { toggleImg } from '@/toggleAnimationsData/toggleImg'
 import { textScrollAnimation } from '@/scripts/ui/textScrollAnimation'
@@ -17,12 +18,12 @@ import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 
 import ArticleModal from '@/components/ArticleModal/ArticleModal.vue'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
-import { useScrollTracker } from '@/composables/useScrollTracker';
+import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 
-const { navButtonsVisible } = usePagesViewedTracker()
+const { pageViewed } = usePagesViewedTracker()
 
-const { container } = useScrollTracker();
+const { container } = useScrollTracker()
 
 const isModalOpen = ref(false)
 
@@ -40,6 +41,13 @@ const showAfter = () => {
 	trackRecapAnimation()
 }
 
+const showAfterSkip = () => {
+	refreshScrollTrigger()
+	showHiddenContent(0)
+	scrollToElement(1)
+	trackRecapAnimation()
+}
+
 onMounted(async () => {
 
 	svgContent.value = await fetchSvg()
@@ -51,6 +59,10 @@ onMounted(async () => {
 	// refreshScrollTrigger()
 
 	textGramophoneAnimation()
+
+	if (pageViewed.value) {
+		trackRecapAnimation()
+	}
 });
 
 </script>
@@ -58,7 +70,8 @@ onMounted(async () => {
 <template>
 	<Transition name="fade-page"
 				appear>
-		<main class="scroll-container" ref="container">
+		<main class="scroll-container"
+			  ref="container">
 			<MainHeader />
 			<div class="container mt-rem-6-50 mt-xs-rem-5-0">
 				<h1 class="text-center mb-rem-0-75 mb-xs-rem-0-75">Переключись на новый режим
@@ -217,7 +230,7 @@ onMounted(async () => {
 				</div>
 			</div>
 
-			<div class=" mb-rem-4-0 mb-xs-rem-3-0">
+			<div class="container mb-rem-4-0 mb-xs-rem-3-0">
 				<div class="gramophone js-gramophone mb-rem-4-0 mb-xs-rem-3-0">
 					<div class="gramophone__head">&nbsp;
 					</div>
@@ -296,8 +309,8 @@ onMounted(async () => {
 				</div>
 			</div>
 			<div class="mb-rem-4-0 mb-xs-rem-3-0">
-				<double-question :questions-data="doubleQuestions"
-								 @complete="showAfter()">
+				<DoubleQuestion :questions-data="doubleQuestions"
+								@complete="showAfter()">
 					<template v-slot:feedback-0="">
 						<div class="row js-scroll-element"
 							 data-scroll-id="0">
@@ -319,9 +332,12 @@ onMounted(async () => {
 							</div>
 						</div>
 					</template>
-				</double-question>
+				</DoubleQuestion>
+				<SkipButton v-if="!pageViewed"
+							@click="showAfterSkip()" />
 			</div>
-			<section class="hidden js-hidden"
+			<section class="hidden js-hidden js-scroll-element"
+							 data-scroll-id="1"
 					 data-hidden-id="0">
 				<div class="container mb-rem-4-0 mb-xs-rem-3-0">
 					<div class="row">
@@ -470,7 +486,7 @@ onMounted(async () => {
 						</div>
 					</div>
 				</div>
-				<NavigationButtons ref="navButtonsVisible" class="js-nav-buttons" />
+				<NavigationButtons class="js-nav-buttons" />
 			</section>
 		</main>
 	</Transition>

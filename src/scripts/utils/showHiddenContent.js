@@ -8,5 +8,4 @@ export const showHiddenContent = (hiddenId) => {
             element.classList.remove('hidden')
         }
     });
-
 }

@@ -15,7 +15,7 @@ import { accordionInit } from '@/scripts/ui/accordion'
 import { useScrollTracker } from '@/composables/useScrollTracker';
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 
-const { navButtonsVisible } = usePagesViewedTracker()
+const { pageViewed } = usePagesViewedTracker()
 
 const { container } = useScrollTracker();
 
@@ -31,7 +31,6 @@ onMounted(async () => {
 	tabsInit()
 	accordionInit()
 	observeAnimation(headphonesAnimation, 0.4, true)
-
 
 })
 
@@ -503,7 +502,7 @@ onMounted(async () => {
 					</div>
 				</div>
 			</div>
-			<NavigationButtons ref="navButtonsVisible" class="js-nav-buttons" />
+			<NavigationButtons class="js-nav-buttons" />
 		</main>
 	</Transition>
 </template>

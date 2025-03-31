@@ -57,7 +57,7 @@ router.afterEach((to) => {
 	// Check if this is a fresh page load (restoring from localStorage)
 	const isRestoringSession = !sessionStorage.getItem('isNavigating');
 
-	console.log(isRestoringSession);
+	// console.log(isRestoringSession);
 
 
 	if (isRestoringSession) {
@@ -66,7 +66,7 @@ router.afterEach((to) => {
 		setTimeout(() => {
 			const container = document.querySelector('.scroll-container');
 			container?.scrollTo(0, savedPosition);
-			console.log(to.path, savedPosition, container);
+			// console.log(to.path, savedPosition, container);
 		}, 100); // Small delay for smooth transition
 	} else {
 		// Reset scroll to top when navigating between pages
@@ -82,8 +82,5 @@ router.afterEach((to) => {
 window.addEventListener('beforeunload', () => {
 	sessionStorage.removeItem('isNavigating');
 });
-
-
-
 
 export default router;
