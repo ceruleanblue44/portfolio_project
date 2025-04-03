@@ -24,12 +24,21 @@
 		border-radius: 40px;
 		border: 1px solid rgba(30, 31, 31, 0.12);
 		background: #fff;
+
+		@media #{$breakpoint-xs-only} {
+			padding: 16px;
+			border-radius: 16px;
+		}
 	}
 
 	&__scroll {
 		width: 100%;
 		height: 100%;
 		padding-right: 1rem !important;
+
+		@media #{$breakpoint-xs-only} {
+			padding-right: 0 !important;
+		}
 	}
 
 	@media #{$breakpoint-xs-only} {

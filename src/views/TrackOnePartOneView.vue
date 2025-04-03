@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
+// import { useLenis } from '@/composables/useLenis'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import SkipButton from '@/components/SkipButton/SkipButton.vue'
@@ -21,6 +22,7 @@ import { scrollToElement } from '@/scripts/utils/scrollToElement'
 import { useScrollTracker } from '@/composables/useScrollTracker';
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 
+
 const { pageViewed } = usePagesViewedTracker()
 
 const { container } = useScrollTracker();
@@ -29,16 +31,16 @@ const svgContent = ref('')
 
 
 const showAfter = () => {
-	headphonesAnimation()
 	refreshScrollTrigger()
 	showHiddenContent(0)
+	headphonesAnimation()
 	scrollToElement(0)
 }
 
+// useLenis()
 onMounted(async () => {
 	// Wait for the DOM to be fully updated
 	await nextTick();
-
 	// Select the Lottie container and set its data-src attribute
 	const lottieElement = document.querySelector('.js-lottie-scroll');
 
@@ -237,7 +239,7 @@ onMounted(async () => {
 								</p>
 							</div>
 							<div class="card_medium card_neutral-12 mb-rem-1-50 mb-xs-rem-1-0 js-block">
-								<p class="text text-l">Адаптация к&nbsp;новому ритму требует времени&nbsp;&mdash;
+								<p class="text text-l">Адаптация к&nbsp;новому ритму требует времени &mdash;
 									поэтому возникает желание вернуться к&nbsp;привычному выполнению задач
 									самостоятельно.
 								</p>
@@ -289,8 +291,8 @@ onMounted(async () => {
 					</p>
 				</div>
 				<div class="pos-a hide-lg"
-					 style="left: 12px; bottom: -6px; width: 209px;">
-					<p class="text text-xl text-semibold">Возможно, сейчас&nbsp;ты пытаешься совместить в&nbsp;себе две
+					 style="left: 12px; bottom: -6px; width: 206px;">
+					<p class="text text-xl text-semibold">Возможно, сейчас ты&nbsp;пытаешься совместить в&nbsp;себе две
 						роли: специалиста и&nbsp;руководителя.
 					</p>
 					<p class="text text-xl text-semibold">Но&nbsp;пришло время их&nbsp;разделить.

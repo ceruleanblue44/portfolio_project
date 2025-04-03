@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
-import { useNavigationStore } from '@/stores/useNavigationStore'
 import router from './router'
+import { useNavigationStore } from '@/stores/useNavigationStore'
 import App from './App.vue'
 
 import 'animate.css/animate.min.css'

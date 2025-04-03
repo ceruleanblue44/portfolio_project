@@ -7,7 +7,7 @@ export const trackRecapAnimation = () => {
 	const section = document.querySelector('.js-track-recap'); // The entire section
 	const textBlocks = gsap.utils.toArray('.js-track-recap-text'); // All text blocks
 
-	// console.log(section, textBlocks);
+	console.log('recap');
 
 	// Pin the section so it stays in place
 	ScrollTrigger.create({

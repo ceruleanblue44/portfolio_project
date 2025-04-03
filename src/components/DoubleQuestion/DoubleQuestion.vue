@@ -164,8 +164,8 @@ onMounted(() => {
 						 :key="`questions-${currentQuestion}-${index}`"
 						 :class="['col-lg-6 col-xs-12 mb-rem-1-50 mb-xs-rem-1-0', `order-xs-${index}`]">
 						<div class="card card_white card_small h-100 d-flex jc-center ai-center">
-							<p class="text text-s text-semibold text-center">
-								{{ subQuestion.text }}
+							<p class="text text-s text-semibold text-center" v-html="subQuestion.text">
+							
 							</p>
 						</div>
 					</div>

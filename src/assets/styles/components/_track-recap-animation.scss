@@ -1,7 +1,13 @@
 @use "../base/vars" as *;
 @use "../abstracts/variables" as *;
 
+// * {
+// 	will-change: transform;
+//   }
+
 .track-recap {
+
+
     width: 100%;
 
 	    &__head {
@@ -42,6 +48,7 @@
 			padding: 60px;
 			border-radius: 48px;
 			overflow: hidden;
+			will-change: transform;
 		}
 
 		&__sticky-top {
@@ -53,6 +60,7 @@
 			backdrop-filter: blur(7.900000095367432px);
 			border-radius: 32px;
 			z-index: 1;
+			will-change: transform;
 
 			& > img {
 				flex-shrink: 0;
@@ -94,6 +102,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+		will-change: transform;
 
 		&-wrapper {
 			position: relative;
@@ -101,6 +110,7 @@
 			height: 100%;
 			display: flex;
 			align-items: center;
+			will-change: transform;
 		}
 
         // .container {

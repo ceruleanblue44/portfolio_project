@@ -1,11 +1,11 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 export const textGramophoneAnimation = () => {
-	const section = document.querySelector('.js-gramophone'); // The entire section
-	const textBlocks = gsap.utils.toArray('.js-gramophone-text'); // All text blocks
+	const section = document.querySelector('.js-gramophone') // The entire section
+	const textBlocks = gsap.utils.toArray('.js-gramophone-text') // All text blocks
 
 	// Pin the section so it stays in place
 	ScrollTrigger.create({
@@ -18,7 +18,7 @@ export const textGramophoneAnimation = () => {
 		scrub: true,
 		markers: false,
 
-	});
+	})
 
 	// Animate text blocks one by one
 	textBlocks.forEach((text, i) => {
@@ -27,7 +27,7 @@ export const textGramophoneAnimation = () => {
 			{ opacity: 0, y: 100 },
 			{
 				opacity: 1,
-				y: () => window.innerWidth < 768 ? -50 : -150,
+				y: () => window.innerWidth < 768 ? -50 : -180,
 				duration: 0.4,
 				scrollTrigger: {
 					scroller: '.scroll-container',
@@ -38,7 +38,7 @@ export const textGramophoneAnimation = () => {
 					markers: false,
 				}
 			}
-		);
+		)
 
 		gsap.to(text, {
 			opacity: 0,
@@ -52,6 +52,6 @@ export const textGramophoneAnimation = () => {
 				scrub: true,
 				markers: false,
 			}
-		});
-	});
-};
+		})
+	})
+}

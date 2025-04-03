@@ -2,7 +2,7 @@
 import { ref, onMounted, nextTick } from 'vue'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
-
+// import { useLenis } from '@/composables/useLenis'
 import { vinylAnimation } from '@/scripts/ui/vinylAnimation'
 import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
@@ -15,16 +15,16 @@ import { accordionInit } from '@/scripts/ui/accordion'
 import { useScrollTracker } from '@/composables/useScrollTracker';
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 
+
 const { pageViewed } = usePagesViewedTracker()
 
 const { container } = useScrollTracker();
 
 const svgContent = ref('');
 
+// useLenis()
 onMounted(async () => {
-
 	svgContent.value = await fetchSvg()
-
 	await nextTick();
 
 	vinylAnimation()
@@ -49,7 +49,7 @@ onMounted(async () => {
 							 src="../assets/svg/star.svg"
 							 alt="">
 						<p class="text text-xl text-center">Добро пожаловать в&nbsp;роль руководителя!
-							Как&nbsp;исполнитель
+							Как исполнитель
 							перед
 							важным выступлением, ты&nbsp;сейчас переживаешь особенный момент. В&nbsp;альбоме
 							&laquo;Хиты&raquo; ты
@@ -507,5 +507,3 @@ onMounted(async () => {
 	</Transition>
 </template>
 
-<style scoped
-	   lang="scss"></style>

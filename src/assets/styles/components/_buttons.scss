@@ -101,12 +101,13 @@
 		cursor: pointer;
 
 		&-close {
-			width: 34px;
-			height: 34px;
+			flex-shrink: 0;
+			width: 34px !important;
+			height: 34px !important;
 			padding: 0;
 			background-color: $neutral-80;
 			border-radius: 30px;
-			font-size: 30px;
+			font-size: 30px !important;
 			line-height: 34px !important;
 		}
 	}

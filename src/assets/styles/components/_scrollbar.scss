@@ -6,12 +6,14 @@
 	max-height: 100vh;
 	scrollbar-width: thin; // Firefox
 	scrollbar-color: $neutral-32 transparent; // Firefox
+	// scroll-behavior: smooth !important;
 }
 
 // Webkit-based browsers (Chrome, Edge, Safari)
 .scroll-container::-webkit-scrollbar {
 	width: 10px;
 	height: 6px;
+	position: relative;
 	z-index: 16 !important;
 }
 

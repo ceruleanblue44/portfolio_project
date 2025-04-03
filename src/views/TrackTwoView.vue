@@ -32,6 +32,8 @@ const { container } = useScrollTracker()
 // const containerRef = ref(null);
 const svgContent = ref('')
 const svgContent1 = ref('')
+const isSkipButtonVisible1 = ref(true)
+const isSkipButtonVisible2 = ref(true)
 
 const disableScrollbar = () => {
 	// console.log('disabled')
@@ -52,13 +54,15 @@ const showAfter = async (isCorrect) => {
 	nextTick(() => {
 		headphonesAnimation(color)
 		showHiddenContent(0)
+		refreshScrollTrigger()
 		scrollToElement(0)
 	})
 }
 
 const showAfterSkip = () => {
-	refreshScrollTrigger()
+	isSkipButtonVisible1.value = false
 	showHiddenContent(0)
+	refreshScrollTrigger()
 	scrollToElement(2)
 }
 
@@ -70,35 +74,39 @@ const rangeSlidersComplete = async () => {
 	// 	return 
 	// }
 
+	refreshScrollTrigger()
 	nextTick(() => {
 		headphonesAnimation()
 		refreshScrollTrigger()
 		scrollToElement(1)
-		// console.log(576567)
 
 		if (pageViewed.value === false) {
 			showHiddenContent(1)
 			scrollToElement(1)
-			trackRecapAnimation()
+			refreshScrollTrigger()
+			// trackRecapAnimation()
 		}
 	})
 }
 
 const rangeSlidersSkipped = () => {
+	isSkipButtonVisible2.value = false
+	refreshScrollTrigger()
 	showHiddenContent(1)
 	scrollToElement(3)
 	trackRecapAnimation()
 }
 
+// useLenis()
 onMounted(() => {
 	swiperInit()
 
 	setTimeout(() => {
-	if (pageViewed.value === true) {
-			console.log(666);
+		if (pageViewed.value === true) {
+			// console.log(666);
 			trackRecapAnimation()
 		}
-	}, 100)
+	}, 300)
 })
 
 </script>
@@ -239,7 +247,7 @@ onMounted(() => {
 						</div>
 					</template>
 				</CheckboxQuestion>
-				<SkipButton v-if="!pageViewed"
+				<SkipButton v-if="!pageViewed  && isSkipButtonVisible1"
 							@click="showAfterSkip()" />
 			</div>
 			<section class="hidden js-hidden js-scroll-element"
@@ -585,7 +593,7 @@ onMounted(() => {
 							</template>
 						</RangeSliders>
 					</div>
-					<SkipButton v-if="!pageViewed"
+					<SkipButton v-if="!pageViewed && isSkipButtonVisible2"
 								@click="rangeSlidersSkipped()" />
 				</div>
 			</section>
@@ -656,5 +664,6 @@ onMounted(() => {
 				<NavigationButtons class="js-nav-buttons" />
 			</section>
 		</main>
+				<!-- </VueLenis> -->
 	</Transition>
 </template>

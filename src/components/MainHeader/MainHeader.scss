@@ -4,14 +4,20 @@
 .header {
 	position: fixed;
 	top: 0;
-	right: 0;
+	right: 10px;
 	left: 0;
 	z-index: 15;
 	background-color: rgba($surface, 0.5);
 	backdrop-filter: blur(10px);
 
+	@media #{$breakpoint-xs-only} {
+		right: 0;
+	}
+
 	&-nav {
 		height: calc(100dvh - $main-header-height) !important;
+		max-width: 1280px;
+		margin: auto;
 
 		@media #{$breakpoint-xs-only} {
 			flex-direction: column;

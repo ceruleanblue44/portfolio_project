@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+// import { useLenis } from '@/composables/useLenis'
 import { customCursor } from '@/scripts/ui/customCursor'
 import { discAnimation } from '@/scripts/ui/discAnimation'
 import { showHiddenContent } from '@/scripts/utils/showHiddenContent'
@@ -28,9 +29,9 @@ const { pageViewed } = usePagesViewedTracker()
 
 const svgContent = ref('')
 
+// useLenis()
 onMounted(async () => {
 	svgContent.value = await fetchSvg()
-
 	customCursor()
 	discAnimation()
 	swiperInit()
@@ -52,7 +53,7 @@ onMounted(async () => {
 						<img src="../assets/img/discAnimation/disc-01-outer.jpg"
 							 alt=""
 							 class="disc-rotating__img-outer">
-						<img src="../assets/img/discAnimation/disc-01-inner.png"
+						<img src="../assets/img/discAnimation/disc-01-inner.svg"
 							 alt=""
 							 class="disc-rotating__img-inner js-disc-rotating-img-inner">
 					</div>
@@ -91,7 +92,7 @@ onMounted(async () => {
 				<div class="container mb-rem-9-75 mb-xs-rem-6-0">
 					<div class="container_with-bg">
 						<RadioQuestion :radioQuestionIntro="radioQuestionIntro"
-										@complete="headphonesAnimation(); showHiddenContent(2); scrollToElement(2)">
+									   @complete="headphonesAnimation(); showHiddenContent(2); scrollToElement(2)">
 							<template v-slot:question-text="">
 								<h4 class="mb-rem-1-50 mb-xs-rem-1-0">Какая мелодия звучит сейчас в&nbsp;твоей голове?
 								</h4>
@@ -108,7 +109,7 @@ onMounted(async () => {
 											</h3>
 											<p class="text text-l">Сейчас мы&nbsp;настраиваемся на&nbsp;музыкальную
 												волну
-												и&nbsp; отправляемся в&nbsp;путешествие по&nbsp;музыкальным жанрам.
+												и&nbsp;отправляемся в&nbsp;путешествие по&nbsp;музыкальным жанрам.
 											</p>
 										</div>
 									</div>
@@ -125,7 +126,8 @@ onMounted(async () => {
 							</template>
 						</RadioQuestion>
 					</div>
-					<SkipButton v-if="!pageViewed" @click="showHiddenContent(2); scrollToElement(2)"/>
+					<SkipButton v-if="!pageViewed"
+								@click="showHiddenContent(2); scrollToElement(2)" />
 				</div>
 			</section>
 			<section class="hidden js-hidden"
@@ -225,7 +227,7 @@ onMounted(async () => {
 									<div class="tab__item js-tab-item animate__animated animate__fadeIn">
 										<h3 class="mb-rem-1-25 mb-xs-rem-0-75">Ведение заметок
 										</h3>
-										<p class="text text-l">Как опытный дирижер, записывай свои идеи&nbsp;&mdash;
+										<p class="text text-l">Как опытный дирижер, записывай свои идеи &mdash;
 											память
 											может
 											подвести, а&nbsp;заметки всегда под рукой!
@@ -245,7 +247,7 @@ onMounted(async () => {
 										</h3>
 										<p class="text text-l">Любимую песню мы&nbsp;слушаем снова и&nbsp;снова, пока
 											не&nbsp;выучим
-											наизусть. Так&nbsp;же и&nbsp;с&nbsp;важной информацией&nbsp;&mdash;
+											наизусть. Так&nbsp;же и&nbsp;с&nbsp;важной информацией &mdash;
 											возвращайся
 											к&nbsp;пройденному материалу, чтобы закрепить знания.
 										</p>
@@ -413,7 +415,7 @@ onMounted(async () => {
 												<h4 class="mb-rem-0-75 mb-xs-rem-0-75">Сохрани лучшие моменты
 												</h4>
 												<p class="text text-m mb-rem-2-0 mb-xs-rem-1-50">Материалы для
-													скачивания&raquo;&nbsp;&mdash; сборник проверенных управленческих
+													скачивания&quot;&nbsp;&mdash; сборник проверенных управленческих
 													практик. Здесь
 													собраны инструменты, которые помогут в&nbsp;любой ситуации:
 													от&nbsp;решения сложных
@@ -467,6 +469,3 @@ onMounted(async () => {
 		</main>
 	</Transition>
 </template>
-
-<style scoped
-	   lang="scss"></style>

@@ -1,22 +1,21 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+// import { useLenis } from '@/composables/useLenis'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import SkipButton from '@/components/SkipButton/SkipButton.vue'
 import ToggleImg from '@/components/ToggleImg/ToggleImg.vue'
+import DoubleQuestion from '@/components/DoubleQuestion/DoubleQuestion.vue'
+import ArticleModal from '@/components/ArticleModal/ArticleModal.vue'
 import { toggleImg } from '@/toggleAnimationsData/toggleImg'
 import { textScrollAnimation } from '@/scripts/ui/textScrollAnimation'
 import { textGramophoneAnimation } from '@/scripts/ui/textGramophoneAnimation'
 import { trackRecapAnimation } from '@/scripts/ui/trackRecapAnimation'
 import { showHiddenContent } from '@/scripts/utils/showHiddenContent'
 import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
-
-import DoubleQuestion from '@/components/DoubleQuestion/DoubleQuestion.vue'
 import { doubleQuestions } from '@/quizData/doubleQuestion'
 import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
-
-import ArticleModal from '@/components/ArticleModal/ArticleModal.vue'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
 import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
@@ -27,6 +26,8 @@ const { container } = useScrollTracker()
 
 const isModalOpen = ref(false)
 
+const isSkipButtonVisible = ref(true)
+
 const openModal = () => isModalOpen.value = true
 
 const closeModal = () => isModalOpen.value = false
@@ -34,33 +35,37 @@ const closeModal = () => isModalOpen.value = false
 const svgContent = ref('')
 
 const showAfter = () => {
-	headphonesAnimation()
-	refreshScrollTrigger()
 	showHiddenContent(0)
+	headphonesAnimation()
 	scrollToElement(0)
-	trackRecapAnimation()
+	// refreshScrollTrigger()
+	
+	// nextTick(() =>
+	// 	// trackRecapAnimation()
+	// 	observeTrackRecap()
+	// )
 }
 
 const showAfterSkip = () => {
-	refreshScrollTrigger()
+	isSkipButtonVisible.value = false
 	showHiddenContent(0)
 	scrollToElement(1)
+	// refreshScrollTrigger()
 	trackRecapAnimation()
 }
 
+// useLenis()
 onMounted(async () => {
-
 	svgContent.value = await fetchSvg()
-
 	refreshScrollTrigger()
 
 	textScrollAnimation()
 
-	// refreshScrollTrigger()
+	refreshScrollTrigger()
 
 	textGramophoneAnimation()
 
-	if (pageViewed.value) {
+	if (pageViewed.value === true) {
 		trackRecapAnimation()
 	}
 });
@@ -74,7 +79,7 @@ onMounted(async () => {
 			  ref="container">
 			<MainHeader />
 			<div class="container mt-rem-6-50 mt-xs-rem-5-0">
-				<h1 class="text-center mb-rem-0-75 mb-xs-rem-0-75">Переключись на новый режим
+				<h1 class="text-center mb-rem-0-75 mb-xs-rem-0-75">Переключись на&nbsp;новый режим
 				</h1>
 				<hr class="hr hr_neutral-16 mb-rem-4-0 mb-xs-rem-3-0" />
 			</div>
@@ -105,12 +110,12 @@ onMounted(async () => {
 							<h1 class="text-center mb-rem-2-0 mb-xs-rem-1-50 js-text">множество талантливых людей,
 							</h1>
 							<h1 class="text-center mb-rem-2-0 mb-xs-rem-1-50 js-text">каждый из
-								которых &mdash; эксперт в своей области.
+								которых&nbsp;&mdash; эксперт в&nbsp;своей области.
 							</h1>
 							<h1 class="text-center mb-rem-2-0 mb-xs-rem-1-50 js-text">Чтобы
-								раскрыть их потенциал
+								раскрыть их&nbsp;потенциал
 							</h1>
-							<h1 class="text-center mb-rem-2-0 mb-xs-rem-1-50 js-text">и достичь
+							<h1 class="text-center mb-rem-2-0 mb-xs-rem-1-50 js-text">и&nbsp;достичь
 								выдающихся результатов,
 							</h1>
 							<h1 class="text-center mb-rem-2-0 mb-xs-rem-1-50 js-text">нужен
@@ -132,25 +137,27 @@ onMounted(async () => {
 					</h1>
 					<div class="row mb-rem-3-0 mb-xs-rem-2-0">
 						<div class="col-lg-7 col-xs-12">
-							<p class="text text-m">Твой главный фокус - команда. Первостепенное внимание уделяй задачам,
-								влияющим на её эффективность. Для этого перестрой свой рабочий ритм:
+							<p class="text text-m">Твой главный фокус&nbsp;&mdash; команда. Первостепенное внимание
+								уделяй задачам,
+								влияющим на&nbsp;её&nbsp;эффективность. Для этого перестрой свой рабочий ритм:
 							</p>
 						</div>
-						<div class="col-lg-5 hide-xs">&nbsp;
+						<div class="col-lg-5 hide-xs">
 						</div>
 					</div>
 					<div class="hide-xs">
 						<div class="mb-rem-3-0">
 							<div class="pos-r pt-90 pb-80"
 								 style="margin: 0 -60px;"><img alt=""
-									 src="../assets/img/track-1/path-1.svg" />
+									 src="../assets/img/track-1/path-1.svg"
+									 style="width: 96%" />
 								<div class="pos-a"
 									 style="left: 121px; top: 0; width: 400px; height: 180px;">
 									<div class="card card_gray h-100">
 										<div class="d-flex ai-center h-100">
 											<p class="text text-l text-center">
-												Начинай день с обзора задач, которые стоят
-												перед тобой и твоей командой.
+												Начинай день с&nbsp;обзора задач, которые стоят
+												перед тобой и&nbsp;твоей командой.
 											</p>
 										</div>
 									</div>
@@ -159,9 +166,9 @@ onMounted(async () => {
 									 style="right: 98px; top: 32%; width: 400px; height: 180px;">
 									<div class="card card_gray h-100">
 										<div class="d-flex ai-center h-100">
-											<p class="text text-l text-center">Команда &mdash; это самое главное.
+											<p class="text text-l text-center">Команда&nbsp;&mdash; это самое главное.
 												Поэтому
-												приоритет отдавай вопросам, влияющим на ее работу.
+												приоритет отдавай вопросам, влияющим на&nbsp;ее&nbsp;работу.
 											</p>
 										</div>
 									</div>
@@ -170,7 +177,8 @@ onMounted(async () => {
 									 style="left: 187px; bottom: 0; width: 400px; height: 180px;">
 									<div class="card card_gray h-100">
 										<div class="d-flex ai-center h-100">
-											<p class="text text-l text-center">Затем переходи к индивидуальным задачам
+											<p class="text text-l text-center">Затем переходи к&nbsp;индивидуальным
+												задачам
 											</p>
 										</div>
 									</div>
@@ -185,19 +193,20 @@ onMounted(async () => {
 									 src="../assets/img/track-1/path-1-xs.svg"
 									 style="top: 0; left: -24px;" />
 								<div class="card card_gray mb-xs-rem-1-50">
-									<p class="text text-l text-center">В начале дня выпиши все задачи, которые стоят
+									<p class="text text-l text-center">В&nbsp;начале дня выпиши все задачи, которые
+										стоят
 										перед
-										тобой и твоей командой.
+										тобой и&nbsp;твоей командой.
 									</p>
 								</div>
 								<div class="card card_gray mb-xs-rem-1-50">
-									<p class="text text-l text-center">Команда &mdash; это самое главное. Поэтому
+									<p class="text text-l text-center">Команда&nbsp;&mdash; это самое главное. Поэтому
 										начинай
-										с&nbsp;задач, которые влияют на нее.
+										с&nbsp;задач, которые влияют на&nbsp;нее.
 									</p>
 								</div>
 								<div class="card card_gray">
-									<p class="text text-l text-center">Когда их закончишь, можешь приступать
+									<p class="text text-l text-center">Когда их&nbsp;закончишь, можешь приступать
 										к&nbsp;индивидуальным.
 									</p>
 								</div>
@@ -206,7 +215,7 @@ onMounted(async () => {
 					</div>
 					<div class="card card_medium card-green">
 						<p class="text text-l text-white">Каждый член команды вносит свой уникальный вклад. Твоя роль -
-							создать среду, где все таланты раскрываются в полной мере.
+							создать среду, где все таланты раскрываются в&nbsp;полной мере.
 						</p>
 					</div>
 				</div>
@@ -217,22 +226,23 @@ onMounted(async () => {
 				</h1>
 				<hr class="hr hr_neutral-16 mb-rem-1-50 mb-xs-rem-1-50" />
 				<div class="row">
-					<div class="col-lg-2 hide-xs">&nbsp;
+					<div class="col-lg-2 hide-xs">
 					</div>
 					<div class="col-lg-8 col-xs-12">
 						<p class="text text-l text-center text-xs-left text-gray-1">
-							Для создания эффективной команды и управления ею, постоянно держи в фокусе три основных
+							Для создания эффективной команды и&nbsp;управления&nbsp;ею, постоянно держи в&nbsp;фокусе
+							три основных
 							вопроса:
 						</p>
 					</div>
-					<div class="col-lg-2 hide-xs">&nbsp;
+					<div class="col-lg-2 hide-xs">
 					</div>
 				</div>
 			</div>
 
 			<div class="container mb-rem-4-0 mb-xs-rem-3-0">
 				<div class="gramophone js-gramophone mb-rem-4-0 mb-xs-rem-3-0">
-					<div class="gramophone__head">&nbsp;
+					<div class="gramophone__head">
 					</div>
 					<div class="gramophone__container js-gramophone-container">
 						<div class="gramophone__background"><img alt=""
@@ -254,7 +264,7 @@ onMounted(async () => {
 								<div class="col-lg-6 col-xs-10 mb-rem-4-50">
 									<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Что делаем?
 									</h1>
-									<p class="text text-l text-white">Определи цели и желаемые результаты команды.
+									<p class="text text-l text-white">Определи цели и&nbsp;желаемые результаты команды.
 									</p>
 								</div>
 							</div>
@@ -262,15 +272,16 @@ onMounted(async () => {
 								<div class="col-lg-6 col-xs-10 mb-rem-4-50">
 									<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Кто делает?
 									</h1>
-									<p class="text text-l text-white">Распредели роли и ответственность.
+									<p class="text text-l text-white">Распредели роли и&nbsp;ответственность.
 									</p>
 								</div>
 							</div>
 							<div class="row gramophone__text js-gramophone-text">
 								<div class="col-lg-6 col-xs-10 mb-rem-4-50">
-									<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">За счет чего?
+									<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">За&nbsp;счет чего?
 									</h1>
-									<p class="text text-l text-white">Создай процессы и обеспечь ресурсы для достижения
+									<p class="text text-l text-white">Создай процессы и&nbsp;обеспечь ресурсы для
+										достижения
 										целей.
 									</p>
 								</div>
@@ -281,17 +292,17 @@ onMounted(async () => {
 			</div>
 			<div class="container mb-rem-9-75 mb-xs-rem-6-0">
 				<div class="row">
-					<div class="col-lg-2 hide-xs">&nbsp;
+					<div class="col-lg-2 hide-xs">
 					</div>
 					<div class="col-lg-8 col-xs-12">
 						<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
 							 src="../assets/svg/star.svg"
 							 alt="">
-						<p class="text text-xl text-center">Ответы на эти вопросы помогут тебе создать
-							единый&nbsp;гармоничный процесс работы талантливых&nbsp;людей.
+						<p class="text text-xl text-center">Ответы на&nbsp;эти вопросы помогут тебе создать
+							единый гармоничный процесс работы талантливых людей.
 						</p>
 					</div>
-					<div class="col-lg-2 hide-xs">&nbsp;
+					<div class="col-lg-2 hide-xs">
 					</div>
 				</div>
 			</div>
@@ -301,9 +312,10 @@ onMounted(async () => {
 				<hr class="hr hr_neutral-16 mb-rem-1-50 mb-xs-rem-3-0" />
 				<div class="row">
 					<div class="col-lg-12 col-xs-12">
-						<p class="text text-l">Давай посмотрим, насколько ты близок к мышлению руководителя. Подумай,
+						<p class="text text-l">Давай посмотрим, насколько ты&nbsp;близок к&nbsp;мышлению руководителя.
+							Подумай,
 							как
-							отвечает на вопросы специалист, а как руководитель.
+							отвечает на&nbsp;вопросы специалист, а&nbsp;как руководитель.
 						</p>
 					</div>
 				</div>
@@ -316,9 +328,10 @@ onMounted(async () => {
 							 data-scroll-id="0">
 							<div class="col-lg-8 col-xs-12">
 								<div class="card card_large card_white">
-									<p class="text text-l">Видишь, какие два разных подхода к работе. Специалист
+									<p class="text text-l">Видишь, какие два разных подхода к&nbsp;работе. Специалист
 										выполняет
-										задачи сам. А руководитель, наоборот, делает это с помощью команды и помогает ей
+										задачи сам. А&nbsp;руководитель, наоборот, делает это с&nbsp;помощью команды
+										и&nbsp;помогает ей
 										достичь высоких результатов.
 									</p>
 								</div>
@@ -333,24 +346,25 @@ onMounted(async () => {
 						</div>
 					</template>
 				</DoubleQuestion>
-				<SkipButton v-if="!pageViewed"
+				<SkipButton v-if="!pageViewed && isSkipButtonVisible"
 							@click="showAfterSkip()" />
 			</div>
 			<section class="hidden js-hidden js-scroll-element"
-							 data-scroll-id="1"
+					 data-scroll-id="1"
 					 data-hidden-id="0">
-				<div class="container mb-rem-4-0 mb-xs-rem-3-0">
+				<div class="container mb-rem-4-0 mb-xs-rem-3-0 js-animation">
 					<div class="row">
 						<div class="col-lg-6 col-xs-12">
-							<h2 class="mb-rem-2-0 mb-xs-rem-1-50">В новом режиме руководителя твои приоритеты такие:
+							<h2 class="mb-rem-2-0 mb-xs-rem-1-50">В&nbsp;новом режиме руководителя твои приоритеты
+								такие:
 							</h2>
 							<ul class="list list__ul text text-l text-gray-1">
 								<li class="list__ul--item">Формирование команды</li>
 								<li class="list__ul--item">Мотивация сотрудников</li>
-								<li class="list__ul--item">Помощь в развитии</li>
+								<li class="list__ul--item">Помощь в&nbsp;развитии</li>
 								<li class="list__ul--item">Контроль выполнения задач</li>
 								<li class="list__ul--item">Управление рисками</li>
-								<li class="list__ul--item">Коммуникация с заказчиками</li>
+								<li class="list__ul--item">Коммуникация с&nbsp;заказчиками</li>
 							</ul>
 						</div>
 					</div>
@@ -358,7 +372,7 @@ onMounted(async () => {
 
 				<div class="container container_full-xs mb-xs-rem-6-0">
 					<div class="track-recap js-track-recap mb-rem-7-75">
-						<div class="track-recap__head">&nbsp;
+						<div class="track-recap__head">
 						</div>
 						<div class="track-recap__container js-track-recap-container">
 							<div class="track-recap__sticky-top">
@@ -377,17 +391,18 @@ onMounted(async () => {
 									</h3>
 								</div>
 								<div class="track-recap__text js-track-recap-text">
-									<h3 class="text-white text-xs-center w-100">Приоритет - устранение препятствий для
+									<h3 class="text-white text-xs-center w-100">Приоритет&nbsp;&mdash; устранение
+										препятствий для
 										работы
 										моей
 										команды.
 									</h3>
 								</div>
 								<div class="track-recap__text js-track-recap-text">
-									<h3 class="text-white text-xs-center w-100">Я не всегда смогу погружаться в задачи
-										&mdash; и
-										это не
-										страшно! Делегирование - основной инструмент достижения результатов.
+									<h3 class="text-white text-xs-center w-100">Я&nbsp;не&nbsp;всегда смогу погружаться
+										в&nbsp;задачи
+										&mdash;&nbsp;и&nbsp;это не
+										страшно! Делегирование&nbsp;&mdash; основной инструмент достижения результатов.
 									</h3>
 								</div>
 							</div>
@@ -409,9 +424,10 @@ onMounted(async () => {
 									роли:
 								</p>
 								<div class="card card_gray pl-xs-rem-1-0 pr-xs-rem-1-0">
-									<p class="text text-m">Подумай, чем еще отличается руководитель от специалиста.
+									<p class="text text-m">Подумай, чем еще отличается руководитель от&nbsp;специалиста.
 									</p>
-									<p class="text text-m">Проанализируй предложенные в файле вопросы и заполни
+									<p class="text text-m">Проанализируй предложенные в&nbsp;файле вопросы
+										и&nbsp;заполни
 										сравнительную
 										таблицу.
 									</p>
@@ -420,15 +436,16 @@ onMounted(async () => {
 						</div>
 						<div class="row middle">
 							<div class="col-lg-3 col-xs-12 mb-xs-rem-1-50">
-								<p class="text text-m">Это упражнение поможет тебе увидеть сходства и различия прежней и
-									новой
+								<p class="text text-m">Это упражнение поможет тебе увидеть сходства и&nbsp;различия
+									прежней
+									и&nbsp;новой
 									ролей.
 								</p>
 							</div>
 							<div class="col-lg-9 col-xs-12">
 								<div
 									 class="d-flex fw-wrap card-download  card-download__bg_green ai-center jc-space-between">
-									<h4 class="text-white mb-xs-25">Руководитель VS специалист
+									<h4 class="text-white mb-xs-25">Руководитель VS&nbsp;специалист
 									</h4>
 									<a class="d-flex card-download__link cursor-pointer"
 									   download
@@ -456,10 +473,11 @@ onMounted(async () => {
 									<div class="mb-xs-10">
 										<h2 class="text-white mb-10 mb-xs-10">Дополнительные материалы
 										</h2>
-										<p class="text text-m text-white">Углубись в тему управленческих приоритетов
+										<p class="text text-m text-white">Углубись в&nbsp;тему управленческих
+											приоритетов
 										</p>
 									</div>
-									<div class="hide-xs">&nbsp;</div>
+									<div class="hide-xs"> </div>
 									<div class="hint text-center">Нажми Play, чтобы прочитать статью
 									</div>
 								</div>
@@ -470,14 +488,14 @@ onMounted(async () => {
 										 @click="openModal">
 								</div>
 								<div class="article__footer mt-rem-1-50 mt-xs-rem-1-50">
-									<div class="hide-xs">&nbsp;</div>
+									<div class="hide-xs"> </div>
 									<div class="card card_article">
 										<p class="text text-m text-white">статья
 										</p>
 										<p class="text text-xl text-white">Управление приоритетами
 										</p>
 									</div>
-									<div class="hide-xs">&nbsp;</div>
+									<div class="hide-xs"> </div>
 								</div>
 
 								<ArticleModal v-if="isModalOpen"

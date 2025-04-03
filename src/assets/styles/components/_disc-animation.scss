@@ -8,6 +8,7 @@
 	position: relative;
 	height: 200dvh;
 	background-position-x: center;
+	will-change: transform;
 
 	&__wrapper {
 		position: relative;
@@ -25,28 +26,33 @@
 		display: flex;
 		justify-content: center;
 	}
-
+	
 	&__img-outer {
 		height: 100%;
 		object-fit: contain;
+		will-change: transform;
 	}
-
+	
 	&__img-inner {
 		position: absolute;
 		top: 0;
 		height: 100%;
 		object-fit: contain;
+		will-change: transform;
 	}
 
 	&__hint.hint {
 		position: absolute;
 		top: 85%;
 		left: 50%;
-		transform: translateX(-50%);
+		transform: translateX(-50%, 0);
 		pointer-events: none;
 
 		@media #{$breakpoint-xs-only} {
 			width: max-content;
+			left: 0;
+			right: 0;
+			margin: auto;
 		}
 	}
 
