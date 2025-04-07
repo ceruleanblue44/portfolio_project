@@ -2,7 +2,7 @@
 import './MainHeader.scss'
 import { ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { headerData } from '@/assets/styles/headerData/headerData'
+import { headerData } from '@/headerData/headerData'
 import HeaderNavArticles from './HeaderNavArticles.vue'
 import HeaderNavMaterials from './HeaderNavMaterials.vue'
 import HeaderNavContents from './HeaderNavContents.vue'

@@ -6,6 +6,12 @@ export const headerData = {
 	},
 	navigation: [
 		{
+			title: 'О проекте',
+			description: '',
+			img: '/src/assets/img/menu/tracks/intro.png',
+			link: '/',
+		},
+		{
 			title: 'Вступление',
 			description: '',
 			img: '/src/assets/img/menu/tracks/intro.png',

@@ -43,9 +43,9 @@ router.beforeEach((to, from, next) => {
 	const navigationStore = useNavigationStore();
 
 	// Redirect only when navigating to home
-	if (to.path === '/' && navigationStore.lastVisitedPage) {
-		return next(navigationStore.lastVisitedPage); // ✅ Correct redirect
-	}
+	// if (to.path === '/' && navigationStore.lastVisitedPage) {
+	// 	return next(navigationStore.lastVisitedPage); // ✅ Correct redirect
+	// }
 
 	navigationStore.saveLastVisitedPage(to.path);
 	next();

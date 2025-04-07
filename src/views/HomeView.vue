@@ -1,59 +1,56 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import MainHeader from '@/components/MainHeader/MainHeader.vue';
-import RangeSliders from '@/components/RangeSliders/RangeSliders.vue';
-import { rangeSliders } from '@/rangeSlidersData/rangeSliders';
+import { ref, onMounted } from 'vue'
+import MainHeader from '@/components/MainHeader/MainHeader.vue'
 
-const containerRef = ref(null);
 
-const disableScrollbar = () => {
-//   console.log('disabled');
-  document.body.style.overflow = 'hidden'; // Prevent scrolling when needed
-};
 
-const enableScrollbar = () => {
-//   console.log('enabled');
-  document.body.style.overflow = ''; // Restore scrolling
-};
 
 onMounted(() => {
-  console.log('HomeView mounted');
-});
+	console.log('HomeView mounted')
+})
 </script>
 
 <template>
-  <main ref="containerRef" class="scroll-container">
-    <MainHeader />
+	<Transition name="fade-page"
+				appear>
+		<main class="scroll-container"
+			  ref="container">
+			<MainHeader />
+			<div class="container hero-section">
+				<!-- <div class=""> -->
+				<div class="row pt-rem-6-0">
+					<div class="col-lg-7 col-xs-12">
+						<h3 class=" mb-rem-1-0">Проект</h3>
+						<h1 class="h1-64-48 mb-rem-1-0">Leadership Beats</h1>
+						<h3 class="mb-rem-1-0">Музыкальное руководство по&nbsp;менеджменту</h3>
+					</div>
+					<div class="col-lg-1 hide-xs">&nbsp;</div>
+					<div class="col-lg-4 col-xs-12">
+						<picture>
+							<source srcset="../assets/img/about/dev-xs.png"
+									media="(max-width: 719px)" />
+							<img class="img_center mb-rem-1-50"
+								 src="../assets/img/about/dev.png"
+								 alt="header logo" />
+							<h3 class="text-center">Марина Готовцева</h3>
+							<h3 class="text-center text-light">frontend developer</h3>
+						</picture>
+					</div>
+				</div>
+				<!-- </div> -->
+			</div>
+			<div class="container">
+				<!-- <div class=""> -->
+				<div class="row">
+					<div class="col-lg-12 col-xs-12">
+						<div class="card_extrasmall card_border-violet card_white">
+							<p class="text-center text-xl text-bold text-secondary">Адаптационный электронный курс для начинающего руководителя</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-    <div style="height: 10vh"></div>
 
-    <div class="container">
-      <div class="container container_with-bg mb-rem-4-0 mb-rem-xs-3-0">
-        <div class="row mb-rem-3-0 mb-xs-rem-2-0">
-          <div class="col-lg-7 col-xs-12 mb-xs-rem-2-0">
-            <div class="text text-xl">
-              На основе полученной информации попробуй распределить области
-              управления, исходя из своей должности.
-            </div>
-          </div>
-          <div class="col-lg-5 col-xs-12">
-            <div class="hint text-center">
-              Потяни за ползунок влево или вправо, чтобы распределить области
-              управления.
-            </div>
-          </div>
-        </div>
-        <RangeSliders :settings="rangeSliders" @disable-scrollbar="disableScrollbar" @enable-scrollbar="enableScrollbar" />
-      </div>
-    </div>
-
-    <div style="height: 100vh"></div>
-  </main>
+		</main>
+	</Transition>
 </template>
-
-<!-- <style scoped lang="scss">
-.scroll-container {
-  overflow: auto;
-  max-height: 100vh;
-}
-</style> -->
