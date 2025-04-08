@@ -68,6 +68,16 @@ h1,
 			line-height: $lh100;
 		}
 	}
+
+	&-64-36 {
+		font-size: $fs64;
+		line-height: $lh100;
+
+		@media #{$breakpoint-xs-only} {
+			font-size: $fs36;
+			line-height: $lh100;
+		}
+	}
 }
 
 h2,

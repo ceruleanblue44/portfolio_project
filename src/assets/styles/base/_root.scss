@@ -112,6 +112,11 @@ div {
 		}
 	}
 
+	&_bg-band {
+		padding: 3rem 0;
+		background: url(../img/about/band.png) center no-repeat;
+	}
+
 	&_albums {
 		padding: 105px 40px 152px 40px;
 		background-image: url("../img/backgrounds/album-slider.jpg");
@@ -849,4 +854,18 @@ div {
 .fade-page-enter-from,
 .fade-page-leave-to {
 	opacity: 0;
+}
+
+.hero-section {
+	// height: 657px;
+	margin-top: $main-header-height;
+	background-image: url(../img/about/zipper.png);
+	background-size: cover;
+	// color: $neutral-80;
+
+	@media #{$breakpoint-xs-only} {
+		margin-top: $main-header-height-xs;
+		background: url(../img/about/zipper-xs.png) center no-repeat;
+		background-position-y: 33%;
+	}
 }

@@ -5,7 +5,7 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 
 const pages = [
-	{ path: '/', name: 'home' },
+	{ path: '/', name: 'about' },
 	{ path: '/intro', name: 'intro' },
 	{ path: '/tracklist', name: 'tracklist' },
 	{ path: '/track-1-1', name: 'track-1-1' },
@@ -22,7 +22,8 @@ const nextLink = computed(() => currentIndex.value < pages.length - 1 ? pages[cu
 
 <template>
 	<div class="container btn-container btn-container_center mt-rem-9-75 mb-rem-2-50 mt-xs-rem-6-0 mb-xs-rem-2-50">
-		<router-link :to="backLink || '#'"
+		<router-link v-if="backLink" 
+					 :to="backLink || '#'" 
 					 :class="['btn btn_back', { 'disabled' : !backLink }]">
 			<span class="btn__text">Назад</span>
 		</router-link>

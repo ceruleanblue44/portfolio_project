@@ -1,14 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useNavigationStore } from '@/stores/useNavigationStore'
-import HomeView from '../views/HomeView.vue'
+import AboutView from '../views/AboutView.vue'
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
 		{
 			path: '/',
-			name: 'home',
-			component: HomeView, // ✅ Keep this as a normal route (no redirect here)
+			name: 'about',
+			component: AboutView, // ✅ Keep this as a normal route (no redirect here)
 		},
 		{
 			path: '/intro',

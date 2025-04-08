@@ -200,7 +200,6 @@ onMounted(async () => {
 								<img class=""
 									 src="../assets/svg/disc.svg"
 									 alt="">
-
 								<img class=""
 									 src="../assets/svg/mic.svg"
 									 alt="">

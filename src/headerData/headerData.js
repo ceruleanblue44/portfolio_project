@@ -8,7 +8,7 @@ export const headerData = {
 		{
 			title: 'О проекте',
 			description: '',
-			img: '/src/assets/img/menu/tracks/intro.png',
+			img: '/src/assets/img/menu/tracks/about.png',
 			link: '/',
 		},
 		{
