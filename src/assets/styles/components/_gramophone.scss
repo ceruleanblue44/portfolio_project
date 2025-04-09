@@ -109,167 +109,60 @@
 		}
 	}
 
-	&__text-wrapper {
-		position: relative;
+	&__text {
+		height: 100vh;
 		width: 100%;
 		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		justify-content: center;
-		// text-align: center;
-		will-change: transform;
+		align-items: center;
 
-		& .gramophone__text {
-			position: absolute;
-			width: 95%;
-			padding-left: 3rem;
-			// width: 80%;
-			// max-width: 800px;
-			opacity: 0;
-			transform: translateY(50px);
-			will-change: transform;
-			transition:
-				opacity 0.5s,
-				transform 0.5s;
+		.inner {
+			height: 100%;
+			width: 100%;
+			padding-top: 20rem;
+			// display: flex;
+			// flex-direction: column;
+			// align-items: center;
+			// justify-content: center;
+			border: 1px solid red;
 		}
 
-		@media #{$breakpoint-xs-only} {
-			justify-content: flex-end;
+		&-outer {
+			overflow-x: hidden;
+		}
+
+		&-wrapper {
+			display: flex;
+			width: 500vw;
 		}
 	}
 
 	// &__text-wrapper {
 	// 	position: relative;
-	// 	max-width: 1200px;
-	// 	height: 100% !important;
-	// 	// height: 33%;
-	// 	overflow-y: hidden;
+	// 	width: 100%;
 	// 	display: flex;
 	// 	flex-direction: column;
+	// 	align-items: flex-start;
 	// 	justify-content: center;
+	// 	// text-align: center;
+	// 	will-change: transform;
 
-	// 	&.vdesktop {
-	// 		max-width: 1224px;
+	// 	& .gramophone__text {
+	// 		position: absolute;
+	// 		width: 95%;
+	// 		padding-left: 3rem;
+	// 		// width: 80%;
+	// 		// max-width: 800px;
+	// 		opacity: 0;
+	// 		transform: translateY(50px);
+	// 		will-change: transform;
+	// 		transition:
+	// 			opacity 0.5s,
+	// 			transform 0.5s;
 	// 	}
-	// }
 
-	// &__text {
-	// 	height: 33%;
-	// }
-
-	// &__slides {
-	//     position: relative;
-	//     width: 100%;
-	//     height: 100%;
-	//     display: flex;
-	//     align-items: center;
-	// }
-
-	// &__slide {
-	//     position: absolute;
-	//     top: 0px;
-	//     bottom: 0px;
-	//     left: 0;
-	//     width: 100%;
-	//     display: flex;
-	//     align-items: center;
-	//     justify-content: center;
-
-	//     .container {
-	//         max-width: 1200px;
-	//         height: 100% !important;
-	//         display: flex;
-	//         flex-direction: column;
-	//         justify-content: center;
-
-	//         &.vdesktop {
-	//             max-width: 1224px;
-	//         }
-	//     }
-
-	//     img {
-	//         max-height: 100%;
-	//     }
-
-	//     @media #{$breakpoint-xs-only} {
-	//         bottom: 30%;
-	//     }
-	// }
-
-	// &__img {
-	//     max-height: 100%;
-
-	//     &_shadow {
-	//         filter: drop-shadow(24px 24px 32px rgba(0, 0, 0, 0.25));
-	//     }
-
-	//     &__desc {
-	//         max-width: none;
-	//     }
-	// }
-
-	// &__caption {
-	//     position: absolute;
-	//     top: 50%;
-	//     right: 0;
-	//     transform: translateY(-50%);
-	//     width: 416px;
-	//     min-height: 166px;
-	//     padding: 16px 24px;
-	//     display: flex;
-	//     align-items: flex-start;
-	//     gap: 24px;
-
-	//     border-radius: 32px;
-	//     // background: $bubble-eva;
-
-	//     &__speaker {
-	//         flex-shrink: 0;
-	//         width: 100px;
-
-	//         &__img {
-	//             width: 100px;
-	//             height: 100px;
-	//             margin-bottom: 12px;
-	//             display: flex;
-	//             align-items: flex-end;
-	//             // background-color: $eva-bg-ellipse;
-	//             border-radius: 26px;
-	//             overflow: hidden;
-	//             box-shadow: 0px 3.33333px 20px 0px rgba(21, 170, 172, 0.48);
-	//         }
-	//     }
-
-	//     &__text {
-	//         width: 100%;
-	//         padding: 16px 24px;
-	//         border-radius: 24px;
-	//         background: $white;
-	//         box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.08);
-	//     }
-
-	//     &_static {
-	//         position: static;
-	//         top: unset;
-	//         left: unset;
-	//         transform: none;
-	//     }
-
-	//     &_dark {
-	//         // background-color: $blue-bg;
-	//     }
-	// }
-
-	// &__info {
-	//     position: absolute;
-	//     top: 60px;
-	//     right: 24px;
-	//     width: 366px;
-
-	//     & .baloon_info {
-	//         flex-direction: column;
-	//         align-items: center;
-	//     }
+	// 	@media #{$breakpoint-xs-only} {
+	// 		justify-content: flex-end;
+	// 	}
 	// }
 
 	@keyframes gramophone-floating-1 {

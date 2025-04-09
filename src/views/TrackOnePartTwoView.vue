@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 // import { useLenis } from '@/composables/useLenis'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
@@ -35,39 +35,40 @@ const closeModal = () => isModalOpen.value = false
 const svgContent = ref('')
 
 const showAfter = () => {
-	showHiddenContent(0)
-	headphonesAnimation()
-	scrollToElement(0)
-	// refreshScrollTrigger()
-	
-	// nextTick(() =>
-	// 	// trackRecapAnimation()
-	// 	observeTrackRecap()
-	// )
+	refreshScrollTrigger()
+
+	nextTick(() => {
+		headphonesAnimation()
+		showHiddenContent(0)
+		refreshScrollTrigger()
+		scrollToElement(0)
+	})
 }
 
 const showAfterSkip = () => {
 	isSkipButtonVisible.value = false
+	refreshScrollTrigger()
 	showHiddenContent(0)
 	scrollToElement(1)
-	// refreshScrollTrigger()
 	trackRecapAnimation()
 }
 
 // useLenis()
 onMounted(async () => {
 	svgContent.value = await fetchSvg()
-	refreshScrollTrigger()
+	// refreshScrollTrigger()
 
 	textScrollAnimation()
 
-	refreshScrollTrigger()
+	// refreshScrollTrigger()
 
 	textGramophoneAnimation()
 
-	if (pageViewed.value === true) {
-		trackRecapAnimation()
-	}
+	setTimeout(() => {
+		if (pageViewed.value === true) {
+			trackRecapAnimation()
+		}
+	}, 300)
 });
 
 </script>
@@ -245,7 +246,8 @@ onMounted(async () => {
 					<div class="gramophone__head">
 					</div>
 					<div class="gramophone__container js-gramophone-container">
-						<div class="gramophone__background"><img alt=""
+						<div class="gramophone__background">
+							<img alt=""
 								 class="gramophone__wave hide-xs"
 								 src="../assets/img/track-1/gramophone/wave.png" /> <img alt=""
 								 class="gramophone__wave hide-lg"
@@ -259,7 +261,47 @@ onMounted(async () => {
 								 src="../assets/img/track-1/gramophone/gramophone.png" />
 						</div>
 
-						<div class="container gramophone__text-wrapper ">
+						<div class="gramophone__text-outer js-gramophone-text-outer">
+							<div class="gramophone__text-wrapper js-gramophone-text-wrapper">
+								<div class="gramophone__text js-gramophone-text w-50"></div>
+								<div class="gramophone__text js-gramophone-text">
+									<!-- <div class="gramophone__text-inner"> -->
+									<div class="inner">
+										<div class="w-50">
+											<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Что делаем?
+											</h1>
+											<p class="text text-l text-white">Определи цели и&nbsp;желаемые результаты
+												команды.
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="gramophone__text js-gramophone-text">
+									<div class="inner">
+										<div class="w-50">
+											<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Кто делает?
+											</h1>
+											<p class="text text-l text-white">Распредели роли и&nbsp;ответственность.
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="gramophone__text js-gramophone-text">
+									<div class="inner">
+										<div class="w-35">
+											<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">За&nbsp;счет чего?
+											</h1>
+											<p class="text text-l text-white">Создай процессы и&nbsp;обеспечь ресурсы
+												для&nbsp;достижения
+												целей.
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="gramophone__text js-gramophone-text w-50"></div>
+							</div>
+						</div>
+						<!-- <div class="container gramophone__text-wrapper ">
 							<div class="row gramophone__text js-gramophone-text">
 								<div class="col-lg-6 col-xs-10 mb-rem-4-50">
 									<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Что делаем?
@@ -286,7 +328,7 @@ onMounted(async () => {
 									</p>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>

@@ -113,7 +113,7 @@ div {
 	}
 
 	&_bg-band {
-		padding: 3rem 0;
+		padding: 3rem 40px;
 		background: url(../img/about/band.png) center no-repeat;
 	}
 
@@ -335,6 +335,10 @@ div {
 
 .w-50 {
 	width: 50% !important;
+}
+
+.w-35 {
+	width: 35% !important;
 }
 
 .w-25 {

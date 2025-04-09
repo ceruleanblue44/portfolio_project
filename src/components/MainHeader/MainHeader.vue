@@ -124,8 +124,8 @@ watch(() => route.path, () => {
 					</h3>
 				</div>
 				<div class="header-nav__album-description">
-					<p class="text text-xs">
-						{{ headerData.albumInfo.description }}
+					<p class="text text-xs" v-html="headerData.albumInfo.description">
+				
 					</p>
 				</div>
 			</div>
@@ -180,16 +180,6 @@ watch(() => route.path, () => {
 							   v-if="tabComponents[currentTab]"
 							   v-bind:[currentTab]="headerData[currentTab]"
 							   v-on="getComponentEvents()" />
-
-					<!-- <HeaderNavContents v-if="currentTab === 'navigation'"
-									   :navigation="headerData.navigation"
-									   @close-menu="closeMenu" />
-
-					<HeaderNavArticles v-if="currentTab === 'articles'"
-									   :articles="headerData.articles" />
-
-					<HeaderNavMaterials v-if="currentTab === 'materials'"
-										:materials="headerData.materials" /> -->
 				</div>
 			</div>
 		</div>

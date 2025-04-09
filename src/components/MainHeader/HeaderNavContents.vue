@@ -10,9 +10,9 @@ const props = defineProps({
 })
 
 const handleSameRoute = (clickedRoute) => {
-  if (route.path === clickedRoute) {
-	emit('close-menu') // Close menu if clicking the same page
-  }
+	if (route.path === clickedRoute) {
+		emit('close-menu') // Close menu if clicking the same page
+	}
 }
 
 </script>
@@ -29,7 +29,6 @@ const handleSameRoute = (clickedRoute) => {
 						<RouterLink class="navigation__link"
 									:to="navLink.link"
 									@click="handleSameRoute(navLink.link)">
-							<!-- <div > -->
 							<div class="navigation__link__img pos-r mr-rem-1-50 mr-xs-rem-1-50">
 								<img class="img_center"
 									 :src="navLink.img"
@@ -37,9 +36,6 @@ const handleSameRoute = (clickedRoute) => {
 								<img class="navigation__play-icon"
 									 src="../../assets/img/menu/tracks/play.svg"
 									 alt="navLink.title">
-
-
-
 							</div>
 							<div class="navigation__link__text ml-0">
 								<div class="d-flex ai-center mb-rem-0-25 mb-xs-rem-0-25">
@@ -48,7 +44,8 @@ const handleSameRoute = (clickedRoute) => {
 										<p class="text text-xs text-white">Ты здесь</p>
 									</div>
 								</div>
-								<p class="text text-xs text-gray-1">{{ navLink.description }}</p>
+								<p class="text text-xs text-gray-1"
+								   v-html="navLink.description"></p>
 							</div>
 
 							<!-- </div> -->
