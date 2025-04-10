@@ -1,26 +1,21 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-// import { useLenis } from '@/composables/useLenis'
 import { customCursor } from '@/scripts/ui/customCursor'
 import { discAnimation } from '@/scripts/ui/discAnimation'
 import { showHiddenContent } from '@/scripts/utils/showHiddenContent'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
-
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import IntroInstructions from '@/components/IntroInstructions/IntroInstructions.vue'
 import RadioQuestion from '@/components/RadioQuestion/RadioQuestion.vue'
-import { radioQuestionIntro } from '@/quizData/radioQuestionIntro'
-
-import { fetchSvg } from '@/scripts/utils/fetchSvg'
-import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
-import { swiperInit } from '@/scripts/ui/swiperSlider'
-import { tabsInit } from '@/scripts/ui/tabs'
-
 import ArrowSquareRight from '@/assets/svg/arrow-square-right.svg'
 import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import SkipButton from '@/components/SkipButton/SkipButton.vue'
-
+import { radioQuestionIntro } from '@/quizData/radioQuestionIntro'
+import { fetchSvg } from '@/scripts/utils/fetchSvg'
+import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
+import { swiperInit } from '@/scripts/ui/swiperSlider'
+import { tabsInit } from '@/scripts/ui/tabs'
 import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 
@@ -29,7 +24,6 @@ const { pageViewed } = usePagesViewedTracker()
 
 const svgContent = ref('')
 
-// useLenis()
 onMounted(async () => {
 	svgContent.value = await fetchSvg()
 	customCursor()
@@ -47,13 +41,13 @@ onMounted(async () => {
 			  ref="container">
 			<MainHeader />
 
-			<div class="container disc-rotating js-disc-rotating">
+			<div class="disc-rotating js-disc-rotating">
 				<div class="disc-rotating__wrapper">
 					<div class="disc-rotating__img-full js-disc-rotating-img-full">
 						<img src="../assets/img/discAnimation/disc-01-outer.jpg"
 							 alt=""
 							 class="disc-rotating__img-outer">
-						<img src="../assets/img/discAnimation/disc-01-inner.svg"
+						<img src="../assets/img/discAnimation/disc-01-inner.webp"
 							 alt=""
 							 class="disc-rotating__img-inner js-disc-rotating-img-inner">
 					</div>
@@ -425,7 +419,7 @@ onMounted(async () => {
 												</p>
 												<img alt=""
 													 class="hide-xs"
-													 src="../assets/img/playlist-slider/playlist-slider-track-3-1.svg" />
+													 src="../assets/img/playlist-slider/playlist-slider-track-3-1.webp" />
 												<img alt=""
 													 class="hide-lg"
 													 src="../assets/img/playlist-slider/playlist-slider-track-3-1-xs.svg" />

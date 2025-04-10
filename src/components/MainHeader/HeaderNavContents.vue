@@ -11,7 +11,7 @@ const props = defineProps({
 
 const handleSameRoute = (clickedRoute) => {
 	if (route.path === clickedRoute) {
-		emit('close-menu') // Close menu if clicking the same page
+		emit('close-menu') 
 	}
 }
 
@@ -47,8 +47,6 @@ const handleSameRoute = (clickedRoute) => {
 								<p class="text text-xs text-gray-1"
 								   v-html="navLink.description"></p>
 							</div>
-
-							<!-- </div> -->
 						</RouterLink>
 					</li>
 				</ul>

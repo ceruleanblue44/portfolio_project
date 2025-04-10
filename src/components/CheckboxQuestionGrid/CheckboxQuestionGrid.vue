@@ -1,6 +1,5 @@
 <script setup>
 import { onMounted, ref, watch, computed, getCurrentInstance } from 'vue'
-
 import './CheckboxQuestionGrid.scss'
 
 const selectedAnswer = ref([])
@@ -39,7 +38,6 @@ const getAdditionalAnswerClass = (answer) => {
 
 
 watch(() => selectedAnswer.value, (newVal) => {
-	// console.log(newVal);
 	emit('select-answer', newVal);
 })
 
@@ -81,31 +79,6 @@ onMounted(() => {
 				</label>
 			</div>
 		</div>
-		<!-- <div class="checkbox-answers__grid hide-lg"
-			 :style="gridStyleXs">
-			<div v-for="(answer, answerIndex) in answers"
-				 :key="answerIndex"
-				 :class="['checkbox-answers__answer', getAdditionalAnswerClass(answer)]"
-				 :style="answer.styleXs">
-				<input type="checkbox"
-					   :name="`checkboxanswer-xs-${_uid}`"
-					   :id="`checkboxanswer-xs-${_uid}-${answerIndex}`"
-					   :value="answer"
-					   :disabled="disabled"
-					   v-model="selectedAnswer[answerIndex]">
-				<label :for="`checkboxanswer-xs-${_uid}-${answerIndex}`">
-					<div>
-						<img v-if="answer.img"
-							 :src="answer.img"
-							 alt=""
-							 class="img_center mb-10 mb-xs-10">
-						<p class="text-center">
-							{{ answer.text }}
-						</p>
-					</div>
-				</label>
-			</div>
-		</div> -->
 	</div>
 
 </template>

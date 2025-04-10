@@ -51,7 +51,7 @@ export const textGramophoneAnimation = () => {
 				end: '35% center',
 				containerAnimation: tl,
 				scrub: 2,
-				markers: true,
+				markers: false,
 			}
 		})
 	})

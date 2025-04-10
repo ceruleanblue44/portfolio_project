@@ -1,6 +1,4 @@
 <script setup>
-
-// import { gsap } from "gsap"
 import { onMounted, ref, computed, nextTick } from 'vue'
 import CheckboxQuestionGrid from '../CheckboxQuestionGrid/CheckboxQuestionGrid.vue'
 import { useUserProgressStore } from '@/stores/useUserProgressStore'
@@ -9,11 +7,6 @@ const userProgressStore = useUserProgressStore()
 
 const props = defineProps({
 	checkboxQuestionData: { type: Object },
-	// checkRule: { type: Object },
-	// answersGrid: { type: Object },
-	// answerBtn: Boolean,
-	// isHorizontal: { type: Boolean, default: false },
-	// disableBtn: Boolean,
 })
 
 const { questionId, checkRule, answersGrid, answers } = props.checkboxQuestionData
@@ -27,10 +20,7 @@ const disabled = ref(false)
 const btnReset = ref(false)
 const btnAnswer = ref(true)
 
-// const feedback = useTemplateRef('feedback')
-
 const selectedAnswersCount = computed(() => {
-	// console.log(currentAnswer.value)
 	return currentAnswer.value.filter((answer) => answer === true).length
 })
 

@@ -13,7 +13,6 @@
 	&__wrapper {
 		position: relative;
 		width: 100%;
-		// max-height: 720px;
 		height: 100dvh;
 		display: flex;
 		justify-content: center;
@@ -26,13 +25,13 @@
 		display: flex;
 		justify-content: center;
 	}
-	
+
 	&__img-outer {
 		height: 100%;
 		object-fit: contain;
 		will-change: transform;
 	}
-	
+
 	&__img-inner {
 		position: absolute;
 		top: 0;
@@ -44,27 +43,23 @@
 	&__hint.hint {
 		position: absolute;
 		top: 85%;
-		left: 50%;
-		transform: translateX(-50%, 0);
+		width: max-content;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
 		pointer-events: none;
-
-		@media #{$breakpoint-xs-only} {
-			width: max-content;
-			left: 0;
-			right: 0;
-			margin: auto;
-		}
 	}
 
 	&__button.btn {
 		position: absolute;
 		top: 53%;
-		left: 50%;
-		transform: translateX(-50%);
+		width: max-content;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
 
 		@media #{$breakpoint-xs-only} {
 			top: 67%;
-			width: max-content;
 		}
 	}
 }

@@ -68,7 +68,7 @@ onMounted(async () => {
 		if (pageViewed.value === true) {
 			trackRecapAnimation()
 		}
-	}, 300)
+	}, 100)
 });
 
 </script>
@@ -91,7 +91,7 @@ onMounted(async () => {
 								   :tweens="toggleImg.tweens">
 							<div class="pos-r"><img alt=""
 									 id="toggle-img-1-1"
-									 src="../assets/img/toggleImg/band.png" /> <img alt=""
+									 src="../assets/img/toggleImg/band.webp" /> <img alt=""
 									 class="pos-a"
 									 id="toggle-img-1-2"
 									 src="../assets/img/toggleImg/baton.png"
@@ -249,25 +249,24 @@ onMounted(async () => {
 						<div class="gramophone__background">
 							<img alt=""
 								 class="gramophone__wave hide-xs"
-								 src="../assets/img/track-1/gramophone/wave.png" /> <img alt=""
+								 src="../assets/img/track-1/gramophone/wave.webp" /> <img alt="sound wave"
 								 class="gramophone__wave hide-lg"
-								 src="../assets/img/track-1/gramophone/wave-xs.png" /> <img alt=""
+								 src="../assets/img/track-1/gramophone/wave-xs.png" /> <img alt="note"
 								 class="gramophone__note-1"
-								 src="../assets/img/track-1/gramophone/note-1.svg" /> <img alt=""
+								 src="../assets/img/track-1/gramophone/note-1.svg" /> <img alt="note"
 								 class="gramophone__note-2"
 								 src="../assets/img/track-1/gramophone/note-2.svg" />
-							<img alt=""
+							<img alt="gramophone"
 								 class="gramophone__gramophone"
-								 src="../assets/img/track-1/gramophone/gramophone.png" />
+								 src="../assets/img/track-1/gramophone/gramophone.webp" />
 						</div>
 
 						<div class="gramophone__text-outer js-gramophone-text-outer">
 							<div class="gramophone__text-wrapper js-gramophone-text-wrapper">
-								<div class="gramophone__text js-gramophone-text w-50"></div>
+								<div class="gramophone__text js-gramophone-text w-50">&nbsp;</div>
 								<div class="gramophone__text js-gramophone-text">
-									<!-- <div class="gramophone__text-inner"> -->
 									<div class="inner">
-										<div class="w-50">
+										<div class="w-50-lg">
 											<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Что делаем?
 											</h1>
 											<p class="text text-l text-white">Определи цели и&nbsp;желаемые результаты
@@ -278,7 +277,7 @@ onMounted(async () => {
 								</div>
 								<div class="gramophone__text js-gramophone-text">
 									<div class="inner">
-										<div class="w-50">
+										<div class="w-50-lg">
 											<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Кто делает?
 											</h1>
 											<p class="text text-l text-white">Распредели роли и&nbsp;ответственность.
@@ -288,7 +287,7 @@ onMounted(async () => {
 								</div>
 								<div class="gramophone__text js-gramophone-text">
 									<div class="inner">
-										<div class="w-35">
+										<div class="w-35-lg">
 											<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">За&nbsp;счет чего?
 											</h1>
 											<p class="text text-l text-white">Создай процессы и&nbsp;обеспечь ресурсы
@@ -298,7 +297,7 @@ onMounted(async () => {
 										</div>
 									</div>
 								</div>
-								<div class="gramophone__text js-gramophone-text w-50"></div>
+								<div class="gramophone__text js-gramophone-text w-50">&nbsp;</div>
 							</div>
 						</div>
 						<!-- <div class="container gramophone__text-wrapper ">
@@ -497,10 +496,6 @@ onMounted(async () => {
 										<img class="ml-rem-1-0"
 											 src="../assets/svg/download.svg"
 											 alt="">
-										<!-- <svg class="icon icon-svg icon_xl"> 
-                  <use xlink:href="user/svg/sprite.svg#download-file"> 
-                  </use> 
-                </svg>  -->
 									</a>
 								</div>
 							</div>

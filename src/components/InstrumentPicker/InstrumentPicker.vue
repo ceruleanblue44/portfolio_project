@@ -16,14 +16,14 @@ const props = defineProps({
 const getInstrumentPosition = (instrument) => {
 	return visitedInstruments.value.has(instrument.id)
 		? instrument.positionVisited
-		: instrument.position;
+		: instrument.position
 }
 
 const changeInstrumentPosition = (id) => {
 	if (!visitedInstruments.value.has(id)) {
-		visitedInstruments.value.add(id);
+		visitedInstruments.value.add(id)
 	}
-};
+}
 
 const openModal = (id, event) => {
 	event.target.classList.add('visited')
@@ -34,7 +34,7 @@ const openModal = (id, event) => {
 const closeModal = () => {
 	isModalOpen.value = false
 	activeModal.value = null
-};
+}
 
 </script>
 

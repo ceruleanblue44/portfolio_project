@@ -76,8 +76,6 @@ $surface: #f2f3f7;
 $primary: #029d9c;
 $primary-lighten: #5ed8d9;
 $primary-darken: #008483;
-// $primary-lighten: linear-gradient(0deg, rgba($white, 0.10) 0%, rgba($white, 0.10) 100%), $primary;
-// $primary-darken: linear-gradient(0deg, rgba($neutral, 0.10) 0%, rgba($neutral, 0.10) 100%), $primary;
 
 $secondary: #a244ed;
 $secondary-lighten: #a8aff9;
@@ -96,8 +94,6 @@ $warning-additional: #ff6394;
 $bg-colors: (
 	"black": $black,
 	"white": $white,
-	"white-10": $white-10,
-	"red": rgba(233, 38, 45, 1),
 	"surface": $surface,
 	"neutral": $neutral,
 	"neutral-4": $neutral-4,
@@ -107,6 +103,6 @@ $bg-colors: (
 	"warning": $warning
 );
 
-// Высота шапки плеера
+// Header height
 $main-header-height: 73px;
 $main-header-height-xs: 52px;

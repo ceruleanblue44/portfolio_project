@@ -19,13 +19,13 @@ import { showHiddenContent } from '@/scripts/utils/showHiddenContent'
 import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
 
-import { useScrollTracker } from '@/composables/useScrollTracker';
+import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 
 
 const { pageViewed } = usePagesViewedTracker()
 
-const { container } = useScrollTracker();
+const { container } = useScrollTracker()
 
 const svgContent = ref('')
 
@@ -40,15 +40,15 @@ const showAfter = () => {
 // useLenis()
 onMounted(async () => {
 	// Wait for the DOM to be fully updated
-	await nextTick();
+	await nextTick()
 	// Select the Lottie container and set its data-src attribute
-	const lottieElement = document.querySelector('.js-lottie-scroll');
+	const lottieElement = document.querySelector('.js-lottie-scroll')
 
 	if (lottieElement) {
-		lottieElement.dataset.src = wordsJson;
+		lottieElement.dataset.src = wordsJson
 	}
 	// Initialize the Lottie animation
-	initLottieScroll();
+	initLottieScroll()
 
 	svgContent.value = await fetchSvg()
 
@@ -59,13 +59,14 @@ onMounted(async () => {
 	textAnimation()
 
 
-});
+})
 </script>
 
 <template>
 	<Transition name="fade-page"
-	appear>
-	<main class="scroll-container" ref="container">
+				appear>
+		<main class="scroll-container"
+			  ref="container">
 			<MainHeader />
 			<div class="container mt-rem-6-50 mt-xs-rem-5-0 mb-rem-7-0 mb-xs-rem-6-0">
 				<div class="row">
@@ -278,7 +279,7 @@ onMounted(async () => {
 			<div class="container container_full container_full-xs pos-r mb-rem-4-0 mb-xs-rem-2-0">
 				<img alt=""
 					 class="hide-xs"
-					 src="../assets/img/track-1/zipper.png" /> <img alt=""
+					 src="../assets/img/track-1/zipper.webp" /> <img alt=""
 					 class="hide-lg"
 					 src="../assets/img/track-1/zipper-xs.png" />
 				<div class="pos-a hide-xs"
@@ -339,8 +340,8 @@ onMounted(async () => {
 
 
 			<div class="container mb-rem-4-0 mb-xs-rem-3-0">
-				<CheckboxQuestion 	:checkboxQuestionData="checkboxQuestionTrack1"
-								   @complete="showAfter()">
+				<CheckboxQuestion :checkboxQuestionData="checkboxQuestionTrack1"
+								  @complete="showAfter()">
 					<template v-slot:question-text="">
 						<div class="row">
 							<div class="col-lg-6 col-xs-12">
@@ -379,7 +380,8 @@ onMounted(async () => {
 					<template v-slot:feedback-1="">
 					</template>
 				</CheckboxQuestion>
-				<SkipButton v-if="!pageViewed" @click="showHiddenContent(0)"/>
+				<SkipButton v-if="!pageViewed"
+							@click="showHiddenContent(0)" />
 			</div>
 			<section class="hidden js-hidden"
 					 data-hidden-id="0">
@@ -451,12 +453,13 @@ onMounted(async () => {
 					</div>
 				</div>
 
-				<div class="container mb-rem-5-0 mb-xs-rem-4-0"><img alt=""
+				<div class="container mb-rem-5-0 mb-xs-rem-4-0"><img alt="dj"
 						 class="hide-xs"
-						 src="../assets/img/track-1/dj.png" />
-					<img alt=""
+						 src="../assets/img/track-1/dj.webp"
+						 width="1200" />
+					<img alt="dj"
 						 class="hide-lg"
-						 src="../assets/img/track-1/dj-xs.png"
+						 src="../assets/img/track-1/dj-xs.webp"
 						 width="343" />
 				</div>
 				<div class="container mb-rem-9-75 mb-xs-rem-6-0">

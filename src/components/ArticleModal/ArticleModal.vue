@@ -2,12 +2,6 @@
 import './ArticleModal.scss'
 import { articleModal } from '@/contentModalsData/articleModal'
 
-// const props = defineProps({
-// 	isModalOpen: Boolean, // Controls modal visibility
-// 	title: String,
-// 	content: String,
-// })
-
 const emit = defineEmits(['closeModal'])
 
 const closeModal = () => {

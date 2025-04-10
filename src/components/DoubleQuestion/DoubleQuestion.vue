@@ -25,12 +25,8 @@ const { questionId, questions } = props.questionsData
 
 const emit = defineEmits(['complete'])
 
-// const answersPicked = computed(() => {
-// 	return currentAnswers.value.filter((elem) => elem !== null).length > 0;
-// })
-
 const allAnswersPicked = computed(() => {
-	return currentAnswers.value.filter((elem) => elem !== null).length === currentAnswers.value.length;
+	return currentAnswers.value.filter((elem) => elem !== null).length === currentAnswers.value.length
 })
 
 const getMarkerClassName = (markerIndex) => {
@@ -47,18 +43,15 @@ const getSavedAnswerHistory = () => {
 }
 
 const initQuestion = () => {
-	currentAnswers.value = [];
+	currentAnswers.value = []
 	btnReset.value = false
 	questions[currentQuestion.value].subQuestions.forEach(() => {
-		currentAnswers.value.push(null);
-	});
+		currentAnswers.value.push(null)
+	})
 }
 
-
 const setCurrentAnswers = (subQuestion, newAnswer) => {
-	// console.log(newAnswer);
-	currentAnswers.value.splice(subQuestion, 1, newAnswer);
-	// console.log(currentAnswers.value);
+	currentAnswers.value.splice(subQuestion, 1, newAnswer)
 }
 
 const getSavedAnswer = (index) => {
@@ -66,74 +59,63 @@ const getSavedAnswer = (index) => {
 }
 
 const acceptAnswer = () => {
+	questionFeedbackShow.value = true
 
-	questionFeedbackShow.value = true;
-
-	const isCorrect = currentAnswers.value.reduce((prev, cur) => prev && cur.correct, true);
-	// console.log(currentQuestion.value, isCorrect);
-	answersHistory.value.splice(currentQuestion.value, 1, isCorrect);
-	// console.log(answersHistory.value);
-
+	const isCorrect = currentAnswers.value.reduce((prev, cur) => prev && cur.correct, true)
+	answersHistory.value.splice(currentQuestion.value, 1, isCorrect)
 }
 
 const nextQuestion = () => {
 	if (currentQuestion.value < questions.length - 1) {
-		currentQuestion.value++;
-		questionFeedbackShow.value = false;
-		initQuestion();
+		currentQuestion.value++
+		questionFeedbackShow.value = false
+		initQuestion()
 	} else {
-		feedbackShow.value = true;
+		feedbackShow.value = true
 		btnReset.value = true
 		userProgressStore.saveQuizAnswer(questionId, { answersHistory, currentAnswers })
 		nextTick(() => {
-			emit('complete');
+			emit('complete')
 
-		});
+		})
 	}
 }
 
 
 const resetAnswers = () => {
-	answersHistory.value.fill(null);
-
-	currentQuestion.value = 0;
-	currentAnswers.value = [];
-
-	questionFeedbackShow.value = false;
-	feedbackShow.value = false;
+	answersHistory.value.fill(null)
+	currentQuestion.value = 0
+	currentAnswers.value = []
+	questionFeedbackShow.value = false
+	feedbackShow.value = false
 	userProgressStore.quizAnswers[questionId].currentAnswers = []
-	initQuestion();
+	initQuestion()
 }
 
 
 onMounted(() => {
 	questions.forEach((question, index) => {
-		answersHistory.value.push(getSavedAnswerHistory[index] ?? null);
-	});
+		answersHistory.value.push(getSavedAnswerHistory[index] ?? null)
+	})
 
-	currentQuestion.value = answersHistory.value.indexOf(null);
+	currentQuestion.value = answersHistory.value.indexOf(null)
 
 	if (currentQuestion.value === -1) {
-		currentQuestion.value = answersHistory.value.length - 1;
-		feedbackShow.value = true;
-		questionFeedbackShow.value = true;
+		currentQuestion.value = answersHistory.value.length - 1
+		feedbackShow.value = true
+		questionFeedbackShow.value = true
 		nextTick(() => {
-			emit('complete');
-		});
+			emit('complete')
+		})
 	}
 
-	initQuestion();
+	initQuestion()
 
 	if (userProgressStore.quizAnswers[questionId]) {
-		// console.log(userProgressStore.quizAnswers[questionId].answersHistory);
 		answersHistory.value = userProgressStore.quizAnswers[questionId].answersHistory
 		currentQuestion.value = questions.length - 1
 		questionFeedbackShow.value = true
 		btnReset.value = true
-		// currentAnswers.value = userProgressStore.quizAnswers[questionId].currentAnswers
-		// disabled.value = true
-		// btnAnswer.value = false
-		// btnReset.value = true
 	}
 
 })
@@ -185,13 +167,6 @@ onMounted(() => {
 			</div>
 
 			<div class="btn-container btn-container_center mb-rem-4-0 mb-xs-rem-1-50">
-				<!-- <button v-if="!feedbackShow && !questionFeedbackShow"
-						class="btn btn_back"
-						type="button"
-						:disabled="!answersPicked || questionFeedbackShow"
-						@click="resetQuestion">
-					<span class="btn__text">Сбросить</span>
-				</button> -->
 				<button v-if="btnReset"
 						class="btn btn_back w-xs-100 mb-xs-rem-1-50"
 						type="button"

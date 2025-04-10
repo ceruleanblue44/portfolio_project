@@ -14,7 +14,6 @@ const btnAnswer = ref(true)
 const props = defineProps({
 	radioQuestionIntro: { type: Object },
 	layoutColumns: { type: Array, default: () => [6, 6] },
-	// disabled: { type: Boolean, default: false },
 })
 
 const { questionId, answersGrid, answers } = props.radioQuestionIntro

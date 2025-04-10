@@ -18,15 +18,12 @@
 		height: calc(100dvh - $main-header-height) !important;
 		max-width: 1280px;
 		margin: auto;
+		display: flex;
 
 		@media #{$breakpoint-xs-only} {
 			flex-direction: column;
 			height: calc(100dvh - $main-header-height-xs) !important;
 		}
-	}
-
-	&-nav {
-		display: flex;
 
 		&__tabs {
 			display: flex;
@@ -35,9 +32,6 @@
 				width: 240px;
 				height: 100%;
 				flex-direction: column;
-				// margin-left: -24px;
-				// padding-top: 32px;
-				// padding-right: 15px;
 				padding: 2rem 1rem;
 				border-right: solid 1px $neutral-16;
 			}
@@ -61,8 +55,10 @@
 			transition: 0.3s;
 			cursor: pointer;
 
-			&:hover {
-				color: $neutral;
+			@media (hover: hover) {
+				&:hover {
+					color: $neutral;
+				}
 			}
 
 			&_active {
@@ -105,7 +101,6 @@
 			}
 
 			@media #{$breakpoint-xs-only} {
-				// width: 100%;
 				width: fit-content;
 				padding: 0;
 				padding-bottom: 8px;
@@ -128,9 +123,7 @@
 
 		&__content {
 			width: 100%;
-			// width: calc(100% - 156px);
 			height: 100%;
-			// max-width: calc(100dvw - 220px);
 			padding: 2rem;
 
 			@media #{$breakpoint-xs-only} {
@@ -139,16 +132,11 @@
 				padding: 1rem;
 			}
 
-			// &_home {
-			// 	max-width: none;
-			// }
 
 			&_articles {
-				// max-width: none;
 				height: 100% !important;
 				display: flex;
 				justify-content: center;
-				// align-items: center;
 			}
 
 			@media #{$breakpoint-xs-only} {
@@ -174,7 +162,6 @@
 		&__album-name {
 			flex-shrink: 0;
 			width: 384px;
-			// padding: 15px 23px 20px 24px;
 			padding: 1.5rem;
 			border-right: solid 1px $neutral-16;
 
@@ -186,16 +173,11 @@
 		}
 
 		&__album-description {
-			// padding: 20px 0 20px 23px;
 			padding: 1.5rem;
 
 			@media #{$breakpoint-xs-only} {
 				padding: 0;
 			}
-		}
-
-		&__glossary {
-			position: relative;
 		}
 
 		&__articles {
@@ -231,11 +213,6 @@
 			display: flex;
 			align-items: center;
 			margin-right: 0.5rem;
-			// width: 135px;
-		}
-
-		&__alt {
-			display: none;
 		}
 	}
 
@@ -365,170 +342,6 @@
 			}
 		}
 	}
-	.navigation__current-marker-mod-3 {
-		display: block;
-	}
-
-	&.album-restyle {
-		&_3 {
-			.navigation__current-marker-mod-3-hide {
-				display: none !important;
-			}
-			.navigation__current-marker-mod-3 {
-				display: block;
-				position: relative;
-				&.navigation__current-marker {
-					bottom: 0;
-				}
-			}
-			.header {
-				&-nav__content_article .balloon {
-					&::after {
-						display: none;
-					}
-				}
-				&__content {
-					background: $primary;
-					color: $white;
-					border-bottom-color: rgba($white, 0.16);
-				}
-
-				&__logo {
-					&__main {
-						display: none;
-					}
-
-					&__alt {
-						display: block;
-					}
-				}
-
-				&__btn {
-					border-radius: 20px;
-					border: none;
-					box-shadow: 0px 6px $neutral;
-					background: $white;
-				}
-			}
-
-			.icon.text-primary {
-				color: inherit !important;
-			}
-		}
-
-		&_4 {
-			&:not(.header_expanded) {
-				.header {
-					&__content {
-						background: #383838;
-						color: $white;
-						border-bottom-color: $neutral-16;
-					}
-
-					&__logo {
-						&__main {
-							display: none;
-						}
-
-						&__alt {
-							display: block;
-						}
-					}
-
-					&__btn {
-						&_secondary {
-							background-color: $white;
-						}
-					}
-				}
-
-				.icon.text-primary {
-					color: inherit !important;
-				}
-			}
-		}
-	}
-}
-
-.home {
-	height: 100%;
-
-	&__grid {
-		display: grid;
-		width: 100%;
-		height: 100%;
-
-		&__cell {
-			border: solid 1px $neutral-16;
-		}
-
-		&__btn {
-			width: 100%;
-			height: 100%;
-			border: solid 1px transparent;
-			padding: 12px;
-			display: flex;
-			align-items: flex-start;
-			justify-content: flex-start;
-			border-radius: 8px;
-			transition: 0.3s;
-			cursor: pointer;
-
-			&:hover {
-				background-color: $white;
-				border-color: $neutral-12;
-			}
-		}
-
-		@media #{$breakpoint-lg-only} {
-			grid-template-columns: 1fr 1fr;
-			grid-template-rows: 1fr 1fr 2fr;
-
-			&__cell {
-				padding: 12px 12px;
-				border-top: none;
-
-				&:first-child {
-					grid-row: 1 / 3;
-					border-left: none;
-
-					.home__grid__btn {
-						align-items: flex-end;
-					}
-				}
-
-				&:last-child {
-					align-content: end;
-					border-left: none;
-					border-bottom: none;
-				}
-
-				&:not(:first-child, :last-child) {
-					border-left: none;
-					border-right: none;
-				}
-			}
-		}
-
-		@media #{$breakpoint-xs-only} {
-			gap: 12px 0;
-
-			&__cell {
-				border: solid 1px $neutral-16;
-				padding: 12px;
-
-				&:last-child {
-					border: none;
-					align-content: end;
-					text-align: center;
-				}
-			}
-		}
-
-		&__number {
-			vertical-align: top;
-		}
-	}
 }
 
 .navigation {
@@ -545,9 +358,6 @@
 
 	.router-link-exact-active {
 		.navigation__current-marker {
-			// position: absolute;
-			// left: 8px;
-			// bottom: 8px;
 			width: max-content;
 			padding: 4px 12px;
 			background-color: $secondary;
@@ -592,7 +402,6 @@
 	&__links {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		// grid-auto-flow: column;
 		gap: 16px;
 
 		@media #{$breakpoint-xs-only} {
@@ -605,7 +414,6 @@
 
 	&__link {
 		display: flex;
-		// flex-direction: column;
 		align-items: center;
 		cursor: pointer;
 
@@ -616,7 +424,6 @@
 				width: 64px;
 				height: 64px;
 				object-fit: cover;
-				// border-radius: 0.4rem;
 			}
 		}
 		@media (hover: hover) {
@@ -625,10 +432,6 @@
 					opacity: 0.8;
 				}
 			}
-		}
-
-		& .navigation__current-marker {
-			// bottom: -8px;
 		}
 	}
 }
@@ -695,30 +498,6 @@
 			margin-right: -10px;
 			padding-right: 10px;
 		}
-
-		// &.ps {
-		// 	.ps {
-		// 		&__rail-y {
-		// 			opacity: 1;
-		// 			background: transparent;
-
-		// 			&:hover {
-		// 				opacity: 1;
-
-		// 				.ps__thumb-y {
-		// 					right: 0;
-		// 					width: 2px;
-		// 				}
-		// 			}
-		// 		}
-
-		// 		&__thumb-y {
-		// 			background-color: $secondary;
-		// 			right: 0;
-		// 			width: 2px;
-		// 		}
-		// 	}
-		// }
 	}
 
 	&__title {
@@ -739,7 +518,6 @@
 .fade-leave-to {
 	opacity: 0;
 	transform: translateY(20px) scale(0.9);
-	//   transform: ;
 }
 
 .fade-enter-active,

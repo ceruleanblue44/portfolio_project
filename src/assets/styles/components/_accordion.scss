@@ -2,8 +2,6 @@
 @use "../abstracts/variables" as *;
 
 .accordion {
-	// &__item {}
-
 	&__title {
 		display: flex;
 		align-items: center;
@@ -12,10 +10,6 @@
 		color: $neutral;
 		cursor: pointer;
 		transition: all 0.3s ease;
-
-		@media (hover: hover) {
-			&:hover {}
-		}
 
 		svg {
 			flex-shrink: 0;
@@ -27,9 +21,6 @@
 				fill: #1e1f1f;
 				transition: fill 0.3s ease;
 			}
-
-			// @media #{$breakpoint-xs-only} {
-			// }
 		}
 
 		&:has(+ .show) {
@@ -66,129 +57,3 @@
 	}
 }
 
-.accordion-tabs {
-	display: grid;
-	gap: 24px;
-
-	@media #{$breakpoint-xs-only} {
-		gap: 16px;
-	}
-
-	& .accordion {
-		&__item {
-		}
-
-		&__title {
-			position: relative;
-			padding: 40px 24px;
-			display: block;
-			background-color: $neutral-4;
-			border-radius: 40px;
-			cursor: pointer;
-			transition: all 0.3s ease;
-			border-bottom: none;
-
-			@media #{$breakpoint-xs-only} {
-				padding: 32px 16px;
-			}
-
-			&::after {
-				content: '';
-				position: absolute;
-				top: 24px;
-				right: 24px;
-				width: 34px;
-				height: 34px;
-				background-image: url('../svg/sprite.svg#4star-purple');
-				background-repeat: no-repeat;
-				background-size: contain;
-				background-position: center;
-				transform: scale(0) rotate(180deg);
-				transition: 0.3s;
-			}
-
-			@media (hover: hover) {
-				&:hover {}
-			}
-
-			&:has(+ .show) {
-				background-color: $white;
-				color: inherit;
-
-				&::after {
-					transform: scale(1) rotate(0deg);
-				}
-			}
-		}
-
-		&__container {
-			display: none;
-			overflow: hidden;
-
-			&.show {
-				display: block;
-			}
-		}
-
-		&__content {
-			padding: 24px 0 0 0;
-			border-bottom: none;
-
-			@media #{$breakpoint-xs-only} {
-				padding: 16px 0 0 0;
-			}
-		}
-	}
-}
-
-.album-restyle {
-    &_2 {
-		&_1 {
-			.accordion {
-				&__title{
-					border: none;
-					color: $white;
-					padding: 0;
-					cursor: pointer;
-
-					svg {
-						flex-shrink: 0;
-						margin-left: auto;
-						width: 64px;
-						height: 64px;
-					}
-
-					&:has(+ .show) {
-						border-bottom: none;
-					}
-				}
-			}
-		}
-		.accordion {
-			&__title {
-				&:has(+ .show) {
-					color: $primary;
-
-					& path {
-						fill: $primary;
-					}
-				}
-			}
-		}
-	}
-	&_3 {
-		.accordion__title:has(+.show) {
-			color: $primary;
-			& path {
-				fill: $primary;
-			}
-		}
-	}
-	&_4 {
-		.accordion-tabs .accordion__title{
-			&::after {
-				background-image: url("../svg/sprite.svg#4star-lime");
-			}
-		}
-	}
-}

@@ -69,23 +69,6 @@ onMounted(() => {
 				</label>
 			</div>
 		</div>
-		<!-- <div class="radio-answers__grid hide-lg"
-			 :style="props.gridStyleXs">
-			<div v-for="(answer, answerIndex) in props.answers"
-				 :key="answerIndex"
-				 :class="['radio-answers__answer', getAdditionalAnswerClass(answer)]"
-				 :style="answer.style">
-				<input type="radio"
-					   :name="`radio-answer-xs-${_uid}`"
-					   :id="`radio-answer-xs-${_uid}-${answerIndex}`"
-					   :value="answer"
-					   :disabled="props.disabled"
-					   v-model="selectedAnswer">
-				<label :for="`radio-answer-xs-${_uid}-${answerIndex}`">
-					{{ answer.text }}
-				</label>
-			</div>
-		</div> -->
 	</div>
 
 </template>

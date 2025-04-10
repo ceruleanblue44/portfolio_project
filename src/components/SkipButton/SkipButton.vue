@@ -1,5 +1,4 @@
 <script setup>
-// import '../../assets/styles/components/_buttons.scss'
 import ArrowDown from '@/assets/svg/arrow-down-1.svg'
 
 </script>

@@ -8,7 +8,7 @@ const router = createRouter({
 		{
 			path: '/',
 			name: 'about',
-			component: AboutView, // ✅ Keep this as a normal route (no redirect here)
+			component: AboutView,
 		},
 		{
 			path: '/intro',
@@ -36,51 +36,39 @@ const router = createRouter({
 			component: () => import('../views/TrackTwoView.vue')
 		}
 	],
-});
+})
 
-// ✅ Handle redirection in `beforeEach`
 router.beforeEach((to, from, next) => {
-	const navigationStore = useNavigationStore();
-
-	// Redirect only when navigating to home
-	// if (to.path === '/' && navigationStore.lastVisitedPage) {
-	// 	return next(navigationStore.lastVisitedPage); // ✅ Correct redirect
-	// }
-
-	navigationStore.saveLastVisitedPage(to.path);
-	next();
-});
+	const navigationStore = useNavigationStore()
+	navigationStore.saveLastVisitedPage(to.path)
+	next()
+})
 
 router.afterEach((to) => {
 	const navigationStore = useNavigationStore()
 
 	// Check if this is a fresh page load (restoring from localStorage)
-	const isRestoringSession = !sessionStorage.getItem('isNavigating');
-
-	// console.log(isRestoringSession);
-
+	const isRestoringSession = !sessionStorage.getItem('isNavigating')
 
 	if (isRestoringSession) {
 		// Restore scroll position from Pinia/localStorage
-		const savedPosition = navigationStore.scrollPositions[to.path] || 0;
+		const savedPosition = navigationStore.scrollPositions[to.path] || 0
 		setTimeout(() => {
-			const container = document.querySelector('.scroll-container');
-			container?.scrollTo(0, savedPosition);
-			// console.log(to.path, savedPosition, container);
-		}, 100); // Small delay for smooth transition
+			const container = document.querySelector('.scroll-container')
+			container?.scrollTo(0, savedPosition)
+		}, 100)
 	} else {
 		// Reset scroll to top when navigating between pages
-		const container = document.querySelector('.scroll-container');
-		container?.scrollTo(0, 0);
+		const container = document.querySelector('.scroll-container')
+		container?.scrollTo(0, 0)
 	}
 
 	// Mark navigation as normal (not a fresh reload)
-	sessionStorage.setItem('isNavigating', 'true');
-	// console.log(sessionStorage);
-});
+	sessionStorage.setItem('isNavigating', 'true')
+})
 
 window.addEventListener('beforeunload', () => {
-	sessionStorage.removeItem('isNavigating');
-});
+	sessionStorage.removeItem('isNavigating')
+})
 
-export default router;
+export default router

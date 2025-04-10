@@ -15,11 +15,6 @@ export function useScrollTracker() {
 
 	onMounted(() => {
 		if (container.value) {
-			// Restore previous scroll position
-			// const savedPosition = navigationStore.scrollPositions[route.path] || 0
-			// console.log(navigationStore.scrollPositions[route.path])
-			// container.value.scrollTop = savedPosition
-			// console.log(savedPosition, route.path);
 			// Listen to scroll events
 			container.value.addEventListener('scroll', updateScrollPosition)
 		}

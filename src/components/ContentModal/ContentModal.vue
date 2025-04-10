@@ -2,7 +2,7 @@
 import './ContentModal.scss'
 
 const props = defineProps({
-	modelValue: Boolean, // Controls modal visibility
+	modelValue: Boolean,
 	title: String,
 	content: String,
 })

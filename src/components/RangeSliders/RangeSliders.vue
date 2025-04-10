@@ -1,12 +1,6 @@
 <script setup>
 import { ref, computed, reactive, nextTick, onMounted } from 'vue'
 import './RangeSliders.scss'
-// // import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
-// import { ScrollTrigger } from "gsap/ScrollTrigger"
-// import { useLenis } from '@/composables/useLenis'; 
-
-// const { lenis } = useLenis();
-
 import { useUserProgressStore } from '@/stores/useUserProgressStore'
 
 const userProgressStore = useUserProgressStore()
@@ -31,7 +25,7 @@ const getSavedAnswer = () => {
 	if (savedAnswers) {
 		settings.forEach((slider, index) => {
 			if (savedAnswers[index] !== undefined) {
-				slider.value = savedAnswers[index].value // Ensure correct assignment
+				slider.value = savedAnswers[index].value
 			}
 		})
 	}
@@ -45,27 +39,10 @@ const thumbPosition = (setting) => {
 
 const acceptAnswer = () => {
 	feedbackShow.value = true
-	
-	// console.log('Before refresh:', document.querySelector('.scroll-container')?.scrollHeight);
+
 	nextTick(() => {
 		emit('complete')
-		// refreshScrollTrigger()
-		// nextTick(() => {
-
-    // setTimeout(() => {
-		
-	// 	ScrollTrigger.refresh();
-		// console.log('After refresh:', document.querySelector('.scroll-container')?.scrollHeight);
-		// lenis?.resize(); 
-		// console.log('After refresh:', document.querySelector('.scroll-container')?.scrollHeight);
-
-		// lenis?.scrollTo(lenis?.scroll + 1, { immediate: true });
-		
-    // }, 50);
-//   });
 	})
-
-	// Save only the necessary data
 	const savedValues = settings.map(slider => ({ value: slider.value }))
 	userProgressStore.saveQuizAnswer(questionId, savedValues)
 }
@@ -74,16 +51,13 @@ const reset = () => {
 	settings.forEach(element => {
 		element.value = 2
 	})
-
 	btnAnswer.value = false
 }
 
 const showBtn = () => btnAnswer.value = true
 
-
 const onTouchStart = () => {
 	emit('disable-scrollbar')
-
 }
 
 const onTouchEnd = () => {
@@ -91,11 +65,6 @@ const onTouchEnd = () => {
 	setTimeout(() => {
 		emit('enable-scrollbar')
 	}, 200)
-
-}
-
-const onTouchMove = () => {
-
 }
 
 const resetAnswer = () => {
@@ -107,11 +76,6 @@ const resetAnswer = () => {
 
 }
 
-const saveNewValues = () => {
-	// console.log(event.target.value)
-}
-
-
 onMounted(() => {
 	if (userProgressStore.quizAnswers[questionId]) {
 		disabled.value = true
@@ -119,7 +83,7 @@ onMounted(() => {
 		btnResetAnswer.value = true
 		getSavedAnswer()
 	}
-});
+})
 
 </script>
 
@@ -142,10 +106,8 @@ onMounted(() => {
 						   step="1"
 						   v-model="setting.value"
 						   :disabled="feedbackShow || disabled"
-						   @change="saveNewValues"
 						   @touchstart="onTouchStart"
 						   @touchend="onTouchEnd"
-						   @touchmove="onTouchMove"
 						   @mouseup="showBtn">
 
 				</div>
