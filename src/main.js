@@ -8,19 +8,19 @@ import App from './App.vue'
 import 'animate.css/animate.min.css'
 import '@/assets/styles/main.scss'
 
-const app = createApp(App);
-const pinia = createPinia(); // ✅ Create Pinia instance first
+const app = createApp(App)
+const pinia = createPinia()
 
-app.use(pinia); // ✅ Register Pinia before using stores
-app.use(router);
+app.use(pinia)
+app.use(router)
 
-const navigationStore = useNavigationStore(); // ✅ Now it's safe to use
-navigationStore.loadNavigationState();
+const navigationStore = useNavigationStore()
+navigationStore.loadNavigationState()
 
 router.isReady().then(() => {
 	if (navigationStore.lastVisitedPage) {
-		router.push(navigationStore.lastVisitedPage);
+		router.push(navigationStore.lastVisitedPage)
 	}
 })
 
-app.mount('#app'); // ✅ Mount the app last
+app.mount('#app')
