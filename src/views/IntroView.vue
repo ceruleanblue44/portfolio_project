@@ -422,7 +422,7 @@ onMounted(async () => {
 													 src="../assets/img/playlist-slider/playlist-slider-track-3-1.webp" />
 												<img alt=""
 													 class="hide-lg"
-													 src="../assets/img/playlist-slider/playlist-slider-track-3-1-xs.svg" />
+													 src="../assets/img/playlist-slider/playlist-slider-track-3-1-xs.webp" />
 											</div>
 										</div>
 									</div>
