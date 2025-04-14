@@ -2,36 +2,28 @@
 import { ref, onMounted, nextTick } from 'vue'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
-// import { useLenis } from '@/composables/useLenis'
 import { vinylAnimation } from '@/scripts/ui/vinylAnimation'
 import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 import { observeAnimation } from '@/scripts/ui/observeAnimation'
 import PlayCircle from '@/assets/svg/play-circle.svg'
-
 import { tabsInit } from '@/scripts/ui/tabs'
 import { accordionInit } from '@/scripts/ui/accordion'
-
-import { useScrollTracker } from '@/composables/useScrollTracker';
+import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 
-
 const { pageViewed } = usePagesViewedTracker()
+const { container } = useScrollTracker()
 
-const { container } = useScrollTracker();
+const svgContent = ref('')
 
-const svgContent = ref('');
-
-// useLenis()
 onMounted(async () => {
 	svgContent.value = await fetchSvg()
-	await nextTick();
-
+	await nextTick()
 	vinylAnimation()
 	tabsInit()
 	accordionInit()
 	observeAnimation(headphonesAnimation, 0.4, true)
-
 })
 
 </script>

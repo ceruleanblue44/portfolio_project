@@ -17,7 +17,7 @@ export default function usePagesViewedTracker() {
 	}
 
 	const revealHiddenSections = async () => {
-		await nextTick() // Make sure DOM is fully updated
+		await nextTick()
 		const hiddenSections = document.querySelectorAll('.js-hidden')
 
 		if (pagesViewedStore.pagesFullyViewed.has(route.path)) {
@@ -27,7 +27,6 @@ export default function usePagesViewedTracker() {
 	}
 
 	onMounted(() => {
-		// Make sure data is loaded before doing anything
 		pagesViewedStore.loadPagesFullyViewed()
 		revealHiddenSections()
 

@@ -121,12 +121,12 @@ onMounted(async () => {
 						</RadioQuestion>
 					</div>
 					<SkipButton v-if="!pageViewed"
-								@click="showHiddenContent(2); scrollToElement(2)" />
+								@click="showHiddenContent(2); scrollToElement(3)" />
 				</div>
 			</section>
-			<section class="hidden js-hidden"
-					 data-hidden-id="2">
-				<div class="container container_albums mb-rem-9-75 mb-xs-rem-6-0">
+			<section class="hidden js-hidden js-scroll-element"
+					 data-hidden-id="2" data-scroll-id="3">
+				<div class="container container_albums mb-rem-9-75 mb-xs-rem-6-0" >
 					<h1 class="h1-64-48 w-85 text-white hide-xs mb-rem-0-75 mb-xs-rem-0-75">Ты&nbsp;откроешь для себя
 						альбомы
 						для любой профессиональной ситуации.
@@ -455,7 +455,6 @@ onMounted(async () => {
 							</swiper-slide>
 						</swiper-container>
 					</div>
-
 				</div>
 
 				<NavigationButtons class="js-nav-buttons" />

@@ -1,28 +1,24 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 export const trackRecapAnimation = () => {
-	const section = document.querySelector('.js-track-recap'); // The entire section
-	const textBlocks = gsap.utils.toArray('.js-track-recap-text'); // All text blocks
+	const section = document.querySelector('.js-track-recap')
+	const textBlocks = gsap.utils.toArray('.js-track-recap-text')
 
-	console.log('recap');
-
-	// Pin the section so it stays in place
 	ScrollTrigger.create({
 		scroller: '.scroll-container',
 		trigger: section,
 		start: 'top top',
-		end: `+=${textBlocks.length * window.innerHeight}`, // Scroll duration based on number of blocks
+		end: `+=${textBlocks.length * window.innerHeight}`,
 		pin: true,
 		anticipatePin: 1,
 		scrub: true,
 		markers: false,
 
-	});
+	})
 
-	// Animate text blocks one by one
 	textBlocks.forEach((text, i) => {
 		gsap.fromTo(
 			text,
@@ -40,11 +36,10 @@ export const trackRecapAnimation = () => {
 					markers: false,
 				}
 			}
-		);
+		)
 
 		gsap.to(text, {
 			opacity: 0,
-			// y: -100,
 			duration: 0.4,
 			scrollTrigger: {
 				scroller: '.scroll-container',
@@ -54,6 +49,6 @@ export const trackRecapAnimation = () => {
 				scrub: true,
 				markers: false,
 			}
-		});
-	});
-};
+		})
+	})
+}

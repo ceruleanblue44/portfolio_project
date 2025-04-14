@@ -20,8 +20,8 @@ export const textScrollAnimation = () => {
 			.from(textEl, {
 				opacity: 0,
 				scale: 0.4,
-				y: 50, // Starts slightly lower
-				rotate: -10, // Small initial rotation
+				y: 50,
+				rotate: -10,
 				ease: 'power2.out',
 				duration: 0.6,
 			})
@@ -31,15 +31,15 @@ export const textScrollAnimation = () => {
 				y: 0,
 				rotate: 0,
 				duration: 1,
-				ease: 'elastic.out(1, 0.5)', // Smooth bouncing effect
+				ease: 'elastic.out(1, 0.5)',
 			})
 			.to(textEl, {
 				opacity: 0,
 				scale: 0.4,
-				y: -30, // Moves slightly up before disappearing
-				rotate: 10, // Rotates slightly before fading out
+				y: -30,
+				rotate: 10,
 				ease: 'power1.inOut',
 				duration: 0.6,
-			});
+			})
 	})
 }

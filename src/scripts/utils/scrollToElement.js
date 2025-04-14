@@ -11,10 +11,8 @@ export const scrollToElement = (scrollId) => {
 
 	const scrollElement = scrollElements.find(element => String(element.dataset.scrollId) === String(scrollId))
 
-	// Get the element's position relative to the scroll-container
 	const elementPosition = scrollElement.offsetTop
 
-	// Scroll to the element's top minus 73px (for header)
 	gsap.to(scrollContainer, {
 		duration: 1,
 		scrollTo: { y: elementPosition - 73 },

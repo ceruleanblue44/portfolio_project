@@ -5,20 +5,16 @@ import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.
 import SkipButton from '@/components/SkipButton/SkipButton.vue'
 import CheckboxQuestion from '@/components/CheckboxQuestion/CheckboxQuestion.vue'
 import { checkboxQuestionTrack2 } from '@/quizData/checkboxQuestionTrack2'
-
 import { fetchSvg } from '@/scripts/utils/fetchSvg'
 import { showHiddenContent } from '@/scripts/utils/showHiddenContent'
 import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
 import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 import { trackRecapAnimation } from '@/scripts/ui/trackRecapAnimation'
-
 import InstrumentPicker from '@/components/InstrumentPicker/InstrumentPicker.vue'
 import { instrumentsModals } from '@/contentModalsData/instrumentsModals'
 import { swiperInit } from '@/scripts/ui/swiperSlider'
-
 import ArrowSquareRight from '@/assets/svg/arrow-square-right.svg'
 import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg'
-
 import RangeSliders from '@/components/RangeSliders/RangeSliders.vue'
 import { rangeSliders } from '@/rangeSlidersData/rangeSliders'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
@@ -29,20 +25,17 @@ const { pageViewed } = usePagesViewedTracker()
 
 const { container } = useScrollTracker()
 
-// const containerRef = ref(null);
 const svgContent = ref('')
 const svgContent1 = ref('')
 const isSkipButtonVisible1 = ref(true)
 const isSkipButtonVisible2 = ref(true)
 
 const disableScrollbar = () => {
-	// console.log('disabled')
-	document.body.style.overflow = 'hidden' // Prevent scrolling when needed
+	document.body.style.overflow = 'hidden'
 }
 
 const enableScrollbar = () => {
-	// console.log('enabled')
-	document.body.style.overflow = '' // Restore scrolling
+	document.body.style.overflow = ''
 }
 
 const showAfter = async (isCorrect) => {
@@ -68,11 +61,6 @@ const showAfterSkip = () => {
 
 const rangeSlidersComplete = async () => {
 	svgContent1.value = await fetchSvg()
-	// console.log(svgContent1.value)
-	// if (!svgContent.value) { 
-	// 	console.log(999);
-	// 	return 
-	// }
 
 	refreshScrollTrigger()
 	nextTick(() => {
@@ -84,7 +72,6 @@ const rangeSlidersComplete = async () => {
 			showHiddenContent(1)
 			scrollToElement(1)
 			refreshScrollTrigger()
-			// trackRecapAnimation()
 		}
 	})
 }
@@ -97,13 +84,11 @@ const rangeSlidersSkipped = () => {
 	trackRecapAnimation()
 }
 
-// useLenis()
 onMounted(() => {
 	swiperInit()
 
 	setTimeout(() => {
 		if (pageViewed.value === true) {
-			// console.log(666);
 			trackRecapAnimation()
 		}
 	}, 300)
@@ -664,6 +649,6 @@ onMounted(() => {
 				<NavigationButtons class="js-nav-buttons" />
 			</section>
 		</main>
-				<!-- </VueLenis> -->
+		<!-- </VueLenis> -->
 	</Transition>
 </template>

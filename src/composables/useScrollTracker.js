@@ -15,7 +15,6 @@ export function useScrollTracker() {
 
 	onMounted(() => {
 		if (container.value) {
-			// Listen to scroll events
 			container.value.addEventListener('scroll', updateScrollPosition)
 		}
 	})

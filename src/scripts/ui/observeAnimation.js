@@ -1,23 +1,21 @@
 export const observeAnimation = (fn, ratio, unobserve) => {
-	// console.log("observing started");
-
-	const anims = document.querySelectorAll('.js-animation');
+	const anims = document.querySelectorAll('.js-animation')
 
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
-				fn();
+				fn()
 				if (unobserve) {
-					observer.unobserve(entry.target);
+					observer.unobserve(entry.target)
 				}
 			}
-		});
+		})
 	}, {
 		threshold: ratio,
-		rootMargin: "50px 0px" // Extends trigger zone slightly
-	});
+		rootMargin: "50px 0px"
+	})
 
 	anims.forEach((anim) => {
-		observer.observe(anim);
-	});
-};
+		observer.observe(anim)
+	})
+}

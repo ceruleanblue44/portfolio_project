@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
-// import { useLenis } from '@/composables/useLenis'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import SkipButton from '@/components/SkipButton/SkipButton.vue'
@@ -53,15 +52,10 @@ const showAfterSkip = () => {
 	trackRecapAnimation()
 }
 
-// useLenis()
 onMounted(async () => {
 	svgContent.value = await fetchSvg()
-	// refreshScrollTrigger()
 
 	textScrollAnimation()
-
-	// refreshScrollTrigger()
-
 	textGramophoneAnimation()
 
 	setTimeout(() => {

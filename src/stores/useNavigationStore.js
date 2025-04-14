@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 export const useNavigationStore = defineStore('navigation', {
 	state: () => ({
 		lastVisitedPage: null,
-		scrollPositions: {} // Store scroll positions per page
+		scrollPositions: {}
 	}),
 	actions: {
 		saveLastVisitedPage(page) {

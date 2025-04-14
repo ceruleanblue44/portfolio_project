@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
 export const usePagesViewedStore = defineStore('pagesViewed', {
 	state: () => ({
@@ -6,7 +6,7 @@ export const usePagesViewedStore = defineStore('pagesViewed', {
 	}),
 	actions: {
 		markPageFullyViewed(page) {
-			this.pagesFullyViewed.add(page);
+			this.pagesFullyViewed.add(page)
 			this.savePageFullyViewed()
 		},
 		savePageFullyViewed() {
@@ -16,4 +16,4 @@ export const usePagesViewedStore = defineStore('pagesViewed', {
 			this.pagesFullyViewed = new Set(JSON.parse(localStorage.getItem('pagesFullyViewed'))) || []
 		}
 	}
-});
+})

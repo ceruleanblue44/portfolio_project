@@ -1,14 +1,11 @@
 <script setup>
-import { ref, onMounted } from 'vue'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
+import { useScrollTracker } from '@/composables/useScrollTracker'
+import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 
-
-
-
-onMounted(() => {
-	console.log('HomeView mounted')
-})
+const { pageViewed } = usePagesViewedTracker()
+const { container } = useScrollTracker()
 </script>
 
 <template>
@@ -18,7 +15,6 @@ onMounted(() => {
 			  ref="container">
 			<MainHeader />
 			<div class="container hero-section">
-				<!-- <div class=""> -->
 				<div class="row pt-rem-6-0 pb-rem-8-0 pt-xs-rem-2-0 mb-xs-rem-2-0">
 					<div class="col-lg-7 col-xs-12">
 						<h3 class="mb-rem-1-0 mb-xs-rem-0-75">Проект</h3>
@@ -40,10 +36,8 @@ onMounted(() => {
 						<h4 class="text-center text-light">frontend developer</h4>
 					</div>
 				</div>
-				<!-- </div> -->
 			</div>
 			<div class="container mb-rem-5-0 mb-xs-rem-4-0">
-				<!-- <div class=""> -->
 				<div class="row">
 					<div class="col-lg-12 col-xs-12">
 						<div class="card_extrasmall card_border-violet card_white">
@@ -91,7 +85,6 @@ onMounted(() => {
 						<div class="card_medium card_border-neutral-12 card_blur">
 							<p class="text-l mb-rem-1-0">Музыкальные метафоры -это инструмент для
 								объяснения управленческих концепций:</p>
-
 							<ul class="list list__ul text text-l mb-rem-1-0">
 								<li class="list__ul--item">Руководитель как дирижёр оркестра</li>
 								<li class="list__ul--item">Команда как ансамбль разных инструментов</li>
@@ -110,7 +103,8 @@ onMounted(() => {
 				<div class="row">
 					<div class="col-xs-12">
 						<img src="../assets/img/about/band-xs.png"
-							 alt="band" style="opacity: .7;">
+							 alt="band"
+							 style="opacity: .7;">
 					</div>
 				</div>
 			</div>

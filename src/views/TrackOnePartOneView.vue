@@ -1,16 +1,12 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
-// import { useLenis } from '@/composables/useLenis'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import SkipButton from '@/components/SkipButton/SkipButton.vue'
-
 import { initLottieScroll } from '@/scripts/ui/lottieScroll'
 import wordsJson from '@/assets/lottie/words.json?url'
-
 import { highlightBlocks } from '@/scripts/ui/highlightBlocks'
 import { textAnimation } from '@/scripts/ui/textAnimation'
-
 import CheckboxQuestion from '@/components/CheckboxQuestion/CheckboxQuestion.vue'
 import { checkboxQuestionTrack1 } from "@/quizData/checkboxQuestionTrack1"
 import { fetchSvg } from '@/scripts/utils/fetchSvg'
@@ -18,10 +14,8 @@ import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 import { showHiddenContent } from '@/scripts/utils/showHiddenContent'
 import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
-
 import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
-
 
 const { pageViewed } = usePagesViewedTracker()
 
@@ -37,28 +31,20 @@ const showAfter = () => {
 	scrollToElement(0)
 }
 
-// useLenis()
 onMounted(async () => {
-	// Wait for the DOM to be fully updated
 	await nextTick()
-	// Select the Lottie container and set its data-src attribute
 	const lottieElement = document.querySelector('.js-lottie-scroll')
 
 	if (lottieElement) {
 		lottieElement.dataset.src = wordsJson
 	}
-	// Initialize the Lottie animation
 	initLottieScroll()
 
 	svgContent.value = await fetchSvg()
 
 	highlightBlocks()
-
 	refreshScrollTrigger()
-
 	textAnimation()
-
-
 })
 </script>
 
@@ -381,10 +367,10 @@ onMounted(async () => {
 					</template>
 				</CheckboxQuestion>
 				<SkipButton v-if="!pageViewed"
-							@click="showHiddenContent(0)" />
+							@click="showHiddenContent(0); scrollToElement(1)" />
 			</div>
-			<section class="hidden js-hidden"
-					 data-hidden-id="0">
+			<section class="hidden js-hidden js-scroll-element"
+					 data-hidden-id="0" data-scroll-id="1">
 				<div class="container mt-rem-9-75 mt-xs-rem-6-0 mb-rem-4-0 mb-xs-rem-3-0">
 					<div class="row mb-rem-1-50 mb-xs-rem-1-50">
 						<div class="col-lg-12 col-xs-12">
