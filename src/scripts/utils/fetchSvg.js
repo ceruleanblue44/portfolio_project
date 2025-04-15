@@ -1,6 +1,6 @@
 export const fetchSvg = async (color = '') => {
 	const fileName = color ? `headphones-${color}.svg` : 'headphones.svg'
-	const filePath = `/src/assets/svg/${fileName}`
+	const filePath = `/assets/svg/${fileName}`
 
 	try {
 		const response = await fetch(filePath)
