@@ -1,5 +1,5 @@
-@use "../../assets/styles/base/vars" as *;
-@use "../../assets/styles/abstracts/variables" as *;
+@use "@/assets/styles/base/vars" as *;
+@use "@/assets/styles/abstracts/variables" as *;
 
 .instrument {
 	position: absolute;
@@ -10,66 +10,66 @@
 	&-1 {
 		width: 285px;
 		height: 436px;
-		background-image: url(../../assets/img/track-2/instrument-picker/instrument-picker-1.png);
+		background-image: url(/assets/img/track-2/instrument-picker/instrument-picker-1.png);
 
 		@media (hover: hover) {
 			&:hover {
-				background-image: url(../../assets/img/track-2/instrument-picker/instrument-picker-1-hover.png);
+				background-image: url(/assets/img/track-2/instrument-picker/instrument-picker-1-hover.png);
 			}
 		}
 
 		&.visited {
-			background-image: url(../../assets/img/track-2/instrument-picker/instrument-picker-1-visited.png);
+			background-image: url(/assets/img/track-2/instrument-picker/instrument-picker-1-visited.png);
 		}
 	}
 
 	&-2 {
 		width: 358px;
 		height: 361px;
-		background-image: url(../../assets/img/track-2/instrument-picker/instrument-picker-2.png);
+		background-image: url(/assets/img/track-2/instrument-picker/instrument-picker-2.png);
 
 		@media (hover: hover) {
 			&:hover {
-				background-image: url(../../assets/img/track-2/instrument-picker/instrument-picker-2-hover.png);
+				background-image: url(/assets/img/track-2/instrument-picker/instrument-picker-2-hover.png);
 			}
 		}
 
 		&.visited {
-			background-image: url(../../assets/img/track-2/instrument-picker/instrument-picker-2-visited.png);
+			background-image: url(/assets/img/track-2/instrument-picker/instrument-picker-2-visited.png);
 		}
 	}
 
 	&-3 {
 		width: 434px;
 		height: 285px;
-		background-image: url(../../assets/img/track-2/instrument-picker/instrument-picker-3.png);
+		background-image: url(/assets/img/track-2/instrument-picker/instrument-picker-3.png);
 
 		@media (hover: hover) {
 			&:hover {
-				background-image: url(../../assets/img/track-2/instrument-picker/instrument-picker-3-hover.png);
+				background-image: url(/assets/img/track-2/instrument-picker/instrument-picker-3-hover.png);
 			}
 		}
 
 		&.visited {
 			width: 147px;
 			height: 374px;
-			background-image: url(../../assets/img/track-2/instrument-picker/instrument-picker-3-visited.png);
+			background-image: url(/assets/img/track-2/instrument-picker/instrument-picker-3-visited.png);
 		}
 	}
 
 	&-4 {
 		width: 179px;
 		height: 136px;
-		background-image: url(../../assets/img/track-2/instrument-picker/instrument-picker-4.png);
+		background-image: url(/assets/img/track-2/instrument-picker/instrument-picker-4.png);
 
 		@media (hover: hover) {
 			&:hover {
-				background-image: url(../../assets/img/track-2/instrument-picker/instrument-picker-4-hover.png);
+				background-image: url(/assets/img/track-2/instrument-picker/instrument-picker-4-hover.png);
 			}
 		}
 
 		&.visited {
-			background-image: url(../../assets/img/track-2/instrument-picker/instrument-picker-4-visited.png);
+			background-image: url(/assets/img/track-2/instrument-picker/instrument-picker-4-visited.png);
 		}
 	}
 }

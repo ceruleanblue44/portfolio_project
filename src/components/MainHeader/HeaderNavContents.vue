@@ -11,7 +11,7 @@ const props = defineProps({
 
 const handleSameRoute = (clickedRoute) => {
 	if (route.path === clickedRoute) {
-		emit('close-menu') 
+		emit('close-menu')
 	}
 }
 
@@ -34,7 +34,7 @@ const handleSameRoute = (clickedRoute) => {
 									 :src="navLink.img"
 									 alt="navLink.title">
 								<img class="navigation__play-icon"
-									 src="../../assets/img/menu/tracks/play.svg"
+									 src="/assets/img/menu/tracks/play.svg"
 									 alt="navLink.title">
 							</div>
 							<div class="navigation__link__text ml-0">

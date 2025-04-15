@@ -105,9 +105,9 @@ onMounted(() => {
 				<div class="row">
 					<div class="col-lg-12 col-xs-12"><img alt=""
 							 class="hide-xs"
-							 src="../assets/img/track-2/track-2-top.svg" /> <img alt=""
+							 src="/assets/img/track-2/track-2-top.svg" /> <img alt=""
 							 class="hide-lg w-100"
-							 src="../assets/img/track-2/track-2-top-xs.svg" />
+							 src="/assets/img/track-2/track-2-top-xs.svg" />
 					</div>
 				</div>
 			</div>
@@ -117,11 +117,11 @@ onMounted(() => {
 						<div class="col-lg-5 col-xs-12 mb-xs-rem-1-50">
 							<div class="card card_track-dark mr-rem-2-50"><img alt=""
 									 class="img_center mb-rem-2-0 mb-xs-rem-1-0"
-									 src="../assets/img/track-2/track-2.png" />
+									 src="/assets/img/track-2/track-2.png" />
 								<p class="text text-s text-center text-white">Трек 2
 								</p>
 								<div class="d-flex jc-center ai-center">
-									<img src="../assets/svg/wave.svg"
+									<img src="/assets/svg/wave.svg"
 										 class="flex-shrink-0 mr-rem-1-0 mr-xs-rem-1-0"
 										 alt="">
 									<h2 class="text-white">The Climb
@@ -250,7 +250,7 @@ onMounted(() => {
 									</div>
 								</div>
 								<div class="block-music__img hide-xs"><img alt=""
-										 src="../assets/img/track-2/img-1.png" />
+										 src="/assets/img/track-2/img-1.png" />
 								</div>
 							</div>
 						</div>
@@ -292,7 +292,7 @@ onMounted(() => {
 									</div>
 								</div>
 								<div class="block-double__right"><img alt=""
-										 src="../assets/img/track-2/cards/card-1.png" />
+										 src="/assets/img/track-2/cards/card-1.png" />
 									<h2 class="h2 text-center">Линейный
 										<br />
 										менеджмент
@@ -317,7 +317,7 @@ onMounted(() => {
 									</div>
 								</div>
 								<div class="block-double__right"><img alt=""
-										 src="../assets/img/track-2/cards/card-2.png" />
+										 src="/assets/img/track-2/cards/card-2.png" />
 									<h2 class="h2 text-center">Менеджмент
 										<br />
 										среднего звена
@@ -339,7 +339,7 @@ onMounted(() => {
 									</div>
 								</div>
 								<div class="block-double__right"><img alt=""
-										 src="../assets/img/track-2/cards/card-3.png" />
+										 src="/assets/img/track-2/cards/card-3.png" />
 									<h2 class="h2 text-center">Топ-менеджмент
 									</h2>
 								</div>
@@ -359,7 +359,7 @@ onMounted(() => {
 									</div>
 								</div>
 								<div class="block-double__right"><img alt=""
-										 src="../assets/img/track-2/cards/card-4.png" />
+										 src="/assets/img/track-2/cards/card-4.png" />
 									<h2 class="h2 text-center text-white">Стратегический
 										<br />
 										менеджмент
@@ -439,9 +439,9 @@ onMounted(() => {
 											</div>
 											<img alt=""
 												 class="hide-xs"
-												 src="../assets/img/track-2/slider/slide-1.svg" /> <img alt=""
+												 src="/assets/img/track-2/slider/slide-1.svg" /> <img alt=""
 												 class="hide-lg"
-												 src="../assets/img/track-2/slider/slide-xs-1.svg" />
+												 src="/assets/img/track-2/slider/slide-xs-1.svg" />
 										</div>
 									</div>
 								</swiper-slide>
@@ -457,9 +457,9 @@ onMounted(() => {
 											</div>
 											<img alt=""
 												 class="hide-xs"
-												 src="../assets/img/track-2/slider/slide-2.svg" /> <img alt=""
+												 src="/assets/img/track-2/slider/slide-2.svg" /> <img alt=""
 												 class="hide-lg"
-												 src="../assets/img/track-2/slider/slide-xs-2.svg" />
+												 src="/assets/img/track-2/slider/slide-xs-2.svg" />
 										</div>
 									</div>
 								</swiper-slide>
@@ -473,9 +473,9 @@ onMounted(() => {
 											</div>
 											<img alt=""
 												 class="hide-xs"
-												 src="../assets/img/track-2/slider/slide-3.svg" /> <img alt=""
+												 src="/assets/img/track-2/slider/slide-3.svg" /> <img alt=""
 												 class="hide-lg"
-												 src="../assets/img/track-2/slider/slide-xs-3.svg" />
+												 src="/assets/img/track-2/slider/slide-xs-3.svg" />
 										</div>
 									</div>
 								</swiper-slide>
@@ -492,9 +492,9 @@ onMounted(() => {
 											</div>
 											<img alt=""
 												 class="hide-xs"
-												 src="../assets/img/track-2/slider/slide-4.svg" /> <img alt=""
+												 src="/assets/img/track-2/slider/slide-4.svg" /> <img alt=""
 												 class="hide-lg"
-												 src="../assets/img/track-2/slider/slide-xs-4.svg" />
+												 src="/assets/img/track-2/slider/slide-xs-4.svg" />
 										</div>
 									</div>
 								</swiper-slide>
@@ -508,7 +508,7 @@ onMounted(() => {
 						</div>
 						<div class="col-lg-8 col-xs-12">
 							<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
-								 src="../assets/svg/star.svg"
+								 src="/assets/svg/star.svg"
 								 alt="">
 							<div class="text text-xl text-center">Это базовое распределение. Оно может варьироваться в
 								зависимости
@@ -616,7 +616,7 @@ onMounted(() => {
 						<div class="track-recap__container js-track-recap-container">
 							<div class="track-recap__sticky-top">
 								<img class="mr-rem-1-50 mr-xs-rem-1-0"
-									 src="../assets/svg/wave.svg"
+									 src="/assets/svg/wave.svg"
 									 alt="">
 								<h4 class="text-white">Ключевые принципы и&nbsp;выводы:
 								</h4>

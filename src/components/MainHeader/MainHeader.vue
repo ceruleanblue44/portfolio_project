@@ -54,8 +54,6 @@ const selectTab = (component) => {
 watch(() => route.path, () => {
   isMenuOpen.value = false; // Close menu on any route change
 })
-
-
 </script>
 
 <template>
@@ -65,16 +63,16 @@ watch(() => route.path, () => {
 			<div>
 				<div class="header__logo">
 					<picture>
-						<source srcset="../../assets/svg/header-logo-xs.svg"
+						<source srcset="/assets/svg/header-logo-xs.svg"
 								media="(max-width: 719px)" />
-						<img src="../../assets/svg/header-logo.svg"
+						<img src="/assets/svg/header-logo.svg"
 							 alt="header logo" />
 					</picture>
 				</div>
 
 				<div class="header__title">
 					<div>
-						<img src="../../assets/svg/header-note.svg"
+						<img src="/assets/svg/header-note.svg"
 							 alt="">
 						<div class="header__title__text">
 							{{ getCurrentRouteTitle }}
@@ -90,7 +88,7 @@ watch(() => route.path, () => {
 			<button class="header__btn header__btn_secondary ml-rem-1-50 ml-xs-rem-0-50"
 					@click="goBack"
 					v-show="!isMenuOpen">
-				<img src="../../assets/svg/back.svg"
+				<img src="/assets/svg/back.svg"
 					 alt="">
 				<span class="hide-xs ml-rem-0-50">Назад</span>
 			</button>
@@ -99,7 +97,7 @@ watch(() => route.path, () => {
 					v-show="!isMenuOpen"
 					@click="openMenu">
 				<span class="hide-xs mr-rem-0-50">Меню</span>
-				<img src="../../assets/svg/menu.svg"
+				<img src="/assets/svg/menu.svg"
 					 alt="">
 			</button>
 
@@ -108,7 +106,7 @@ watch(() => route.path, () => {
 					@click="closeMenu">
 				<span class="hide-xs mr-rem-0-50">Закрыть</span>
 				<img class=""
-					 src="../../assets/svg/close.svg"
+					 src="/assets/svg/close.svg"
 					 alt="">
 			</button>
 
@@ -134,7 +132,7 @@ watch(() => route.path, () => {
 					<button @click="selectTab('navigation')"
 							:class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'navigation'}]">
 						<img class="mr-rem-0-25 mr-xs-rem-0-25"
-							 src="../../assets/svg/menu/albums.svg"
+							 src="/assets/svg/menu/albums.svg"
 							 alt="">
 						<span>
 							Альбом
@@ -143,7 +141,7 @@ watch(() => route.path, () => {
 					<button @click="selectTab('articles')"
 							:class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'articles'}]">
 						<img class="mr-rem-0-25 mr-xs-rem-0-25"
-							 src="../../assets/svg/menu/articles.svg"
+							 src="/assets/svg/menu/articles.svg"
 							 alt="">
 						<span>
 							Статьи
@@ -152,7 +150,7 @@ watch(() => route.path, () => {
 					<button @click="selectTab('materials')"
 							:class="['header-nav__tab', {'header-nav__tab_active': currentTab === 'materials'}]">
 						<img class="mr-rem-0-25 mr-xs-rem-0-25"
-							 src="../../assets/svg/menu/materials.svg"
+							 src="/assets/svg/menu/materials.svg"
 							 alt="">
 						<span>
 							Материалы

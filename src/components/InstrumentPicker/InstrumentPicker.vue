@@ -69,31 +69,35 @@ const closeModal = () => {
 		<div class="hide-lg">
 			<div class="row">
 				<div class="col-xs-12 mb-xs-10">
-					<div class="ip-btn" @click="openModal(2, $event)">
+					<div class="ip-btn"
+						 @click="openModal(2, $event)">
 						<img alt=""
 							 class="w-100"
-							 src="../../assets/img/track-2/instrument-picker/instrument-picker-xs-1.png" />
+							 src="/assets/img/track-2/instrument-picker/instrument-picker-xs-1.png" />
 					</div>
 				</div>
 				<div class="col-xs-4">
-					<div class="ip-btn" @click="openModal(1, $event)">
+					<div class="ip-btn"
+						 @click="openModal(1, $event)">
 						<img alt=""
 							 class="w-100"
-							 src="../../assets/img/track-2/instrument-picker/instrument-picker-xs-2.png" />
+							 src="/assets/img/track-2/instrument-picker/instrument-picker-xs-2.png" />
 					</div>
 				</div>
 				<div class="col-xs-4">
-					<div class="ip-btn" @click="openModal(3, $event)">
+					<div class="ip-btn"
+						 @click="openModal(3, $event)">
 						<img alt=""
 							 class="w-100"
-							 src="../../assets/img/track-2/instrument-picker/instrument-picker-xs-3.png" />
+							 src="/assets/img/track-2/instrument-picker/instrument-picker-xs-3.png" />
 					</div>
 				</div>
 				<div class="col-xs-4">
-					<div class="ip-btn" @click="openModal(4, $event)">
+					<div class="ip-btn"
+						 @click="openModal(4, $event)">
 						<img alt=""
 							 class="w-100"
-							 src="../../assets/img/track-2/instrument-picker/instrument-picker-xs-4.png" />
+							 src="/assets/img/track-2/instrument-picker/instrument-picker-xs-4.png" />
 					</div>
 				</div>
 			</div>

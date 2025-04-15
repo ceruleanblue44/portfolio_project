@@ -26,10 +26,10 @@ const { container } = useScrollTracker()
 					<div class="col-lg-1 hide-xs"> </div>
 					<div class="col-lg-4 col-xs-12">
 						<picture>
-							<source srcset="../assets/img/about/dev-xs.png"
+							<source srcset="/assets/img/about/dev-xs.png"
 									media="(max-width: 719px)" />
 							<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
-								 src="../assets/img/about/dev.png"
+								 src="/assets/img/about/dev.png"
 								 alt="header logo" />
 						</picture>
 						<h3 class="text-center">Марина Готовцева</h3>
@@ -56,7 +56,7 @@ const { container } = useScrollTracker()
 					</div>
 					<div class="col-lg-8">
 						<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
-							 src="../assets/svg/star.svg"
+							 src="/assets/svg/star.svg"
 							 alt="">
 						<div class="card_medium card_border-neutral-12 card_white">
 							<h5 class="text-bold mb-rem-2-0 mb-xs-rem-1-50">Особенности курса</h5>
@@ -102,7 +102,7 @@ const { container } = useScrollTracker()
 			<div class="container mb-xs-rem-4-0 hide-lg">
 				<div class="row">
 					<div class="col-xs-12">
-						<img src="../assets/img/about/band-xs.png"
+						<img src="/assets/img/about/band-xs.png"
 							 alt="band"
 							 style="opacity: .7;">
 					</div>
@@ -113,7 +113,7 @@ const { container } = useScrollTracker()
 				<div class="row">
 					<div class="col-xs-12">
 						<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
-							 src="../assets/svg/star.svg"
+							 src="/assets/svg/star.svg"
 							 alt="">
 						<div class="card_medium card_border-neutral-12 card_white">
 							<p class="text-l mb-rem-1-0 mb-xs-rem-0-75">Музыкальные метафоры -это инструмент для
@@ -138,7 +138,7 @@ const { container } = useScrollTracker()
 					</div>
 					<div class="col-lg-8 col-xs-12">
 						<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
-							 src="../assets/svg/star.svg"
+							 src="/assets/svg/star.svg"
 							 alt="">
 						<div class="card_medium card_border-neutral-12 card_white">
 							<h5 class="text-bold mb-rem-2-0 mb-xs-rem-1-50">По&nbsp;окончании курса участники:</h5>
@@ -161,29 +161,29 @@ const { container } = useScrollTracker()
 					<div class="col-lg-12 col-xs-12">
 						<div class="icon-row">
 							<img class=""
-								 src="../assets/svg/note-pink.svg"
+								 src="/assets/svg/note-pink.svg"
 								 alt="">
 							<img class=""
-								 src="../assets/svg/play-green.svg"
+								 src="/assets/svg/play-green.svg"
 								 alt="">
 							<img class=""
-								 src="../assets/svg/volume.svg"
+								 src="/assets/svg/volume.svg"
 								 alt="">
 							<img class=""
-								 src="../assets/svg/disc.svg"
+								 src="/assets/svg/disc.svg"
 								 alt="">
 
 							<img class=""
-								 src="../assets/svg/mic.svg"
+								 src="/assets/svg/mic.svg"
 								 alt="">
 							<img class=""
-								 src="../assets/svg/double-note.svg"
+								 src="/assets/svg/double-note.svg"
 								 alt="">
 							<img class=""
-								 src="../assets/svg/headphones-pink.svg"
+								 src="/assets/svg/headphones-pink.svg"
 								 alt="">
 							<img class=""
-								 src="../assets/svg/disc.svg"
+								 src="/assets/svg/disc.svg"
 								 alt="">
 						</div>
 					</div>

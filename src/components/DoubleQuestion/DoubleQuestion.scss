@@ -1,5 +1,5 @@
-@use "../../assets/styles/base/vars" as *;
-@use "../../assets/styles/abstracts/variables" as *;
+@use "@/assets/styles/base/vars" as *;
+@use "@/assets/styles/abstracts/variables" as *;
 
 .double-question {
     &__answer-history {

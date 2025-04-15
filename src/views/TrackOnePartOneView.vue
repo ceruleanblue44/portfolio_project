@@ -58,9 +58,9 @@ onMounted(async () => {
 				<div class="row">
 					<div class="col-lg-12 col-xs-12"><img alt=""
 							 class="hide-xs"
-							 src="../assets/img/track-1/track-1-top.svg" /> <img alt=""
+							 src="/assets/img/track-1/track-1-top.svg" /> <img alt=""
 							 class="hide-lg w-100"
-							 src="../assets/img/track-1/track-1-top-xs.svg" />
+							 src="/assets/img/track-1/track-1-top-xs.svg" />
 					</div>
 				</div>
 			</div>
@@ -71,11 +71,11 @@ onMounted(async () => {
 						<div class="col-lg-5 col-xs-12 mb-xs-rem-3-50">
 							<div class="card card_track-dark mr-rem-2-50"><img alt=""
 									 class="mb-rem-2-0 mb-xs-rem-1-0"
-									 src="../assets/img/track-1/track-1-1.png" />
+									 src="/assets/img/track-1/track-1-1.png" />
 								<p class="text text-s text-center text-white mb-rem-1-0 mb-xs-rem-0-50">Трек 1
 								</p>
 								<div class="d-flex jc-center ai-center">
-									<img src="../assets/svg/wave.svg"
+									<img src="/assets/svg/wave.svg"
 										 class="flex-shrink-0 mr-rem-1-0 mr-xs-rem-1-0"
 										 alt="">
 									<h2 class="text-white">Changes
@@ -138,29 +138,29 @@ onMounted(async () => {
 						<div class="col-lg-12 col-xs-12">
 							<div class="icon-row icon-row-xs">
 								<img class=""
-									 src="../assets/svg/note-pink.svg"
+									 src="/assets/svg/note-pink.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/play-green.svg"
+									 src="/assets/svg/play-green.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/volume.svg"
+									 src="/assets/svg/volume.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/disc.svg"
+									 src="/assets/svg/disc.svg"
 									 alt="">
 
 								<img class=""
-									 src="../assets/svg/mic.svg"
+									 src="/assets/svg/mic.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/double-note.svg"
+									 src="/assets/svg/double-note.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/headphones-pink.svg"
+									 src="/assets/svg/headphones-pink.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/disc.svg"
+									 src="/assets/svg/disc.svg"
 									 alt="">
 							</div>
 						</div>
@@ -176,28 +176,28 @@ onMounted(async () => {
 						<div class="col-lg-12 col-xs-12">
 							<div class="icon-row">
 								<img class=""
-									 src="../assets/svg/note-pink.svg"
+									 src="/assets/svg/note-pink.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/play-green.svg"
+									 src="/assets/svg/play-green.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/volume.svg"
+									 src="/assets/svg/volume.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/disc.svg"
+									 src="/assets/svg/disc.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/mic.svg"
+									 src="/assets/svg/mic.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/double-note.svg"
+									 src="/assets/svg/double-note.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/headphones-pink.svg"
+									 src="/assets/svg/headphones-pink.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/disc.svg"
+									 src="/assets/svg/disc.svg"
 									 alt="">
 							</div>
 						</div>
@@ -265,9 +265,9 @@ onMounted(async () => {
 			<div class="container container_full container_full-xs pos-r mb-rem-4-0 mb-xs-rem-2-0">
 				<img alt=""
 					 class="hide-xs"
-					 src="../assets/img/track-1/zipper.webp" /> <img alt=""
+					 src="/assets/img/track-1/zipper.webp" /> <img alt=""
 					 class="hide-lg"
-					 src="../assets/img/track-1/zipper-xs.png" />
+					 src="/assets/img/track-1/zipper-xs.png" />
 				<div class="pos-a hide-xs"
 					 style="left: 80px; bottom: 32%; width: 35%;">
 					<p class="text text-xl text-semibold">Возможно, сейчас ты&nbsp;пытаешься совместить в&nbsp;себе две
@@ -291,7 +291,7 @@ onMounted(async () => {
 					</div>
 					<div class="col-lg-8 col-xs-12">
 						<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
-							 src="../assets/svg/star.svg"
+							 src="/assets/svg/star.svg"
 							 alt="">
 						<p class="text text-xl text-center">Изменение мышления происходит постепенно. Шаг за&nbsp;шагом,
 							через обучение и&nbsp;практику, ты&nbsp;увидишь результаты.
@@ -370,7 +370,8 @@ onMounted(async () => {
 							@click="showHiddenContent(0); scrollToElement(1)" />
 			</div>
 			<section class="hidden js-hidden js-scroll-element"
-					 data-hidden-id="0" data-scroll-id="1">
+					 data-hidden-id="0"
+					 data-scroll-id="1">
 				<div class="container mt-rem-9-75 mt-xs-rem-6-0 mb-rem-4-0 mb-xs-rem-3-0">
 					<div class="row mb-rem-1-50 mb-xs-rem-1-50">
 						<div class="col-lg-12 col-xs-12">
@@ -441,11 +442,11 @@ onMounted(async () => {
 
 				<div class="container mb-rem-5-0 mb-xs-rem-4-0"><img alt="dj"
 						 class="hide-xs"
-						 src="../assets/img/track-1/dj.webp"
+						 src="/assets/img/track-1/dj.webp"
 						 width="1200" />
 					<img alt="dj"
 						 class="hide-lg"
-						 src="../assets/img/track-1/dj-xs.webp"
+						 src="/assets/img/track-1/dj-xs.webp"
 						 width="343" />
 				</div>
 				<div class="container mb-rem-9-75 mb-xs-rem-6-0">
@@ -454,7 +455,7 @@ onMounted(async () => {
 						</div>
 						<div class="col-lg-8 col-xs-12">
 							<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
-								 src="../assets/svg/star.svg"
+								 src="/assets/svg/star.svg"
 								 alt="">
 							<p class="text text-xl text-center">В&nbsp;основе эффективного управления лежит лидерское
 								мышление&nbsp;&mdash; способность видеть общую картину и&nbsp;принимать решения
@@ -502,7 +503,7 @@ onMounted(async () => {
 								</div>
 								<div class="bg-black-block__img">
 									<img alt=""
-										 src="../assets/img/track-1/img-1.png" />
+										 src="/assets/img/track-1/img-1.png" />
 								</div>
 							</div>
 						</div>

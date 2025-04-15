@@ -18,7 +18,7 @@ export const textGramophoneAnimation = () => {
 			trigger: section,
 			pin: true,
 			anticipatePin: 1,
-			scrub: true,
+			scrub: 2,
 			end: () => '+=' + textWrapper.offsetWidth
 		}
 	})
@@ -36,7 +36,7 @@ export const textGramophoneAnimation = () => {
 				start: 'left 65%',
 				end: '35% center',
 				containerAnimation: tl,
-				scrub: 2,
+				scrub: true,
 				markers: false,
 			}
 		})

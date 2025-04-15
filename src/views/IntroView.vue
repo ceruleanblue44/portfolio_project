@@ -41,13 +41,13 @@ onMounted(async () => {
 			  ref="container">
 			<MainHeader />
 
-			<div class="disc-rotating js-disc-rotating">
+			<div class="container-lg-only disc-rotating js-disc-rotating">
 				<div class="disc-rotating__wrapper">
 					<div class="disc-rotating__img-full js-disc-rotating-img-full">
-						<img src="../assets/img/discAnimation/disc-01-outer.jpg"
+						<img src="/assets/img/discAnimation/disc-01-outer.jpg"
 							 alt=""
 							 class="disc-rotating__img-outer">
-						<img src="../assets/img/discAnimation/disc-01-inner.webp"
+						<img src="/assets/img/discAnimation/disc-01-inner.webp"
 							 alt=""
 							 class="disc-rotating__img-inner js-disc-rotating-img-inner">
 					</div>
@@ -125,8 +125,9 @@ onMounted(async () => {
 				</div>
 			</section>
 			<section class="hidden js-hidden js-scroll-element"
-					 data-hidden-id="2" data-scroll-id="3">
-				<div class="container container_albums mb-rem-9-75 mb-xs-rem-6-0" >
+					 data-hidden-id="2"
+					 data-scroll-id="3">
+				<div class="container container_albums mb-rem-9-75 mb-xs-rem-6-0">
 					<h1 class="h1-64-48 w-85 text-white hide-xs mb-rem-0-75 mb-xs-rem-0-75">Ты&nbsp;откроешь для себя
 						альбомы
 						для любой профессиональной ситуации.
@@ -146,10 +147,10 @@ onMounted(async () => {
 										  init="false">
 							<swiper-slide class="swiper-slide"><img alt=""
 									 class="album-slider__slide-num"
-									 src="../assets/img/albums-slider/album-num-1.png" />
+									 src="/assets/img/albums-slider/album-num-1.png" />
 								<div class="album-slider__slide-content"><img alt=""
 										 class="mb-rem-0-50 mb-xs-rem-0-50"
-										 src="../assets/img/albums-slider/cover-1.png" />
+										 src="/assets/img/albums-slider/cover-1.png" />
 									<h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Хиты
 									</h6>
 									<p class="text text-xs text-white">Принимаем роль лидера
@@ -158,10 +159,10 @@ onMounted(async () => {
 							</swiper-slide>
 							<swiper-slide class="swiper-slide"><img alt=""
 									 class="album-slider__slide-num"
-									 src="../assets/img/albums-slider/album-num-2.png" />
+									 src="/assets/img/albums-slider/album-num-2.png" />
 								<div class="album-slider__slide-content"><img alt=""
 										 class="mb-rem-0-50 mb-xs-rem-0-50"
-										 src="../assets/img/albums-slider/cover-2.png" />
+										 src="/assets/img/albums-slider/cover-2.png" />
 									<h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Классика
 									</h6>
 									<p class="text text-xs text-white">Мастерство ежедневных операций
@@ -170,10 +171,10 @@ onMounted(async () => {
 							</swiper-slide>
 							<swiper-slide class="swiper-slide"><img alt=""
 									 class="album-slider__slide-num"
-									 src="../assets/img/albums-slider/album-num-3.png" />
+									 src="/assets/img/albums-slider/album-num-3.png" />
 								<div class="album-slider__slide-content"><img alt=""
 										 class="mb-rem-0-50 mb-xs-rem-0-50"
-										 src="../assets/img/albums-slider/cover-3.png" />
+										 src="/assets/img/albums-slider/cover-3.png" />
 									<h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Jazz
 									</h6>
 									<p class="text text-xs text-white">Создание командной динамики
@@ -182,10 +183,10 @@ onMounted(async () => {
 							</swiper-slide>
 							<swiper-slide class="swiper-slide"><img alt=""
 									 class="album-slider__slide-num"
-									 src="../assets/img/albums-slider/album-num-4.png" />
+									 src="/assets/img/albums-slider/album-num-4.png" />
 								<div class="album-slider__slide-content"><img alt=""
 										 class="mb-rem-0-50 mb-xs-rem-0-50"
-										 src="../assets/img/albums-slider/cover-4.png" />
+										 src="/assets/img/albums-slider/cover-4.png" />
 									<h6 class="text-white mb-rem-0-50 mb-xs-rem-0-50">Hip-Hop
 									</h6>
 									<p class="text text-xs text-white">Усиление командной эффективности
@@ -254,25 +255,25 @@ onMounted(async () => {
 								<ul class="tab__nav">
 									<li class="tab__btn js-tab-link"><img alt=""
 											 class="img_center mb-rem-1-0 mr-xs-rem-0-75"
-											 src="../assets/svg/tabs/tabs-icon-1.svg" />
+											 src="/assets/svg/tabs/tabs-icon-1.svg" />
 										<h5 class="text-center">акустика
 										</h5>
 									</li>
 									<li class="tab__btn js-tab-link"><img alt=""
 											 class="img_center mb-rem-1-0 mr-xs-rem-0-75"
-											 src="../assets/svg/tabs/tabs-icon-2.svg" />
+											 src="/assets/svg/tabs/tabs-icon-2.svg" />
 										<h5 class="text-center">ведение заметок
 										</h5>
 									</li>
 									<li class="tab__btn js-tab-link"><img alt=""
 											 class="img_center mb-rem-1-0 mr-xs-rem-0-75"
-											 src="../assets/svg/tabs/tabs-icon-3.svg" />
+											 src="/assets/svg/tabs/tabs-icon-3.svg" />
 										<h5 class="text-center">баланс учебы и&nbsp;отдыха
 										</h5>
 									</li>
 									<li class="tab__btn js-tab-link"><img alt=""
 											 class="img_center mb-rem-1-0 mr-xs-rem-0-75"
-											 src="../assets/svg/tabs/tabs-icon-4.svg" />
+											 src="/assets/svg/tabs/tabs-icon-4.svg" />
 										<h5 class="text-center">повторение ключевых моментов
 										</h5>
 									</li>
@@ -317,13 +318,13 @@ onMounted(async () => {
 												<div class="row">
 													<div class="col-lg-6 col-xs-12"><img alt=""
 															 class="mb-rem-0-50 mb-xs-rem-0-50"
-															 src="../assets/img/playlist-slider/playlist-slider-track-1-1.png" />
+															 src="/assets/img/playlist-slider/playlist-slider-track-1-1.png" />
 														<p class="text text-s text-center text-semibold">Changes
 														</p>
 													</div>
 													<div class="col-lg-6 hide-xs"><img alt=""
 															 class="mb-rem-0-50"
-															 src="../assets/img/playlist-slider/playlist-slider-track-1-2.png" />
+															 src="/assets/img/playlist-slider/playlist-slider-track-1-2.png" />
 														<p class="text text-s text-center text-semibold">Look Around
 														</p>
 													</div>
@@ -363,28 +364,28 @@ onMounted(async () => {
 												<div class="row">
 													<div class="col-lg-3 col-xs-6"><img alt=""
 															 class="mb-rem-0-50 mb-xs-rem-0-50"
-															 src="../assets/img/playlist-slider/playlist-slider-track-2-1.png" />
+															 src="/assets/img/playlist-slider/playlist-slider-track-2-1.png" />
 														<p class="text text-s text-center text-semibold">Смена
 															приоритетов
 														</p>
 													</div>
 													<div class="col-lg-3 col-xs-6"><img alt=""
 															 class="mb-rem-0-50 mb-xs-rem-0-50"
-															 src="../assets/img/playlist-slider/playlist-slider-track-2-2.png" />
+															 src="/assets/img/playlist-slider/playlist-slider-track-2-2.png" />
 														<p class="text text-s text-center text-semibold">Стратегическое
 															планирование
 														</p>
 													</div>
 													<div class="col-lg-3 hide-xs"><img alt=""
 															 class="mb-rem-0-50"
-															 src="../assets/img/playlist-slider/playlist-slider-track-2-3.png" />
+															 src="/assets/img/playlist-slider/playlist-slider-track-2-3.png" />
 														<p class="text text-s text-center text-semibold">Методы
 															целеполагания
 														</p>
 													</div>
 													<div class="col-lg-3 hide-xs"><img alt=""
 															 class="mb-rem-0-50"
-															 src="../assets/img/playlist-slider/playlist-slider-track-2-4.png" />
+															 src="/assets/img/playlist-slider/playlist-slider-track-2-4.png" />
 														<p class="text text-s text-center text-semibold">Работа с
 															удаленщиками
 														</p>
@@ -419,10 +420,10 @@ onMounted(async () => {
 												</p>
 												<img alt=""
 													 class="hide-xs"
-													 src="../assets/img/playlist-slider/playlist-slider-track-3-1.webp" />
+													 src="/assets/img/playlist-slider/playlist-slider-track-3-1.webp" />
 												<img alt=""
 													 class="hide-lg"
-													 src="../assets/img/playlist-slider/playlist-slider-track-3-1-xs.webp" />
+													 src="/assets/img/playlist-slider/playlist-slider-track-3-1-xs.webp" />
 											</div>
 										</div>
 									</div>

@@ -18,7 +18,7 @@ const endInstructions = () => {
 						Текущий трек
 					</p>
 					<img class="instructions__arrow ml-rem-0-50 ml-xs-rem-0-50"
-						 src="../../assets/img/instructions/instructions-arrow.svg"
+						 src="/assets/img/instructions/instructions-arrow.svg"
 						 alt="">
 				</div>
 				<div class="hide-xs">
@@ -28,7 +28,7 @@ const endInstructions = () => {
 							Вернуться назад
 						</p>
 						<img class="instructions__arrow instructions__arrow_3 ml-rem-0-50 ml-xs-rem-0-50"
-							 src="../../assets/img/instructions/instructions-arrow-3.svg"
+							 src="/assets/img/instructions/instructions-arrow-3.svg"
 							 alt="">
 					</div>
 					<div class="d-flex mr-100"
@@ -37,7 +37,7 @@ const endInstructions = () => {
 							Меню плейлиста&nbsp;&mdash; просматривай содержание курса и&nbsp;выбирай треки
 						</p>
 						<img class="instructions__arrow instructions__arrow_2 ml-rem-0-50 ml-xs-rem-0-50"
-							 src="../../assets/img/instructions/instructions-arrow-2.svg"
+							 src="/assets/img/instructions/instructions-arrow-2.svg"
 							 alt="">
 					</div>
 				</div>
@@ -48,7 +48,7 @@ const endInstructions = () => {
 							Меню плейлиста&nbsp;&mdash; просматривай содержание курса и&nbsp;выбирай треки
 						</p>
 						<img class="instructions__arrow instructions__arrow_2-xs ml-rem-0-50"
-							 src="../../assets/img/instructions/instructions-arrow-2-xs.svg"
+							 src="/assets/img/instructions/instructions-arrow-2-xs.svg"
 							 alt="">
 					</div>
 					<div class="pos-a d-flex mr-100"
@@ -57,7 +57,7 @@ const endInstructions = () => {
 							Вернуться назад
 						</p>
 						<img class="instructions__arrow instructions__arrow_3-xs ml-rem-0-50"
-							 src="../../assets/img/instructions/instructions-arrow-3-xs.svg"
+							 src="/assets/img/instructions/instructions-arrow-3-xs.svg"
 							 alt="">
 					</div>
 				</div>
@@ -66,7 +66,7 @@ const endInstructions = () => {
 				<div class="hint"
 					 style="width: 279px;">
 					<img class="img_center mb-rem-0-50"
-						 src="../../assets/svg/mouse.svg"
+						 src="/assets/svg/mouse.svg"
 						 alt="">
 					<p class="text-m text-center hide-xs">
 						Нажми «Продолжить», чтобы перейти дальше
@@ -84,7 +84,7 @@ const endInstructions = () => {
 								<div class="d-flex"
 									 style="width: 267px">
 									<img class="instructions__arrow instructions__arrow_flip mt-rem-0-75 mr-rem-0-50"
-										 src="../../assets/img/instructions/instructions-arrow.svg"
+										 src="/assets/img/instructions/instructions-arrow.svg"
 										 alt="">
 									<p class="text text-s">
 										Переход к&nbsp;предыдущему разделу
@@ -97,7 +97,7 @@ const endInstructions = () => {
 								<div class="d-flex"
 									 style="width: 256px">
 									<img class="instructions__arrow instructions__arrow_flip mt-rem-0-75 mr-rem-0-50"
-										 src="../../assets/img/instructions/instructions-arrow.svg"
+										 src="/assets/img/instructions/instructions-arrow.svg"
 										 alt="">
 									<p class="text text-s">
 										Переход к&nbsp;следующему разделу
@@ -119,10 +119,10 @@ const endInstructions = () => {
 							<div class="d-flex jc-center">
 								<div class="d-flex">
 									<img class="instructions__arrow instructions__arrow_flip mt-xs-rem-0-75 mr-xs-rem-2-25"
-										 src="../../assets/img/instructions/instructions-arrow.svg"
+										 src="/assets/img/instructions/instructions-arrow.svg"
 										 alt="">
 									<img class="instructions__arrow instructions__arrow_flip-y mt-xs-rem-0-75"
-										 src="../../assets/img/instructions/instructions-arrow.svg"
+										 src="/assets/img/instructions/instructions-arrow.svg"
 										 alt="">
 								</div>
 							</div>

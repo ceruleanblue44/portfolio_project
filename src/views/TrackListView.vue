@@ -30,7 +30,8 @@ onMounted(async () => {
 <template>
 	<Transition name="fade-page"
 				appear>
-		<main class="scroll-container" ref="container">
+		<main class="scroll-container"
+			  ref="container">
 			<MainHeader />
 			<div class="container mt-rem-9-75 mt-xs-rem-6-0 mb-rem-9-75 mb-xs-rem-6-0">
 				<div class="row">
@@ -38,7 +39,7 @@ onMounted(async () => {
 					</div>
 					<div class="col-lg-8 col-xs-12">
 						<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
-							 src="../assets/svg/star.svg"
+							 src="/assets/svg/star.svg"
 							 alt="">
 						<p class="text text-xl text-center">Добро пожаловать в&nbsp;роль руководителя!
 							Как исполнитель
@@ -58,45 +59,45 @@ onMounted(async () => {
 						<div class="col-lg-1 hide-xs">
 							<div class="icon-column">
 								<img class=""
-									 src="../assets/svg/disc.svg"
+									 src="/assets/svg/disc.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/volume.svg"
+									 src="/assets/svg/volume.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/disc.svg"
+									 src="/assets/svg/disc.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/volume.svg"
+									 src="/assets/svg/volume.svg"
 									 alt="">
 							</div>
 						</div>
 						<div class="col-xs-12 hide-lg">
 							<div class="icon-row icon-row-xs">
 								<img class=""
-									 src="../assets/svg/note-pink.svg"
+									 src="/assets/svg/note-pink.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/play-green.svg"
+									 src="/assets/svg/play-green.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/volume.svg"
+									 src="/assets/svg/volume.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/playlist.svg"
+									 src="/assets/svg/playlist.svg"
 									 alt="">
 
 								<img class=""
-									 src="../assets/svg/mic.svg"
+									 src="/assets/svg/mic.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/double-note.svg"
+									 src="/assets/svg/double-note.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/headphones-pink.svg"
+									 src="/assets/svg/headphones-pink.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/disc.svg"
+									 src="/assets/svg/disc.svg"
 									 alt="">
 							</div>
 						</div>
@@ -110,23 +111,23 @@ onMounted(async () => {
 								</div>
 								<div class="vinyl__wrap"><img alt=""
 										 class="vinyl__img js-vinyl"
-										 src="../assets/img/vinyl/vinyl.png" />
+										 src="/assets/img/vinyl/vinyl.png" />
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-1 hide-xs">
 							<div class="icon-column">
 								<img class=""
-									 src="../assets/svg/disc.svg"
+									 src="/assets/svg/disc.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/volume.svg"
+									 src="/assets/svg/volume.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/disc.svg"
+									 src="/assets/svg/disc.svg"
 									 alt="">
 								<img class=""
-									 src="../assets/svg/volume.svg"
+									 src="/assets/svg/volume.svg"
 									 alt="">
 
 							</div>
@@ -498,4 +499,3 @@ onMounted(async () => {
 		</main>
 	</Transition>
 </template>
-

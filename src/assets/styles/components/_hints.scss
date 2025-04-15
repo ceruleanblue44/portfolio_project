@@ -18,7 +18,7 @@
 		right: 8px;
 		width: 20px;
 		height: 20px;
-		background: url(../svg/star.svg) center no-repeat;
+		background: url(/assets/svg/star.svg) center no-repeat;
 	}
 
 	@media #{$breakpoint-xs-only} {
@@ -31,8 +31,7 @@
 			right: 6px;
 			width: 16px;
 			height: 16px;
-			background: url(../svg/star.svg) center no-repeat;
+			background: url(/assets/svg/star.svg) center no-repeat;
 		}
-
 	}
 }

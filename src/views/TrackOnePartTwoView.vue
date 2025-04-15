@@ -85,10 +85,10 @@ onMounted(async () => {
 								   :tweens="toggleImg.tweens">
 							<div class="pos-r"><img alt=""
 									 id="toggle-img-1-1"
-									 src="../assets/img/toggleImg/band.webp" /> <img alt=""
+									 src="/assets/img/toggleImg/band.webp" /> <img alt=""
 									 class="pos-a"
 									 id="toggle-img-1-2"
-									 src="../assets/img/toggleImg/baton.png"
+									 src="/assets/img/toggleImg/baton.png"
 									 style="right: 0; top: 0; max-width: 17%;" />
 							</div>
 						</ToggleImg>
@@ -144,7 +144,7 @@ onMounted(async () => {
 						<div class="mb-rem-3-0">
 							<div class="pos-r pt-90 pb-80"
 								 style="margin: 0 -60px;"><img alt=""
-									 src="../assets/img/track-1/path-1.svg"
+									 src="/assets/img/track-1/path-1.svg"
 									 style="width: 96%" />
 								<div class="pos-a"
 									 style="left: 121px; top: 0; width: 400px; height: 180px;">
@@ -185,7 +185,7 @@ onMounted(async () => {
 						<div class="mb-xs-rem-2-0">
 							<div class="pos-r pt-90 pb-80"><img alt=""
 									 class="pos-a mt-xs-85"
-									 src="../assets/img/track-1/path-1-xs.svg"
+									 src="/assets/img/track-1/path-1-xs.svg"
 									 style="top: 0; left: -24px;" />
 								<div class="card card_gray mb-xs-rem-1-50">
 									<p class="text text-l text-center">В&nbsp;начале дня выпиши все задачи, которые
@@ -243,16 +243,16 @@ onMounted(async () => {
 						<div class="gramophone__background">
 							<img alt=""
 								 class="gramophone__wave hide-xs"
-								 src="../assets/img/track-1/gramophone/wave.webp" /> <img alt="sound wave"
+								 src="/assets/img/track-1/gramophone/wave.webp" /> <img alt="sound wave"
 								 class="gramophone__wave hide-lg"
-								 src="../assets/img/track-1/gramophone/wave-xs.png" /> <img alt="note"
+								 src="/assets/img/track-1/gramophone/wave-xs.png" /> <img alt="note"
 								 class="gramophone__note-1"
-								 src="../assets/img/track-1/gramophone/note-1.svg" /> <img alt="note"
+								 src="/assets/img/track-1/gramophone/note-1.svg" /> <img alt="note"
 								 class="gramophone__note-2"
-								 src="../assets/img/track-1/gramophone/note-2.svg" />
+								 src="/assets/img/track-1/gramophone/note-2.svg" />
 							<img alt="gramophone"
 								 class="gramophone__gramophone"
-								 src="../assets/img/track-1/gramophone/gramophone.webp" />
+								 src="/assets/img/track-1/gramophone/gramophone.webp" />
 						</div>
 
 						<div class="gramophone__text-outer js-gramophone-text-outer">
@@ -331,7 +331,7 @@ onMounted(async () => {
 					</div>
 					<div class="col-lg-8 col-xs-12">
 						<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
-							 src="../assets/svg/star.svg"
+							 src="/assets/svg/star.svg"
 							 alt="">
 						<p class="text text-xl text-center">Ответы на&nbsp;эти вопросы помогут тебе создать
 							единый гармоничный процесс работы талантливых людей.
@@ -412,7 +412,7 @@ onMounted(async () => {
 						<div class="track-recap__container js-track-recap-container">
 							<div class="track-recap__sticky-top">
 								<img class="mr-rem-1-50 mr-xs-rem-1-0"
-									 src="../assets/svg/wave.svg"
+									 src="/assets/svg/wave.svg"
 									 alt="">
 								<h4 class="text-white">Ключевые принципы нового подхода:
 								</h4>
@@ -484,11 +484,11 @@ onMounted(async () => {
 									</h4>
 									<a class="d-flex card-download__link cursor-pointer"
 									   download
-									   href="../assets/pdfs/task.pdf">
+									   href="/assets/pdfs/task.pdf">
 										<h4 class="text-white text-m mr-xs-15">Скачать
 										</h4>
 										<img class="ml-rem-1-0"
-											 src="../assets/svg/download.svg"
+											 src="/assets/svg/download.svg"
 											 alt="">
 									</a>
 								</div>
@@ -514,7 +514,7 @@ onMounted(async () => {
 								</div>
 								<div class="article__picture">
 									<img class="img_center"
-										 src="../assets/img/menu/articles/article-1-1.png"
+										 src="/assets/img/menu/articles/article-1-1.png"
 										 alt=""
 										 @click="openModal">
 								</div>

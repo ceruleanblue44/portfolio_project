@@ -35,6 +35,15 @@ div {
 		max-width: 375px;
 	}
 
+	@media #{$breakpoint-lg-only} {
+		&-lg-only {
+			max-width: 1280px;
+			padding: 0 40px;
+			width: 100% !important;
+			margin: auto;
+		}
+	}
+
 	&_with-bg {
 		padding: 60px;
 		outline: solid 2px $neutral-12;
@@ -45,7 +54,7 @@ div {
 		&-img-black {
 			border-radius: 48px;
 			background: transparent;
-			background-image: url(../img/backgrounds/album-slider.webp);
+			background-image: url(/assets/img/backgrounds/album-slider.webp);
 			background-repeat: no-repeat;
 			background-position: center bottom;
 			background-size: cover;
@@ -71,7 +80,7 @@ div {
 		height: 805px;
 		border-radius: 48px;
 		background: transparent;
-		background-image: url("../img/backgrounds/instrument-picker.webp");
+		background-image: url("/assets/img/backgrounds/instrument-picker.webp");
 		background-repeat: no-repeat;
 		padding: 80px 40px 80px 40px !important;
 		overflow: hidden;
@@ -90,12 +99,12 @@ div {
 
 	&_bg-band {
 		padding: 3rem 40px;
-		background: url(../img/about/band.webp) center no-repeat;
+		background: url(/assets/img/about/band.webp) center no-repeat;
 	}
 
 	&_albums {
 		padding: 105px 40px 152px 40px;
-		background-image: url("../img/backgrounds/album-slider.webp");
+		background-image: url("/assets/img/backgrounds/album-slider.webp");
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
@@ -384,7 +393,7 @@ div {
 	justify-content: center;
 	flex-direction: row;
 	padding: 60px 0px 0px 60px;
-	background-image: url(../img/backgrounds/album-slider.webp);
+	background-image: url(/assets/img/backgrounds/album-slider.webp);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center bottom;
@@ -418,7 +427,7 @@ div {
 }
 
 .button-arrow {
-	background-image: url(../img/mod-4/button-arrow.png);
+	background-image: url(/assets/img/mod-4/button-arrow.png);
 	background-repeat: no-repeat;
 	background-size: contain;
 	width: 100px;
@@ -468,7 +477,7 @@ div {
 	}
 
 	&_arrow-down {
-		background-image: url("../svg/arrow-down.svg");
+		background-image: url("/assets/svg/arrow-down.svg");
 		background-size: 56px 56px;
 		background-position: center;
 		background-repeat: no-repeat;
@@ -477,7 +486,7 @@ div {
 
 .fade-page-enter-active,
 .fade-page-leave-active {
-	transition: opacity 0.5s ease-in-out;
+	transition: opacity 0.2s ease-in-out;
 }
 
 .fade-page-enter-from,
@@ -487,12 +496,12 @@ div {
 
 .hero-section {
 	margin-top: $main-header-height;
-	background-image: url(../img/about/zipper.png);
+	background-image: url(/assets/img/about/zipper.png);
 	background-size: cover;
 
 	@media #{$breakpoint-xs-only} {
 		margin-top: $main-header-height-xs;
-		background: url(../img/about/zipper-xs.png) center no-repeat;
+		background: url(/assets/img/about/zipper-xs.png) center no-repeat;
 		background-position-y: 33%;
 	}
 }
