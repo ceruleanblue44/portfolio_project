@@ -14,7 +14,7 @@ export const trackRecapAnimation = () => {
 		end: `+=${textBlocks.length * window.innerHeight}`,
 		pin: true,
 		anticipatePin: 1,
-		scrub: true,
+		scrub: 2,
 		markers: false,
 
 	})

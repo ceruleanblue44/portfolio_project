@@ -26,6 +26,7 @@ const svgContent = ref('')
 
 onMounted(async () => {
 	svgContent.value = await fetchSvg()
+	
 	customCursor()
 	discAnimation()
 	swiperInit()

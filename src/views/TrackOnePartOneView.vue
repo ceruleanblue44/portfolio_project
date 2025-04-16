@@ -3,8 +3,8 @@ import { ref, onMounted, nextTick } from 'vue'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import SkipButton from '@/components/SkipButton/SkipButton.vue'
-import { initLottieScroll } from '@/scripts/ui/lottieScroll'
-import wordsJson from '@/assets/lottie/words.json?url'
+// import { initLottieScroll } from '@/scripts/ui/lottieScroll'
+// import wordsJson from '@/assets/lottie/words.json?url'
 import { highlightBlocks } from '@/scripts/ui/highlightBlocks'
 import { textAnimation } from '@/scripts/ui/textAnimation'
 import CheckboxQuestion from '@/components/CheckboxQuestion/CheckboxQuestion.vue'
@@ -16,6 +16,8 @@ import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
 import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
+import { observeAnimation } from '@/scripts/ui/observeAnimation'
+import { lottieWords } from '@/scripts/ui/lottieWords'
 
 const { pageViewed } = usePagesViewedTracker()
 
@@ -31,17 +33,11 @@ const showAfter = () => {
 	scrollToElement(0)
 }
 
+
 onMounted(async () => {
 	await nextTick()
-	const lottieElement = document.querySelector('.js-lottie-scroll')
-
-	if (lottieElement) {
-		lottieElement.dataset.src = wordsJson
-	}
-	initLottieScroll()
-
 	svgContent.value = await fetchSvg()
-
+	observeAnimation(lottieWords, 0.4, false)
 	highlightBlocks()
 	refreshScrollTrigger()
 	textAnimation()
@@ -125,9 +121,8 @@ onMounted(async () => {
 			</div>
 
 			<div class="container">
-				<div class="lottie-scroll js-lottie-scroll"
+				<div class="lottie-scroll js-lottie js-animation"
 					 data-preserve-aspect-ratio="xMidYMid meet"
-					 id="lottie-1"
 					 style="width: 100%;">
 				</div>
 			</div>

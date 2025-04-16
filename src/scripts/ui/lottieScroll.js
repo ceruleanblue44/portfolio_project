@@ -7,29 +7,29 @@ import '@lottiefiles/lottie-player'
 gsap.registerPlugin(ScrollTrigger)
 
 export const initLottieScroll = () => {
-	let counterBtn = 0
-	if (counterBtn < 1) {
-		const container = document.querySelectorAll('.js-lottie-scroll.js-lottie-with-button')
-		container.forEach(function (item) {
-			const newDiv = document.createElement('button')
-			newDiv.className = 'button-arrow'
-			newDiv.classList.add('hide')
-			item.appendChild(newDiv)
-		})
-		counterBtn++
-	}
+	// let counterBtn = 0
+	// if (counterBtn < 1) {
+	// 	const container = document.querySelectorAll('.js-lottie-scroll.js-lottie-with-button')
+	// 	container.forEach(function (item) {
+	// 		const newDiv = document.createElement('button')
+	// 		newDiv.className = 'button-arrow'
+	// 		newDiv.classList.add('hide')
+	// 		item.appendChild(newDiv)
+	// 	})
+	// 	counterBtn++
+	// }
 
 	document.querySelectorAll('.js-lottie-scroll').forEach(element => {
 
-		let btn = element.querySelectorAll('.button-arrow')
-		btn.forEach(function (item) {
-			if (item) {
-				item.addEventListener('click', () => {
-					// revealHiddenContent(1)
-					// scrollToContent(1)
-				})
-			}
-		})
+		// let btn = element.querySelectorAll('.button-arrow')
+		// btn.forEach(function (item) {
+		// 	if (item) {
+		// 		item.addEventListener('click', () => {
+		// 			// revealHiddenContent(1)
+		// 			// scrollToContent(1)
+		// 		})
+		// 	}
+		// })
 
 		let timeLines = []
 		let options = {}
@@ -45,34 +45,35 @@ export const initLottieScroll = () => {
 			target: element,
 			path: element.dataset.src,
 			speed: "slow",
-			scrub: 3,
+			scrub: 5,
 			...options,
 			onUpdate: (self) => {
-				if (!btn) {
-					return
-				}
-				btn.forEach(function (item) {
-					if (self.progress >= 0.9) {
-						item.classList.remove('hide')
-					} else if (self.progress <= 0.9) {
-						item.classList.add('hide')
-					}
-				})
+				// console.log(self)
+				// if (!btn) {
+				// 	return
+				// }
+				// btn.forEach(function (item) {
+				// 	if (self.progress >= 0.9) {
+				// 		item.classList.remove('hide')
+				// 	} else if (self.progress <= 0.9) {
+				// 		item.classList.add('hide')
+				// 	}
+				// })
 
 			}
 		})
 
 		function LottieScrollTrigger(vars) {
-
 			let playhead = { frame: 0 },
 				target = gsap.utils.toArray(vars.target)[0],
 				speeds = { slow: "+=6000", medium: "+=1000", fast: "+=500" },
 				st = {
 					trigger: target,
 					pin: true,
+					anticipatePin: 1,
 					start: "top top",
 					end: speeds[vars.speed] || "+=1000",
-					scrub: 2,
+					scrub: 5,
 					onToggle: vars.onToggle,
 				},
 				ctx = gsap.context && gsap.context(),
@@ -91,7 +92,6 @@ export const initLottieScroll = () => {
 			}
 
 			let createTween = function () {
-
 				animation.frameTween = gsap.to(playhead, {
 					frame: animation.totalFrames - 1,
 					ease: "none",

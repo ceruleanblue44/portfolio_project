@@ -35,7 +35,8 @@ const svgContent = ref('')
 
 const showAfter = () => {
 	refreshScrollTrigger()
-
+	isSkipButtonVisible.value = false
+	
 	nextTick(() => {
 		headphonesAnimation()
 		showHiddenContent(0)
