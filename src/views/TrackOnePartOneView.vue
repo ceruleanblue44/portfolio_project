@@ -25,8 +25,10 @@ const { container } = useScrollTracker()
 
 const svgContent = ref('')
 
+const isSkipButtonVisible = ref(true)
 
 const showAfter = () => {
+	isSkipButtonVisible.value = false
 	refreshScrollTrigger()
 	showHiddenContent(0)
 	headphonesAnimation()
@@ -361,7 +363,7 @@ onMounted(async () => {
 					<template v-slot:feedback-1="">
 					</template>
 				</CheckboxQuestion>
-				<SkipButton v-if="!pageViewed"
+				<SkipButton v-if="!pageViewed && isSkipButtonVisible"
 							@click="showHiddenContent(0); scrollToElement(1)" />
 			</div>
 			<section class="hidden js-hidden js-scroll-element"

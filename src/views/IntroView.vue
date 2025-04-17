@@ -22,11 +22,19 @@ import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 const { container } = useScrollTracker()
 const { pageViewed } = usePagesViewedTracker()
 
+const isSkipButtonVisible = ref(true)
+
 const svgContent = ref('')
+
+const showAfter = () => {
+	isSkipButtonVisible.value = false
+	headphonesAnimation()
+	showHiddenContent(2) 
+	scrollToElement(2)
+}
 
 onMounted(async () => {
 	svgContent.value = await fetchSvg()
-	
 	customCursor()
 	discAnimation()
 	swiperInit()
@@ -87,7 +95,7 @@ onMounted(async () => {
 				<div class="container mb-rem-9-75 mb-xs-rem-6-0">
 					<div class="container_with-bg">
 						<RadioQuestion :radioQuestionIntro="radioQuestionIntro"
-									   @complete="headphonesAnimation(); showHiddenContent(2); scrollToElement(2)">
+									   @complete="showAfter">
 							<template v-slot:question-text="">
 								<h4 class="mb-rem-1-50 mb-xs-rem-1-0">Какая мелодия звучит сейчас в&nbsp;твоей голове?
 								</h4>
@@ -121,7 +129,7 @@ onMounted(async () => {
 							</template>
 						</RadioQuestion>
 					</div>
-					<SkipButton v-if="!pageViewed"
+					<SkipButton v-if="!pageViewed && isSkipButtonVisible"
 								@click="showHiddenContent(2); scrollToElement(3)" />
 				</div>
 			</section>
