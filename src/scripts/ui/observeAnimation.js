@@ -1,6 +1,6 @@
 export const observeAnimation = (fn, ratio, unobserve) => {
 	const targets = document.querySelectorAll('.js-animation')
-	console.log(targets);
+	// console.log(targets);
 
 	const observer = new IntersectionObserver((entries) => {
 	  entries.forEach((entry) => {
