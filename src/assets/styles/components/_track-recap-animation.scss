@@ -3,6 +3,7 @@
 
 .track-recap {
 	width: 100%;
+	will-change: transform;
 
 	&__head {
 		height: $main-header-height;
