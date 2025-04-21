@@ -12,7 +12,6 @@ export const textAnimation = () => {
 			scroller: '.scroll-container',
 			trigger: textCard,
 			markers: false,
-			scrub: true,
 			start: 'top 85%',
 			end: 'top top'
 		}

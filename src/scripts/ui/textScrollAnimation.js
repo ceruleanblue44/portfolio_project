@@ -11,7 +11,7 @@ export const textScrollAnimation = () => {
 			scrollTrigger: {
 				scroller: '.scroll-container',
 				trigger: textEl,
-				scrub: 1,
+				scrub: 3,
 				markers: false,
 				start: 'top 70%',
 				end: 'top 25%',

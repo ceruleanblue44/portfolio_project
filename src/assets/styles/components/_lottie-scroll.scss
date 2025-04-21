@@ -5,6 +5,8 @@
 	padding-top: $main-header-height !important;
 	height: 100dvmin !important;
 	max-height: 100dvmin !important;
+	will-change: transform;
+	// transform: translateZ(0);
 
 	@media #{$breakpoint-xs-only} {
 		padding-top: $main-header-height-xs !important;

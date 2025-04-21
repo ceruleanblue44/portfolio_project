@@ -47,20 +47,20 @@ export const initLottieScroll = () => {
 			speed: "slow",
 			scrub: 5,
 			...options,
-			onUpdate: (self) => {
-				// console.log(self)
-				// if (!btn) {
-				// 	return
-				// }
-				// btn.forEach(function (item) {
-				// 	if (self.progress >= 0.9) {
-				// 		item.classList.remove('hide')
-				// 	} else if (self.progress <= 0.9) {
-				// 		item.classList.add('hide')
-				// 	}
-				// })
+			// onUpdate: (self) => {
+			// 	// console.log(self)
+			// 	// if (!btn) {
+			// 	// 	return
+			// 	// }
+			// 	// btn.forEach(function (item) {
+			// 	// 	if (self.progress >= 0.9) {
+			// 	// 		item.classList.remove('hide')
+			// 	// 	} else if (self.progress <= 0.9) {
+			// 	// 		item.classList.add('hide')
+			// 	// 	}
+			// 	// })
 
-			}
+			// }
 		})
 
 		function LottieScrollTrigger(vars) {

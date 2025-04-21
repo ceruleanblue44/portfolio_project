@@ -50,7 +50,7 @@ const showAfterSkip = () => {
 	refreshScrollTrigger()
 	showHiddenContent(0)
 	scrollToElement(1)
-	// trackRecapAnimation()
+	trackRecapAnimation()
 }
 
 onMounted(async () => {
@@ -60,10 +60,9 @@ onMounted(async () => {
 	textGramophoneAnimation()
 
 	setTimeout(() => {
-		trackRecapAnimation()
-		// if (pageViewed.value === true) {
-		// 	trackRecapAnimation()
-		// }
+		if (pageViewed.value === true) {
+			trackRecapAnimation()
+		}
 	}, 100)
 });
 
