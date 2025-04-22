@@ -6,7 +6,9 @@ gsap.registerPlugin(ScrollTrigger)
 export const textScrollAnimation = () => {
 	const textElements = document.querySelectorAll('.js-text')
 
-	textElements.forEach((textEl) => {
+	const isMobile = window.matchMedia('(max-width: 768px)').matches
+
+	textElements.forEach((textEl, index) => {
 		gsap.fromTo(textEl, {
 			opacity: 0,
 			scale: 0.8,
@@ -19,12 +21,12 @@ export const textScrollAnimation = () => {
 			rotate: 0,
 			duration: 0.6,
 			ease: 'power2.out',
-			stagger: 0.7,
+			delay: index * 0.25,
 			scrollTrigger: {
 				trigger: textEl,
 				scroller: '.scroll-container',
-				start: 'top 80%',
-				end: 'top 25%',
+				start: isMobile ? 'top 90%' : 'top 80%',
+				end: isMobile ? 'top 15%' : 'top 25%',
 				toggleActions: 'play reverse play reverse',
 			}
 		})

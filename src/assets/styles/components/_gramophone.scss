@@ -28,6 +28,9 @@
 
 		@media #{$breakpoint-xs-only} {
 			height: calc(100dvh - $main-header-height-xs);
+			flex-direction: column;
+			justify-content: start;
+			padding-top: 8rem;
 		}
 	}
 
@@ -43,7 +46,6 @@
 	&__wave {
 		position: absolute;
 		width: 85%;
-
 		left: 1%;
 		top: 3%;
 		transform-origin: right center;
@@ -135,6 +137,12 @@
 		&-wrapper {
 			display: flex;
 			width: 500vw;
+			will-change: transform;
+
+			@media #{$breakpoint-xs-only} {
+				width: 75%;
+				display: block;
+			}
 		}
 	}
 

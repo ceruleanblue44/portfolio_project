@@ -16,7 +16,7 @@ export const trackRecapAnimation = () => {
 		anticipatePin: 1,
 		scrub: 2,
 		markers: false,
-
+		invalidateOnRefresh: true
 	})
 
 	textBlocks.forEach((text, i) => {

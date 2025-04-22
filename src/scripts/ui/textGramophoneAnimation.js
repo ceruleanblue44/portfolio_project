@@ -6,7 +6,6 @@ gsap.registerPlugin(ScrollTrigger)
 export const textGramophoneAnimation = () => {
 	const section = document.querySelector('.js-gramophone')
 	const textBlocks = gsap.utils.toArray('.js-gramophone-text')
-
 	const textWrapper = document.querySelector('.js-gramophone-text-wrapper')
 
 	let tl = gsap.timeline({
@@ -24,7 +23,7 @@ export const textGramophoneAnimation = () => {
 	})
 
 	tl.to(textWrapper, {
-		xPercent: -75
+		xPercent: -75,
 	})
 
 	textBlocks.forEach(textBlock => {

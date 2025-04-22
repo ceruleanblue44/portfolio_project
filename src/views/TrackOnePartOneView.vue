@@ -37,15 +37,18 @@ const showAfter = () => {
 
 
 onMounted(async () => {
+	const isMobile = window.matchMedia('(max-width: 719px)').matches
+
 	await nextTick()
 	// Select the Lottie container and set its data-src attribute
 	const lottieElement = document.querySelector('.js-lottie-scroll')
 
-	if (lottieElement) {
-		lottieElement.dataset.src = wordsJson
+	if (!isMobile) {
+		if (lottieElement) {
+			lottieElement.dataset.src = wordsJson
+		}
+		initLottieScroll()
 	}
-	// Initialize the Lottie animation
-	initLottieScroll()
 	svgContent.value = await fetchSvg()
 	// observeAnimation(lottieWords, 0.4, false)
 	highlightBlocks()
@@ -130,20 +133,17 @@ onMounted(async () => {
 				</div>
 			</div>
 
-			<div class="container">
+			<div class="container hide-xs">
 				<div class="lottie-scroll js-lottie-scroll"
 					 data-preserve-aspect-ratio="xMidYMid meet"
-					 id="lottie-1"
 					 style="width: 100%;">
 				</div>
 			</div>
 
-			<!-- <div class="container">
-				<div class="lottie-scroll js-lottie js-animation"
-					 data-preserve-aspect-ratio="xMidYMid meet"
-					 style="width: 100%;">
-				</div>
-			</div> -->
+			<div class="container mb-xs-rem-4-0 hide-lg">
+				<img src="/assets/img/track-1/img-2-xs.svg"
+					 alt="">
+			</div>
 
 			<div class="container mb-rem-7-0 mb-xs-rem-6-0">
 				<div class="card_large card_border-neutral-12 js-text-card">

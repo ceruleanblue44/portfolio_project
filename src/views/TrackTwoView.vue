@@ -85,13 +85,16 @@ const rangeSlidersSkipped = () => {
 }
 
 onMounted(() => {
+	const isMobile = window.matchMedia('(max-width: 719px)').matches
 	swiperInit()
 
-	setTimeout(() => {
-		if (pageViewed.value === true) {
-			trackRecapAnimation()
-		}
-	}, 300)
+	if (!isMobile) {
+		setTimeout(() => {
+			if (pageViewed.value === true) {
+				trackRecapAnimation()
+			}
+		}, 300)
+	}
 })
 
 </script>
@@ -623,24 +626,30 @@ onMounted(() => {
 							</div>
 							<div class="track-recap__text-wrapper">
 								<div class="track-recap__text js-track-recap-text">
-									<h3 class="text-white text-xs-center w-100">Мои обязанности определяются ключевой
-										областью
-										управления. Мне не&nbsp;нужно заниматься всем и&nbsp;сразу.
+									<h3 class="text-white text-xs-center w-100 hide-xs">Мои обязанности определяются ключевой
+										областью управления. Мне не&nbsp;нужно заниматься всем и&nbsp;сразу.
 									</h3>
+									<h5 class="text-white mb-xs-rem-1-50 hide-lg">Мои обязанности определяются ключевой
+										областью управления. Мне не&nbsp;нужно заниматься всем и&nbsp;сразу.
+									</h5>
 								</div>
 								<div class="track-recap__text js-track-recap-text">
-									<h3 class="text-white text-xs-center w-100">Важно четко определить границы своей
+									<h3 class="text-white text-xs-center w-100 hide-xs">Важно четко определить границы своей
 										ответственности, чтобы эффективно управлять процессом.
 									</h3>
+									<h5 class="text-white mb-xs-rem-1-50 hide-lg">Важно четко определить границы своей
+										ответственности, чтобы эффективно управлять процессом.
+									</h5>
 								</div>
 								<div class="track-recap__text js-track-recap-text">
-									<h3 class="text-white text-xs-center w-100">Линейные менеджеры и&nbsp;менеджеры
-										среднего
-										звена
-										тоже включены в&nbsp;стратегию компании, это помогает мотивировать команду
-										и&nbsp;показать
-										значение работы.
+									<h3 class="text-white text-xs-center w-100 hide-xs">Линейные менеджеры и&nbsp;менеджеры
+										среднего звена тоже включены в&nbsp;стратегию компании, это помогает мотивировать команду
+										и&nbsp;показать значение работы.
 									</h3>
+									<h5 class="text-white mb-xs-rem-0-50 hide-lg">Линейные менеджеры и&nbsp;менеджеры
+										среднего звена тоже включены в&nbsp;стратегию компании, это помогает мотивировать команду
+										и&nbsp;показать значение работы.
+									</h5>
 								</div>
 							</div>
 						</div>

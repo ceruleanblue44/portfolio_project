@@ -6,6 +6,8 @@
 	max-height: 100vh;
 	scrollbar-width: thin; // Firefox
 	scrollbar-color: $neutral-32 transparent; // Firefox
+	overscroll-behavior: none; /* Prevent iOS bounce */
+	touch-action: pan-y;
 }
 
 // Webkit-based browsers (Chrome, Edge, Safari)
@@ -44,4 +46,3 @@
 		scrollbar-width: none; // Firefox
 	}
 }
-

@@ -36,7 +36,7 @@ const svgContent = ref('')
 const showAfter = () => {
 	refreshScrollTrigger()
 	isSkipButtonVisible.value = false
-	
+
 	nextTick(() => {
 		headphonesAnimation()
 		showHiddenContent(0)
@@ -54,11 +54,17 @@ const showAfterSkip = () => {
 }
 
 onMounted(async () => {
+	const isMobile = window.matchMedia('(max-width: 719px)').matches
 	svgContent.value = await fetchSvg()
 
+
+	if (!isMobile) {
+		textGramophoneAnimation()
+		trackRecapAnimation()
+	}
+
 	textScrollAnimation()
-	textGramophoneAnimation()
-	trackRecapAnimation()
+
 
 	// setTimeout(() => {
 	// 	if (pageViewed.value === true) {
@@ -238,14 +244,15 @@ onMounted(async () => {
 			</div>
 
 			<div class="container mb-rem-4-0 mb-xs-rem-3-0">
-				<div class="gramophone js-gramophone mb-rem-4-0 mb-xs-rem-3-0">
+				<div class="gramophone js-gramophone mb-rem-4-0">
 					<div class="gramophone__head">
 					</div>
 					<div class="gramophone__container js-gramophone-container">
 						<div class="gramophone__background">
 							<img alt=""
 								 class="gramophone__wave hide-xs"
-								 src="/assets/img/track-1/gramophone/wave.webp" /> <img alt="sound wave"
+								 src="/assets/img/track-1/gramophone/wave.webp" />
+							<img alt="sound wave"
 								 class="gramophone__wave hide-lg"
 								 src="/assets/img/track-1/gramophone/wave-xs.png" /> <img alt="note"
 								 class="gramophone__note-1"
@@ -257,13 +264,36 @@ onMounted(async () => {
 								 src="/assets/img/track-1/gramophone/gramophone.webp" />
 						</div>
 
-						<div class="gramophone__text-outer js-gramophone-text-outer">
+						<div class="gramophone__text-wrapper hide-lg">
+							<div class="text-center mb-xs-rem-1-0">
+								<h3 class="text-white mb-xs-rem-0-50">Что делаем?
+								</h3>
+								<p class="text text-m text-white">Определи цели и&nbsp;желаемые результаты
+									команды.
+								</p>
+							</div>
+							<div class="text-center mb-xs-rem-1-0">
+								<h3 class="text-white mb-xs-rem-0-50">Кто делает?
+								</h3>
+								<p class="text text-m text-white">Распредели роли и&nbsp;ответственность.
+								</p>
+							</div>
+							<div class="text-center mb-xs-rem-1-0">
+								<h3 class="text-white mb-xs-rem-0-50">За&nbsp;счет чего?
+								</h3>
+								<p class="text text-m text-white">Создай процессы и&nbsp;обеспечь ресурсы
+									для&nbsp;достижения целей.
+								</p>
+							</div>
+						</div>
+
+						<div class="gramophone__text-outer js-gramophone-text-outer hide-xs">
 							<div class="gramophone__text-wrapper js-gramophone-text-wrapper">
 								<div class="gramophone__text js-gramophone-text w-50">&nbsp;</div>
 								<div class="gramophone__text js-gramophone-text">
 									<div class="inner">
 										<div class="w-50-lg">
-											<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Что делаем?
+											<h1 class="text-white mb-rem-1-50 ">Что делаем?
 											</h1>
 											<p class="text text-l text-white">Определи цели и&nbsp;желаемые результаты
 												команды.
@@ -274,7 +304,7 @@ onMounted(async () => {
 								<div class="gramophone__text js-gramophone-text">
 									<div class="inner">
 										<div class="w-50-lg">
-											<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Кто делает?
+											<h1 class="text-white mb-rem-1-50">Кто делает?
 											</h1>
 											<p class="text text-l text-white">Распредели роли и&nbsp;ответственность.
 											</p>
@@ -284,7 +314,7 @@ onMounted(async () => {
 								<div class="gramophone__text js-gramophone-text">
 									<div class="inner">
 										<div class="w-35-lg">
-											<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">За&nbsp;счет чего?
+											<h1 class="text-white mb-rem-1-50">За&nbsp;счет чего?
 											</h1>
 											<p class="text text-l text-white">Создай процессы и&nbsp;обеспечь ресурсы
 												для&nbsp;достижения
@@ -421,26 +451,38 @@ onMounted(async () => {
 							</div>
 							<div class="track-recap__text-wrapper">
 								<div class="track-recap__text js-track-recap-text">
-									<h3 class="text-white text-xs-center w-100">Мой успех измеряется результатами
-										команды. Моя
+									<h3 class="text-white w-100 hide-xs">Мой успех измеряется результатами
+										команды. Моя эффективность = результаты моей команды.
+									</h3>
+									<h5 class="text-white mb-xs-rem-1-50 hide-lg">Мой успех измеряется
+										результатами
+										команды. <br />Моя
 										эффективность =
 										результаты моей команды.
-									</h3>
+									</h5>
 								</div>
 								<div class="track-recap__text js-track-recap-text">
-									<h3 class="text-white text-xs-center w-100">Приоритет&nbsp;&mdash; устранение
-										препятствий для
-										работы
-										моей
-										команды.
+									<h3 class="text-white w-100 hide-xs">Приоритет&nbsp;&mdash; устранение
+										препятствий для работы моей команды.
 									</h3>
+									<h5 class="text-white mb-xs-rem-1-50 hide-lg">Приоритет&nbsp;&mdash;
+										устранение
+										препятствий для работы моей команды.
+									</h5>
 								</div>
 								<div class="track-recap__text js-track-recap-text">
-									<h3 class="text-white text-xs-center w-100">Я&nbsp;не&nbsp;всегда смогу погружаться
+									<h3 class="text-white w-100 hide-xs">Я&nbsp;не&nbsp;всегда смогу погружаться
 										в&nbsp;задачи
-										&mdash;&nbsp;и&nbsp;это не
-										страшно! Делегирование&nbsp;&mdash; основной инструмент достижения результатов.
+										&mdash;&nbsp;и&nbsp;это не страшно! Делегирование&nbsp;&mdash; основной
+										инструмент
+										достижения результатов.
 									</h3>
+									<h5 class="text-white mb-xs-rem-0-50 hide-lg">Я&nbsp;не&nbsp;всегда смогу погружаться
+										в&nbsp;задачи
+										&mdash;&nbsp;и&nbsp;это не страшно!<br /> Делегирование&nbsp;&mdash; основной
+										инструмент
+										достижения результатов.
+									</h5>
 								</div>
 							</div>
 						</div>
