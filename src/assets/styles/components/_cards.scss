@@ -194,7 +194,7 @@
 				background: linear-gradient(90deg, $primary 0%, $primary-lighten 100%);
 			}
 
-			@media (max-width: 719px) {
+			@media #{$breakpoint-xs-only} {
 				justify-content: center;
 			}
 		}
@@ -205,13 +205,13 @@
 			padding: 24px;
 			background-color: $neutral-16;
 
-			@media (max-width: 719px) {
+			@media #{$breakpoint-xs-only} {
 				padding: 25px 65px;
 				width: 100%;
 			}
 		}
 
-		@media (max-width: 719px) {
+		@media #{$breakpoint-xs-only} {
 			padding: 32px 24px;
 		}
 	}

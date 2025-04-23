@@ -27,7 +27,7 @@ const { container } = useScrollTracker()
 					<div class="col-lg-4 col-xs-12">
 						<picture>
 							<source srcset="/assets/img/about/dev-xs.png"
-									media="(max-width: 719px)" />
+									media="(max-width: 719px), (orientation: landscape) and (max-height: 600px)" />
 							<img class="img_center mb-rem-1-50 mb-xs-rem-1-0"
 								 src="/assets/img/about/dev.png"
 								 alt="header logo" />
@@ -103,6 +103,7 @@ const { container } = useScrollTracker()
 				<div class="row">
 					<div class="col-xs-12">
 						<img src="/assets/img/about/band-xs.png"
+							 class="img_center"
 							 alt="band"
 							 style="opacity: .7;">
 					</div>

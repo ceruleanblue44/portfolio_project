@@ -1,5 +1,7 @@
 <script setup>
 import { onMounted, ref, watch, computed, getCurrentInstance } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useViewStore } from '@/stores/useViewStore'
 import './CheckboxQuestionGrid.scss'
 
 const selectedAnswer = ref([])
@@ -21,7 +23,8 @@ const props = defineProps({
 	previousAnswer: { type: Array, default: () => [] },
 })
 
-const isMobile = computed(() => window.screen.width < 719)
+const view = useViewStore()
+const { isMobile } = storeToRefs(view)
 
 const getGridStyle = computed(() => isMobile.value ? props.gridStyleXs : props.gridStyle)
 

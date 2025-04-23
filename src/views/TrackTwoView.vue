@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
+import { storeToRefs } from 'pinia'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import SkipButton from '@/components/SkipButton/SkipButton.vue'
@@ -20,6 +21,7 @@ import { rangeSliders } from '@/rangeSlidersData/rangeSliders'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
 import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
+import { useViewStore } from '@/stores/useViewStore'
 
 const { pageViewed } = usePagesViewedTracker()
 
@@ -29,6 +31,9 @@ const svgContent = ref('')
 const svgContent1 = ref('')
 const isSkipButtonVisible1 = ref(true)
 const isSkipButtonVisible2 = ref(true)
+
+const view = useViewStore()
+const { isMobile } = storeToRefs(view)
 
 const disableScrollbar = () => {
 	document.body.style.overflow = 'hidden'
@@ -85,10 +90,9 @@ const rangeSlidersSkipped = () => {
 }
 
 onMounted(() => {
-	const isMobile = window.matchMedia('(max-width: 719px)').matches
 	swiperInit()
 
-	if (!isMobile) {
+	if (!isMobile.value) {
 		setTimeout(() => {
 			if (pageViewed.value === true) {
 				trackRecapAnimation()
@@ -443,7 +447,7 @@ onMounted(() => {
 											<img alt=""
 												 class="hide-xs"
 												 src="/assets/img/track-2/slider/slide-1.svg" /> <img alt=""
-												 class="hide-lg"
+												 class="img_center hide-lg"
 												 src="/assets/img/track-2/slider/slide-xs-1.svg" />
 										</div>
 									</div>
@@ -461,7 +465,7 @@ onMounted(() => {
 											<img alt=""
 												 class="hide-xs"
 												 src="/assets/img/track-2/slider/slide-2.svg" /> <img alt=""
-												 class="hide-lg"
+												 class="img_center hide-lg"
 												 src="/assets/img/track-2/slider/slide-xs-2.svg" />
 										</div>
 									</div>
@@ -477,7 +481,7 @@ onMounted(() => {
 											<img alt=""
 												 class="hide-xs"
 												 src="/assets/img/track-2/slider/slide-3.svg" /> <img alt=""
-												 class="hide-lg"
+												 class="img_center hide-lg"
 												 src="/assets/img/track-2/slider/slide-xs-3.svg" />
 										</div>
 									</div>
@@ -496,7 +500,7 @@ onMounted(() => {
 											<img alt=""
 												 class="hide-xs"
 												 src="/assets/img/track-2/slider/slide-4.svg" /> <img alt=""
-												 class="hide-lg"
+												 class="img_center hide-lg"
 												 src="/assets/img/track-2/slider/slide-xs-4.svg" />
 										</div>
 									</div>
@@ -626,7 +630,8 @@ onMounted(() => {
 							</div>
 							<div class="track-recap__text-wrapper">
 								<div class="track-recap__text js-track-recap-text">
-									<h3 class="text-white text-xs-center w-100 hide-xs">Мои обязанности определяются ключевой
+									<h3 class="text-white text-xs-center w-100 hide-xs">Мои обязанности определяются
+										ключевой
 										областью управления. Мне не&nbsp;нужно заниматься всем и&nbsp;сразу.
 									</h3>
 									<h5 class="text-white mb-xs-rem-1-50 hide-lg">Мои обязанности определяются ключевой
@@ -634,7 +639,8 @@ onMounted(() => {
 									</h5>
 								</div>
 								<div class="track-recap__text js-track-recap-text">
-									<h3 class="text-white text-xs-center w-100 hide-xs">Важно четко определить границы своей
+									<h3 class="text-white text-xs-center w-100 hide-xs">Важно четко определить границы
+										своей
 										ответственности, чтобы эффективно управлять процессом.
 									</h3>
 									<h5 class="text-white mb-xs-rem-1-50 hide-lg">Важно четко определить границы своей
@@ -642,12 +648,15 @@ onMounted(() => {
 									</h5>
 								</div>
 								<div class="track-recap__text js-track-recap-text">
-									<h3 class="text-white text-xs-center w-100 hide-xs">Линейные менеджеры и&nbsp;менеджеры
-										среднего звена тоже включены в&nbsp;стратегию компании, это помогает мотивировать команду
+									<h3 class="text-white text-xs-center w-100 hide-xs">Линейные менеджеры
+										и&nbsp;менеджеры
+										среднего звена тоже включены в&nbsp;стратегию компании, это помогает
+										мотивировать команду
 										и&nbsp;показать значение работы.
 									</h3>
 									<h5 class="text-white mb-xs-rem-0-50 hide-lg">Линейные менеджеры и&nbsp;менеджеры
-										среднего звена тоже включены в&nbsp;стратегию компании, это помогает мотивировать команду
+										среднего звена тоже включены в&nbsp;стратегию компании, это помогает
+										мотивировать команду
 										и&nbsp;показать значение работы.
 									</h5>
 								</div>

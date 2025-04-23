@@ -10,7 +10,7 @@
 		flex-direction: column !important;
 
 		&_xs {
-			@media screen and (max-width: 719px) {
+			@media #{$breakpoint-xs-only} {
 				flex-direction: column !important;
 			}
 		}
@@ -85,7 +85,7 @@
 			max-width: math.div(100%, $grid-columns-xs) * $i;
 			padding: $gutter-lg;
 
-			@media screen and (max-width: 719px) {
+			@media #{$breakpoint-xs-only} {
 				padding: $gutter-xs;
 			}
 		}

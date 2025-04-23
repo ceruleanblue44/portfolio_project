@@ -82,7 +82,7 @@ swiper-container::part(container) {
 .playlist-slider {
 	position: relative;
 	overflow: hidden;
-	@media (max-width: 719px) {
+	@media #{$breakpoint-xs-only} {
 		padding-bottom: 53px;
 	}
 	.swiper-slide {
@@ -97,12 +97,12 @@ swiper-container::part(container) {
 		display: flex;
 		align-items: center;
 		z-index: 11;
-		@media (max-width: 719px) {
+		@media #{$breakpoint-xs-only} {
 			width: 100%;
 		}
 
 		.slider__pagination {
-			@media (max-width: 719px) {
+			@media #{$breakpoint-xs-only} {
 				display: flex;
 				justify-content: center;
 				margin-left: 0px !important;

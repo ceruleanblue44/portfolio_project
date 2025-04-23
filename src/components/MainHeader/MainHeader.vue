@@ -1,15 +1,20 @@
 <script setup>
 import './MainHeader.scss'
 import { ref, computed, watch } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useRoute, useRouter } from 'vue-router'
 import { headerData } from '@/headerData/headerData'
 import HeaderNavArticles from './HeaderNavArticles.vue'
 import HeaderNavMaterials from './HeaderNavMaterials.vue'
 import HeaderNavContents from './HeaderNavContents.vue'
+import { useViewStore } from '@/stores/useViewStore'
 
 const router = useRouter()
 
 const route = useRoute()
+
+const view = useViewStore()
+const { isMobile } = storeToRefs(view)
 
 const isMenuOpen = ref(false)
 
@@ -64,7 +69,7 @@ watch(() => route.path, () => {
 				<div class="header__logo">
 					<picture>
 						<source srcset="/assets/svg/header-logo-xs.svg"
-								media="(max-width: 719px)" />
+								media="(max-width: 719px), (orientation: landscape) and (max-height: 600px)" />
 						<img src="/assets/svg/header-logo.svg"
 							 alt="header logo" />
 					</picture>
@@ -113,7 +118,7 @@ watch(() => route.path, () => {
 		</div>
 
 		<div v-show="isMenuOpen"
-			 class="header-nav"
+			 :class="['header-nav', {'scroll-container': isMobile}]"
 			 ref="headerNav">
 			<div class="header-nav__album-info hide-lg">
 				<div class="header-nav__album-name">

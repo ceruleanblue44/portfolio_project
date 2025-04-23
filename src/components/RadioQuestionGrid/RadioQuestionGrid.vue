@@ -1,6 +1,8 @@
 <script setup>
 
 import { onMounted, ref, computed, watch, getCurrentInstance } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useViewStore } from '@/stores/useViewStore'
 import './RadioQuestionGrid.scss'
 
 const selectedAnswer = ref(null)
@@ -22,7 +24,8 @@ const props = defineProps({
 
 const emit = defineEmits(['select-answer'])
 
-const isMobile = computed(() => window.screen.width < 719)
+const view = useViewStore()
+const { isMobile } = storeToRefs(view)
 
 const getGridStyle = computed(() => isMobile.value ? props.gridStyleXs : props.gridStyle)
 

@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
+import { storeToRefs } from 'pinia'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import SkipButton from '@/components/SkipButton/SkipButton.vue'
@@ -18,6 +19,7 @@ import { headphonesAnimation } from '@/scripts/ui/headphonesAnimation'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
 import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
+import { useViewStore } from '@/stores/useViewStore'
 
 const { pageViewed } = usePagesViewedTracker()
 
@@ -54,11 +56,13 @@ const showAfterSkip = () => {
 }
 
 onMounted(async () => {
-	const isMobile = window.matchMedia('(max-width: 719px)').matches
+	const view = useViewStore()
+	const { isMobile } = storeToRefs(view)
+
 	svgContent.value = await fetchSvg()
 
 
-	if (!isMobile) {
+	if (!isMobile.value) {
 		textGramophoneAnimation()
 		trackRecapAnimation()
 	}
@@ -477,7 +481,8 @@ onMounted(async () => {
 										инструмент
 										достижения результатов.
 									</h3>
-									<h5 class="text-white mb-xs-rem-0-50 hide-lg">Я&nbsp;не&nbsp;всегда смогу погружаться
+									<h5 class="text-white mb-xs-rem-0-50 hide-lg">Я&nbsp;не&nbsp;всегда смогу
+										погружаться
 										в&nbsp;задачи
 										&mdash;&nbsp;и&nbsp;это не страшно!<br /> Делегирование&nbsp;&mdash; основной
 										инструмент

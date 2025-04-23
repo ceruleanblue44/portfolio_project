@@ -122,7 +122,7 @@ onMounted(() => {
 		<div class="row">
 			<div class="col-lg-2 col-xs-12 mb-xs-10">
 				<button class="btn btn_back w-100"
-						:disabled="!btnAnswer || feedbackShow"
+						:disabled="!btnAnswer || feedbackShow || disabled"
 						@click="reset()">
 					Сбросить
 				</button>

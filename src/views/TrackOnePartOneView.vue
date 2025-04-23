@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
+import { storeToRefs } from 'pinia'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import SkipButton from '@/components/SkipButton/SkipButton.vue'
@@ -16,6 +17,7 @@ import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
 import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
+import { useViewStore } from '@/stores/useViewStore'
 // import { observeAnimation } from '@/scripts/ui/observeAnimation'
 // import { lottieWords } from '@/scripts/ui/lottieWords'
 
@@ -37,13 +39,14 @@ const showAfter = () => {
 
 
 onMounted(async () => {
-	const isMobile = window.matchMedia('(max-width: 719px)').matches
+	const view = useViewStore()
+	const { isMobile } = storeToRefs(view)
 
 	await nextTick()
 	// Select the Lottie container and set its data-src attribute
 	const lottieElement = document.querySelector('.js-lottie-scroll')
 
-	if (!isMobile) {
+	if (!isMobile.value) {
 		if (lottieElement) {
 			lottieElement.dataset.src = wordsJson
 		}
@@ -142,6 +145,7 @@ onMounted(async () => {
 
 			<div class="container mb-xs-rem-4-0 hide-lg">
 				<img src="/assets/img/track-1/img-2-xs.svg"
+					 class="img_center"
 					 alt="">
 			</div>
 
@@ -290,11 +294,11 @@ onMounted(async () => {
 					</p>
 				</div>
 				<div class="pos-a hide-lg"
-					 style="left: 12px; bottom: -6px; width: 206px;">
-					<p class="text text-xl text-semibold">Возможно, сейчас ты&nbsp;пытаешься совместить в&nbsp;себе две
+					 style="left: 12px; bottom: 45px; width: 206px;">
+					<p class="text text-l text-semibold">Возможно, сейчас ты&nbsp;пытаешься совместить в&nbsp;себе две
 						роли: специалиста и&nbsp;руководителя.
 					</p>
-					<p class="text text-xl text-semibold">Но&nbsp;пришло время их&nbsp;разделить.
+					<p class="text text-l text-semibold">Но&nbsp;пришло время их&nbsp;разделить.
 					</p>
 				</div>
 			</div>
@@ -458,9 +462,8 @@ onMounted(async () => {
 						 src="/assets/img/track-1/dj.webp"
 						 width="1200" />
 					<img alt="dj"
-						 class="hide-lg"
-						 src="/assets/img/track-1/dj-xs.webp"
-						 width="343" />
+						 class="img_center hide-lg"
+						 src="/assets/img/track-1/dj-xs.webp" />
 				</div>
 				<div class="container mb-rem-9-75 mb-xs-rem-6-0">
 					<div class="row">
