@@ -27,7 +27,6 @@
 		will-change: transform;
 
 		@media #{$breakpoint-xs-only} {
-			// height: calc(100dvh - $main-header-height-xs);
 			height: 800px;
 			flex-direction: column;
 			justify-content: start;

@@ -19,6 +19,7 @@ import ArrowSquareLeft from '@/assets/svg/arrow-square-left.svg'
 import RangeSliders from '@/components/RangeSliders/RangeSliders.vue'
 import { rangeSliders } from '@/rangeSlidersData/rangeSliders'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
+import { disableScroll, enableScroll } from '@/scripts/utils/scrollLock'
 import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 import { useViewStore } from '@/stores/useViewStore'
@@ -34,14 +35,6 @@ const isSkipButtonVisible2 = ref(true)
 
 const view = useViewStore()
 const { isMobile } = storeToRefs(view)
-
-const disableScrollbar = () => {
-	document.body.style.overflow = 'hidden'
-}
-
-const enableScrollbar = () => {
-	document.body.style.overflow = ''
-}
 
 const showAfter = async (isCorrect) => {
 	const color = isCorrect ? 'green' : 'red'
@@ -162,9 +155,6 @@ onMounted(() => {
 					</div>
 					<div class="col-lg-8 col-xs-12">
 						<p class="text text-l text-center text-xs-left text-gray-1">
-							<!-- Руководители разных уровней менеджмента
-						фокусируются на определенных вопросах управления, чтобы эффективно справляться со своими
-						задачами. -->
 							Руководители каждого уровня управления имеют свой фокус внимания. Прежде чем
 							мы&nbsp;углубимся
 							в&nbsp;тему, определи свои текущие приоритеты.
@@ -554,8 +544,8 @@ onMounted(() => {
 							</div>
 						</div>
 						<RangeSliders :settings="rangeSliders"
-									  @disable-scrollbar="disableScrollbar"
-									  @enable-scrollbar="enableScrollbar"
+									  @disable-scrollbar="disableScroll"
+									  @enable-scrollbar="enableScroll"
 									  @complete="rangeSlidersComplete()">
 							<template v-slot:sliders-feedback="">
 								<div class="row js-scroll-element"
@@ -592,30 +582,6 @@ onMounted(() => {
 			<section class="hidden js-hidden js-scroll-element"
 					 data-scroll-id="3"
 					 data-hidden-id="1">
-				<!-- <div class="container mb-rem-4-75 mb-xs-rem-3-0">
-					<div class="row">
-						<div class="col-lg-8 col-xs-12">
-							<div class="card card_medium card_white">
-								<h3 class="mb-rem-1-0 mb-xs-rem-1-0 text-primary">Отлично!
-								</h3>
-								<p class="text text-l">Помни: попытка охватить все уровни управления может снизить
-									эффективность.
-									Сделать все самому&nbsp;&mdash; это неверный путь. Поэтому сфокусируйся
-									на&nbsp;своей
-									ключевой
-									области управления и&nbsp;определи, какими вопросами нужно заниматься.
-								</p>
-							</div>
-						</div>
-						<div class="col-lg-4 hide-xs">
-							<div class="card card_medium card_white h-100">
-								<div class="headphones svg-container"
-									 v-html="svgContent1">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
 				<div class="container container_full-xs mb-xs-rem-6-0">
 					<div class="track-recap js-track-recap mb-rem-7-75">
 						<div class="track-recap__head">
@@ -667,6 +633,5 @@ onMounted(() => {
 				<NavigationButtons class="js-nav-buttons" />
 			</section>
 		</main>
-		<!-- </VueLenis> -->
 	</Transition>
 </template>

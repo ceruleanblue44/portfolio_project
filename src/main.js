@@ -19,7 +19,7 @@ navigationStore.loadNavigationState()
 
 router.isReady().then(() => {
 	if (navigationStore.lastVisitedPage) {
-		router.push(navigationStore.lastVisitedPage)
+		router.replace(navigationStore.lastVisitedPage)
 	}
 })
 

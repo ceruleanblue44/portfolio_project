@@ -29,7 +29,7 @@ const { isMobile } = storeToRefs(view)
 const getGridStyle = computed(() => isMobile.value ? props.gridStyleXs : props.gridStyle)
 
 const getAdditionalAnswerClass = (answer) => {
-	let addClass = [];
+	let addClass = []
 	if (props.disabled && answer === selectedAnswer.value && answer.correct) {
 		addClass.push(props.answerCorrectClass)
 	}
@@ -41,11 +41,11 @@ const getAdditionalAnswerClass = (answer) => {
 
 
 watch(() => selectedAnswer.value, (newVal) => {
-	emit('select-answer', newVal);
+	emit('select-answer', newVal)
 })
 
 watch(() => props.previousAnswer, (newVal) => {
-	selectedAnswer.value = newVal ? [...newVal] : [];
+	selectedAnswer.value = newVal ? [...newVal] : []
 })
 
 onMounted(() => {
@@ -83,5 +83,4 @@ onMounted(() => {
 			</div>
 		</div>
 	</div>
-
 </template>

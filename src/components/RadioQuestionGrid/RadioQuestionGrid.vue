@@ -45,7 +45,7 @@ watch(selectedAnswer, (newVal) => {
 })
 
 watch(() => props.previousAnswer, (newVal) => {
-  selectedAnswer.value = newVal; 
+	selectedAnswer.value = newVal
 })
 
 onMounted(() => {
@@ -73,5 +73,4 @@ onMounted(() => {
 			</div>
 		</div>
 	</div>
-
 </template>

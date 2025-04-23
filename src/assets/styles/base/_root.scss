@@ -118,10 +118,7 @@ div {
 
 		@media #{$breakpoint-xs-only} {
 			margin: auto;
-			// margin-left: 0;
-			// margin-right: 0;
 			width: 100% !important;
-			// max-width: none;
 			padding: 56px 16px 96px 16px;
 			border-radius: 24px;
 		}
@@ -146,16 +143,6 @@ div {
 			}
 		}
 	}
-
-	// &_full-xs {
-	// 	@media #{$breakpoint-xs-only} {
-	// 		margin-left: 0;
-	// 		margin-right: 0;
-	// 		padding: 0;
-	// 		width: calc(100%) !important;
-	// 		// max-width: none;
-	// 	}
-	// }
 
 	&_with-shadow {
 		background-color: $white;

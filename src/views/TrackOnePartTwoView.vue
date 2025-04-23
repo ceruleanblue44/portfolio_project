@@ -52,7 +52,6 @@ const showAfterSkip = () => {
 	refreshScrollTrigger()
 	showHiddenContent(0)
 	scrollToElement(1)
-	// trackRecapAnimation()
 }
 
 onMounted(async () => {
@@ -61,20 +60,12 @@ onMounted(async () => {
 
 	svgContent.value = await fetchSvg()
 
-
 	if (!isMobile.value) {
 		textGramophoneAnimation()
 		trackRecapAnimation()
 	}
 
 	textScrollAnimation()
-
-
-	// setTimeout(() => {
-	// 	if (pageViewed.value === true) {
-	// 		trackRecapAnimation()
-	// 	}
-	// }, 100)
 });
 
 </script>
@@ -330,34 +321,6 @@ onMounted(async () => {
 								<div class="gramophone__text js-gramophone-text w-50">&nbsp;</div>
 							</div>
 						</div>
-						<!-- <div class="container gramophone__text-wrapper ">
-							<div class="row gramophone__text js-gramophone-text">
-								<div class="col-lg-6 col-xs-10 mb-rem-4-50">
-									<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Что делаем?
-									</h1>
-									<p class="text text-l text-white">Определи цели и&nbsp;желаемые результаты команды.
-									</p>
-								</div>
-							</div>
-							<div class="row gramophone__text js-gramophone-text">
-								<div class="col-lg-6 col-xs-10 mb-rem-4-50">
-									<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">Кто делает?
-									</h1>
-									<p class="text text-l text-white">Распредели роли и&nbsp;ответственность.
-									</p>
-								</div>
-							</div>
-							<div class="row gramophone__text js-gramophone-text">
-								<div class="col-lg-6 col-xs-10 mb-rem-4-50">
-									<h1 class="text-white mb-rem-1-50 mb-xs-rem-1-0">За&nbsp;счет чего?
-									</h1>
-									<p class="text text-l text-white">Создай процессы и&nbsp;обеспечь ресурсы для
-										достижения
-										целей.
-									</p>
-								</div>
-							</div>
-						</div> -->
 					</div>
 				</div>
 			</div>

@@ -29,8 +29,14 @@ const svgContent = ref('')
 const showAfter = () => {
 	isSkipButtonVisible.value = false
 	headphonesAnimation()
-	showHiddenContent(2) 
+	showHiddenContent(2)
 	scrollToElement(2)
+}
+
+const showAfterSkip = () => {
+	isSkipButtonVisible.value = false
+	showHiddenContent(2) 
+	scrollToElement(3)
 }
 
 onMounted(async () => {
@@ -130,7 +136,7 @@ onMounted(async () => {
 						</RadioQuestion>
 					</div>
 					<SkipButton v-if="!pageViewed && isSkipButtonVisible"
-								@click="showHiddenContent(2); scrollToElement(3)" />
+								@click="showAfterSkip" />
 				</div>
 			</section>
 			<section class="hidden js-hidden js-scroll-element"
@@ -325,7 +331,8 @@ onMounted(async () => {
 													выбрать любой трек в&nbsp;альбоме.
 												</p>
 												<div class="row">
-													<div class="col-lg-6 col-xs-12"><img alt=""
+													<div class="col-lg-6 col-xs-12">
+														<img alt=""
 															 class="mb-rem-0-50 mb-xs-rem-0-50"
 															 src="/assets/img/playlist-slider/playlist-slider-track-1-1.png" />
 														<p class="text text-s text-center text-semibold">Changes

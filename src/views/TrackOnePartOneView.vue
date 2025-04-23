@@ -18,8 +18,6 @@ import { scrollToElement } from '@/scripts/utils/scrollToElement'
 import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
 import { useViewStore } from '@/stores/useViewStore'
-// import { observeAnimation } from '@/scripts/ui/observeAnimation'
-// import { lottieWords } from '@/scripts/ui/lottieWords'
 
 const { pageViewed } = usePagesViewedTracker()
 
@@ -37,13 +35,20 @@ const showAfter = () => {
 	scrollToElement(0)
 }
 
+const showAfterSkip = () => {
+	isSkipButtonVisible.value = false
+	showHiddenContent(0)
+	refreshScrollTrigger()
+	scrollToElement(1)
+}
+
 
 onMounted(async () => {
 	const view = useViewStore()
 	const { isMobile } = storeToRefs(view)
 
 	await nextTick()
-	// Select the Lottie container and set its data-src attribute
+
 	const lottieElement = document.querySelector('.js-lottie-scroll')
 
 	if (!isMobile.value) {
@@ -53,7 +58,7 @@ onMounted(async () => {
 		initLottieScroll()
 	}
 	svgContent.value = await fetchSvg()
-	// observeAnimation(lottieWords, 0.4, false)
+
 	highlightBlocks()
 	refreshScrollTrigger()
 	textAnimation()
@@ -384,7 +389,7 @@ onMounted(async () => {
 					</template>
 				</CheckboxQuestion>
 				<SkipButton v-if="!pageViewed && isSkipButtonVisible"
-							@click="showHiddenContent(0); scrollToElement(1)" />
+							@click="showAfterSkip" />
 			</div>
 			<section class="hidden js-hidden js-scroll-element"
 					 data-hidden-id="0"
@@ -530,5 +535,3 @@ onMounted(async () => {
 		</main>
 	</Transition>
 </template>
-
-<style scoped></style>
