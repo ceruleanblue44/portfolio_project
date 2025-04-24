@@ -33,6 +33,8 @@ div {
 	padding: 0 40px;
 	width: 100% !important;
 	margin: auto;
+	user-select: none;
+	appearance: none;
 
 	@media #{$breakpoint-xs-only} {
 		padding: 0 8px;
@@ -494,8 +496,6 @@ div {
 	margin-top: $main-header-height;
 	background-image: url(/assets/img/about/zipper.png);
 	background-size: cover;
-	user-select: none;
-	appearance: none;
 
 	@media #{$breakpoint-xs-only} {
 		margin-top: $main-header-height-xs;
