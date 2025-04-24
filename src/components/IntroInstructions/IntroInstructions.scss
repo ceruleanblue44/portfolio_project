@@ -2,85 +2,95 @@
 @use "@/assets/styles/abstracts/variables" as *;
 
 .instructions {
-    height: calc(100dvh - $main-header-height);
-    padding-bottom: 40px;
-    display: flex;
-    flex-direction: column;
+	height: calc(100dvh - $main-header-height);
+	padding-bottom: 40px;
+	display: flex;
+	flex-direction: column;
 
-    &__main {
-        position: relative;
-        height: 100%;
-    }
+	@media #{$breakpoint-phone-landscape} {
+		&.container {
+			max-width: 100%;
+		}
+	}
 
-    &__top {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        z-index: 1;
+	&__main {
+		position: relative;
+		height: 100%;
+	}
 
-        @media #{$breakpoint-xs-only} {
-            display: block;
-        }
-    }
+	&__top {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		z-index: 1;
 
-    &__middle {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-image: url('/assets/img/instructions/background.svg');
-        background-size: cover;
-        background-position: center -225px;
-        background-repeat: no-repeat;
-    }
+		@media #{$breakpoint-xs-only} {
+			display: block;
+		}
+	}
 
-    &__bottom {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
+	&__middle {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-image: url("/assets/img/instructions/background.svg");
+		background-size: cover;
+		background-position: center -225px;
+		background-repeat: no-repeat;
 
-    &__arrow {
-        width: 85px;
-        height: 52px;
-        
-        &_flip {
-            transform: scale(-1);
-        }
+		@media #{$breakpoint-phone-landscape} {
+			justify-content: start;
+		}
+	}
 
-        &_flip-y {
-            transform: scaleY(-1);
-        }
+	&__bottom {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+	}
 
-        &_2 {
-            width: 85px;
-            height: 92px;
-        }
+	&__arrow {
+		width: 85px;
+		height: 52px;
 
-        &_3 {
-            width: 85px;
-            height: 41px;
-        }
+		&_flip {
+			transform: scale(-1);
+		}
 
-        &_2-xs {
-            position: absolute;
-            bottom: 38px;
-            left: calc(100% + 3px);
-            width: 95px;
-            height: 151px;
-        }
+		&_flip-y {
+			transform: scaleY(-1);
+		}
 
-        &_3-xs {
-            position: absolute;
-            bottom: 5px;
-            left: calc(100% - 3px);
-            width: 122px;
-            height: 108px;
-        }
-    }
+		&_2 {
+			width: 85px;
+			height: 92px;
+		}
+
+		&_3 {
+			width: 85px;
+			height: 41px;
+		}
+
+		&_2-xs {
+			position: absolute;
+			bottom: 38px;
+			left: calc(100% + 3px);
+			width: 95px;
+			height: 151px;
+		}
+
+		&_3-xs {
+			position: absolute;
+			bottom: 5px;
+			left: calc(100% - 3px);
+			width: 122px;
+			height: 108px;
+		}
+	}
 }

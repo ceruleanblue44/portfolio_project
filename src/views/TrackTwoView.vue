@@ -58,6 +58,7 @@ const showAfterSkip = () => {
 }
 
 const rangeSlidersComplete = async () => {
+	isSkipButtonVisible1.value = false
 	svgContent1.value = await fetchSvg()
 
 	refreshScrollTrigger()
