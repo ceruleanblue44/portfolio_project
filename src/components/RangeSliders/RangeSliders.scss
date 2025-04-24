@@ -5,15 +5,16 @@ $wrapper-bg: #f4f7fc;
 $wrapper-width: 400px;
 
 .wrapper {
-  width: 50%;
+	width: 50%;
 }
 .range-value {
-  text-align: center;
+	text-align: center;
 }
 
 .range-slider {
 	-webkit-appearance: none;
 	appearance: none;
+	position: relative;
 	border-radius: 4px;
 	height: 30px;
 	width: 100%;
@@ -24,46 +25,47 @@ $wrapper-width: 400px;
 	background: rgba(30, 31, 31, 0.04);
 	border: 1px solid rgba(30, 31, 31, 0.12);
 
-	&_wrapper{
-	  position: relative;
-	  width: 100%;
-	  margin: 10px 0 30px;
+	&_wrapper {
+		position: relative;
+		width: 100%;
+		margin: 10px 0 30px;
 	}
 
-	&::-webkit-slider-thumb{
-	  -webkit-appearance: none;
-	  appearance: none;
-	  position:relative;
-	  width: 24px;
-	  height: 46px;
-	  z-index: 1;
-	  background-image: url('/assets/img/track-2/range-sliders/thumb.svg');
-	  background-repeat: no-repeat;
-	  box-shadow: 0px 0px 6px 0px $neutral-8;
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		position: relative;
+		width: 24px;
+		height: 46px;
+		z-index: 1;
+		background-image: url("/assets/img/track-2/range-sliders/thumb.svg");
+		background-repeat: no-repeat;
+		box-shadow: 0px 0px 6px 0px $neutral-8;
 	}
 
-	&::-moz-range-thumb{
-	  -moz-appearance: none;
-	  appearance: none;
-	  position:relative;
-	  width: 24px;
-	  height: 46px;
-	  z-index: 1;
-	  background-image: url('/assets/img/track-2/range-sliders/thumb.svg');
-	  background-repeat: no-repeat;
-	  box-shadow: 0px 0px 6px 0px $neutral-8;
+	&::-moz-range-thumb {
+		-moz-appearance: none;
+		appearance: none;
+		position: relative;
+		width: 24px;
+		height: 46px;
+		z-index: 1;
+		background-image: url("/assets/img/track-2/range-sliders/thumb.svg");
+		background-repeat: no-repeat;
+		box-shadow: 0px 0px 6px 0px $neutral-8;
 	}
 
 	::-moz-range-track {
-	  background: transparent;
-	  border: 0;
-	}
-	input::-moz-focus-inner,
-	input::-moz-focus-outer { 
-	  border: 0; 
+		background: transparent;
+		border: 0;
 	}
 
-	&__bar{
+	input::-moz-focus-inner,
+	input::-moz-focus-outer {
+		border: 0;
+	}
+
+	&__bar {
 		position: absolute;
 		height: 30px;
 		border-top-left-radius: 3px;
@@ -72,50 +74,42 @@ $wrapper-width: 400px;
 		bottom: 0;
 		pointer-events: none;
 
-		&.green{
-		  background: $primary-lighten !important;
+		&.green {
+			background: $primary-lighten !important;
 		}
 
-		&.pink{
-		  background: $warning-additional !important;
+		&.pink {
+			background: $warning-additional !important;
 		}
 
-		&.yellow{
-		  background: $tertiary !important;
+		&.yellow {
+			background: $tertiary !important;
 		}
 
-		&.purple{
-		  background: $secondary !important;
+		&.purple {
+			background: $secondary !important;
 		}
 	}
 
-	&__marker{
-	  border-radius: 50%;
-	  width: 36px;
-	  height: 36px;
+	&__marker {
+		border-radius: 50%;
+		width: 36px;
+		height: 36px;
 
-	  &.green{
-		background: $primary-lighten !important;
-	  }
+		&.green {
+			background: $primary-lighten !important;
+		}
 
-	  &.pink{
-		background: $warning-additional !important;
-	  }
+		&.pink {
+			background: $warning-additional !important;
+		}
 
-	  &.yellow{
-		background: $tertiary !important;
-	  }
+		&.yellow {
+			background: $tertiary !important;
+		}
 
-	  &.purple{
-		background: $secondary !important;
-	  }
+		&.purple {
+			background: $secondary !important;
+		}
 	}
 }
-
-
-
-
-
-
-
-

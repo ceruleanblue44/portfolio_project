@@ -45,16 +45,16 @@ const showAfter = async (isCorrect) => {
 	nextTick(() => {
 		headphonesAnimation(color)
 		showHiddenContent(0)
-		refreshScrollTrigger()
 		scrollToElement(0)
+		refreshScrollTrigger()
 	})
 }
 
 const showAfterSkip = () => {
 	isSkipButtonVisible1.value = false
 	showHiddenContent(0)
-	refreshScrollTrigger()
 	scrollToElement(2)
+	refreshScrollTrigger()
 }
 
 const rangeSlidersComplete = async () => {
@@ -63,8 +63,8 @@ const rangeSlidersComplete = async () => {
 	refreshScrollTrigger()
 	nextTick(() => {
 		headphonesAnimation()
-		refreshScrollTrigger()
 		scrollToElement(1)
+		refreshScrollTrigger()
 
 		if (pageViewed.value === false) {
 			showHiddenContent(1)
@@ -76,22 +76,22 @@ const rangeSlidersComplete = async () => {
 
 const rangeSlidersSkipped = () => {
 	isSkipButtonVisible2.value = false
-	refreshScrollTrigger()
 	showHiddenContent(1)
 	scrollToElement(3)
-	trackRecapAnimation()
+	refreshScrollTrigger()
+	// trackRecapAnimation()
 }
 
 onMounted(() => {
 	swiperInit()
 
 	if (!isMobile.value) {
-		setTimeout(() => {
-			if (pageViewed.value === true) {
-				refreshScrollTrigger()
+		// setTimeout(() => {
+		// 	if (pageViewed.value === true) {
+		// 		refreshScrollTrigger()
 				trackRecapAnimation()
-			}
-		}, 300)
+		// 	}
+		// }, 300)
 	}
 })
 

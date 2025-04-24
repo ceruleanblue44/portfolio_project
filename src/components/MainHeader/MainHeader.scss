@@ -7,7 +7,7 @@
 	right: 10px;
 	left: 0;
 	z-index: 15;
-	background-color: rgba($surface, 0.5);
+	background: rgba($surface, 0.5);
 	backdrop-filter: blur(10px);
 
 	@media #{$breakpoint-xs-only} {
@@ -131,7 +131,6 @@
 				max-width: none;
 				padding: 1rem;
 			}
-
 
 			&_articles {
 				height: 100% !important;

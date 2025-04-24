@@ -33,8 +33,6 @@ div {
 	padding: 0 40px;
 	width: 100% !important;
 	margin: auto;
-	user-select: none;
-	appearance: none;
 
 	@media #{$breakpoint-xs-only} {
 		padding: 0 8px;
