@@ -9,7 +9,7 @@ import svgLoader from 'vite-svg-loader'
 export default defineConfig({
 	css: {
 		devSourcemap: true,
-		postcss: './postcss.config.js',
+		// postcss: './postcss.config.js',
 	},
 	plugins: [vueDevTools(), svgLoader(),
 	vue({
@@ -19,7 +19,7 @@ export default defineConfig({
 			}
 		}
 	})
-],
+	],
 	resolve: {
 		alias: {
 			'@': fileURLToPath(new URL('./src', import.meta.url))

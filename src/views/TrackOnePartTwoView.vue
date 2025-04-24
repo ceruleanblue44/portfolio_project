@@ -61,6 +61,7 @@ onMounted(async () => {
 	svgContent.value = await fetchSvg()
 
 	if (!isMobile.value) {
+		refreshScrollTrigger()
 		textGramophoneAnimation()
 		trackRecapAnimation()
 	}

@@ -88,6 +88,7 @@ onMounted(() => {
 	if (!isMobile.value) {
 		setTimeout(() => {
 			if (pageViewed.value === true) {
+				refreshScrollTrigger()
 				trackRecapAnimation()
 			}
 		}, 300)

@@ -39,14 +39,25 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+
 	const navigationStore = useNavigationStore()
-	const isRestoringSession = !sessionStorage.getItem('isNavigating')
 
-	if (isRestoringSession && navigationStore.lastVisitedPage) {
-		router.replace(navigationStore.lastVisitedPage)
-	}
+	console.log('isNavigating:' + sessionStorage.getItem('isNavigating'))
 
-	navigationStore.saveLastVisitedPage(to.path)
+	// Only save page on normal navigation
+	// if (sessionStorage.getItem('isNavigating')) {
+		navigationStore.saveLastVisitedPage(to.path)
+	// }
+	// sessionStorage.setItem('isNavigating', 'true')
+
+	// const navigationStore = useNavigationStore()
+	// const isRestoringSession = !sessionStorage.getItem('isNavigating')
+
+	// if (isRestoringSession && navigationStore.lastVisitedPage) {
+	// 	router.replace(navigationStore.lastVisitedPage)
+	// }
+
+	// navigationStore.saveLastVisitedPage(to.path)
 
 	next()
 })
