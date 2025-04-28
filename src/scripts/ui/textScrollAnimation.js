@@ -21,12 +21,12 @@ export const textScrollAnimation = () => {
 			rotate: 0,
 			duration: 0.6,
 			ease: 'power2.out',
-			delay: index * 0.2,
+			delay: index * 0.15,
 			scrollTrigger: {
 				trigger: textEl,
 				scroller: '.scroll-container',
 				start: isMobile ? 'top 90%' : 'top 80%',
-				end: isMobile ? 'top 15%' : 'top 25%',
+				end: isMobile ? 'top 15%' : 'top 20%',
 				toggleActions: 'play reverse play reverse',
 			}
 		})
