@@ -1,31 +1,26 @@
-<template>
-	<transition name="fade">
-		<div v-if="loading"
-			 class="page-loader">
-			 <div class="dual-ring"></div>
-		</div>
-	</transition>
-</template>
-
 <script setup>
 import { ref, onMounted } from 'vue'
-// import 
 const loading = ref(true)
 
 onMounted(() => {
 	if (document.readyState === 'complete') {
-		setTimeout(() => {
-			loading.value = false
-		}, 1500)
+		loading.value = false
 	} else {
 		window.addEventListener('load', () => {
-			setTimeout(() => {
-				loading.value = false
-			}, 1500)
+			loading.value = false
 		})
 	}
 })
 </script>
+
+<template>
+	<transition name="fade">
+		<div v-if="loading"
+			 class="page-loader">
+			<div class="dual-ring"></div>
+		</div>
+	</transition>
+</template>
 
 <style scoped>
 	.page-loader {

@@ -60,6 +60,7 @@ const closeModal = () => {
 				 :class="`instrument instrument-${instrument.id}`"
 				 @click="openModal(instrument.id, $event); changeInstrumentPosition(instrument.id)">
 			</div>
+			<div class="preload-images"></div>
 		</div>
 		<ContentModal v-if="isModalOpen"
 					  v-model="isModalOpen"
