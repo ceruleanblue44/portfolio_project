@@ -167,6 +167,14 @@
 		&-violet {
 			border: 2px solid $secondary;
 		}
+
+		&-gradient {
+			box-shadow:
+			4px 4px 0px 0px $secondary inset,
+			0px 4px 0px 0px $secondary inset,
+			-4px -4px 0px 0px $primary-lighten inset,
+			0px -4px 0px 0px $primary-lighten inset;
+		}
 	}
 
 	&_neutral-12 {

@@ -1,10 +1,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import MainHeader from '@/components/MainHeader/MainHeader.vue'
+import PageLoader from '@/components/PageLoader/PageLoader.vue'
 import { customCursor } from '@/scripts/ui/customCursor'
 import { discAnimation } from '@/scripts/ui/discAnimation'
 import { showHiddenContent } from '@/scripts/utils/showHiddenContent'
 import { scrollToElement } from '@/scripts/utils/scrollToElement'
-import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import IntroInstructions from '@/components/IntroInstructions/IntroInstructions.vue'
 import RadioQuestion from '@/components/RadioQuestion/RadioQuestion.vue'
 import ArrowSquareRight from '@/assets/svg/arrow-square-right.svg'
@@ -35,7 +36,7 @@ const showAfter = () => {
 
 const showAfterSkip = () => {
 	isSkipButtonVisible.value = false
-	showHiddenContent(2) 
+	showHiddenContent(2)
 	scrollToElement(3)
 }
 
@@ -55,7 +56,7 @@ onMounted(async () => {
 		<main class="scroll-container"
 			  ref="container">
 			<MainHeader />
-
+			<PageLoader />
 			<div class="container-lg-only disc-rotating js-disc-rotating">
 				<div class="disc-rotating__wrapper">
 					<div class="disc-rotating__img-full js-disc-rotating-img-full">

@@ -2,6 +2,7 @@
 import { ref, onMounted, nextTick } from 'vue'
 import { storeToRefs } from 'pinia'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
+import PageLoader from '@/components/PageLoader/PageLoader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import SkipButton from '@/components/SkipButton/SkipButton.vue'
 import ToggleImg from '@/components/ToggleImg/ToggleImg.vue'
@@ -76,6 +77,7 @@ onMounted(async () => {
 				appear>
 		<main class="scroll-container"
 			  ref="container">
+			<PageLoader />
 			<MainHeader />
 			<div class="container mt-rem-6-50 mt-xs-rem-5-0">
 				<h1 class="text-center mb-rem-0-75 mb-xs-rem-0-75">Переключись на&nbsp;новый режим

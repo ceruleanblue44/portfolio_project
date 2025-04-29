@@ -3,6 +3,7 @@ import MainHeader from '@/components/MainHeader/MainHeader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import { useScrollTracker } from '@/composables/useScrollTracker'
 import usePagesViewedTracker from '@/composables/usePagesViewedTracker'
+import PageLoader from '@/components/PageLoader/PageLoader.vue'
 
 const { pageViewed } = usePagesViewedTracker()
 const { container } = useScrollTracker()
@@ -13,6 +14,7 @@ const { container } = useScrollTracker()
 				appear>
 		<main class="scroll-container"
 			  ref="container">
+			<PageLoader />
 			<MainHeader />
 			<div class="container hero-section">
 				<div class="row pt-rem-6-0 pb-rem-8-0 pt-xs-rem-2-0 mb-xs-rem-2-0">
@@ -50,6 +52,33 @@ const { container } = useScrollTracker()
 				</div>
 			</div>
 
+			<div class="container mb-rem-3-50">
+				<div class="row">
+					<div class="col-lg-2 hide-xs">
+					</div>
+					<div class="col-lg-8 col-xs-12">
+						<img class="img_center mb-rem-3-50 mb-xs-rem-1-0"
+							 src="/assets/svg/star.svg"
+							 alt="">
+						<div class="card_medium card_border-gradient card_white">
+							<p class="text-l mb-rem-0-50 mb-xs-rem-0-50">Курс создан для тех, кто только начинает свой
+								путь в&nbsp;роли руководителя. Переход на&nbsp;управленческую позицию часто
+								сопровождается стрессом, неуверенностью и&nbsp;множеством вопросов:
+								&laquo;Справлюсь&nbsp;ли я?&raquo;, &laquo;Как найти общий язык с&nbsp;командой?&raquo;,
+								&laquo;Что делать, если я&nbsp;допущу ошибку?&raquo;.</p>
+							<p class="text-l mb-rem-1-0 mb-xs-rem-1-0">Курс призван не&nbsp;только помочь развить
+								управленческие навыки, но&nbsp;и&nbsp;справиться с&nbsp;эмоциональными вызовами новой
+								роли. Курс создает пространство, где начинающие руководители могут учиться без страха
+								и&nbsp;давления.</p>
+							<p class="text-l text-bold mb-rem-0-50 mb-xs-rem-0-50">Почему музыка?</p>
+							<p class="text-l">Музыка — это универсальный язык, который объединяет людей и помогает
+								справиться со стрессом.</p>
+						</div>
+					</div>
+					<div class="col-lg-2 hide-xs">
+					</div>
+				</div>
+			</div>
 			<div class="container mb-rem-3-50 hide-xs">
 				<div class="row">
 					<div class="col-lg-2">

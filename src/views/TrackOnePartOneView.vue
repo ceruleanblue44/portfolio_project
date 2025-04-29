@@ -2,6 +2,7 @@
 import { ref, onMounted, nextTick } from 'vue'
 import { storeToRefs } from 'pinia'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
+import PageLoader from '@/components/PageLoader/PageLoader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import SkipButton from '@/components/SkipButton/SkipButton.vue'
 import { initLottieScroll } from '@/scripts/ui/lottieScroll'
@@ -70,6 +71,7 @@ onMounted(async () => {
 				appear>
 		<main class="scroll-container"
 			  ref="container">
+			<PageLoader />
 			<MainHeader />
 			<div class="container mt-rem-6-50 mt-xs-rem-5-0 mb-rem-7-0 mb-xs-rem-6-0">
 				<div class="row">

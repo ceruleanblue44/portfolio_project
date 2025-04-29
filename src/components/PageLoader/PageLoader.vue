@@ -43,7 +43,6 @@ onMounted(() => {
 		opacity: 0;
 	}
 
-	/* Dual ring spinner styles */
 	.dual-ring {
 		display: inline-block;
 		width: 64px;

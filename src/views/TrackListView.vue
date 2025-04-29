@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
+import PageLoader from '@/components/PageLoader/PageLoader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import { vinylAnimation } from '@/scripts/ui/vinylAnimation'
 import { fetchSvg } from '@/scripts/utils/fetchSvg'
@@ -32,6 +33,7 @@ onMounted(async () => {
 				appear>
 		<main class="scroll-container"
 			  ref="container">
+			<PageLoader />
 			<MainHeader />
 			<div class="container mt-rem-9-75 mt-xs-rem-6-0 mb-rem-9-75 mb-xs-rem-6-0">
 				<div class="row">

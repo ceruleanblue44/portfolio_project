@@ -2,6 +2,7 @@
 import { ref, onMounted, nextTick } from 'vue'
 import { storeToRefs } from 'pinia'
 import MainHeader from '@/components/MainHeader/MainHeader.vue'
+import PageLoader from '@/components/PageLoader/PageLoader.vue'
 import NavigationButtons from '@/components/NavigationButtons/NavigationButtons.vue'
 import SkipButton from '@/components/SkipButton/SkipButton.vue'
 import CheckboxQuestion from '@/components/CheckboxQuestion/CheckboxQuestion.vue'
@@ -80,19 +81,13 @@ const rangeSlidersSkipped = () => {
 	showHiddenContent(1)
 	scrollToElement(3)
 	refreshScrollTrigger()
-	// trackRecapAnimation()
 }
 
 onMounted(() => {
 	swiperInit()
 
 	if (!isMobile.value) {
-		// setTimeout(() => {
-		// 	if (pageViewed.value === true) {
-		// 		refreshScrollTrigger()
-				trackRecapAnimation()
-		// 	}
-		// }, 300)
+		trackRecapAnimation()
 	}
 })
 
@@ -102,6 +97,7 @@ onMounted(() => {
 				appear>
 		<main ref="container"
 			  class="scroll-container">
+			<PageLoader />
 			<MainHeader />
 			<div class="container mt-rem-6-50 mt-xs-rem-5-0 mb-rem-7-0 mb-xs-rem-6-0">
 				<div class="row">
