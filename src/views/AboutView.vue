@@ -39,7 +39,7 @@ const { container } = useScrollTracker()
 					</div>
 				</div>
 			</div>
-			<div class="container mb-rem-3-50 mb-xs-rem-4-0">
+			<div class="container mb-rem-3-50 mb-xs-rem-3-0">
 				<div class="row">
 					<div class="col-lg-12 col-xs-12">
 						<div class="card_extrasmall card_border-violet card_white">
@@ -52,12 +52,12 @@ const { container } = useScrollTracker()
 				</div>
 			</div>
 
-			<div class="container mb-rem-3-50">
+			<div class="container mb-rem-3-50 mb-xs-rem-3-0">
 				<div class="row">
 					<div class="col-lg-2 hide-xs">
 					</div>
 					<div class="col-lg-8 col-xs-12">
-						<img class="img_center mb-rem-3-50 mb-xs-rem-1-0"
+						<img class="img_center mb-rem-3-50 mb-xs-rem-2-50"
 							 src="/assets/svg/star.svg"
 							 alt="">
 						<div class="card_medium card_border-gradient card_white">
@@ -71,8 +71,7 @@ const { container } = useScrollTracker()
 								роли. Курс создает пространство, где начинающие руководители могут учиться без страха
 								и&nbsp;давления.</p>
 							<p class="text-l text-bold mb-rem-0-50 mb-xs-rem-0-50">Почему музыка?</p>
-							<p class="text-l">Музыка — это универсальный язык, который объединяет людей и помогает
-								справиться со стрессом.</p>
+							<p class="text-l">Музыка&nbsp;&mdash; это универсальный язык, который объединяет людей и&nbsp;помогает справиться со&nbsp;стрессом.</p>
 						</div>
 					</div>
 					<div class="col-lg-2 hide-xs">
@@ -84,7 +83,7 @@ const { container } = useScrollTracker()
 					<div class="col-lg-2">
 					</div>
 					<div class="col-lg-8">
-						<img class="img_center mb-rem-3-50 mb-xs-rem-1-0"
+						<img class="img_center mb-rem-3-50 mb-xs-rem-2-50"
 							 src="/assets/svg/star.svg"
 							 alt="">
 						<div class="card_medium card_border-neutral-12 card_white">
@@ -128,7 +127,7 @@ const { container } = useScrollTracker()
 					</div>
 				</div>
 			</div>
-			<div class="container mb-xs-rem-4-0 hide-lg">
+			<div class="container mb-xs-rem-3-0 hide-lg">
 				<div class="row">
 					<div class="col-xs-12">
 						<img src="/assets/img/about/band-xs.png"
@@ -139,10 +138,10 @@ const { container } = useScrollTracker()
 				</div>
 			</div>
 
-			<div class="container mb-xs-rem-4-0 hide-lg">
+			<div class="container mb-xs-rem-3-0 hide-lg">
 				<div class="row">
 					<div class="col-xs-12">
-						<img class="img_center mb-rem-2-50 mb-xs-rem-1-0"
+						<img class="img_center mb-rem-2-50 mb-xs-rem-2-50"
 							 src="/assets/svg/star.svg"
 							 alt="">
 						<div class="card_medium card_border-neutral-12 card_white">
@@ -167,7 +166,7 @@ const { container } = useScrollTracker()
 					<div class="col-lg-2 hide-xs">
 					</div>
 					<div class="col-lg-8 col-xs-12">
-						<img class="img_center mb-rem-3-50 mb-xs-rem-1-0"
+						<img class="img_center mb-rem-3-50 mb-xs-rem-2-50"
 							 src="/assets/svg/star.svg"
 							 alt="">
 						<div class="card_medium card_border-neutral-12 card_white">
