@@ -10,7 +10,7 @@ async function waitForAllImages() {
 
 		return new Promise((resolve) => {
 			img.addEventListener('load', resolve, { once: true })
-			img.addEventListener('error', resolve, { once: true }) // consider load complete even on error
+			img.addEventListener('error', resolve, { once: true })
 		})
 	})
 
@@ -21,31 +21,8 @@ async function waitForAllImages() {
 
 onMounted(async () => {
 	await waitForAllImages()
-	// let imgs = [...document.images]
-
-	// const unloadedImages = imgs.filter(img => !img.complete)
-
-	// if (unloadedImages.length === 0) {
-	// 	loading.value = false
-	// 	// return
-	// }
-
-	// console.log([...imgs].forEach(img => console.log(img.complete)));
-
-	// if ([...imgs].every(img => img.complete)) {
-	// 	loading.value = false
-	// 	refreshScrollTrigger()
-	// }
-	// if (document.readyState === 'complete') {
-	// 	loading.value = false
-	// 	refreshScrollTrigger()
-	// } else {
-	// 	window.addEventListener('load', () => {
-	// 		loading.value = false
-	// 		refreshScrollTrigger()
-	// 	})
-	// }
 })
+
 </script>
 
 <template>
