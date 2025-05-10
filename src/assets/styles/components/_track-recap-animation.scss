@@ -74,6 +74,10 @@
 		justify-content: center;
 		will-change: transform;
 
+		h3 {
+			transform: translateZ(0)
+		}
+
 		@media #{$breakpoint-xs-only} {
 			position: static;
 		}

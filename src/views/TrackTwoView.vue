@@ -38,6 +38,8 @@ const view = useViewStore()
 const { isMobile } = storeToRefs(view)
 
 const showAfter = async (isCorrect) => {
+	isSkipButtonVisible1.value = false
+
 	const color = isCorrect ? 'green' : 'red'
 
 	svgContent.value = await fetchSvg(color)
@@ -59,7 +61,7 @@ const showAfterSkip = () => {
 }
 
 const rangeSlidersComplete = async () => {
-	isSkipButtonVisible1.value = false
+	isSkipButtonVisible2.value = false
 	svgContent1.value = await fetchSvg()
 
 	refreshScrollTrigger()

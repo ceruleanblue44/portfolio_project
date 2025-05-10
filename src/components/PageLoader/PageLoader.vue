@@ -1,13 +1,16 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
 const loading = ref(true)
 
 onMounted(() => {
 	if (document.readyState === 'complete') {
 		loading.value = false
+		refreshScrollTrigger()
 	} else {
 		window.addEventListener('load', () => {
 			loading.value = false
+			refreshScrollTrigger()
 		})
 	}
 })
