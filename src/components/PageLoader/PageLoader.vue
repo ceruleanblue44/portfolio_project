@@ -3,16 +3,48 @@ import { ref, onMounted } from 'vue'
 import { refreshScrollTrigger } from '@/scripts/utils/refreshScrollTrigger'
 const loading = ref(true)
 
-onMounted(() => {
-	if (document.readyState === 'complete') {
-		loading.value = false
-		refreshScrollTrigger()
-	} else {
-		window.addEventListener('load', () => {
-			loading.value = false
-			refreshScrollTrigger()
+async function waitForAllImages() {
+	const images = [...document.images]
+	const loadPromises = images.map(img => {
+		if (img.complete) return Promise.resolve()
+
+		return new Promise((resolve) => {
+			img.addEventListener('load', resolve, { once: true })
+			img.addEventListener('error', resolve, { once: true }) // consider load complete even on error
 		})
-	}
+	})
+
+	await Promise.all(loadPromises)
+	loading.value = false
+	refreshScrollTrigger()
+}
+
+onMounted(async () => {
+	await waitForAllImages()
+	// let imgs = [...document.images]
+
+	// const unloadedImages = imgs.filter(img => !img.complete)
+
+	// if (unloadedImages.length === 0) {
+	// 	loading.value = false
+	// 	// return
+	// }
+
+	// console.log([...imgs].forEach(img => console.log(img.complete)));
+
+	// if ([...imgs].every(img => img.complete)) {
+	// 	loading.value = false
+	// 	refreshScrollTrigger()
+	// }
+	// if (document.readyState === 'complete') {
+	// 	loading.value = false
+	// 	refreshScrollTrigger()
+	// } else {
+	// 	window.addEventListener('load', () => {
+	// 		loading.value = false
+	// 		refreshScrollTrigger()
+	// 	})
+	// }
 })
 </script>
 
